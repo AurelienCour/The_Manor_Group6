@@ -2,6 +2,7 @@ package package_Test_Manor;
 import junit.framework.TestCase;
 import the_Manor.Game;
 import the_Manor.Parser;
+import the_Manor.CommandWords;
 
 import static org.junit.Assert.fail;
 
@@ -10,7 +11,7 @@ import org.junit.*;
 public class ParserTest {
 	
 	private Parser parser1;
-	private String command;
+	private CommandWords command;
 	
 	@BeforeClass
     public static void setUpClass() throws Exception {

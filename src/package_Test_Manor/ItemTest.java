@@ -5,7 +5,10 @@ import the_Manor.Item;
 import org.junit.*;
 
 public class ItemTest {
-	private Item item;
+	
+	private Item item1;
+	private String name;
+	
 	
 	@BeforeClass
     public static void setUpClass() throws Exception {
@@ -19,7 +22,7 @@ public class ItemTest {
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+        this.item1 = new Item(name);       
     }
 
     @After
@@ -29,6 +32,17 @@ public class ItemTest {
     
     @Test
     public void testConstructor() {
+    	Item item2 = new Item(name);
+    }
+    
+    @Test
+    public void testSetName() {
+    	this.item1.setName();
+    }
+    
+    @Test
+    public void testGetName() {
+    	this.item1.getName();
     }
 
 }

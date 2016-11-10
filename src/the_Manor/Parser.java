@@ -2,13 +2,13 @@ package the_Manor;
 
 public class Parser {
 	
-private String command; //The command entered 
+private CommandWords command; //The command entered 
 	
 	/**
 	 * The constructor of the Parser
 	 * @param newCommand The command entered
 	 */
-	public Parser(String newCommand) {
+	public Parser(CommandWords newCommand) {
 		command = newCommand;
 	}
 	
@@ -16,7 +16,7 @@ private String command; //The command entered
 	 * Returns the command entered
 	 * @return command
 	 */
-	public String getCommand() {
+	public CommandWords getCommand() {
 		return command;
 	}
 	
