@@ -1,6 +1,8 @@
-package The_Manor;
+package Package_Test_Manor;
 import junit.framework.TestCase;
 import org.junit.*;
+
+import The_Manor.Game;
 
 public class GameTest extends TestCase
 {
