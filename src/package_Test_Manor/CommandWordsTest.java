@@ -1,10 +1,16 @@
 package package_Test_Manor;
 import junit.framework.TestCase;
 import the_Manor.CommandWords;
+import the_Manor.Parser;
+
 import static org.junit.Assert.fail;
 import org.junit.*;
 
 public class CommandWordsTest {
+	
+	private CommandWords commandWords1;
+	private Boolean validCommand;
+	
 	@BeforeClass
     public static void setUpClass() throws Exception {
         // Code execute avant l'exécution du premier test (et de la méthode @Before)        
@@ -17,7 +23,7 @@ public class CommandWordsTest {
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	this.commandWords1 = new CommandWords(validCommand);       
     }
 
     @After
@@ -26,7 +32,8 @@ public class CommandWordsTest {
     }
     
     @Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+    public void testConstructor() {
+       CommandWords commandWords2 = new CommandWords(validCommand);
+    }  
+        
 }
