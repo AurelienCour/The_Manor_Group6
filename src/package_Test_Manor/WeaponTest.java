@@ -9,7 +9,7 @@ import org.junit.*;
 public class WeaponTest {
 	@BeforeClass
     public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
+        // Code execute avant l'exécution du premier test (et de la  method@Before)        
     }
 
     @AfterClass

@@ -1,10 +1,11 @@
 package package_Test_Manor;
-import junit.framework.TestCase;
-import the_Manor.CommandWords;
-import static org.junit.Assert.fail;
+
+import static org.junit.Assert.*;
+import the_Manor.Character;
 import org.junit.*;
 
-public class CommandWordsTest {
+
+public class CharacterTest {
 	@BeforeClass
     public static void setUpClass() throws Exception {
         // Code execute avant l'exécution du premier test (et de la méthode @Before)        
@@ -25,8 +26,9 @@ public class CommandWordsTest {
         // Code execute apres chaque test
     }
     
-    @Test
+	@Test
 	public void test() {
 		fail("Not yet implemented");
 	}
+
 }

@@ -1,14 +1,8 @@
 package package_Test_Manor;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-
+import org.junit.*;
 import the_Manor.Door;
-import org.junit.Test;
 
 public class DoorTest {
 	@BeforeClass
