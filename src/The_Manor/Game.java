@@ -11,21 +11,6 @@ public class Game {
 		Game g = new Game(); //change
 	}
 	
-	// metode qui marche
-	public static int calculer(int a, int b) {
-		    int res = a + b;
-		    
-		    if (a == 0){
-		      res = b * 2;
-		    } 
-		    
-		    if (b == 0) {
-		      res = a * a;     
-		    }
-		    return res; 
-		  }
-	
-	
 	
 	
 }
