@@ -1,7 +1,8 @@
-package Package_Test_Manor;
+package package_Test_Manor;
 import junit.framework.TestCase;
+import the_Manor.Shield;
+
 import org.junit.*;
-import The_Manor.Shield;
 
 public class ShieldTest {
 

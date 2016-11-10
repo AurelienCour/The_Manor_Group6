@@ -1,7 +1,8 @@
-package Package_Test_Manor;
+package package_Test_Manor;
 import junit.framework.TestCase;
+import the_Manor.Weapon;
+
 import org.junit.*;
-import The_Manor.Weapon;
 
 public class WeaponTest {
 

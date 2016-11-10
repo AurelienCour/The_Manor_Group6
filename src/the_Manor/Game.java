@@ -1,4 +1,4 @@
-package The_Manor;
+package the_Manor;
 
 public class Game {
 	
