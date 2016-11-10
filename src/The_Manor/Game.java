@@ -10,7 +10,7 @@ public class Game {
 		// TODO Auto-generated method stub
 		Game g = new Game();
 		//Test local, aurelien
-		//Test local, willy
+		//Test local2, willy
 	}
 
 }
