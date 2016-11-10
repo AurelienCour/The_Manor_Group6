@@ -3,10 +3,10 @@ import junit.framework.TestCase;
 import org.junit.*;
 
 import The_Manor.Game;
+import The_Manor.Item;
 
-public class GameTest extends TestCase
-{
-	private Game game1;
+public class ItemTest {
+	private Item item;
 	
 	@BeforeClass
     public static void setUpClass() throws Exception {
@@ -30,7 +30,6 @@ public class GameTest extends TestCase
     
     @Test
     public void testConstructor() {
-       this.game1 = new Game();
     }
 
 }
