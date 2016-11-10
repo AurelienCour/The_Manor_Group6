@@ -11,6 +11,7 @@ public class Game {
 		Game g = new Game();
 		//Test local, aurelien
 		//Test local2, willy
+		//test2
 	}
 
 }
