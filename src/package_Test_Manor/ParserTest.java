@@ -1,5 +1,6 @@
 package package_Test_Manor;
 import junit.framework.TestCase;
+import the_Manor.Game;
 import the_Manor.Parser;
 
 import static org.junit.Assert.fail;
@@ -7,6 +8,10 @@ import static org.junit.Assert.fail;
 import org.junit.*;
 
 public class ParserTest {
+	
+	private Parser parser1;
+	private String command;
+	
 	@BeforeClass
     public static void setUpClass() throws Exception {
         // Code execute avant l'exécution du premier test (et de la méthode @Before)        
@@ -19,7 +24,7 @@ public class ParserTest {
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	this.parser1 = new Parser(command);       
     }
 
     @After
@@ -28,7 +33,13 @@ public class ParserTest {
     }
     
     @Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+    public void testConstructor() {
+       Parser parser2 = new Parser(command);
+    }    
+    
+    @Test
+    public void testGetCommand() {
+       this.parser1.getCommand();
+    } 
+    
 }

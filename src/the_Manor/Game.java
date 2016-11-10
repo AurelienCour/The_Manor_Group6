@@ -4,10 +4,16 @@ public class Game {
 	
 	Parser parser;
 	
+	/**
+	 * The constructor of the class Game	 
+	 */	
 	public Game() {
 		System.out.println("Vous avez cree un objet de type Game");
 	}
 	
+	/**
+	 * This method starts a new game
+	 */
 	public void play() {
 	}	
 
