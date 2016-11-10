@@ -12,6 +12,7 @@ public class Game {
 		//Test local, aurelien
 		//Test local2, willy
 		//test2
+		// Astem est la!!
 	}
 
 }
