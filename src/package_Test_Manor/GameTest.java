@@ -19,7 +19,7 @@ public class GameTest extends TestCase
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	this.game1 = new Game();      
     }
 
     @After
@@ -29,7 +29,12 @@ public class GameTest extends TestCase
     
     @Test
     public void testConstructor() {
-       this.game1 = new Game();
+       Game game2 = new Game();
     }
+    
+    @Test
+    public void testPlay() {
+       this.game1.play();
+    }    
 
 }
