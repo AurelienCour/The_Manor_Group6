@@ -1,8 +1,6 @@
 package Package_Test_Manor;
 import junit.framework.TestCase;
 import org.junit.*;
-
-import The_Manor.Game;
 import The_Manor.Item;
 
 public class ItemTest {
