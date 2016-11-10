@@ -1,5 +1,5 @@
 package the_Manor;
 
-public class EnigmaticDoor {
+public class EnigmaticDoor extends Door{
 
 }
