@@ -2,10 +2,10 @@ package the_Manor;
 
 public class Fighter extends Character{
 
-private int health; // the Fighter's Health
-private int stamina; // the Fighte's Stamina 
-private int attack; // the Fighter's attack
-private int defense; // the Fighet's defense
+protected int health; // the Fighter's Health
+protected int stamina; // the Fighte's Stamina 
+protected int attack; // the Fighter's attack
+protected int defense; // the Fighet's defense
 	
 
 	/**

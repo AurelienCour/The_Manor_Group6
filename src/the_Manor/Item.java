@@ -2,9 +2,9 @@ package the_Manor;
 
 public class Item {
 	
-private String name; //the name of the item
-	
-private String itemName;
+	protected String name; //the name of the item
+		
+	protected String itemName;
 
 	/**
 	 * The constructor of the class Item
@@ -12,7 +12,6 @@ private String itemName;
 	 */
 	public Item(String newItem){
 		itemName = newItem;
-		
 	}
 	
 	/**

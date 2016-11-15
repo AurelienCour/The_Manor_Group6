@@ -54,7 +54,7 @@ private ArrayList<Item>	inventory; // this is the item list of the player
 	 * @return defense
 	 */
 	public int setDefense(){
-		return defense;
+		return this.defense;
 	}
 	
 	/**

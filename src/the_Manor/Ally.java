@@ -17,7 +17,8 @@ public class Ally extends Character{
 	 */
 	// TODO a revoire cette methode
 	public void giveItem(Item itemName){
-		Player.pickUp.add(itemName);
+
+
 	}
 
 }
