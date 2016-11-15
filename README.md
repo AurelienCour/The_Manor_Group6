@@ -7,17 +7,18 @@ silent…
 His friend’s home becomes quickly a dangerous battleground for survival with
 Zombies running amok.
 
-The game mechanics :
-Goal :
 The game has two main objectives:
+
   - Find his friend inside the manor
   - Leave the manor alive
 Characters :
+
   - Player
   - Best Friend
   - Sister
   - Zombies (Maid, Mother, Dog, Rats,...)
 Behaviors :
+
   - The player can walk inside the Manor
   - He can search the different rooms and finds items (keys, weapons, food(health))
   - He encounter NPCs (allies, enemies)
