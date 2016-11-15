@@ -11,12 +11,14 @@ The game has two main objectives:
 
   - Find his friend inside the manor
   - Leave the manor alive
+  
 Characters :
 
   - Player
   - Best Friend
   - Sister
   - Zombies (Maid, Mother, Dog, Rats,...)
+  
 Behaviors :
 
   - The player can walk inside the Manor
