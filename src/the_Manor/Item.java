@@ -1,13 +1,19 @@
 package the_Manor;
 
 public class Item {
-	
-	protected String name; //the name of the item
-		
-	protected String itemName;
+	/**
+	 * <p>The player have the possibility to found object like weapons 
+	 * potion, shield or key doors.</p>
+	 * <ul> A item has : </ul>
+	 * <li> a name : a string that will be defined
+	 * @author alexia
+	 * @version 22/11/2016
+	 */
+	protected String itemName;//the name of the item
 
 	/**
-	 * The constructor of the class Item
+	 * This constructor
+	 * @param itemName The name of the item
 	 * @param newItem A new item 
 	 */
 	public Item(String newItem){
@@ -15,20 +21,10 @@ public class Item {
 	}
 	
 	/**
-	 * To set the name of the item
-	 * @return name The name of the item
-	 */
-	public String setName() {
-		return name;
-	}
-	
-	/**
-	 * To get the name of the item
+	 * This method allows to return the name of the item
 	 * @return name The name of the item
 	 */
 	public String getName() {
-		return name;
+		return itemName;
 	}
-	
-
 }
