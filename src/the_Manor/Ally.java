@@ -1,7 +1,7 @@
 package the_Manor;
 /**
- * <p>This class represent all character who are allies for the main character.</p>
- * <p>An ally can give an object to the player.</p>
+ * <p> This class represent all character who are allies for the main character.</p>
+ * <p> An ally can give an object to the player.</p>
  * 
  * @author Willy Dieuaide
  * @version 2016-22-11

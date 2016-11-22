@@ -3,9 +3,11 @@ package the_Manor;
 import java.util.ArrayList;
 /**
  * This class represent the Player. </br>
- * In addition to the possibilities inherited from the Character class, the player can: </br>
+ * In addition to the possibilities inherited from the Fighter class, the player can: </br>
  * <ul>
- * <li> 
+ * <li> Use items from the inventory
+ * <li> Talk with Allies
+ * <li> </li>
  * @author astem
  *
  */
