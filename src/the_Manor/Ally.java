@@ -10,6 +10,7 @@ package the_Manor;
  */
 public class Ally extends Character{
 	private Item myItem;
+	
 	/**
 	 * This is the Ally constructor
 	 * @param newName The name of the Ally
@@ -20,18 +21,29 @@ public class Ally extends Character{
 		this.myItem = item;
 		//myItem = new Item(item);
 	}
+	
 	/**
-	 * methods qui permet de définir quel type d'item il possède
+	 * 
 	 */
-	public Object getTypeOfItem(){
+	public Object getItem(){
 		return this.myItem;
+	}
+	
+	/**
+	 * Permet d'ajouter un item a un allie
+	 * Si l'allie possÃ¨de dÃ©ja un objet ne fait rien
+	 * Sinon ajoute l'objet
+	 * @param item
+	 */
+	public void addItem(Item item){
+		this.myItem = item;
 	}
 	
 	/**
 	 * This method allows for the ally to give an item to the player
 	 * @param item
 	 */
-	public void giveItem(Item itemName,Player player){
-		// item devient "vide" --> myItem = ""
+	public void giveItem(Player player){
+		this.myItem = null;
 	}
 }

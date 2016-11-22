@@ -95,7 +95,7 @@ public class Room {
 		if(enemy)
 			this.characterInRoom.add(new Enemy(name));
 		else
-			this.characterInRoom.add(new Ally(name));
+			this.characterInRoom.add(new Ally(name, null));
 	}
 	
 	/**
