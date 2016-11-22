@@ -3,7 +3,7 @@ package the_Manor;
 import java.util.*;
 
 /*
- * Cette classe va permettre 
+ * Cette classe va permettre la gestion des salles dans notre jeux
  */
 public class Room {
 	private HashMap<String,Door> exitPossible;
@@ -12,17 +12,22 @@ public class Room {
 	private ArrayList<Item> objectInRoom;
 	
 	/**
-	 * The constructor of the class Room
+	 * Le constructeur de la classe room
+	 * Si le nom est vide la salle auras par defaut le nom "Salle"
+	 * Crée également nos objets exitPossible ainsi que nos personnages présent dans la salle 
 	 * @param roomName The name of the Room
 	 */
 	public Room (String roomName){
-		this.roomName = roomName;
+		if (roomName.isEmpty())
+			this.roomName = "Salle";
+		else
+			this.roomName = roomName;
 		this.exitPossible = new HashMap();
 		this.characterInRoom = new ArrayList();
 	}
 	
 	/**
-	 * Allows to add an exit to the room
+	 * Permet d'ajouter une sortie dans la pièce
 	 * @param direction The direction for the door (East,West,South,North)
 	 * @param lock A boolean to know if the door is locked or not
 	 */
