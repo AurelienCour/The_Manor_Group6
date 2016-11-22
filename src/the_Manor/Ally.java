@@ -1,6 +1,8 @@
 package the_Manor;
 /**
  * <p> This class represent all character who are allies for the main character.</p>
+ * <p> An ally is only in one room.
+ * <p> So only one ally per room.
  * <p> An ally can give an object to the player.</p>
  * 
  * @author Willy Dieuaide
