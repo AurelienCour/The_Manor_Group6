@@ -1,12 +1,14 @@
 package the_Manor;
 
+/**
+ * <p>A weapon can be found by a player in a room or given by an ally.</p>
+ * <p>A weapon allows to add some attack points to the player.</p>
+ * @author alexia
+ * @version 22/11/2016
+ */
+
 public class Weapon extends Item {
-	/**
-	 * <p>A weapon can be found by a player in a room or given by an ally.</p>
-	 * <p>A weapon allows to add some attack points to the player.</p>
-	 * @author alexia
-	 * @version 22/11/2016
-	 */
+	
 private int weaponAttack; 
 
 	/**

@@ -8,7 +8,8 @@ package the_Manor;
  * <li>A description : a small description of the character (string)</li>
  * </ul>
  * 
- * @author Astemir Bekanov * @version 22/11/2016
+ * @author Astemir Bekanov 
+ * @version 22/11/2016
  */
 
 public class Character {
