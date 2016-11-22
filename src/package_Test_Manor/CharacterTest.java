@@ -22,7 +22,7 @@ public class CharacterTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
+        // Code execute apres l'execution de tous les tests
     }
 
     @Before
