@@ -13,7 +13,8 @@ import java.util.ArrayList;
  *
  */
 public class Player extends Fighter{
-
+private String newName;
+private int attack, defense;
 private ArrayList<Item>	inventory; // this is the item list of the player
 public Room currentRoom;
 	
@@ -23,7 +24,13 @@ public Room currentRoom;
 	 * @param InitialRoom
 	 */
 	public Player(String newName, Room InitialRoom) {
-		super(newName);
+		super(newName);	
+		if (newName.isEmpty())
+			this.newName = "John";
+		else
+			this.newName = newName;
+		this.attack = 10;
+		this.defense = 10;
 		this.currentRoom = InitialRoom;
 		inventory = new ArrayList<Item>();
 	}
@@ -53,7 +60,7 @@ public Room currentRoom;
 	 * If the life points added go over the maximum, health will be limited by the max value
 	 * @param healing
 	 */
-	public void heal(int healing){
+	public void heal(String food,int healing){
 		health = health+healing;
 	}
 	
@@ -62,8 +69,8 @@ public Room currentRoom;
 	 * It uses the weapon's attack power to augment the player's attack power
 	 * @return attack
 	 */
-	public int setAttack(){
-		return attack;
+	public void setAttack(String weapon, int attack){
+		//TODO 
 	}
 	
 	/**
@@ -83,5 +90,14 @@ public Room currentRoom;
 	 */
 	public void talk(){
 		// TODO 
+	}
+
+	/**
+	 * This method allows to set new health with an item
+	 * @param i / The amount of life points to add to the health
+	 */
+	public void setHealth(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 }
