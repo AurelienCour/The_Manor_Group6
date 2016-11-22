@@ -21,6 +21,8 @@ public class LockedDoor extends Door{
 		
 	}
 	
+	//public Boolean isLocked()
+	
 
 
 }
