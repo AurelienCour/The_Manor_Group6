@@ -17,10 +17,6 @@ import org.junit.*;
 public class PlayerTest {
 	
 	private Player p;
-	private Ally a;
-	private Room Room1, Room2, TestRoom;
-	private Weapon sword;
-	private Shield pot;
 	
 	
 	public PlayerTest()
@@ -61,6 +57,8 @@ public class PlayerTest {
 	 * This test allows to see that the player and the ally are in the same room as the ally
 	 */
 	public void testPlayerSameRoomAlly() {
+		//Ally a;
+		Room Room2, TestRoom;
 		TestRoom = new Room("TestRoom");
 		TestRoom.addCharacter(false, "John");
 		Room2 = p.currentRoom;
