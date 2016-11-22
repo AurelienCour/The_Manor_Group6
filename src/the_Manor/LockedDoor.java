@@ -1,5 +1,12 @@
 package the_Manor;
 
+/**
+ * This LockedDoor class stands for a door locked thanks to a key. </br>
+ * The player will be able to unlock this door if he has the right key.
+ * @author Simon Hay
+ * @version 22/11/2016
+ */
+
 public class LockedDoor extends Door{
 	
 	// the key opening the locked door
