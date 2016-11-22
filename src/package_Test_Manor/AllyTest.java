@@ -1,8 +1,13 @@
 package package_Test_Manor;
 
 import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
 import the_Manor.Ally;
-import org.junit.*;
+import the_Manor.Player;
+import the_Manor.Item;
+import org.junit.Test;
+
 /**
  * The test class AllyTest
  * Unit tests of the Ally class
@@ -10,13 +15,13 @@ import org.junit.*;
  *
  */
 public class AllyTest {
-	private Item item;
-	private Player player;
-	private Ally ally;
+	//protected Item myItem;
+	private Player myPlayer;
+	private Ally myAlly;
 	/**
 	 * Default constructor for test class PlayerTest
 	 */
-	public AllyTest {
+	public AllyTest () {
 	}
 	
     /**
@@ -26,8 +31,7 @@ public class AllyTest {
      */
     @Before
     public void setUp() throws Exception {  
-    	myAlly = new Ally("Ally");
-    	item = new Item("Potion");
+    	myAlly = new Ally("Ally","Potion");
     }
 
     @After
@@ -39,8 +43,6 @@ public class AllyTest {
      */
 	@Test
 	public void testGiveItem() {
-		ally.giveItem(item, player);
-		assertEquals(ally.item, "");
+		assertEquals("", myAlly.giveItem());
 	}
-
 }
