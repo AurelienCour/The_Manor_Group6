@@ -9,8 +9,6 @@ package the_Manor;
 
 public class LockedDoor extends Door{
 	
-	// the key opening the locked door
-	private Key myKey;
 	private boolean locked;
 
 	/**
@@ -31,12 +29,11 @@ public class LockedDoor extends Door{
 	}
 	
 	/**
-	 * Unlocks the door if the player has the right key 
+	 * Unlocks the door if the player has a key 
 	 */
-	public void unlock(Key theKeyOfThePlayer){
-		if (theKeyOfThePlayer == myKey){
+	public void unlock(Player player){
+		if(player.haveKey())
 			this.locked = false;
-		}
 	}
 	
 	/**
@@ -57,8 +54,11 @@ public class LockedDoor extends Door{
 	 * @param nextRoom The next room the player is going to enter. 
 	 * @return The next room the player is going to enter. 
 	 */
-	public Room goNextRoom(Room nextRoom){
-		return nextRoom;
+	public Room goNextRoom(){
+		if(isLocked())
+			return null;
+		else
+			return nextRoom;
 	}
 	
 

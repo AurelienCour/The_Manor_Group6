@@ -51,8 +51,8 @@ public Room currentRoom;
 	 * It can't add the same item (ID) two times to the inventory
 	 * @param itemName
 	 */
-	public void pickUp(Item itemName){
-		inventory.add(itemName);
+	public void pickUp(Item item){
+		inventory.add(item);
 	}
 	
 	/**
@@ -99,5 +99,17 @@ public Room currentRoom;
 	public void setHealth(int i) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	/**
+	 * Return true if the player has a key
+	 * @return Return true if the player has a key
+	 */
+	public boolean haveKey(){
+		for (Item item : inventory) {
+			if(item instanceof Key)
+				return true;
+		}
+		return false;
 	}
 }
