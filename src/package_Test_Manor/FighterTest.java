@@ -45,6 +45,8 @@ public class FighterTest {
     
     
     
+    //////// PLAYER ///////
+    
     /**
      * Method testGetAttackPlayer
      * <p>Check that the attack is initialized to 10.</p>
@@ -116,7 +118,7 @@ public class FighterTest {
 	
 	/**
      * Method testRemHealthPlayer
-     * <p>Check that the health is initialized to 10.</p>
+     * <p>Check that the health can be decremented.</p>
      */
 	@Test
 	public void testRemHealthPlayer() {
@@ -138,7 +140,7 @@ public class FighterTest {
 	
 	/**
      * Method testRemHealthPlayer
-     * <p>Check that the health is initialized to 10.</p>
+     * <p>Check that the health can be decremented.</p>
      */
 	@Test
 	public void testRemAttackPlayer() {
@@ -147,17 +149,31 @@ public class FighterTest {
 		assertEquals(10, myPlayer.getAttack());
 	}
     
+	/**
+     * Method testAddDefensePlayer
+     * <p>Check that the defense can be incremented.</p>
+     */
+	@Test
+	public void testAddDefensePlayer() {
+		myPlayer.addDefense(5);
+		//Assuming the default value is 15, adding more than 5 points results is 20, not superior value
+		assertEquals(15, myPlayer.getDefense());
+	}
+	
+	/**
+     * Method testRemDefensePlayer
+     * <p>Check that the defense is initialized to 10.</p>
+     */
+	@Test
+	public void testRemDefensePlayer() {
+		myPlayer.remDefense(5);
+		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
+		assertEquals(10, myPlayer.getDefense());
+	}
+	
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /////// ENEMY ///////
     
     /**
      * Method testGetAttackEnemy
@@ -197,7 +213,7 @@ public class FighterTest {
 	
 	/**
      * Method testAddStaminaEnemy
-     * <p>Check that the stamina is initialized to 10.</p>
+     * <p>Check that the stamina can be incremented.</p>
      */
 	@Test
 	public void testAddStaminaEnemy() {
@@ -208,7 +224,7 @@ public class FighterTest {
 	
 	/**
      * Method testRemStaminaEnemy
-     * <p>Check that the stamina is initialized to 10.</p>
+     * <p>Check that the stamina can be decremented.</p>
      */
 	@Test
 	public void testRemStaminaEnemy() {
@@ -218,8 +234,8 @@ public class FighterTest {
 	}
 	
 	/**
-     * Method testSetHealthEnemy
-     * <p>Check that the health is initialized to 10.</p>
+     * Method testRemHealthEnemy
+     * <p>Check that the defense can be decremented.</p>
      */
 	@Test
 	public void testRemHealthEnemy() {
