@@ -1,38 +1,54 @@
 package package_Test_Manor;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-
 import the_Manor.EnigmaticDoor;
+import the_Manor.Room;
 import org.junit.Test;
 
 public class EnigmaticDoorTest {
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
-
+	
+	private EnigmaticDoor door;
+	private Room room;
+	
+	public EnigmaticDoorTest(){
+	}
+	
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	room = new Room("");
+        door = new EnigmaticDoor("","",room);      
     }
 
     @After
     public void tearDown() throws Exception {
         // Code execute apres chaque test
     }
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+    
+    @Test
+    public void testResolveEnigma(){
+    	this.door.solveEnigma("");
+    	assertEquals(false,this.door.isLocked());
+    }
+    
+    @Test
+    public void testResolveEnigmaBad(){
+    	this.door.solveEnigma("No");
+    	assertEquals(true,this.door.isLocked());
+    }
+    
+    @Test
+    public void testGoNextRoomIfResolve(){
+    	this.door.solveEnigma("");
+    	assertEquals(room,this.door.goNextRoom());
+    }
+    
+    @Test
+    public void testGoNextRoomIfNotResolve(){
+    	this.door.solveEnigma("No");
+    	assertEquals(null,this.door.goNextRoom());
+    }
+    
 
 }

@@ -13,8 +13,8 @@ public class EnigmaticDoor extends Door{
 	private String enigma;
 	// the answer of the enigma
 	private String response;
-	// next room the player is going to enter
-	private Room nextRoom;
+	//
+	private boolean locked;
 
 	/**
 	 * Constructor of the class EnigmaticDoor. 
@@ -25,21 +25,20 @@ public class EnigmaticDoor extends Door{
 	public EnigmaticDoor(String enigma, String response, Room nextRoom) {
 		super(nextRoom);
 		this.enigma = enigma;
-		this.response = response;
-		this.nextRoom = nextRoom;				
+		this.response = response;	
+		this.locked = true;
 	}
 	
 	/**
 	 * This method allows the player to propose an answer to the enigma that keep the door locked.
 	 * @param responseOfThePlayer The response the player is proposing
-	 * @return True if the answer is good, false if it is not.
+	 * @return False if the answer is good, true if it is not.
 	 */
-	public Boolean solveEnigma(String responseOfThePlayer){
-		if(responseOfThePlayer == response){
-			return true;
-		} else {
-			return false;
-		}
+	public void solveEnigma(String responseOfThePlayer){
+		if(responseOfThePlayer.equals(this.response))
+			this.locked = false;
+		else
+			this.locked = true;
 	}
 	
 	/**
@@ -47,8 +46,15 @@ public class EnigmaticDoor extends Door{
 	 * @param nextRoom The next room the player is going to enter. 
 	 * @return The next room the player is going to enter. 
 	 */
-	public Room goNextRoom(Room nextRoom){
-		return nextRoom;
+	public Room goNextRoom(){
+		if(this.locked)
+			return null;
+		else
+			return this.nextRoom;
+	}
+	
+	public boolean isLocked(){
+		return this.locked;
 	}
 
 }

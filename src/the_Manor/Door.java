@@ -10,7 +10,7 @@ package the_Manor;
 public class Door 
 {
 	// next room the player is going to enter
-	private Room nextRoom;
+	protected Room nextRoom;
 	
 	/**
 	 * Constructor of the class Door.
