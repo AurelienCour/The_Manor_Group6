@@ -34,4 +34,11 @@ public class Character {
 		return name;
 		}
 
+	/**
+	 * This method allows to return the description of the character
+	 * @return description 
+	 */
+	public String getDescription(){
+		return description;
+		}
 }
