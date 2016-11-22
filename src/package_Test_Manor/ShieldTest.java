@@ -1,25 +1,34 @@
 package package_Test_Manor;
 import junit.framework.TestCase;
 import the_Manor.Shield;
+import the_Manor.Weapon;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.*;
 
-public class ShieldTest {
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
-    }
+/**
+ * <p>The test class ShieldTest</p>
+ * <p>Unit test of the Shield class</p>
+ * @author Siham
+ * @version 22/11/2016
+ */
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
+public class ShieldTest {
+	
+	private Shield shield;
+	/**
+	 * Constructor for test class WeaponTest 
+	 */
+    
+	public ShieldTest()
+	{		
+	}
+	
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	shield = new Shield ("Shield", 15) ;        
     }
 
     @After
@@ -28,7 +37,8 @@ public class ShieldTest {
     }
     
     @Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+    public void testGetDefense()
+    {
+   	assertEquals(15, shield.getDefense());			
+    }
 }
