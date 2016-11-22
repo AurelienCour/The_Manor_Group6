@@ -6,6 +6,9 @@ import java.util.*;
  * Cette classe va permettre la gestion des salles dans notre jeux
  * Nous allons pouvoir faire différennte choses dans cette classe :</br>
  * <ul>
+ * <li> Permet de créer des sorties à une salle</li>
+ * <li> Permet d'ajouter et de supprimer des charactères à la salle </li>
+ * <li> Permet d'ajouter et de supprimer des items à une salle </li>
  * </ul>
  * @author Aurelien
  *
