@@ -13,7 +13,6 @@ package the_Manor;
  * <ul>
  * <li> Attack with his base attack or with a weapon. Weapon adds attack points </br>
  * <li> Defend with his base attack or with a shield. Shield adds defense points  </br>
- * <li> Heal himself with an item to get back life points
  * <li> Die if his health goes bellow 0 
  * <li> Can no longer attack if his stamina reaches 0
  * @author astem
