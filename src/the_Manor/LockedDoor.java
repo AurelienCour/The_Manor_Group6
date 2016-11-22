@@ -11,6 +11,7 @@ public class LockedDoor extends Door{
 	
 	// the key opening the locked door
 	private Key myKey;
+	private boolean locked;
 
 	/**
 	 * Constructor of the LockedDoor class.
@@ -18,6 +19,7 @@ public class LockedDoor extends Door{
 	 */
 	public LockedDoor(Room nextRoom) {
 		super(nextRoom);
+		this.locked = true;
 	}
 	
 	
@@ -25,7 +27,7 @@ public class LockedDoor extends Door{
 	 * Locks the door
 	 */
 	public void lock(){
-		isLocked(true);
+		this.locked = true;
 	}
 	
 	/**
@@ -33,7 +35,7 @@ public class LockedDoor extends Door{
 	 */
 	public void unlock(Key theKeyOfThePlayer){
 		if (theKeyOfThePlayer == myKey){
-			isLocked(false);
+			this.locked = false;
 		}
 	}
 	
@@ -42,7 +44,7 @@ public class LockedDoor extends Door{
 	 * @param The key of the player
 	 */
 	public Boolean isLocked(){
-		if (isLocked(true)) {
+		if (this.locked) {
 			return true;
 		} 
 		else {

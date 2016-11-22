@@ -1,14 +1,16 @@
 package the_Manor;
 
+/**
+ * <p>The player have the possibility to found object like weapons 
+ * potion, shield or key doors.</p>
+ * <ul> A item has : </ul>
+ * <li> a name : a string that will be defined
+ * @author alexia
+ * @version 22/11/2016
+ */
+
 public class Item {
-	/**
-	 * <p>The player have the possibility to found object like weapons 
-	 * potion, shield or key doors.</p>
-	 * <ul> A item has : </ul>
-	 * <li> a name : a string that will be defined
-	 * @author alexia
-	 * @version 22/11/2016
-	 */
+
 	protected String itemName;//the name of the item
 
 	/**
