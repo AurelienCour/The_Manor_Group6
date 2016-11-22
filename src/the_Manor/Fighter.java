@@ -13,8 +13,8 @@ protected int defense; // the Fighet's defense
 	 * @param newName the Name of the Fighter
 	 * @param InitialRoom
 	 */
-	public Fighter(String newName, Room InitialRoom) {
-		super(newName, InitialRoom);
+	public Fighter(String newName) {
+		super(newName);
 	}
 
 	/**

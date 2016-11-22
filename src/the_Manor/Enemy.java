@@ -7,8 +7,8 @@ public class Enemy extends Fighter{
 	 * @param newName
 	 * @param InitialRoom
 	 */
-	public Enemy(String newName, Room InitialRoom) {
-		super(newName, InitialRoom);
+	public Enemy(String newName) {
+		super(newName);
 		// TODO Auto-generated constructor stub
 	}
 

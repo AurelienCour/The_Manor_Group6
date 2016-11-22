@@ -2,12 +2,14 @@ package the_Manor;
 
 import java.util.*;
 
+/*
+ * 
+ */
 public class Room {
 	private HashMap<String,Door> exitPossible;
 	private String roomName;
-	private Character enemy;
-	private Character ally;
-	private Item objectInRoom;
+	private ArrayList<Character> characterInRoom;
+	private ArrayList<Item> objectInRoom;
 	
 	/**
 	 * The constructor of the class Room
@@ -16,6 +18,7 @@ public class Room {
 	public Room (String roomName){
 		this.roomName = roomName;
 		this.exitPossible = new HashMap();
+		this.characterInRoom = new ArrayList();
 	}
 	
 	/**
@@ -53,17 +56,38 @@ public class Room {
 	}
 	
 	/**
-	 * @return If an enemy is in the room
+	 *  Allow to add a Character in the room
+	 * @param enemy A boolean to know if it is an enemy
+	 * @param name The name of the character
 	 */
-	public Character getEnemy(){
-		return this.enemy;
+	public void addCharacter(boolean enemy,String name){
+		if(enemy)
+			this.characterInRoom.add(new Enemy(name));
+		else
+			this.characterInRoom.add(new Ally(name));
 	}
 	
-	/**
-	 * @return If an ally is in the room
-	 */
-	public Character getAlly(){
-		return this.ally;
+	public Door getDoor(String direction){
+		if(this.exitPossible.containsKey(direction))
+			return this.exitPossible.get(direction);
+		else
+			return null;
 	}
+	
+	public void deleteEnemy (Character enemy){
+		if(this.characterInRoom.contains(enemy))
+			this.characterInRoom.remove(enemy);
+		else
+			System.out.println("Erreur");
+	}
+	
+	public void addItem (Item item){
+		this.objectInRoom.add(item);
+	}
+	
+	public void removeItem(Item item){
+		this.objectInRoom.remove(item);
+	}
+	
 	
 }

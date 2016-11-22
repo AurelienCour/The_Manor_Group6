@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Player extends Fighter{
 
 private ArrayList<Item>	inventory; // this is the item list of the player
+private Room currentRoom;
 	
 	/**
 	 * The constructor for the player
@@ -12,7 +13,8 @@ private ArrayList<Item>	inventory; // this is the item list of the player
 	 * @param InitialRoom
 	 */
 	public Player(String newName, Room InitialRoom) {
-		super(newName, InitialRoom);
+		super(newName);
+		this.currentRoom = InitialRoom;
 		inventory = new ArrayList<Item>();
 	}
 	

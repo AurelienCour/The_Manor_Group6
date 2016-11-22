@@ -2,7 +2,6 @@ package the_Manor;
 
 public class Game {
 	
-	Parser parser;
 	
 	/**
 	 * The constructor of the class Game	 
