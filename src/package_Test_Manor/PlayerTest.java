@@ -3,11 +3,16 @@ package package_Test_Manor;
 import static org.junit.Assert.*;
 
 import the_Manor.Player;
+import the_Manor.Room;
+import the_Manor.Ally;
 import the_Manor.Character;
 import org.junit.*;
 
 public class PlayerTest {
+	
 	private Player p;
+	private Ally a;
+	private Room Room1, Room2, TestRoom;
 	
 	
 	public PlayerTest()
@@ -27,7 +32,7 @@ public class PlayerTest {
     @Before
     public void setUp() throws Exception {
         // Code execute avant chaque test   
-    	p = new Player("John");
+    	p = new Player("John", null);
     }
 
     @After
@@ -41,8 +46,16 @@ public class PlayerTest {
 	 */
 	public void testPlayerLife() {
 		assertEquals(10, p.getHealth());
-		//test commit
 	}
 
-
+	@Test
+	/**
+	 * This test allows to see that the player and the ally are in the same room as the ally
+	 */
+	public void testPlayerSameRoomAlly() {
+		TestRoom = new Room("TestRoom");
+		TestRoom.addCharacter(false, "John");
+		Room2 = p.currentRoom;
+		assertEquals(TestRoom, Room2);
+	}
 }

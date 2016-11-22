@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Player extends Fighter{
 
 private ArrayList<Item>	inventory; // this is the item list of the player
-private Room currentRoom;
+public Room currentRoom;
 	
 	/**
 	 * The constructor for the player
