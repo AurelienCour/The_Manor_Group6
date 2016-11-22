@@ -6,9 +6,18 @@ import org.junit.*;
 
 
 public class CharacterTest {
+	private Character myCharacter;
+	
+	/**
+	 * Default constructor for test class CharacterTest
+	 */
+	public CharacterTest()
+	{
+	}
+	
 	@BeforeClass
     public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
+        // Code execute avant l'execution du premier test (et de la methode @Before)        
     }
 
     @AfterClass
@@ -17,20 +26,41 @@ public class CharacterTest {
     }
 
     @Before
-    public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    public void setUp(){
+        myCharacter = new Character("John");
     }
 
     @After
-    public void tearDown() throws Exception {
-        // Code execute apres chaque test
+    public void tearDown(){
     }
     
+    /**
+     * Method testCharacterName
+     * <p>Checks if the name given as parameter in the constructor is correctly set to the attribute</p>
+     */
 	@Test
 	public void testCharacterName() {
-		
-<<<<<<< HEAD
-		
-		assertEquals("Name", character.);
+		assertEquals("John", myCharacter.getName());
+	}
 
+	/**
+	 * Method testJohnDefaultName
+	 * <p>Check that the default name is "John", if the given name is empty</p>
+	 */
+	@Test
+	public void testJohnDefaultName(){
+		Character emptyName = new Character("");
+		//Assuming that a empty name results in giving "John" as a default name for a player
+		assertEquals("John", emptyName.getName());
+	}
+	
+	/**
+	 * Method testJohnDefaultName
+	 * <p>Check that the default name is "John", if the given name is empty</p>
+	 */
+	@Test
+	public void testDescription(){
+		assertEquals("This is a description", myCharacter.getDescription());
+		//test
+	}
 }
