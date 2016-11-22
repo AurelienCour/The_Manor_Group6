@@ -27,10 +27,10 @@ public class CharacterTest {
     }
     
 	@Test
-	public void testRoom() {
+	public void testCharacterName() {
 		
 		
-		assertEquals(str1, str2);;
+		assertEquals("Name", character.);
 	}
 
 }
