@@ -9,9 +9,9 @@ package the_Manor;
 
 public class EnigmaticDoor extends Door{
 	
-	// enigma that has to be solved
+	// the enigma that has to be solved
 	private String enigma;
-	// answer of the enigma
+	// the answer of the enigma
 	private String response;
 	// next room the player is going to enter
 	private Room nextRoom;
