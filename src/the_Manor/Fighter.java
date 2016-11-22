@@ -3,15 +3,17 @@ package the_Manor;
 /**
  * This class defines the Fighter characters. </br>
  * <ul>A fighter has : 
+ * <ul>
  * <li> health : integer variable defining the lifepoints. 10 by default
  * <li> stamina : integer variable defining the stamina. 20 by default
  * <li> attack : integer variable. 5 by default
  * <li> defense : integer variable. 3 by default
  * </ul>
- * The fighter can : 
- * Attack with his base attack or with a weapon. Weapon adds attack points </br>
- * Defend with his base attack or with a shield. Shield adds defense points  </br>
- * Heal himself with an item to get back life points
+ * The fighter can : </br>
+ * <ul>
+ * <li> Attack with his base attack or with a weapon. Weapon adds attack points </br>
+ * <li> Defend with his base attack or with a shield. Shield adds defense points  </br>
+ * <li> Heal himself with an item to get back life points
  * @author astem
  * @version 22/11/2016
  */
