@@ -1,5 +1,11 @@
 package package_Test_Manor;
 
+/**
+ * This class defines the tests for Fighter characters. </br>
+ * @author Willy Dieuaide
+ * @version 22/11/2016
+ */
+
 import static org.junit.Assert.*;
 
 import the_Manor.Character;
