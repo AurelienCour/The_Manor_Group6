@@ -43,7 +43,7 @@ public class Room {
 			if(lock)
 				this.exitPossible.put(direction, new LockedDoor(nextRoom));
 			else
-				this.exitPossible.put(direction, new Door());
+				this.exitPossible.put(direction, new Door(nextRoom));
 		}
 		else
 			System.out.println("Erreur");
@@ -92,10 +92,20 @@ public class Room {
 			this.characterInRoom.add(new Ally(name));
 	}
 	
+	/**
+	 * Permet de connaitre le nombre de personnage dans la pièce
+	 * @return Le nombre de personnage dans la pièce
+	 */
 	public int numberOfChararacterInRoom (){
 		return this.characterInRoom.size();
 	}
 	
+	/**
+	 * Permet de recupéré une porte dans la pièce pour une direction specifique </br>
+	 * Si la direction n'est pas correct il retournera null </br>
+	 * @param direction La direction de la porte que l'on souhaite récupéré
+	 * @return La porte d'une direction specifique
+	 */
 	public Door getDoor(String direction){
 		if(this.exitPossible.containsKey(direction))
 			return this.exitPossible.get(direction);
@@ -103,6 +113,11 @@ public class Room {
 			return null;
 	}
 	
+	/**
+	 * Permet de supprimer un ennemi dans la pièce </br>
+	 * Si l'ennemi n'existe par un message d'erreur apparait </br>
+	 * @param enemy
+	 */
 	public void deleteEnemy (Character enemy){
 		if(this.characterInRoom.contains(enemy))
 			this.characterInRoom.remove(enemy);
@@ -110,13 +125,39 @@ public class Room {
 			System.out.println("Erreur");
 	}
 	
+	/**
+	 * Retourne un charactère présent dans la pièce grâce à son nom </br>
+	 * Si il n'existe pas retourne null </br>
+	 * @param name Le nom du charactère que l'on souhaite récupéré
+	 * @return Le character possédant le nom
+	 */
+	public Character getCharacter (String name){
+		Character n = new Character(name);
+		return n;
+	}
+	
+	/**
+	 * Permet d'ajouter un Item dans la pièce </br>
+	 * @param item L'item à ajouter
+	 */
 	public void addItem (Item item){
 		this.objectInRoom.add(item);
 	}
 	
+	/**
+	 * Permet de retirer un Item dans une pièce </br>
+	 * @param item L'item à supprimer
+	 */
 	public void removeItem(Item item){
 		this.objectInRoom.remove(item);
 	}
 	
+	/**
+	 * Permet de connaitre le nombre d'item dans la pièce </br>
+	 * @return Le nombre d'item dans la pièce
+	 */
+	public int numberOfItemInRoom(){
+		return this.objectInRoom.size();
+	}
 	
 }
