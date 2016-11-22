@@ -12,7 +12,7 @@ public class Weapon extends Item {
 private int weaponAttack; 
 
 	/**
-	 * This constructor allows to create a weapon name and initialise its attack points.
+	 * This constructor allows to create a weapon name and initialize its attack points.
 	 * @param newAttack
 	 */
 	public Weapon (String itemName, int pointAttack) {
