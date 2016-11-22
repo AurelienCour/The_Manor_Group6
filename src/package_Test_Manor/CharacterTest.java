@@ -29,8 +29,8 @@ public class CharacterTest {
 	@Test
 	public void testCharacterName() {
 		
-		assertEquals("John", ally.getName());
-
-	}
+<<<<<<< HEAD
+		
+		assertEquals("Name", character.);
 
 }
