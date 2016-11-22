@@ -2,7 +2,7 @@ package package_Test_Manor;
 import junit.framework.TestCase;
 import the_Manor.Weapon;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.junit.*;
 
@@ -25,9 +25,9 @@ public class WeaponTest {
 	}
 
     @Before
-    public void setUp() throws Exception {
-    	name = "Gun";
-    	weapon = 5;       
+    public void setUp() throws Exception 
+    {
+    	weapon = new Weapon ("Gun", 5) ;
     }
 
     @After
