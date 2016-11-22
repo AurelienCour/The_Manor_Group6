@@ -12,16 +12,16 @@ import the_Manor.Room;
  *
  */
 public class DoorTest {
-	private Room r;
-	private Door d;
+	private Room room;
+	private Door door;
 
 	public DoorTest(){
 	}
 	
     @Before
     public void setUp() throws Exception {
-    	r = new Room("Test");
-        d = new Door(r);        
+    	room = new Room("Test");
+    	door = new Door(room);        
     }
 
     @After
@@ -31,7 +31,7 @@ public class DoorTest {
     
 	@Test
 	public void testgoNextRoom() {
-		assertEquals(r,d.goNextRoom());
+		assertEquals(room,door.goNextRoom());
 	}
 
 }
