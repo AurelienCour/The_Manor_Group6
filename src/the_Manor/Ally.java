@@ -7,7 +7,7 @@ package the_Manor;
  * @version 2016-22-11
  */
 public class Ally extends Character{
-
+	protected Item item;
 	/**
 	 * This is the Ally constructor
 	 * @param newName The name of the Ally
@@ -22,9 +22,6 @@ public class Ally extends Character{
 	 * @param item
 	 */
 	// TODO a revoir cette methode
-	public void giveItem(Item itemName){
-
-
+	public void giveItem(Item itemName,Player player){
 	}
-
 }
