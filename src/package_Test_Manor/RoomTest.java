@@ -1,8 +1,12 @@
 package package_Test_Manor;
 import the_Manor.Character;
 import the_Manor.Enemy;
+import the_Manor.Item;
+import the_Manor.LockedDoor;
 //import junit.framework.TestCase;
 import the_Manor.Room;
+import the_Manor.Weapon;
+
 import org.junit.*;
 
 
@@ -73,22 +77,23 @@ public class RoomTest
 	@Test
 	public void testAddCharacter()
 	{
-		this.myRoom.addCharacter(true,"Test");
+		Enemy myCharacter = new Enemy("Test");
+		this.myRoom.addCharacter(myCharacter);
 		assertEquals(1, this.myRoom.numberOfChararacterInRoom());
 	}
 	
 	/**
 	 * Method testNameCharacter
 	 * Checks the name given to an added character
-	 * 	 
+	 */
 	@Test
 	public void testNameCharacter()
 	{	
-		Character myCharacter = new Character("Test");
-		this.myRoom.addCharacter(true,"Test");
+		Enemy myCharacter = new Enemy("Test");
+		this.myRoom.addCharacter(myCharacter);
 		assertEquals(myCharacter, this.myRoom.getCharacter("Test"));
 	}
-	*/
+
 	
 	/**
 	 * Method testAddItem
@@ -97,10 +102,50 @@ public class RoomTest
 	@Test
 	public void testAddItem()
 	{
-		Item myItem = new Item("Epee");
+		Weapon myItem = new Weapon("Epee", 2);
 		this.myRoom.addItem(myItem);
-		assertEquals(1, this.myRoom.numberOfChararacterInRoom());
+		assertEquals(1, this.myRoom.numberOfItemInRoom());
 	}
+	
+	/**
+	 * Method testRemoveItem
+	 * Checks if an item is removed of the room
+	 */
+	@Test
+	public void testRemoveItem()
+	{
+		Weapon myItem = new Weapon("Epee", 2);
+		this.myRoom.addItem(myItem);
+		this.myRoom.removeItem(myItem);
+		assertEquals(0, this.myRoom.numberOfItemInRoom());
+	}
+	
+	/**
+	 * Method testDeleteEnemy
+	 * Checks if an enemy is deleted of the room
+	 */
+	@Test
+	public void testDeleteEnemy()
+	{
+		Enemy myCharacter = new Enemy("Test");
+		this.myRoom.addCharacter(myCharacter);
+		this.myRoom.deleteEnemy(myCharacter);
+		assertEquals(0, this.myRoom.numberOfChararacterInRoom());
+	}
+	
+	/**
+	 * Method testAddExit
+	 * Test if an exit is added to the room
+	 
+	@Test
+	public void testAddExit()
+	{			
+		String direction = "Test";
+		myRoom.addExit(direction, true, myRoom);
+		//assertEquals(0, this.myRoom.numberOfExit());
+	}
+	*/
+	
 	
 	/**
 	@BeforeClass

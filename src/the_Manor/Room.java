@@ -17,7 +17,7 @@ public class Room {
 	private HashMap<String,Door> exitPossible;
 	private String roomName;
 	private ArrayList<Character> characterInRoom;
-	private ArrayList<Item> objectInRoom;
+	private ArrayList<Item> objectInRoom;	
 	
 	/**
 	 * Le constructeur de la classe room </br>
@@ -32,6 +32,7 @@ public class Room {
 			this.roomName = roomName;
 		this.exitPossible = new HashMap();
 		this.characterInRoom = new ArrayList();
+		this.objectInRoom = new ArrayList();		
 	}
 	
 	/**
@@ -91,11 +92,8 @@ public class Room {
 	 * @param enemy A boolean to know if it is an enemy
 	 * @param name The name of the character
 	 */
-	public void addCharacter(boolean enemy,String name){
-		if(enemy)
-			this.characterInRoom.add(new Enemy(name));
-		else
-			this.characterInRoom.add(new Ally(name));
+	public void addCharacter(Character charac){
+		this.characterInRoom.add(charac);
 	}
 	
 	/**
@@ -108,7 +106,7 @@ public class Room {
 	
 	/**
 	 * Permet de recupéré une porte dans la pièce pour une direction specifique </br>
-	 * Si la direction n'est pas correct il retournera null </br>
+	 * Si la direction n'est pas correcte il retournera null </br>
 	 * @param direction La direction de la porte que l'on souhaite récupéré
 	 * @return La porte d'une direction specifique
 	 */
@@ -138,9 +136,9 @@ public class Room {
 	 * @return Le character possédant le nom
 	 */
 	public Character getCharacter (String name){
-		for(Character e:this.characterInRoom){
-			if(e.getName().equals(name))
-				return e;
+		for (int i = 0; i < characterInRoom.size(); i++) {
+			if(characterInRoom.get(i).getName().equals(name))
+				return characterInRoom.get(i);
 		}
 		return null;
 	}
@@ -169,4 +167,10 @@ public class Room {
 		return this.objectInRoom.size();
 	}
 	
+	/**
+	 * Permet de conna�tre le nombre de sorties ajout�es
+	 */
+	public int numberOfExit(){
+		return this.exitPossible.size();
+	}
 }
