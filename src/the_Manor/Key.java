@@ -1,13 +1,20 @@
 package the_Manor;
 
-public class Key extends Item{
-	/**
-	 * 
-	 * @param newItem
-	 */
-	public Key(String newItem) {
-		super(newItem);
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * <p>This class represents a key opening a door.</p>  
+ * 
+ * @author Siham
+ * @version 22/11/2016
+ */
 
+public class Key extends Item{
+
+	/**
+	* *Constructor of the Key class
+	* @param newItem : the Name of the Item
+	*/
+	public Key (String newItem)
+	{
+		super(newItem);
+	}	
 }
