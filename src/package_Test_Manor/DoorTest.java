@@ -6,23 +6,26 @@ import the_Manor.Door;
 import the_Manor.Room;
 
 public class DoorTest {
+	private Room r;
+	private Door d;
 
 	public DoorTest(){
 	}
 	
     @Before
     public void setUp() throws Exception {
-    	Room r = new Room("Test");
-        Door d = new Door(r);        
+    	r = new Room("Test");
+        d = new Door(r);        
     }
 
     @After
     public void tearDown() throws Exception {
         // Code execute apres chaque test
     }
+    
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testgoNextRoom() {
+		assertEquals(r,d.goNextRoom());
 	}
 
 }

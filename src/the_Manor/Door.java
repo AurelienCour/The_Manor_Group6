@@ -22,10 +22,9 @@ public class Door
 	
 	/**
 	 * Function allowing the player to go in another room.
-	 * @param nextRoom The next room the player is going to enter. 
 	 * @return The next room the player is going to enter. 
 	 */
-	public Room goNextRoom(Room nextRoom){
-		return nextRoom;
+	public Room goNextRoom(){
+		return this.nextRoom;
 	}
 }
