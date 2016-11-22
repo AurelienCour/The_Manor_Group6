@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 /**
- * <p>The test class WeaponTest.</p>
+ * <p>The test class WeaponTest</p>
  * <p>Unit test of the Weapon class</p>
  * @author Siham
  * @version 22/11/2016
@@ -40,6 +40,4 @@ public class WeaponTest {
      {
     	assertEquals(5, weapon.getAttack());			
      }
-    
-    
 }
