@@ -5,7 +5,7 @@ import the_Manor.Enemy;
 import org.junit.*;
 
 /**
- * The test class EnemyTest
+ * The test class EnemyTest.
  * Unit tests of the Enemy class
  * @author Aurelien
  *
