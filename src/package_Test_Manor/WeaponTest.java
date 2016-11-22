@@ -6,20 +6,28 @@ import static org.junit.Assert.fail;
 
 import org.junit.*;
 
-public class WeaponTest {
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la  method@Before)        
-    }
+/**
+ * <p>The test class WeaponTest.</p>
+ * <p>Unit test of the Weapon class</p>
+ * @author Siham
+ * @version 22/11/2016
+ */
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
+public class WeaponTest {
+	
+	private Weapon weapon;
+	/**
+	 * Constructor for test class WeaponTest 
+	 */
+    
+	public WeaponTest()
+	{		
+	}
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	name = "Gun";
+    	weapon = 5;       
     }
 
     @After
@@ -28,7 +36,10 @@ public class WeaponTest {
     }
     
     @Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+     public void testGetAttack()
+     {
+    	assertEquals(5, weapon.getAttack());			
+     }
+    
+    
 }
