@@ -1,10 +1,5 @@
 package the_Manor;
 /**
- * This class represents the Character. It's an abstract class that will be the super-class, and thus will be inherited by the sub-classes.</br>
- * <ul>A character has : </ul>
- * <li> a name : a string that will be defined
- * <li> a description : a small description of the character (string)
- * <li> The position of the character : the CurrentRoom variable
  * <p>This class represents the character. It's an abstract class that will be the super-class, and thus will be inherited by the sub-classes.</p>
  * <p>A character has :</p>
  * </ul>
@@ -12,7 +7,7 @@ package the_Manor;
  * <li>A description : a small description of the character (string)</li>
  * </ul>
  * 
- * @author astem
+ * @author Astemir Bekanov
  * @version 22/11/2016
  */
 
