@@ -81,5 +81,7 @@ protected int defense; // the Fighet's defense
 	 */
 	public int getDefense(){
 		return defense;
+		//test
+		//test 2
 	}
 }

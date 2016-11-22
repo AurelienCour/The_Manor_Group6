@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * This class represent the Player. </br>
  * In addition to the possibilities inherited from the Fighter class, the player can: </br>
  * <ul>
+ * <li> At the start of the game, a name is inputed. If no name, a default name "John" is used for the name
  * <li> Use items from the inventory
  * <li> Talk with Allies
  * <li> </li>
