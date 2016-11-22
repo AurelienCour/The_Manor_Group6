@@ -39,6 +39,6 @@ public class ShieldTest {
     @Test
     public void testGetDefense()
     {
-   	assertEquals(15, shield.getDefense());			
+    	assertEquals(15, shield.getDefense());			
     }
 }

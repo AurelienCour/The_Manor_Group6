@@ -13,7 +13,8 @@ import java.util.ArrayList;
  *
  */
 public class Player extends Fighter{
-
+private String newName;
+private int attack, defense;
 private ArrayList<Item>	inventory; // this is the item list of the player
 public Room currentRoom;
 	
@@ -23,7 +24,13 @@ public Room currentRoom;
 	 * @param InitialRoom
 	 */
 	public Player(String newName, Room InitialRoom) {
-		super(newName);
+		super(newName);	
+		if (newName.isEmpty())
+			this.newName = "John";
+		else
+			this.newName = newName;
+		this.attack = 10;
+		this.defense = 10;
 		this.currentRoom = InitialRoom;
 		inventory = new ArrayList<Item>();
 	}
@@ -31,6 +38,7 @@ public Room currentRoom;
 
 	/**
 	 * This method allows to set the new room position
+	 * It changes the room value. It can never be null.
 	 * @param NewRoom
 	 */
 	public void setCurrentRoom(Room NewRoom){
@@ -38,7 +46,9 @@ public Room currentRoom;
 	}
 	
 	/**
-	 * This method allows to pick up an itme in the room
+	 * This method allows to pick up an item in the room
+	 * It adds the item once to the inventory
+	 * It can't add the same item (ID) two times to the inventory
 	 * @param itemName
 	 */
 	public void pickUp(Item itemName){
@@ -47,22 +57,25 @@ public Room currentRoom;
 	
 	/**
 	 * This method allows to heal the player by eating food
+	 * If the life points added go over the maximum, health will be limited by the max value
 	 * @param healing
 	 */
-	public void heal(int healing){
+	public void heal(String food,int healing){
 		health = health+healing;
 	}
 	
 	/**
 	 * This methods changes the attack value of the fighter
+	 * It uses the weapon's attack power to augment the player's attack power
 	 * @return attack
 	 */
-	public int setAttack(){
-		return attack;
+	public void setAttack(String weapon, int attack){
+		//TODO 
 	}
 	
 	/**
 	 * This methods changes the defense value of the fighter
+	 * It uses the shield's defense power to augment the shield's defense power
 	 * @return defense
 	 */
 	public int setDefense(){
@@ -71,8 +84,20 @@ public Room currentRoom;
 	
 	/**
 	 * This method allows to talk to an NPC
+	 * It allows to initiate a discussion with the Ally
+	 * A player can only talk to one ally at a time
+	 * A player can talk only with an ally in the same room as the player
 	 */
 	public void talk(){
 		// TODO 
+	}
+
+	/**
+	 * This method allows to set new health with an item
+	 * @param i / The amount of life points to add to the health
+	 */
+	public void setHealth(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 }
