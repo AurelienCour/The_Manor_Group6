@@ -1,7 +1,14 @@
 package the_Manor;
 
 import java.util.ArrayList;
-
+/**
+ * This class represent the Player. </br>
+ * In addition to the possibilities inherited from the Character class, the player can: </br>
+ * <ul>
+ * <li> 
+ * @author astem
+ *
+ */
 public class Player extends Fighter{
 
 private ArrayList<Item>	inventory; // this is the item list of the player
