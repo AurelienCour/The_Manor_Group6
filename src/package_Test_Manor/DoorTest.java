@@ -3,21 +3,17 @@ package package_Test_Manor;
 import static org.junit.Assert.*;
 import org.junit.*;
 import the_Manor.Door;
+import the_Manor.Room;
 
 public class DoorTest {
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
-    }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
-
+	public DoorTest(){
+	}
+	
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+    	Room r = new Room("Test");
+        Door d = new Door(r);        
     }
 
     @After
