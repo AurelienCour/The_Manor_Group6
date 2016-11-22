@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Cette classe va permettre la gestion des salles dans notre jeux
+ * Nous allons pouvoir faire différennte choses dans cette classe :</br>
  * @author Aurelien
  *
  */
