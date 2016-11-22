@@ -21,7 +21,11 @@ public class LockedDoor extends Door{
 		
 	}
 	
-	//public Boolean isLocked()
+	public Boolean isLocked(Key theKeyOfThePlayer){
+		if (myKey == theKeyOfThePlayer){
+			
+		}
+	}
 	
 
 
