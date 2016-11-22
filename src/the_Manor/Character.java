@@ -1,4 +1,13 @@
 package the_Manor;
+/**
+ * This class represents the Character. It's an abstract class that will be the super-class, and thus will be inherited by the sub-classes.</br>
+ * <ul>A character has : </ul>
+ * <li> a name : a string that will be defined
+ * <li> a description : a small description of the character (string)
+ * @author astem
+ * @version 22/11/2016
+ *
+ */
 
 public class Character {
 
