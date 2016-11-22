@@ -6,7 +6,6 @@ import org.junit.*;
 
 
 public class CharacterTest {
-	private Character myCharacter;
 	
 	/**
 	 * Default constructor for test class CharacterTest
@@ -27,7 +26,7 @@ public class CharacterTest {
 
     @Before
     public void setUp(){
-        myCharacter = new Character("John");
+        
     }
 
     @After
@@ -40,7 +39,7 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterName() {
-		assertEquals("John", myCharacter.getName());
+		
 	}
 
 	/**
@@ -49,9 +48,7 @@ public class CharacterTest {
 	 */
 	@Test
 	public void testJohnDefaultName(){
-		Character emptyName = new Character("");
-		//Assuming that a empty name results in giving "John" as a default name for a player
-		assertEquals("John", emptyName.getName());
+		
 	}
 	
 	/**
@@ -60,7 +57,6 @@ public class CharacterTest {
 	 */
 	@Test
 	public void testDescription(){
-		assertEquals("This is a description", myCharacter.getDescription());
-		//test
+		
 	}
 }

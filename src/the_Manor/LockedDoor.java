@@ -60,7 +60,4 @@ public class LockedDoor extends Door{
 		else
 			return nextRoom;
 	}
-	
-
-
 }

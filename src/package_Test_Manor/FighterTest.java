@@ -106,7 +106,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemStaminaPlayer() {
-		myPlayer.remStamina(5);
+		myPlayer.removeStamina(5);
 		//Assuming the default value is 5, losing more than 5 points results is 0, not negative value
 		assertEquals(5, myPlayer.getStamina());
 	}
@@ -128,7 +128,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemHealthPlayer() {
-		myPlayer.remHealth(5);
+		myPlayer.removeHealth(5);
 		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
 		assertEquals(10, myPlayer.getHealth());
 	}
@@ -150,7 +150,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemAttackPlayer() {
-		myPlayer.remAttack(5);
+		myPlayer.removeAttack(5);
 		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
 		assertEquals(10, myPlayer.getAttack());
 	}
@@ -172,7 +172,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemDefensePlayer() {
-		myPlayer.remDefense(5);
+		myPlayer.removeDefense(5);
 		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
 		assertEquals(10, myPlayer.getDefense());
 	}
@@ -234,7 +234,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemStaminaEnemy() {
-		myEnemy.remStamina(5);
+		myEnemy.removeStamina(5);
 		//Assuming the default value is 5, losing more than 5 points results is 0, not negative value
 		assertEquals(5, myEnemy.getStamina());
 	}
@@ -245,7 +245,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemHealthEnemy() {
-		myEnemy.remHealth(5);
+		myEnemy.removeHealth(5);
 		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
 		assertEquals(10, myEnemy.getHealth());
 	}

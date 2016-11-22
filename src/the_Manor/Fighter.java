@@ -50,22 +50,6 @@ protected int defense; // the Fighter's Defense
 	public int getStamina(){
 		return stamina;
 	}
-
-	/**
-	 * This methods changes the health value of the fighter
-	 * @return health
-	 */
-	public int setHealth(){
-		return health;
-	}
-	
-	/**
-	 * This methods changes the stamina value of the fighter
-	 * @return stamina
-	 */
-	public int setStamina(){
-		return stamina;
-	}
 	
 	/**
 	 * This methods allows to attack, thus returns the attack power
@@ -81,7 +65,37 @@ protected int defense; // the Fighter's Defense
 	 */
 	public int getDefense(){
 		return defense;
-		//test
-		//test 2
+	}
+	
+	public void addStamina(int nbToAdd){
+		this.stamina += nbToAdd;
+	}
+	
+	public void removeStamina (int nbToRemove){
+		this.stamina -= nbToRemove;
+	}
+	
+	public void addHealth(int nbToAdd){
+		this.health += nbToAdd;
+	}
+	
+	public void removeHealth(int nbToRemove){
+		this.health -= nbToRemove;
+	}
+	
+	public void addAttack(int nbToAdd){
+		this.attack += nbToAdd;
+	}
+	
+	public void removeAttack(int nbToRemove){
+		this.attack -= nbToRemove;
+	}
+	
+	public void addDefense(int nbToAdd){
+		this.defense += nbToAdd;
+	}
+	
+	public void removeDefense(int nbToRemove){
+		this.defense -= nbToRemove;
 	}
 }

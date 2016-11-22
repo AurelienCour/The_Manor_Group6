@@ -7,6 +7,7 @@ import the_Manor.Room;
 import the_Manor.Shield;
 import the_Manor.Weapon;
 import the_Manor.Ally;
+import the_Manor.Enemy;
 
 import org.junit.*;
 /**
@@ -60,7 +61,8 @@ public class PlayerTest {
 		//Ally a;
 		Room Room2, TestRoom;
 		TestRoom = new Room("TestRoom");
-		TestRoom.addCharacter(false, "John");
+		Enemy enemy = new Enemy("John");
+		TestRoom.addCharacter(enemy);
 		Room2 = p.currentRoom;
 		assertEquals(TestRoom, Room2);
 	}
