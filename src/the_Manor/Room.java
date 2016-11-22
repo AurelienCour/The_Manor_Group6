@@ -138,8 +138,11 @@ public class Room {
 	 * @return Le character possédant le nom
 	 */
 	public Character getCharacter (String name){
-		Character n = new Character(name);
-		return n;
+		for(Character e:this.characterInRoom){
+			if(e.getName().equals(name))
+				return e;
+		}
+		return null;
 	}
 	
 	/**

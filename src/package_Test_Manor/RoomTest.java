@@ -1,14 +1,20 @@
 package package_Test_Manor;
-import junit.framework.TestCase;
+import the_Manor.Character;
+import the_Manor.Enemy;
+//import junit.framework.TestCase;
 import the_Manor.Room;
-
-import static org.junit.Assert.fail;
-
 import org.junit.*;
+
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 
 public class RoomTest 
 {
 	private Room myRoom;
+	
 	
 	/**
 	 * Default constructor for the test class RoomTest
@@ -20,12 +26,12 @@ public class RoomTest
 	/**
 	 * Sets up the test fixture.
 	 * </p> Called before every test case method. </p>
-	 * </p> Initialize one player for each test, whose name is "Salle" </p>
+	 * </p> Initialize one player for each test, whose name is "Cuisine" </p>
 	 */
 	@Before
 	public void setUp()
 	{
-		myRoom = new Room("Salle");
+		myRoom = new Room("Cuisine");
 	}
 	
 	/**
@@ -42,12 +48,59 @@ public class RoomTest
 	 * <p> Checks if the name given as parameter in the constructor is correctly set to the attribute </p>
 	 */
 	@Test
-	public void testNameSalle()
+	public void testNameCuisine()
 	{
-		// The parameter "Salle" (see setUp) must be set as the name attribute
-		assertEquals("Salle", myRoom.getName());
+		// The parameter "Cuisine" (see setUp) must be set as the name attribute
+		assertEquals("Cuisine", myRoom.getName());
 	}
 	
+	/**
+	 * Method testSalleDefaultName
+	 * <p> Check that the default name is "Salle", if the given name is empty </p>
+	 */
+	@Test
+	public void testSalleDefaultName()
+	{
+		Room badRoom = new Room("");
+		// Assuming that an empty name results in giving "Salle" as a default name for a player
+		assertEquals("Salle", badRoom.getName());
+	}
+	
+	/**
+	 * Method testAddCharacter
+	 * Checks if a character is added in a room 
+	 */
+	@Test
+	public void testAddCharacter()
+	{
+		this.myRoom.addCharacter(true,"Test");
+		assertEquals(1, this.myRoom.numberOfChararacterInRoom());
+	}
+	
+	/**
+	 * Method testNameCharacter
+	 * Checks the name given to an added character
+	 * 	 
+	@Test
+	public void testNameCharacter()
+	{	
+		Character myCharacter = new Character("Test");
+		this.myRoom.addCharacter(true,"Test");
+		assertEquals(myCharacter, this.myRoom.getCharacter("Test"));
+	}
+	*/
+	
+	/**
+	 * Method testAddItem
+	 * Checks if an item is added in a room 
+	 */
+	@Test
+	public void testAddItem()
+	{
+		Item myItem = new Item("Epee");
+		this.myRoom.addItem(myItem);
+		assertEquals(1, this.myRoom.numberOfChararacterInRoom());
+	}
 	
 	/**
 	@BeforeClass
