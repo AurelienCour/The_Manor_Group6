@@ -29,8 +29,8 @@ public class CharacterTest {
 	@Test
 	public void testCharacterName() {
 		
+<<<<<<< HEAD
 		
 		assertEquals("Name", character.);
-	}
 
 }
