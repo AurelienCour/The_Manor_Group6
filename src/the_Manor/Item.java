@@ -9,7 +9,7 @@ package the_Manor;
  * @version 22/11/2016
  */
 
-public class Item {
+public abstract class Item {
 
 	protected String itemName;//the name of the item
 

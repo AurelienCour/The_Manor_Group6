@@ -7,28 +7,21 @@ import static org.junit.Assert.fail;
 import org.junit.*;
 
 public class KeyTest {
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
-    }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
+	private Key key;
+	
+	public KeyTest(){
+		
+	}
 
     @Before
     public void setUp() throws Exception {
-        // Code execute avant chaque test        
+        this.key = new Key("clef");        
     }
 
     @After
     public void tearDown() throws Exception {
         // Code execute apres chaque test
     }
-    
-    @Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+
 }
