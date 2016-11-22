@@ -1,5 +1,16 @@
 package the_Manor;
-
+/**
+ * <p>This class represent all character who are allies for the main character.</p>
+ * <p>An ally is defined by :</p>
+ * <ul>
+ * <li>A name</li>
+ * <li>His position in a room</li>
+ * </ul>
+ * <p>An ally can give an object to the player.</p>
+ * 
+ * @author Willy Dieuaide
+ * @version 2016-22-11
+ */
 public class Ally extends Character{
 
 	/**
@@ -15,7 +26,7 @@ public class Ally extends Character{
 	 * This method allows for the ally to give an item to the player
 	 * @param item
 	 */
-	// TODO a revoire cette methode
+	// TODO a revoir cette methode
 	public void giveItem(Item itemName){
 
 
