@@ -3,7 +3,7 @@ package the_Manor;
 import java.util.*;
 
 /*
- * 
+ * Cette classe va permettre 
  */
 public class Room {
 	private HashMap<String,Door> exitPossible;
