@@ -27,8 +27,10 @@ public class CharacterTest {
     }
     
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testRoom() {
+		
+		
+		assertEquals(str1, str2);;
 	}
 
 }
