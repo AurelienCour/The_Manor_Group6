@@ -12,7 +12,7 @@ public class Room {
 	private ArrayList<Item> objectInRoom;
 	
 	/**
-	 * Le constructeur de la classe room
+	 * Le constructeur de la classe room </br>
 	 * Si le nom est vide la salle auras par defaut le nom "Salle"
 	 * Crée également nos objets exitPossible ainsi que nos personnages présent dans la salle 
 	 * @param roomName The name of the Room
