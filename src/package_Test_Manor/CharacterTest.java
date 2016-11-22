@@ -4,7 +4,12 @@ import static org.junit.Assert.*;
 import the_Manor.Character;
 import org.junit.*;
 
-
+/**
+ * The test class CharacterTest
+ * Unit tests of the Character class
+ * @author Aurelien
+ *
+ */
 public class CharacterTest {
 	
 	/**

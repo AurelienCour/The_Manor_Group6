@@ -14,7 +14,12 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-
+/**
+ * The test class RoomTest
+ * Unit test of the Room class
+ * @author Simon
+ *
+ */
 public class RoomTest 
 {
 	private Room myRoom;
@@ -29,8 +34,8 @@ public class RoomTest
 	
 	/**
 	 * Sets up the test fixture.
-	 * </p> Called before every test case method. </p>
-	 * </p> Initialize one player for each test, whose name is "Cuisine" </p>
+	 * <p> Called before every test case method. </p>
+	 * <p> Initialize one player for each test, whose name is "Cuisine" </p>
 	 */
 	@Before
 	public void setUp()

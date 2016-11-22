@@ -7,6 +7,12 @@ import the_Manor.EnigmaticDoor;
 import the_Manor.Room;
 import org.junit.Test;
 
+/**
+ * The test class EnigmaticDoor
+ * Unit tests of the EnigmaticDoor
+ * @author Aurelien
+ *
+ */
 public class EnigmaticDoorTest {
 	
 	private EnigmaticDoor door;

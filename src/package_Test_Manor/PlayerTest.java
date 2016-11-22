@@ -11,7 +11,8 @@ import the_Manor.Enemy;
 
 import org.junit.*;
 /**
- * 
+ * The test class PlayerTest
+ * Unit tests of the Player class
  * @author Astemir 
  *
  */

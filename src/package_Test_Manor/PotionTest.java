@@ -7,7 +7,8 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 /**
- * 
+ * The test class PotionTest
+ * Unit tests of the Potion class
  * @author Aurelien
  */
 public class PotionTest {

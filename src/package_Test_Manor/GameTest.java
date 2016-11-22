@@ -3,6 +3,11 @@ import junit.framework.TestCase;
 import the_Manor.Game;
 import org.junit.*;
 
+/**
+ * The test class GameTest
+ * @author Aurelien
+ *
+ */
 public class GameTest extends TestCase
 {
 	private Game game1;

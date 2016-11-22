@@ -15,6 +15,11 @@ import the_Manor.Player;
 
 import org.junit.*;
 
+/**
+ * The test class FighterTest
+ * @author Willy
+ *
+ */
 public class FighterTest {
 	
 	private Player myPlayer;

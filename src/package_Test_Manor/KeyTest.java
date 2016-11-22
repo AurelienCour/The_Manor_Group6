@@ -6,6 +6,11 @@ import static org.junit.Assert.fail;
 
 import org.junit.*;
 
+/**
+ * The test class KeyTest
+ * @author Aurelien
+ *
+ */
 public class KeyTest {
 
 	private Key key;
