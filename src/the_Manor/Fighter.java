@@ -18,12 +18,12 @@ package the_Manor;
  * @author astem
  * @version 22/11/2016
  */
-public class Fighter extends Character{
+public abstract class Fighter extends Character{
 
 protected int health; // the Fighter's Health
-protected int stamina; // the Fighte's Stamina 
-protected int attack; // the Fighter's attack
-protected int defense; // the Fighet's defense
+protected int stamina; // the Fighter's Stamina 
+protected int attack; // the Fighter's Attack
+protected int defense; // the Fighter's Defense
 	
 
 	/**

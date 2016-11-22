@@ -12,7 +12,7 @@ package the_Manor;
  * @version 22/11/2016
  */
 
-public class Character {
+public abstract class Character {
 
 	protected String name; // the name of the Character
 	protected String description; // a small description of the character
