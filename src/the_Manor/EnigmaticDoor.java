@@ -53,6 +53,10 @@ public class EnigmaticDoor extends Door{
 			return this.nextRoom;
 	}
 	
+	/**
+	 * Function to know if the door is locked
+	 * @return A boolean to know if the door is locked or not (true => locked; false => open)
+	 */
 	public boolean isLocked(){
 		return this.locked;
 	}
