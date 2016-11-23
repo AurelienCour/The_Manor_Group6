@@ -43,7 +43,7 @@ public class PlayerTest {
     @Before
     public void setUp() throws Exception {
         // Code execute avant chaque test   
-    	p = new Player("John", null);
+    	p = new Player("John", "Description", null);
     }
 
     @After
@@ -69,7 +69,7 @@ public class PlayerTest {
 		//Ally a;
 		Room Room2, TestRoom;
 		TestRoom = new Room("TestRoom");
-		Enemy enemy = new Enemy("John");
+		Enemy enemy = new Enemy("John", "description");
 		TestRoom.addCharacter(enemy);
 		Room2 = p.currentRoom;
 		assertEquals(TestRoom, Room2);
