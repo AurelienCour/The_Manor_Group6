@@ -2,14 +2,12 @@ package package_Test_Manor;
 
 import static org.junit.Assert.*;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-
 import the_Manor.Ally;
+import the_Manor.Item;
 import the_Manor.Player;
 import the_Manor.Potion;
-import the_Manor.Item;
+
 import org.junit.Test;
 
 /**
@@ -21,20 +19,14 @@ import org.junit.Test;
 public class AllyTest {
 
 	private Ally myAlly;
+	private Item potion;
+	
 	/**
 	 * Default constructor for test class AllyTest
 	 */
 	public AllyTest () {
 	}
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'exécution du premier test (et de la méthode @Before)        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute après l'exécution de tous les tests
-    }
+	
     /**
      * Sets up the test fixture
      * <p> Called before every test case </p>
@@ -42,7 +34,8 @@ public class AllyTest {
      */
     @Before
     public void setUp() throws Exception {
-    	this.myAlly = new Ally("Ally",null, null);
+    	potion = new Potion("Potion de vie", 40);
+    	myAlly = new Ally("myAlly", "An ally", potion);
     }
 
     @After
@@ -56,7 +49,7 @@ public class AllyTest {
      */
 	@Test
 	public void testGetItem() {
-		assertEquals(null, myAlly.getItem());
+		assertEquals(potion, myAlly.getItem());
 	}
 	
 	/**
@@ -66,9 +59,25 @@ public class AllyTest {
 	 */
 	@Test
 	public void testAddItem(){
-		Potion potion = new Potion("potion",15);
-		this.myAlly.addItem(potion);
-		assertEquals(potion, myAlly.getItem());
+		Item potion2 = new Potion("potion",15);
+		Ally myAlly2 = new Ally("test", "test", null);
+		assertEquals(null, myAlly2.getItem());
+		myAlly2.addItem(potion2);
+		assertEquals(potion2, myAlly2.getItem());
+	}
+	
+	/**
+	 * Method testAddItemWithItem
+	 * <p>Verify that the first item given to the ally
+	 * is present after give an other item</p>
+	 */
+	@Test
+	public void testAddItemWithItem(){
+		Item potion2 = new Potion("potion",15);
+		Ally myAlly2 = new Ally("test", "test", potion);
+		assertEquals(potion, myAlly2.getItem());
+		myAlly.addItem(potion2);
+		assertEquals(potion, myAlly2.getItem());
 	}
 	
 	/**
@@ -78,10 +87,25 @@ public class AllyTest {
 	 */
 	@Test
 	public void testGiveItem(){
-		Potion potion = new Potion("potion",15);
-		this.myAlly.addItem(potion);
-		Player player = new Player("PlayerTest", null, null);
+		Player player = new Player("test", "test", null);
+		assertEquals(0, player.numberOfItem());
+		assertEquals(potion, myAlly.getItem());
 		this.myAlly.giveItem(player);
-		assertEquals(null, this.myAlly.getItem());
+		assertEquals(null, myAlly.getItem());
+		assertEquals(1, player.numberOfItem());
+	}
+	
+	/**
+	 * Method testGiveItemWithoutItem
+	 * <p>Verify that the ally can not give an item without an item</p>
+	 */
+	@Test
+	public void testGiveItemWithoutItem(){
+		Player player = new Player("test", "test", null);
+		Ally myAlly2 = new Ally("test", "test", null);
+		assertEquals(0, player.numberOfItem());
+		assertEquals(null, myAlly2.getItem());
+		myAlly2.giveItem(player);
+		assertEquals(0, player.numberOfItem());
 	}
 }

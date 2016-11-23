@@ -9,7 +9,8 @@ package the_Manor;
  * @version 2016-22-11
  */
 public class Ally extends Character{
-	private Item myItem;
+	
+	private Item itemGiveByAlly;
 	
 	/**
 	 * This is the Ally constructor
@@ -18,15 +19,17 @@ public class Ally extends Character{
 	 */
 	public Ally(String newName,String description,Item item) {
 		super(newName,description);
-		this.myItem = item;
-		//myItem = new Item(item);
+		if(item == null)
+			System.out.println("L'objet item est vide");
+		this.itemGiveByAlly = item;
 	}
 	
 	/**
-	 * 
+	 * This methods allow to know the item give by the ally
+	 * @return The item held by the ally
 	 */
-	public Object getItem(){
-		return this.myItem;
+	public Item getItem(){
+		return this.itemGiveByAlly;
 	}
 	
 	/**
@@ -36,7 +39,10 @@ public class Ally extends Character{
 	 * @param item
 	 */
 	public void addItem(Item item){
-		this.myItem = item;
+		if(getItem() == null)
+			this.itemGiveByAlly = item;
+		else
+			System.out.println("L'alliée possède déja un item");
 	}
 	
 	/**
@@ -44,6 +50,11 @@ public class Ally extends Character{
 	 * @param item
 	 */
 	public void giveItem(Player player){
-		this.myItem = null;
+		if(getItem() != null){
+			player.pickUp(this.itemGiveByAlly);
+			this.itemGiveByAlly = null;
+		}
+		else
+			System.out.println("L'alliée ne possède pas d'item");
 	}
 }

@@ -71,7 +71,7 @@ public class PlayerTest {
 		TestRoom = new Room("TestRoom");
 		Enemy enemy = new Enemy("John", "description");
 		TestRoom.addCharacter(enemy);
-		Room2 = p.currentRoom;
+		Room2 = p.getCurrentRoom();
 		assertEquals(TestRoom, Room2);
 	}
 	

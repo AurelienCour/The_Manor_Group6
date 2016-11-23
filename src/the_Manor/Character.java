@@ -18,7 +18,7 @@ public abstract class Character {
 	protected String description; // a small description of the character
 	
 	/**
-	 * This constructor
+	 * If the name is empty give a default name "Character" to the character
 	 * @param newName The name of the character
 	 * @param InitialRoom The starting room of the character
 	 */

@@ -13,17 +13,18 @@ import java.util.ArrayList;
  *
  */
 public class Player extends Fighter{
-private String newName;
-private int attack, defense;
-private ArrayList<Item>	inventory; // this is the item list of the player
-public Room currentRoom;
+	
+	private String newName;
+	private int attack, defense;
+	private ArrayList<Item>	inventory; // this is the item list of the player
+	private Room currentRoom;
 	
 	/**
 	 * The constructor for the player
 	 * @param newName
 	 * @param InitialRoom
 	 */
-	public Player(String newName, String description, Room InitialRoom) {
+	public Player(String newName, String description, Room initialRoom) {
 		super(newName,description);
 		if (newName.isEmpty())
 			this.newName = "John";
@@ -31,8 +32,12 @@ public Room currentRoom;
 			this.newName = newName;
 		this.attack = 10;
 		this.defense = 10;
-		this.currentRoom = InitialRoom;
+		this.currentRoom = initialRoom;
 		inventory = new ArrayList<Item>();
+	}
+	
+	public int numberOfItem(){
+		return this.inventory.size();
 	}
 	
 
@@ -41,8 +46,16 @@ public Room currentRoom;
 	 * It changes the room value. It can never be null.
 	 * @param NewRoom
 	 */
-	public void setCurrentRoom(Room NewRoom){
-		Room CurrentRoom = NewRoom;
+	public void setCurrentRoom(Room newRoom){
+		this.currentRoom = newRoom;
+	}
+	
+	/**
+	 * This methods allow to know the current room of the player
+	 * @return The current room of the player
+	 */
+	public Room getCurrentRoom(){
+		return this.currentRoom;
 	}
 	
 	/**
@@ -61,7 +74,7 @@ public Room currentRoom;
 	 * @param healing
 	 */
 	public void heal(String food,int healing){
-		health = health+healing;
+		health = health + healing;
 	}
 	
 	/**
