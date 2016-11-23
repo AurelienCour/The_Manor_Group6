@@ -50,9 +50,9 @@ public class Room {
 	public void addExit(String direction,boolean lock, Room nextRoom){
 		if(!this.exitPossible.containsKey(direction)){
 			if(lock)
-				this.exitPossible.put(direction, new LockedDoor(nextRoom));
+				this.exitPossible.put(direction, new LockedDoor(nextRoom,this));
 			else
-				this.exitPossible.put(direction, new Door(nextRoom));
+				this.exitPossible.put(direction, new Door(nextRoom,this));
 		}
 		else
 			System.out.println("Erreur");
@@ -72,7 +72,7 @@ public class Room {
 	 */
 	public void addEnigmaticExit(String direction,String enigma,String response,Room nextRoom){
 		if(!this.exitPossible.containsKey(direction))
-			this.exitPossible.put(direction, new EnigmaticDoor(enigma,response,nextRoom));
+			this.exitPossible.put(direction, new EnigmaticDoor(enigma,response,nextRoom,this));
 		else
 			System.out.println("Erreur");
 	}

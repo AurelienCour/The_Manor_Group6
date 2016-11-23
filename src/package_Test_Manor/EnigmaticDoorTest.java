@@ -2,10 +2,7 @@ package package_Test_Manor;
 
 import static org.junit.Assert.*;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-
 import the_Manor.EnigmaticDoor;
 import the_Manor.Room;
 import org.junit.Test;
@@ -19,7 +16,8 @@ import org.junit.Test;
 public class EnigmaticDoorTest {
 	
 	private EnigmaticDoor door;
-	private Room room;
+	private Room nextRoom;
+	private Room previousRoom;
 	
 	public EnigmaticDoorTest(){
 	}
@@ -29,8 +27,9 @@ public class EnigmaticDoorTest {
 	 */
     @Before
     public void setUp() {
-    	room = new Room("");
-        door = new EnigmaticDoor("","",room);      
+    	nextRoom = new Room("Kitchen");
+    	previousRoom = new Room("Bedroom");
+        door = new EnigmaticDoor("Qui est le chef du groupe 5 ?","Aurelien",nextRoom,previousRoom);     
     }
 
     @After
@@ -39,12 +38,36 @@ public class EnigmaticDoorTest {
     }
     
     /**
+     * Method testInstance
+     * Checks if the instanciation is good
+     */
+    @Test
+    public void testInstance(){
+    	assertEquals("Qui est le chef du groupe 5 ?",this.door.getEnigma());
+    	assertEquals("Aurelien".toUpperCase(),this.door.getResponse());
+    }
+    
+    /**
+     * Method testDefaultInstance
+     * Checks if the default instanciation works
+     */
+    @Test
+    public void testDefaultInstance(){
+    	EnigmaticDoor doorTest = new EnigmaticDoor("", "", nextRoom,previousRoom);
+    	assertEquals("No enigma, response : No enigma",doorTest.getEnigma());
+    	assertEquals("No enigma".toUpperCase(),doorTest.getResponse());
+    	EnigmaticDoor doorTestNull = new EnigmaticDoor(null, null, nextRoom,previousRoom);
+    	assertEquals("No enigma, response : No enigma",doorTestNull.getEnigma());
+    	assertEquals("No enigma".toUpperCase(),doorTestNull.getResponse());
+    }
+    
+    /**
      * Methods testResolveEnigma
      * Checks if the enigma is solve with the good response
      */
     @Test
     public void testResolveEnigma(){
-    	this.door.solveEnigma("");
+    	this.door.solveEnigma("Aurelien");
     	assertEquals(false,this.door.isLocked());
     }
     
@@ -54,7 +77,7 @@ public class EnigmaticDoorTest {
      */
     @Test
     public void testResolveEnigmaBad(){
-    	this.door.solveEnigma("No");
+    	this.door.solveEnigma("Not solve");
     	assertEquals(true,this.door.isLocked());
     }
     
@@ -64,8 +87,8 @@ public class EnigmaticDoorTest {
      */
     @Test
     public void testGoNextRoomIfResolve(){
-    	this.door.solveEnigma("");
-    	assertEquals(room,this.door.goNextRoom());
+    	this.door.solveEnigma("Aurelien");
+    	assertEquals(nextRoom,this.door.goNextRoom());
     }
     
     /**
@@ -74,7 +97,7 @@ public class EnigmaticDoorTest {
      */
     @Test
     public void testGoNextRoomIfNotResolve(){
-    	this.door.solveEnigma("No");
+    	this.door.solveEnigma("Not solve");
     	assertEquals(null,this.door.goNextRoom());
     }
 }

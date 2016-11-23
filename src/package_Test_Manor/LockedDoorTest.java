@@ -24,7 +24,8 @@ import org.junit.Test;
 public class LockedDoorTest {
 	
 	private LockedDoor door;
-	private Room room;
+	private Room nextRoom;
+	private Room previousRoom;
 	
 	public LockedDoorTest(){
 		
@@ -35,8 +36,9 @@ public class LockedDoorTest {
 	 */
     @Before
     public void setUp() {
-    	room = new Room("");
-        door = new LockedDoor(room);      
+    	nextRoom = new Room("Kitchen");
+    	previousRoom = new Room("Bedroom");
+        door = new LockedDoor(nextRoom,previousRoom);      
     }
 
     @After
@@ -50,7 +52,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testUnlock(){
-    	Player player = new Player("Paul", null, room);
+    	Player player = new Player("Paul", null, nextRoom);
     	Key key = new Key("clef");
     	player.pickUp(key);
     	this.door.unlock(player);
@@ -63,7 +65,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testBadUnlock(){
-    	Player player = new Player("Paul", null, room);
+    	Player player = new Player("Paul", null, nextRoom);
     	this.door.unlock(player);
     	assertEquals(true,this.door.isLocked());
     }
@@ -74,7 +76,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testLock(){
-    	Player player = new Player("Paul", null, room);
+    	Player player = new Player("Paul", null, nextRoom);
     	Key key = new Key("clef");
     	player.pickUp(key);
     	this.door.unlock(player);
@@ -89,11 +91,11 @@ public class LockedDoorTest {
      */
     @Test
     public void testGoNextRoomIfUnlock(){
-    	Player player = new Player("Paul", null, room);
+    	Player player = new Player("Paul", null, nextRoom);
     	Key key = new Key("clef");
     	player.pickUp(key);
     	this.door.unlock(player);
-    	assertEquals(room,this.door.goNextRoom());
+    	assertEquals(nextRoom,this.door.goNextRoom());
     }
     
     /**
@@ -102,7 +104,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testGoNextRoomIfLock(){
-    	Player player = new Player("Paul", null, room);
+    	Player player = new Player("Paul", null, nextRoom);
     	this.door.unlock(player);
     	assertEquals(null,this.door.goNextRoom());
     }

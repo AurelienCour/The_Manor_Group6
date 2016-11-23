@@ -12,7 +12,8 @@ import the_Manor.Room;
  *
  */
 public class DoorTest {
-	private Room room;
+	private Room nextRoom;
+	private Room previousRoom;
 	private Door door;
 	
 	/**
@@ -26,12 +27,34 @@ public class DoorTest {
 	 */
     @Before
     public void setUp() {
-    	room = new Room("Test");
-    	door = new Door(room);        
+    	nextRoom = new Room("Kitchen");
+    	previousRoom = new Room("Bedroom");
+    	door = new Door(nextRoom,previousRoom);        
     }
     
     @After
     public void tearDown() {
+    }
+    
+    /**
+     * Methods testInstance
+     * Allows to knows if the instanciation works
+     */
+    @Test
+    public void testInstance(){
+    	assertEquals(nextRoom,door.goNextRoom());
+    	assertEquals(previousRoom,door.getPreviousRoom());
+    }
+    
+    /**
+     * Methods testDefaultInstance
+     * Allows to knows if the default instanciation works
+     */
+    @Test
+    public void testDefaultInstance(){
+    	Door doorTest = new Door(null,previousRoom); 
+    	assertEquals(previousRoom,doorTest.goNextRoom());
+    	assertEquals(previousRoom,doorTest.getPreviousRoom());
     }
     
     /**
@@ -40,7 +63,7 @@ public class DoorTest {
      */
 	@Test
 	public void testgoNextRoom() {
-		assertEquals(room,door.goNextRoom());
+		assertEquals(nextRoom,door.goNextRoom());
 	}
 
 }

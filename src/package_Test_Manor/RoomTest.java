@@ -170,7 +170,7 @@ public class RoomTest
 	@Test
 	public void testGetDoor()
 	{
-		Door myDoor = new Door(null);
+		Door myDoor = new Door(null, myRoom);
 		String direction = "direction1";
 		myRoom.addExit(direction, false, myRoom);				
 		assertEquals(myDoor, myRoom.getDoor("direction1"));

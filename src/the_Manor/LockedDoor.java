@@ -14,9 +14,10 @@ public class LockedDoor extends Door{
 	/**
 	 * Constructor of the LockedDoor class.
 	 * @param nextRoom The next room the player is going to enter after having unlocked the door
+	 * @param previousRoom The previous room
 	 */
-	public LockedDoor(Room nextRoom) {
-		super(nextRoom);
+	public LockedDoor(Room nextRoom, Room previousRoom) {
+		super(nextRoom,previousRoom);
 		this.locked = true;
 	}
 	
