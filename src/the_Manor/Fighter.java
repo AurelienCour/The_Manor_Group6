@@ -4,8 +4,8 @@ package the_Manor;
  * This class defines the Fighter characters. </br>
  * <ul>A fighter has : 
  * <ul>
- * <li> health : integer variable defining the lifepoints. 10 by default
- * <li> stamina : integer variable defining the stamina. 20 by default
+ * <li> health : integer variable defining the lifepoints. 100 by default
+ * <li> stamina : integer variable defining the stamina. 60 by default
  * <li> attack : integer variable. 5 by default
  * <li> defense : integer variable. 3 by default
  * </ul>
@@ -33,6 +33,10 @@ protected int defense; // the Fighter's Defense
 	 */
 	public Fighter(String newName, String description) {
 		super(newName, description);
+		this.attack = 5;
+		this.defense = 3;
+		this.health = 100;
+		this.stamina = 60;
 	}
 
 	/**

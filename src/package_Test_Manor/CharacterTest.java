@@ -41,9 +41,9 @@ public class CharacterTest {
 
     @Before
     public void setUp(){
-        ally = new Ally(null, null);
-        enemy = new Enemy(null);
-        player = new Player(null, null);
+    	ally = new Ally("Mon copain","Ceci est mon copain",null);
+    	enemy = new Enemy("Mon enemi","Ceci est mon enemi");
+    	player = new Player("Mon joueur","Ceci est un joueur",null);
     }
 
     @After
