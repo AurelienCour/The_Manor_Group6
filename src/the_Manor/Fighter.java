@@ -1,20 +1,21 @@
 package the_Manor;
 
 /**
- * This class defines the Fighter characters. </br>
- * <ul>A fighter has : 
+ * <p>This class defines the Fighter characters.</p>
+ * <p>A fighter has : </p>
  * <ul>
- * <li> health : integer variable defining the lifepoints. 100 by default
- * <li> stamina : integer variable defining the stamina. 60 by default
- * <li> attack : integer variable. 5 by default
- * <li> defense : integer variable. 3 by default
+ * <li> health : integer variable defining the lifepoints. 100 by default</li>
+ * <li> stamina : integer variable defining the stamina. 60 by default</li>
+ * <li> attack : integer variable. 5 by default</li>
+ * <li> defense : integer variable. 3 by default</li>
  * </ul>
- * The fighter can : </br>
+ * <p>The fighter can : </p>
  * <ul>
- * <li> Attack with his base attack or with a weapon. Weapon adds attack points </br>
- * <li> Defend with his base attack or with a shield. Shield adds defense points  </br>
- * <li> Die if his health goes bellow 0 
- * <li> Can no longer attack if his stamina reaches 0
+ * <li> Attack with his base attack or with a weapon. Weapon adds attack points </li>
+ * <li> Defend with his base attack or with a shield. Shield adds defense points  </li>
+ * <li> Die if his health goes bellow 0 </li>
+ * <li> Can no longer attack if his stamina reaches 0</li>
+ * </ul>
  * @author astem
  * @version 22/11/2016
  */
@@ -29,7 +30,7 @@ protected int defense; // the Fighter's Defense
 	/**
 	 * This is the constructor for the Fighter
 	 * @param newName the Name of the Fighter
-	 * @param InitialRoom
+	 * @param description The description of the fighter
 	 */
 	public Fighter(String newName, String description) {
 		super(newName, description);
@@ -41,7 +42,7 @@ protected int defense; // the Fighter's Defense
 
 	/**
 	 * This methods returns the health of the fighter
-	 * @return health
+	 * @return The health of the fighter
 	 */
 	public int getHealth(){
 		return health;
@@ -49,7 +50,7 @@ protected int defense; // the Fighter's Defense
 	
 	/**
 	 * This methods returns the stamina of the fighter
-	 * @return stamina
+	 * @return The stamina of the fighter
 	 */
 	public int getStamina(){
 		return stamina;
@@ -57,7 +58,7 @@ protected int defense; // the Fighter's Defense
 	
 	/**
 	 * This methods allows to attack, thus returns the attack power
-	 * @return attack
+	 * @return The attack of the fighter
 	 */
 	public int getAttack(){
 		return attack;
@@ -65,40 +66,78 @@ protected int defense; // the Fighter's Defense
 	
 	/**
 	 * This methods allows to attack, thus returns the defense power
-	 * @return defense
+	 * @return The defense of the fighter
 	 */
 	public int getDefense(){
 		return defense;
 	}
 	
+	/**
+	 * Allows to add stamina for the fighter
+	 * If the addition exceeds the maximum, put the stamina to the maximum
+	 * @param nbToAdd The number to add to the stamina of the fighter
+	 */
 	public void addStamina(int nbToAdd){
 		this.stamina += nbToAdd;
 	}
 	
+	/**
+	 * Allows to remove stamina for the fighter
+	 * If the subtraction exceeds the minimum, put the stamina to the minimum
+	 * @param nbToRemove The number to remove to the stamina of the fighter
+	 */
 	public void removeStamina (int nbToRemove){
 		this.stamina -= nbToRemove;
 	}
 	
+	/**
+	 * Allows to add health for the fighter
+	 * If the addition exceeds the maximum, put the health to the maximum
+	 * @param nbToAdd The number to add to the health of the fighter
+	 */
 	public void addHealth(int nbToAdd){
 		this.health += nbToAdd;
 	}
 	
+	/**
+	 * Allows to remove health for the fighter
+	 * If the subtraction exceeds the minimum, put the health to the minimum
+	 * @param nbToRemove The number to remove to the health of the fighter
+	 */
 	public void removeHealth(int nbToRemove){
 		this.health -= nbToRemove;
 	}
 	
+	/**
+	 * Allows to add attack for the fighter
+	 * @param nbToAdd The number to add to the attack of the fighter
+	 */
 	public void addAttack(int nbToAdd){
 		this.attack += nbToAdd;
 	}
 	
+	/**
+	 * Allows to remove attack for the fighter
+	 * If the subtraction exceeds the minimum, put the attack to 0
+	 * @param nbToRemove The number to remove to the attack of the fighter
+	 */
 	public void removeAttack(int nbToRemove){
 		this.attack -= nbToRemove;
 	}
 	
+	/**
+	 * Allows to add defense for the fighter
+	 * @param nbToAdd The number to add to the defense of the fighter
+	 */
 	public void addDefense(int nbToAdd){
 		this.defense += nbToAdd;
 	}
 	
+	/**
+	 * Allows to remove defense for the fighter
+	 * If the subtraction exceeds 0, put the defense to 0
+	 * @param nbToRemove The number to remove to the defense of the fighter
+	 */
 	public void removeDefense(int nbToRemove){
 		this.defense -= nbToRemove;
 	}

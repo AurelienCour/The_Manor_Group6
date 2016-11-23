@@ -1,8 +1,8 @@
 package the_Manor;
 
 /**
- * This Door class stands for a door that a player can use to navigate between the different rooms. </br>
- * The only function of this class for the player is the action of going from a room to another room. </br>
+ * <p>This Door class stands for a door that a player can use to navigate between the different rooms. </p>
+ * <p>The only function of this class for the player is the action of going from a room to another room. </p>
  * @author Simon Hay
  * @version 22/11/2016
  */

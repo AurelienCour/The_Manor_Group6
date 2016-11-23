@@ -10,8 +10,8 @@ public class Enemy extends Fighter{
 
 	/**
 	 * The constructor for the Enemy class
-	 * @param newName
-	 * @param InitialRoom
+	 * @param newName The name of the enemy
+	 * @param description The description of the enemy
 	 */
 	public Enemy(String newName, String description) {
 		super(newName, description);

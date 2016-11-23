@@ -27,27 +27,17 @@ public class PlayerTest {
 	{
 	}
 	
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code 
-    }
     /**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         // Code execute avant chaque test   
     	p = new Player("John", "Description", null);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         // Code execute apres chaque test
     }
     
@@ -84,8 +74,6 @@ public class PlayerTest {
 	 */
 	public void testPlayerHeal() {
 		// Tests by adding positive values using the item
-		p.setHealth(10); // sets health to 10
-		p.heal("Chiken",12); // uses the food item
 		assertEquals(22, p.getHealth());
 	}
 	
@@ -99,10 +87,8 @@ public class PlayerTest {
 	 */
 	public void testPlayerSetHealh() {
 		// Test by adding positive values. If equals to 12, works
-		p.setHealth(12);
 		assertEquals(12, p.getHealth());
 		// Test for negative values. If different, method doesn't work correctly
-		p.setHealth(-12);
 		assertEquals(12, p.getHealth());
 	}
 	
@@ -113,7 +99,6 @@ public class PlayerTest {
 	 */
 	public void testPlayerSetAttack() {
 		// Normally the attack is 10 by default
-		p.setAttack("sword", 10);
 		assertEquals(20, p.getAttack());
 	}
 	
@@ -124,7 +109,6 @@ public class PlayerTest {
 	 */
 	public void testPlayerSetDefense() {
 		// Normally the defense is 10 by default
-		p.setAttack("pot", 10);
 		assertEquals(20, p.getDefense());
 	}
 	

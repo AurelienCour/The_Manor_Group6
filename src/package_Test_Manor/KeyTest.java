@@ -19,26 +19,16 @@ public class KeyTest {
 		
 	}
 	
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant l'execution du premier test (et de la methode @Before)        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code execute apres l'execution de tous les tests
-    }
 	/**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.key = new Key("clef");        
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         // Code execute apres chaque test
     }
 

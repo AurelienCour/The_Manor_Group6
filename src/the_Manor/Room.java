@@ -3,8 +3,8 @@ package the_Manor;
 import java.util.*;
 
 /**
- * This class allows to manage the different rooms in our game. 
- * We can do several things in this class : </br>
+ * <p>This class allows to manage the different rooms in our game. </p>
+ * <p>We can do several things in this class : </p>
  * <ul>
  * <li> Allows to create exits in a room.</li>
  * <li> Allows to add and delete character to a room. </li>
@@ -20,9 +20,9 @@ public class Room {
 	private ArrayList<Item> objectInRoom;	
 	
 	/**
-	 * The constructor of the class Room.</br>
-	 * If the name is empty, the room will have the default name "Room". </br>
-	 * it also creates our object "exitPossible"and our character presents in the room. </br>
+	 * <p>The constructor of the class Room.</p>
+	 * <p>If the name is empty, the room will have the default name "Room". </p>
+	 * <p>it also creates our object "exitPossible"and our character presents in the room. </p>
 	 * 
 	 * @param roomName The name of the Room
 	 */
@@ -37,11 +37,11 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to add a simple or locked exit in the room.</br>
-	 * The direction will correspond to a key of our hashMap </br>
-	 * If a direction is incorrect, no door will be created. </br>
-	 * If a door already exits for the same direction, an error message appears and the door will not be added. </br>
-	 * If the Room object is unvalid, no door will be created.</br>
+	 * <p>Allows to add a simple or locked exit in the room.</p>
+	 * <p>The direction will correspond to a key of our hashMap </p>
+	 * <p>If a direction is incorrect, no door will be created. </p>
+	 * <p>If a door already exits for the same direction, an error message appears and the door will not be added. </p>
+	 * <p>If the Room object is unvalid, no door will be created.</p>
 	 * 
 	 * @param direction The direction for the door (East,West,South,North)
 	 * @param lock A boolean to know if the door is locked or not
@@ -59,16 +59,16 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to add a door which is unlockable by answering to an enigma.</br>
-	 * If the direction is incorrect or if it exists already in the room, no exit will be created and there will be an error message.</br> 
-	 * If the enigma is empty, no door will be created and an error message appears.</br> 
-	 * If the answer is empty, no door will be created and an error message appears. </br> 
-	 * If the given Room object is invalid, no door will be created.</br>
+	 * <p>Allows to add a door which is unlockable by answering to an enigma.</p>
+	 * <p>If the direction is incorrect or if it exists already in the room, no exit will be created and there will be an error message.</p> 
+	 * <p>If the enigma is empty, no door will be created and an error message appears.</p>
+	 * <p>If the answer is empty, no door will be created and an error message appears. </p> 
+	 * <p>If the given Room object is invalid, no door will be created.</p>
 	 * 
-	 * @param direction
-	 * @param enigma
-	 * @param response
-	 * @param nextRoom
+	 * @param direction The directon for the new exit door
+	 * @param enigma The enigma to unlock the door
+	 * @param response The response to give to unlock the door
+	 * @param nextRoom The room behind the door
 	 */
 	public void addEnigmaticExit(String direction,String enigma,String response,Room nextRoom){
 		if(!this.exitPossible.containsKey(direction))
@@ -86,12 +86,11 @@ public class Room {
 	}
 	
 	/**
-	 *  Allows to add a Character in the room. </br>
-	 *  If the name is empty and that the boolean is true then his name will be "Enemy" by default.</br>
-	 *  If the name is empty and that the boolean is false then his name will be "Ally" by default.</br>
+	 *  <p>Allows to add a Character in the room. </p>
+	 *  <p>If the name is empty and that the boolean is true then his name will be "Enemy" by default.</p>
+	 *  <p>If the name is empty and that the boolean is false then his name will be "Ally" by default.</p>
 	 *  
-	 * @param enemy A boolean to know if it is an enemy
-	 * @param name The name of the character
+	 * @param charac The character to add in the room
 	 */
 	public void addCharacter(Character charac){
 		this.characterInRoom.add(charac);
@@ -107,8 +106,8 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to recover a door in the room for a specific decision. </br>
-	 * If the direction is incorrect, it will return null. </br>
+	 * <p>Allows to recover a door in the room for a specific decision. </p>
+	 * <p>If the direction is incorrect, it will return null. </p>
 	 * 
 	 * @param direction The direction of the door that we want to recover.
 	 * @return the specific direction of a door.
@@ -121,10 +120,10 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to delete an enemy in the room.</br>
-	 * If the enemy does not exits, an error message appears. </br>
+	 * <p>Allows to delete an enemy in the room.</p>
+	 * <p>If the enemy does not exits, an error message appears. </p>
 	 *  
-	 * @param enemy
+	 * @param enemy The enemy to delete
 	 */
 	public void deleteEnemy (Character enemy){
 		if(this.characterInRoom.contains(enemy))
@@ -134,8 +133,8 @@ public class Room {
 	}
 	
 	/**
-	 * Return a character presents in the room by using his name. </br>
-	 * If he does not exist, it returns null. </br>
+	 * <p>Return a character presents in the room by using his name. </p>
+	 * <p>If he does not exist, it returns null. </p>
 	 *  
 	 * @param name The name of the character that is to be recovered
 	 * @return the character owning the name.
@@ -149,7 +148,7 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to add an item in the room.</br>
+	 * Allows to add an item in the room.
 	 *  
 	 * @param item The item to add.
 	 */
@@ -158,7 +157,7 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to remove an item from the room.</br>
+	 * Allows to remove an item from the room.
 	 *  
 	 * @param item To item to remove
 	 */
@@ -167,7 +166,7 @@ public class Room {
 	}
 	
 	/**
-	 * Allows to know the number of item in the room.</br>
+	 * Allows to know the number of item in the room.
 	 * 
 	 * @return The number of item in the room
 	 */
@@ -177,7 +176,7 @@ public class Room {
 	
 	/**
 	 * Allows to know the number of added exit.
-	 * 
+	 * @return The number of exit in the room
 	 */
 	public int numberOfExit(){
 		return this.exitPossible.size();

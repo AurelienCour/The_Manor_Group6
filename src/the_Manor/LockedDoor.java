@@ -1,8 +1,8 @@
 package the_Manor;
 
 /**
- * This LockedDoor class stands for a door locked thanks to a key. </br>
- * The player will be able to unlock this door if he has the right key.
+ * <p>This LockedDoor class stands for a door locked thanks to a key. </p>
+ * <p>The player will be able to unlock this door if he has the right key.</p>
  * @author Simon Hay
  * @version 22/11/2016
  */
@@ -30,6 +30,7 @@ public class LockedDoor extends Door{
 	
 	/**
 	 * Unlocks the door if the player has a key 
+	 * @param player The player with the key
 	 */
 	public void unlock(Player player){
 		if(player.haveKey())
@@ -38,7 +39,7 @@ public class LockedDoor extends Door{
 	
 	/**
 	 * Says if the door is locked or not
-	 * @param The key of the player
+	 * @return true if the door is locked false if the door is unlocked
 	 */
 	public Boolean isLocked(){
 		if (this.locked) {
@@ -50,9 +51,8 @@ public class LockedDoor extends Door{
 	}
 	
 	/**
-	 * Function allowing the player to go in another room.
-	 * @param nextRoom The next room the player is going to enter. 
-	 * @return The next room the player is going to enter. 
+	 * Function allowing the player to go in another room if the door is open
+	 * @return The next room the player is going to enter. If the door is locked return null
 	 */
 	public Room goNextRoom(){
 		if(isLocked())

@@ -29,19 +29,12 @@ public class ItemTest {
 	public ItemTest(){
 		
 	}
-	@BeforeClass
-    public static void setUpClass() throws Exception {     
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+	
 	/**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.shield = new Shield("bouclier",15);
         this.weapon = new Weapon("epee",10);
         this.potion = new Potion("potion",40);
@@ -49,7 +42,7 @@ public class ItemTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
     
     /**

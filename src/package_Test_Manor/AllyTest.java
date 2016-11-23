@@ -33,13 +33,13 @@ public class AllyTest {
      * <p> Initialize one ally for each test case method </p>
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     	potion = new Potion("Potion de vie", 40);
     	myAlly = new Ally("myAlly", "An ally", potion);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
     
     /** 

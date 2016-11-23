@@ -13,7 +13,8 @@ private int weaponAttack;
 
 	/**
 	 * This constructor allows to create a weapon name and initialize its attack points.
-	 * @param newAttack
+	 * @param itemName The name of the weapon
+	 * @param pointAttack The attack of the weapon
 	 */
 	public Weapon (String itemName, int pointAttack) {
 		super(itemName);		
@@ -22,7 +23,7 @@ private int weaponAttack;
 	
 	/**
 	 * This method allows to return the attack points of the weapon.
-	 * @return weaponAttack
+	 * @return The attack of the weapon
 	 */
 	public int getAttack() {
 		return weaponAttack;

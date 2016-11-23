@@ -9,7 +9,7 @@ package the_Manor;
  * </ul>
  * 
  * @author Astemir Bekanov 
- * @version 22/11/2016
+ * @version 23/11/2016
  */
 
 public abstract class Character {
@@ -18,12 +18,12 @@ public abstract class Character {
 	protected String description; // a small description of the character
 	
 	/**
-	 * If the name is empty or null give a default name "Ally" to the character if it is an ally </br>
-	 * If the name is empty or null give a default name "Enemy" to the character if it is an enemy </br>
-	 * If the name is empty or null give a default name "Player" to the character if it is an player </br>
-	 * If the description is null give the default description "No description"</br>
+	 * <p>If the name is empty or null give a default name "Ally" to the character if it is an ally </p>
+	 * <p>If the name is empty or null give a default name "Enemy" to the character if it is an enemy </p>
+	 * <p>If the name is empty or null give a default name "Player" to the character if it is an player </p>
+	 * <p>If the description is null give the default description "No description"</p>
 	 * @param newName The name of the character
-	 * @param InitialRoom The starting room of the character
+	 * @param description The description of the character
 	 */
 	public Character (String newName, String description){
 		if((newName == null || newName.isEmpty())  && this instanceof Ally)
@@ -41,7 +41,7 @@ public abstract class Character {
 	
 	/**
 	 * This method allows to return the name of the character
-	 * @return name 
+	 * @return The name of the character 
 	 */
 	public String getName(){
 		return this.name;
@@ -49,7 +49,7 @@ public abstract class Character {
 
 	/**
 	 * This method allows to return the description of the character
-	 * @return description 
+	 * @return The description of the character 
 	 */
 	public String getDescription(){
 		return this.description;

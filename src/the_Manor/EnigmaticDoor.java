@@ -1,8 +1,8 @@
 package the_Manor;
 
 /**
- * This EnigmaticDoor class stands for a door that is locked by an enigma. </br>
- * This enigma can be solved if the player propose the right solution.
+ * <p>This EnigmaticDoor class stands for a door that is locked by an enigma. </p>
+ * <p>This enigma can be solved if the player propose the right solution.</p>
  * @author Simon Hay
  * @version 22/11/2016
  */
@@ -31,8 +31,8 @@ public class EnigmaticDoor extends Door{
 	
 	/**
 	 * This method allows the player to propose an answer to the enigma that keep the door locked.
+	 * If the response is right, the door is unlocked.
 	 * @param responseOfThePlayer The response the player is proposing
-	 * @return False if the answer is good, true if it is not.
 	 */
 	public void solveEnigma(String responseOfThePlayer){
 		if(responseOfThePlayer.equals(this.response))
@@ -43,7 +43,6 @@ public class EnigmaticDoor extends Door{
 	
 	/**
 	 * Function allowing the player to go in another room.
-	 * @param nextRoom The next room the player is going to enter. 
 	 * @return The next room the player is going to enter. 
 	 */
 	public Room goNextRoom(){
@@ -55,7 +54,7 @@ public class EnigmaticDoor extends Door{
 	
 	/**
 	 * Function to know if the door is locked
-	 * @return A boolean to know if the door is locked or not (true => locked; false => open)
+	 * @return A boolean to know if the door is locked or not (true if is locked; false if is open)
 	 */
 	public boolean isLocked(){
 		return this.locked;

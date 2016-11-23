@@ -3,8 +3,10 @@ package the_Manor;
 /**
  * <p>The player have the possibility to found object like weapons 
  * potion, shield or key doors.</p>
- * <ul> A item has : </ul>
- * <li> a name : a string that will be defined
+ * <p> A item has :</p>
+ * <ul>
+ * <li> a name : a string that will be defined.</li>
+ * </ul>
  * @author alexia
  * @version 22/11/2016
  */
@@ -16,10 +18,9 @@ public abstract class Item {
 	/**
 	 * This constructor
 	 * @param itemName The name of the item
-	 * @param newItem A new item 
 	 */
-	public Item(String newItem){
-		itemName = newItem;
+	public Item(String itemName){
+		this.itemName = itemName;
 	}
 	
 	/**

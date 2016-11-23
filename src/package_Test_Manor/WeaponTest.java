@@ -23,27 +23,18 @@ public class WeaponTest {
 	public WeaponTest()
 	{		
 	}
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code 
-    }
+	
     /**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
     @Before
-    public void setUp() throws Exception 
+    public void setUp()
     {
     	weapon = new Weapon ("Gun", 5) ;
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
     /**
      * Method testGetAttack

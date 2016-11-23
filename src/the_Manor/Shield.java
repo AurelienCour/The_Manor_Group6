@@ -11,16 +11,17 @@ public class Shield extends Item{
 	
 	/**
 	 * This method allows to create a weapon name and initialise its defense points.
-	 * @param newItem
+	 * @param itemName The name of the shield
+	 * @param pointDefense The defense of the shield
 	 */
-	public Shield(String newItem, int pointDefense) {
-		super(newItem);
+	public Shield(String itemName, int pointDefense) {
+		super(itemName);
 		defenseShield = pointDefense;
 	}
 
 	/**
-	 * This method allows to return the attack points of the weapon.
-	 * @return weaponAttack
+	 * This method allows to return the defense points of the shield.
+	 * @return The defense of the shield
 	 */
 	public int getDefense() {
 		return defenseShield;

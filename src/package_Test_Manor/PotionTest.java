@@ -20,26 +20,17 @@ public class PotionTest {
 	public PotionTest(){
 		
 	}
-	@BeforeClass
-    public static void setUpClass() throws Exception {
-        // Code execute avant        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-        // Code 
-    }
+	
     /**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
 	@Before
-    public void setUp() throws Exception {
+    public void setUp() {
         potion = new Potion("potion",15);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         // Code execute apres chaque test
     }
     

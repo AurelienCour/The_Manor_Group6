@@ -32,16 +32,15 @@ public class LockedDoorTest {
 	
 	/**
 	 * Sets up the test fixture
-	 * @throws Exception
 	 */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     	room = new Room("");
         door = new LockedDoor(room);      
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         // Code execute apres chaque test
     }
 
