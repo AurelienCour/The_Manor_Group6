@@ -32,7 +32,6 @@ public class DoorTest {
     
     @After
     public void tearDown() {
-        // Code execute apres chaque test
     }
     
     /**

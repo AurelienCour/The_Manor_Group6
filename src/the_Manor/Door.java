@@ -14,6 +14,7 @@ public class Door
 	
 	/**
 	 * Constructor of the class Door.
+	 * The room can be null. Yes a door can lead to nowhere...
 	 * @param nextRoom The next room
 	 */
 	public Door(Room nextRoom){
