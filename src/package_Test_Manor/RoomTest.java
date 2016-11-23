@@ -1,5 +1,6 @@
 package package_Test_Manor;
 import the_Manor.Character;
+import the_Manor.Door;
 import the_Manor.Enemy;
 import the_Manor.Item;
 import the_Manor.LockedDoor;
@@ -82,9 +83,9 @@ public class RoomTest
 	@Test
 	public void testAddCharacter()
 	{
-		Enemy myCharacter = new Enemy("Test");
-		this.myRoom.addCharacter(myCharacter);
-		assertEquals(1, this.myRoom.numberOfChararacterInRoom());
+		Enemy myCharacter = new Enemy("Test", "description");
+		myRoom.addCharacter(myCharacter);
+		assertEquals(1, myRoom.numberOfChararacterInRoom());
 	}
 	
 	/**
@@ -94,9 +95,9 @@ public class RoomTest
 	@Test
 	public void testNameCharacter()
 	{	
-		Enemy myCharacter = new Enemy("Test");
-		this.myRoom.addCharacter(myCharacter);
-		assertEquals(myCharacter, this.myRoom.getCharacter("Test"));
+		Enemy myCharacter = new Enemy("Test", "description");
+		myRoom.addCharacter(myCharacter);
+		assertEquals(myCharacter, myRoom.getCharacter("Test"));
 	}
 
 	
@@ -108,8 +109,8 @@ public class RoomTest
 	public void testAddItem()
 	{
 		Weapon myItem = new Weapon("Epee", 2);
-		this.myRoom.addItem(myItem);
-		assertEquals(1, this.myRoom.numberOfItemInRoom());
+		myRoom.addItem(myItem);
+		assertEquals(1, myRoom.numberOfItemInRoom());
 	}
 	
 	/**
@@ -120,9 +121,9 @@ public class RoomTest
 	public void testRemoveItem()
 	{
 		Weapon myItem = new Weapon("Epee", 2);
-		this.myRoom.addItem(myItem);
-		this.myRoom.removeItem(myItem);
-		assertEquals(0, this.myRoom.numberOfItemInRoom());
+		myRoom.addItem(myItem);
+		myRoom.removeItem(myItem);
+		assertEquals(0, myRoom.numberOfItemInRoom());
 	}
 	
 	/**
@@ -132,26 +133,50 @@ public class RoomTest
 	@Test
 	public void testDeleteEnemy()
 	{
-		Enemy myCharacter = new Enemy("Test");
-		this.myRoom.addCharacter(myCharacter);
-		this.myRoom.deleteEnemy(myCharacter);
-		assertEquals(0, this.myRoom.numberOfChararacterInRoom());
+		Enemy myCharacter = new Enemy("Test", "description");
+		myRoom.addCharacter(myCharacter);
+		myRoom.deleteEnemy(myCharacter);
+		assertEquals(0, myRoom.numberOfChararacterInRoom());
 	}
 	
 	/**
 	 * Method testAddExit
 	 * Test if an exit is added to the room
-	 
+	 */
 	@Test
 	public void testAddExit()
 	{			
 		String direction = "Test";
 		myRoom.addExit(direction, true, myRoom);
-		//assertEquals(0, this.myRoom.numberOfExit());
+		assertEquals(1, myRoom.numberOfExit());
 	}
-	*/
 	
-	
+	/**
+	 * Method testAddEnigmaticExit
+	 * Test if an enigmatic exit is added to the room
+	 */
+	@Test 
+	public void testAddEnigmaticExit()
+	{
+		String direction = "Test";
+		myRoom.addExit(direction, true, myRoom);
+		assertEquals(1, myRoom.numberOfExit());
+	}
+
+	/**
+	 * Method testGetDoor
+	 * Test if the method returns the right door
+	 */
+	@Test
+	public void testGetDoor()
+	{
+		Door myDoor = new Door(null);
+		String direction = "direction1";
+		myRoom.addExit(direction, false, myRoom);				
+		assertEquals(myDoor, myRoom.getDoor("direction1"));
+	}
+
+
 	/**
 	@BeforeClass
     public static void setUpClass() throws Exception {
