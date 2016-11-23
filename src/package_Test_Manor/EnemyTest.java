@@ -23,12 +23,11 @@ public class EnemyTest {
 	
     @Before
     public void setUp() {
-    	this.enemy = new Enemy("Toto", null);
+    	this.enemy = new Enemy("Toto", "");
     }
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
     }
 
 }

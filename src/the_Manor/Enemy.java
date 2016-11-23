@@ -15,7 +15,6 @@ public class Enemy extends Fighter{
 	 */
 	public Enemy(String newName, String description) {
 		super(newName, description);
-		// TODO Auto-generated constructor stub
 	}
 
 }
