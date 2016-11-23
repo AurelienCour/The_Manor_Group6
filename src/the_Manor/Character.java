@@ -22,8 +22,9 @@ public abstract class Character {
 	 * @param newName The name of the character
 	 * @param InitialRoom The starting room of the character
 	 */
-	public Character (String newName){
-		name = newName;	
+	public Character (String newName, String description){
+		this.name = newName;
+		this.description = description;
 	}
 	
 	/**
@@ -31,14 +32,14 @@ public abstract class Character {
 	 * @return name 
 	 */
 	public String getName(){
-		return name;
-		}
+		return this.name;
+	}
 
 	/**
 	 * This method allows to return the description of the character
 	 * @return description 
 	 */
 	public String getDescription(){
-		return description;
-		}
+		return this.description;
+	}
 }

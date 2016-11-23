@@ -23,8 +23,8 @@ public Room currentRoom;
 	 * @param newName
 	 * @param InitialRoom
 	 */
-	public Player(String newName, Room InitialRoom) {
-		super(newName);	
+	public Player(String newName, String description, Room InitialRoom) {
+		super(newName,description);	
 		if (newName.isEmpty())
 			this.newName = "John";
 		else

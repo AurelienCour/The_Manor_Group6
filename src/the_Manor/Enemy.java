@@ -13,8 +13,8 @@ public class Enemy extends Fighter{
 	 * @param newName
 	 * @param InitialRoom
 	 */
-	public Enemy(String newName) {
-		super(newName);
+	public Enemy(String newName, String description) {
+		super(newName, description);
 		// TODO Auto-generated constructor stub
 	}
 

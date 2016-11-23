@@ -16,8 +16,8 @@ public class Ally extends Character{
 	 * @param newName The name of the Ally
 	 * @param InitialRoom The position of the Ally
 	 */
-	public Ally(String newName,Item item) {
-		super(newName);
+	public Ally(String newName,String description,Item item) {
+		super(newName,description);
 		this.myItem = item;
 		//myItem = new Item(item);
 	}

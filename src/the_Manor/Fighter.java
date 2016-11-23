@@ -31,8 +31,8 @@ protected int defense; // the Fighter's Defense
 	 * @param newName the Name of the Fighter
 	 * @param InitialRoom
 	 */
-	public Fighter(String newName) {
-		super(newName);
+	public Fighter(String newName, String description) {
+		super(newName, description);
 	}
 
 	/**

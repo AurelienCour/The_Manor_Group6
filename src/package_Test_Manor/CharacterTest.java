@@ -1,7 +1,12 @@
 package package_Test_Manor;
 
 import static org.junit.Assert.*;
+
+import the_Manor.Ally;
 import the_Manor.Character;
+import the_Manor.Enemy;
+import the_Manor.Player;
+
 import org.junit.*;
 
 /**
@@ -12,11 +17,16 @@ import org.junit.*;
  */
 public class CharacterTest {
 	
+	private Ally ally;
+	private Enemy enemy;
+	private Player player;
+	
 	/**
 	 * Default constructor for test class CharacterTest
 	 */
 	public CharacterTest()
 	{
+		
 	}
 	
 	@BeforeClass
@@ -31,7 +41,9 @@ public class CharacterTest {
 
     @Before
     public void setUp(){
-        
+        ally = new Ally(null, null);
+        enemy = new Enemy(null);
+        player = new Player(null, null);
     }
 
     @After
