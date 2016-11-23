@@ -45,8 +45,8 @@ public class FighterTest {
 
     @Before
     public void setUp() throws Exception {
-    	myPlayer = new Player("John",null);
-    	myEnemy = new Enemy("Zombie");
+    	myPlayer = new Player("John","description",null);
+    	myEnemy = new Enemy("Zombie", "description");
     }
 
     @After
