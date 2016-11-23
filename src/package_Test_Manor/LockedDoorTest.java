@@ -19,7 +19,7 @@ import org.junit.Test;
  * The test class LockedDoorTest
  * Unit tests of the Player class
  * @author Aurelien
- *
+ * @version 23/11/2016
  */
 public class LockedDoorTest {
 	

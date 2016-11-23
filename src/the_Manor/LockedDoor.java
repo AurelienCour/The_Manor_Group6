@@ -4,7 +4,7 @@ package the_Manor;
  * <p>This LockedDoor class stands for a door locked thanks to a key. </p>
  * <p>The player will be able to unlock this door if he has the right key.</p>
  * @author Simon Hay
- * @version 22/11/2016
+ * @version 23/11/2016
  */
 
 public class LockedDoor extends Door{
@@ -26,7 +26,10 @@ public class LockedDoor extends Door{
 	 * Locks the door
 	 */
 	public void lock(){
-		this.locked = true;
+		if(isLocked())
+			System.out.println("The door is already locked");
+		else
+			this.locked = true;
 	}
 	
 	/**
@@ -36,6 +39,8 @@ public class LockedDoor extends Door{
 	public void unlock(Player player){
 		if(player.haveKey())
 			this.locked = false;
+		else
+			System.out.println("You need a key to unlock the door");
 	}
 	
 	/**
@@ -43,12 +48,10 @@ public class LockedDoor extends Door{
 	 * @return true if the door is locked false if the door is unlocked
 	 */
 	public Boolean isLocked(){
-		if (this.locked) {
+		if (this.locked)
 			return true;
-		} 
-		else {
+		else
 			return false;		
-		}
 	}
 	
 	/**
