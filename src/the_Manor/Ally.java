@@ -30,9 +30,9 @@ public class Ally extends Character{
 	}
 	
 	/**
-	 * Permet d'ajouter un item a un allie
-	 * Si l'allie possède déja un objet ne fait rien
-	 * Sinon ajoute l'objet
+	 * Allows to add an item to an ally
+	 * If an ally who possess an object, you do not add an another object
+	 * Otherwide the object is added
 	 * @param item
 	 */
 	public void addItem(Item item){
