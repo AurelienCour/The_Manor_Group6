@@ -31,7 +31,7 @@ public class EnemyTest {
     }
     @Before
     public void setUp() throws Exception {
-    	this.enemy = new Enemy("Toto");
+    	this.enemy = new Enemy("Toto", null);
     }
 
     @After

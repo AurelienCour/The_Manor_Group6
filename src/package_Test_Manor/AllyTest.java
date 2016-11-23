@@ -42,7 +42,7 @@ public class AllyTest {
      */
     @Before
     public void setUp() throws Exception {
-    	this.myAlly = new Ally("Ally",null);
+    	this.myAlly = new Ally("Ally",null, null);
     }
 
     @After
@@ -80,7 +80,7 @@ public class AllyTest {
 	public void testGiveItem(){
 		Potion potion = new Potion("potion",15);
 		this.myAlly.addItem(potion);
-		Player player = new Player("PlayerTest", null);
+		Player player = new Player("PlayerTest", null, null);
 		this.myAlly.giveItem(player);
 		assertEquals(null, this.myAlly.getItem());
 	}
