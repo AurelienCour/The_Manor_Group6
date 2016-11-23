@@ -27,7 +27,7 @@ public class FighterTest {
 	
 	
 	/**
-	 * Default constructor for test class CharacterTest
+	 * Default constructor for test class FighterTest
 	 */
 	public FighterTest()
 	{

@@ -20,7 +20,9 @@ public class PlayerTest {
 	
 	private Player p;
 	
-	
+	/**
+	 * Constructor for test class PlayerTest 
+	 */
 	public PlayerTest()
 	{
 	}

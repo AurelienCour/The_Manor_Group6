@@ -18,7 +18,7 @@ public class ShieldTest {
 	
 	private Shield shield;
 	/**
-	 * Constructor for test class WeaponTest 
+	 * Constructor for test class ShieldTest 
 	 */
     
 	public ShieldTest()

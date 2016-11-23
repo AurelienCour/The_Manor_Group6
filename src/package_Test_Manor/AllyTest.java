@@ -22,7 +22,7 @@ public class AllyTest {
 
 	private Ally myAlly;
 	/**
-	 * Default constructor for test class PlayerTest
+	 * Default constructor for test class AllyTest
 	 */
 	public AllyTest () {
 	}
@@ -49,9 +49,10 @@ public class AllyTest {
     public void tearDown() throws Exception {
     }
     
-    /**
-     * Verify that the object was delete for the ally 
-     * when it was given to a player.
+    /** 
+     * Method testGetItem
+     * <p>Verify that the object was delete for the ally 
+     * when it was given to a player.</p>
      */
 	@Test
 	public void testGetItem() {
@@ -59,8 +60,9 @@ public class AllyTest {
 	}
 	
 	/**
-	 * Verify that the object given to the ally
-	 * is present
+	 * Method testAddItem
+	 * <p>Verify that the object given to the ally
+	 * is present</p>
 	 */
 	@Test
 	public void testAddItem(){
@@ -70,8 +72,9 @@ public class AllyTest {
 	}
 	
 	/**
-	 * Verify that the ally can give an object
-	 * and change the value of the object to null
+	 * Method testGiveItem
+	 * <p>Verify that the ally can give an object
+	 * and change the value of the object to null</p>
 	 */
 	@Test
 	public void testGiveItem(){

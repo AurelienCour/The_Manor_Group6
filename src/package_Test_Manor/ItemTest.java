@@ -22,7 +22,10 @@ public class ItemTest {
 	private Weapon weapon;
 	private Potion potion;
 	private Key key;
-
+	
+	/**
+	 * Constructor for test class ItemTest 
+	 */
 	public ItemTest(){
 		
 	}

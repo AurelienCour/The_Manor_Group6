@@ -14,7 +14,9 @@ import org.junit.*;
 public class PotionTest {
 
 	private Potion potion;
-	
+	/**
+	 * Constructor for test class PotionTest 
+	 */
 	public PotionTest(){
 		
 	}
