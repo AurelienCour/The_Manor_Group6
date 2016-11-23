@@ -63,7 +63,7 @@ public class Room {
 	 * If the direction is incorrect or if it exists already in the room, no exit will be created and there will be an error message.</br> 
 	 * If the enigma is empty, no door will be created and an error message appears.</br> 
 	 * If the answer is empty, no door will be created and an error message appears. </br> 
-	 * If the given Room object is unvalid, no door will be created.</br>
+	 * If the given Room object is invalid, no door will be created.</br>
 	 * 
 	 * @param direction
 	 * @param enigma
