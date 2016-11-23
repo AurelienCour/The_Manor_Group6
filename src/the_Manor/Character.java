@@ -23,7 +23,10 @@ public abstract class Character {
 	 * @param InitialRoom The starting room of the character
 	 */
 	public Character (String newName, String description){
-		this.name = newName;
+		if(newName.isEmpty())
+			this.name="Character";
+		else
+			this.name = newName;
 		this.description = description;
 	}
 	

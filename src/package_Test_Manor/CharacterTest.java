@@ -59,21 +59,21 @@ public class CharacterTest {
 		
 	}
 
-	/**
-	 * Method testJohnDefaultName
-	 * <p>Check that the default name is "John", if the given name is empty</p>
-	 */
-	@Test
-	public void testJohnDefaultName(){
-		
-	}
-	
-	/**
-	 * Method testJohnDefaultName
-	 * <p>Check that the default name is "John", if the given name is empty</p>
-	 */
-	@Test
-	public void testDescription(){
-		
-	}
+//	/**
+//	 * Method testJohnDefaultName
+//	 * <p>Check that the default name is "John", if the given name is empty</p>
+//	 */
+//	@Test
+//	public void testJohnDefaultName(){
+//		
+//	}
+//	
+//	/**
+//	 * Method testJohnDefaultName
+//	 * <p>Check that the default name is "John", if the given name is empty</p>
+//	 */
+//	@Test
+//	public void testDescription(){
+//		
+//	}
 }
