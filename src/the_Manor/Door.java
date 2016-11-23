@@ -18,6 +18,7 @@ public class Door
 	 * The previousRoom cannot be null.
 	 * The nextRoom can be null. If the nextRoom is null the door leads to the previous room
 	 * @param nextRoom The next room
+	 * @param previousRoom The previous room
 	 */
 	public Door(Room nextRoom, Room previousRoom){
 		if(previousRoom == null)
