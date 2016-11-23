@@ -26,10 +26,6 @@ public class Player extends Fighter{
 	 */
 	public Player(String newName, String description, Room initialRoom) {
 		super(newName,description);
-		if (newName.isEmpty())
-			this.newName = "John";
-		else
-			this.newName = newName;
 		this.attack = 10;
 		this.defense = 10;
 		this.currentRoom = initialRoom;

@@ -20,7 +20,7 @@ public class Ally extends Character{
 	public Ally(String newName,String description,Item item) {
 		super(newName,description);
 		if(item == null)
-			System.out.println("L'objet item est vide");
+			System.out.println("L'allié "+this.name+" ne possèdera pas d'item par defaut");
 		this.itemGiveByAlly = item;
 	}
 	
