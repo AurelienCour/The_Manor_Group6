@@ -2,7 +2,10 @@ package package_Test_Manor;
 
 import static org.junit.Assert.*;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
+
 import the_Manor.EnigmaticDoor;
 import the_Manor.Room;
 import org.junit.Test;
@@ -21,6 +24,15 @@ public class EnigmaticDoorTest {
 	public EnigmaticDoorTest(){
 	}
 	
+	@BeforeClass
+    public static void setUpClass() throws Exception {
+        // Code execute avant l'execution du premier test (et de la methode @Before)        
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+        // Code execute apres l'execution de tous les tests
+    }
 	/**
 	 * Sets up the test fixture
 	 * @throws Exception

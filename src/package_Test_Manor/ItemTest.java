@@ -26,7 +26,13 @@ public class ItemTest {
 	public ItemTest(){
 		
 	}
-	
+	@BeforeClass
+    public static void setUpClass() throws Exception {     
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
 	/**
 	 * Sets up the test fixture
 	 * @throws Exception
@@ -41,11 +47,11 @@ public class ItemTest {
 
     @After
     public void tearDown() throws Exception {
-        // Code execute apres chaque testf
     }
     
     /**
-     * Test the getter for an object of type Shield
+     * Methods testGetNameShield
+     * <p>Test the getter for an object of type Shield</p>
      */
     @Test
     public void testGetNameShield(){
@@ -53,7 +59,8 @@ public class ItemTest {
     }
     
     /**
-     * Test the getter for an object of type Weapon
+     * Methods testGetNameWeapon
+     * <p>Test the getter for an object of type Weapon</p>
      */
     @Test
     public void testGetNameWeapon(){
@@ -61,7 +68,8 @@ public class ItemTest {
     }
     
     /**
-     * Test the getter for an object of type Potion
+     * Methods testGetNamePotion
+     * <p>Test the getter for an object of type Potion</p>
      */
     @Test
     public void testGetNamePotion(){
@@ -69,7 +77,8 @@ public class ItemTest {
     }
     
     /**
-     * Test the getter for an object of type Key
+     * Methods testGetNameKey
+     * <p>Test the getter for an object of type Key</p>
      */
     @Test
     public void testGetNameKey(){

@@ -21,7 +21,10 @@ public class GameTest extends TestCase
     public static void tearDownClass() throws Exception {
         // Code execute après l'exécution de tous les tests
     }
-
+    /**
+	 * Sets up the test fixture
+	 * @throws Exception
+	 */
     @Before
     public void setUp() throws Exception {
     	this.game1 = new Game();      
@@ -31,12 +34,19 @@ public class GameTest extends TestCase
     public void tearDown() throws Exception {
         // Code execute apres chaque test
     }
-    
+    /**
+     * 
+     * Methods testConstructor
+     * <p>This methods allows to verify if the game is created</p> 
+     */
     @Test
     public void testConstructor() {
        Game game2 = new Game();
     }
-    
+    /**
+     * Methods testPlay
+     * <p>This methods allows to verify if the game is launched</p>
+     */
     @Test
     public void testPlay() {
        this.game1.play();

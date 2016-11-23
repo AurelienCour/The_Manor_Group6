@@ -23,7 +23,19 @@ public class WeaponTest {
 	public WeaponTest()
 	{		
 	}
+	@BeforeClass
+    public static void setUpClass() throws Exception {
+        // Code execute avant        
+    }
 
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+        // Code 
+    }
+    /**
+	 * Sets up the test fixture
+	 * @throws Exception
+	 */
     @Before
     public void setUp() throws Exception 
     {
@@ -32,9 +44,11 @@ public class WeaponTest {
 
     @After
     public void tearDown() throws Exception {
-        // Code execute apres chaque test
     }
-    
+    /**
+     * Method testGetAttack
+     * <p>This method allows to know if the defense of the weapon have the good attack point</p>
+     */
     @Test
      public void testGetAttack()
      {

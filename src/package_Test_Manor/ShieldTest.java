@@ -24,8 +24,19 @@ public class ShieldTest {
 	public ShieldTest()
 	{		
 	}
-	
+	@BeforeClass
+    public static void setUpClass() throws Exception {
+        // Code execute avant        
+    }
 
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+        // Code 
+    }
+    /**
+	 * Sets up the test fixture
+	 * @throws Exception
+	 */
     @Before
     public void setUp() throws Exception {
     	shield = new Shield ("Shield", 15) ;        
@@ -35,7 +46,10 @@ public class ShieldTest {
     public void tearDown() throws Exception {
         // Code execute apres chaque test
     }
-    
+    /**
+     * Method testGetDefense
+     * <p>This method allows to know if the defense of the shield have the good defense point</p>
+     */
     @Test
     public void testGetDefense()
     {

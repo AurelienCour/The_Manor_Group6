@@ -34,7 +34,10 @@ public class PlayerTest {
     public static void tearDownClass() throws Exception {
         // Code 
     }
-
+    /**
+	 * Sets up the test fixture
+	 * @throws Exception
+	 */
     @Before
     public void setUp() throws Exception {
         // Code execute avant chaque test   
@@ -48,7 +51,8 @@ public class PlayerTest {
     
 	@Test
 	/**
-	 * This test allows to see if the beginning life points are really 10
+	 * Methods testPlayerLife
+	 * <p>This test allows to see if the beginning life points are really 10</p>
 	 */
 	public void testPlayerLife() {
 		assertEquals(10, p.getHealth());
@@ -56,7 +60,8 @@ public class PlayerTest {
 
 	@Test
 	/**
-	 * This test allows to see that the player and the ally are in the same room as the ally
+	 * Methods testPlayerSameRoomAlly
+	 * <p>This test allows to see that the player and the ally are in the same room as the ally</p>
 	 */
 	public void testPlayerSameRoomAlly() {
 		//Ally a;
@@ -71,8 +76,9 @@ public class PlayerTest {
 	
 	@Test
 	/**
-	 * This test allows to see if the SetHealth works.
-	 * Normally can't set negative values.
+	 * Method testPlayerHeal
+	 * <p>This test allows to see if the SetHealth works.</p>
+	 * <p>Normally can't set negative values.</p>
 	 */
 	public void testPlayerHeal() {
 		// Tests by adding positive values using the item
@@ -85,8 +91,9 @@ public class PlayerTest {
 	
 	@Test
 	/**
-	 * This test allows to see if the SetHealth works.
-	 * Normally can't set negative values.
+	 * Method testPlayerSetHealh
+	 * <p>This test allows to see if the SetHealth works.</p>
+	 * <p>Normally can't set negative values.</p>
 	 */
 	public void testPlayerSetHealh() {
 		// Test by adding positive values. If equals to 12, works
@@ -99,7 +106,8 @@ public class PlayerTest {
 	
 	@Test
 	/**
-	 * This test allows to verify the attack modification
+	 * Method testPlayerSetAttack
+	 * <p>This test allows to verify the attack modification<p>
 	 */
 	public void testPlayerSetAttack() {
 		// Normally the attack is 10 by default
@@ -109,7 +117,8 @@ public class PlayerTest {
 	
 	@Test
 	/**
-	 * This test allows to verify the attack modification
+	 * Method testPlayerSetDefense
+	 * <p>This test allows to verify the attack modification<p>
 	 */
 	public void testPlayerSetDefense() {
 		// Normally the defense is 10 by default
@@ -119,7 +128,8 @@ public class PlayerTest {
 	
 	@Test
 	/**
-	 * This test allows to verify if talking works
+	 * Method testPlayerTalkToAlly
+	 * <p>This test allows to verify if talking works<p>
 	 */
 	public void testPlayerTalkToAlly() {
 		//TODO
