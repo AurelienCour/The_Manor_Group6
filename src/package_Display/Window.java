@@ -8,6 +8,7 @@ public class Window extends JFrame{
 		this.setTitle("The_Manor");
 		this.setLayout(new BorderLayout());
 		
+		
 		JPanel playerObject = new JPanel();
 		playerObject.setLayout(new GridLayout(4,1));
 		JLabel iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
@@ -20,12 +21,11 @@ public class Window extends JFrame{
 		playerObject.add(iconePotion);
 		playerObject.add(iconeClef);
 		
-		JLabel windowGame = new JLabel("MON JEUX");
-		windowGame.setHorizontalAlignment(JLabel.CENTER);
+		JLabel windowGame = new JLabel(new ImageIcon("src/package_Display/Image/fond.png"));
 		
 		this.add(playerObject,BorderLayout.WEST);
 		this.add(windowGame,BorderLayout.CENTER);
-		this.setSize(700, 500);
+		this.setSize(600, 500);
 		this.setResizable(false);
 		this.setVisible(true);
 //		// Ma fenetre
