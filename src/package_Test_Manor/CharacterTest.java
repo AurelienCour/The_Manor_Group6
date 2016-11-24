@@ -129,7 +129,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterDescriptionAllyDefault
-     * <p>Cheks the default description for an ally</p>
+     * <p>Checks the default description for an ally</p>
      */
 	@Test
 	public void testCharacterDescriptionAllyDefault() {
@@ -141,7 +141,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterDescriptionEnemyDefault
-     * <p>Cheks the default description for an enemy</p>
+     * <p>Checks the default description for an enemy</p>
      */
 	@Test
 	public void testCharacterDescriptionEnemyDefault() {
@@ -153,7 +153,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterDescriptionPlayerDefault
-     * <p>Cheks the default description for a player</p>
+     * <p>Checks the default description for a player</p>
      */
 	@Test
 	public void testCharacterDescriptionPlayerDefault() {
