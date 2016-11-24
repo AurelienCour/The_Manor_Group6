@@ -68,7 +68,7 @@ public class Player extends Fighter{
 		int i =0;
 		boolean ajout = false;
 		for(Item it: inventory){
-			if(it instanceof item.getClass()){
+			if(it.getClass().equals(item.getClass())){
 				inventory.remove(i);
 				inventory.add(item);
 				ajout = true;
