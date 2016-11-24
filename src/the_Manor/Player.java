@@ -86,6 +86,19 @@ public class Player extends Fighter{
 	}
 	
 	/**
+	 * Allows to know if the player have a specific item
+	 * @param item The item to research
+	 * @return A boolean : true if an item with the same type is present otherwise false
+	 */
+	public boolean haveItem (Item item){
+		for (Item it : inventory) {
+			if(it.getClass().equals(item.getClass()))
+				return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * <p>This method allows to heal the player by eating food</p>
 	 * <p>If the life points added go over the maximum, health will be limited by the max value</p>
 	 * @param potion The potion to use for healing the player
