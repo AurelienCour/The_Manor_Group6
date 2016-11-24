@@ -109,16 +109,25 @@ protected int defense; // the Fighter's Defense
 	}
 	
 	/**
-	 * Allows to set the attack for the fighter
+	 * Allows to modify the attack for the fighter by incrementation or decrementation
 	 * @param nbToAdd The number to add to the attack of the fighter
 	 */
-	public void setAttack(int nbToAdd){
+	public void modifyAttack(int nbToAdd){
 		if (nbToAdd > 0) {
 			this.attack += nbToAdd;
 		} 
 		else {
 			this.attack -= nbToAdd;
 		}
+	}
+	
+	/**
+	 * Allows to set the attack points of the fighter
+	 * @param attackPoints The new value of the attack for the fighter
+	 */
+	public void setAttack(int attackPoints)
+	{
+		this.attack = attackPoints;
 	}
 	
 	/**
