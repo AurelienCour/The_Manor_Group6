@@ -22,7 +22,7 @@ public class Room {
 	/**
 	 * <p>The constructor of the class Room.</p>
 	 * <p>If the name is empty, the room will have the default name "Room". </p>
-	 * <p>it also creates our object "exitPossible"and our character presents in the room. </p>
+	 * <p>it also creates our object "exitPossible" and our character presents in the room. </p>
 	 * 
 	 * @param roomName The name of the Room
 	 */
@@ -38,7 +38,7 @@ public class Room {
 	
 	/**
 	 * <p>Allows to add a simple or locked exit in the room.</p>
-	 * <p>The direction will correspond to a key of our hashMap </p>
+	 * <p>The direction will correspond to a key of our hashMap.</p>
 	 * <p>If a direction is incorrect, no door will be created. </p>
 	 * <p>If a door already exits for the same direction, an error message appears and the door will not be added. </p>
 	 * <p>If the Room object is unvalid, no door will be created.</p>
