@@ -13,12 +13,14 @@ import org.junit.*;
  */
 public class PotionTest {
 
-	private Potion potion;
+	private Potion myPotion;
+	private Potion myNegativePotion;
+	
 	/**
-	 * Constructor for test class PotionTest 
+	 * Default constructor for the test class PotionTest 
 	 */
-	public PotionTest(){
-		
+	public PotionTest()
+	{		
 	}
 	
     /**
@@ -26,13 +28,18 @@ public class PotionTest {
 	 */
 	@Before
     public void setUp() {
-        potion = new Potion("potion",15);
+        myPotion = new Potion("Jus de fruit",15);
+        myNegativePotion = new Potion("Vin",-15);        
     }
 
+	/**
+	 * Tears down the test fixture.
+	 * <p> Called after every test case method. Nothing to do in this case </p>
+	 */
     @After
-    public void tearDown() {
-        // Code execute apres chaque test
-    }
+    public void tearDown() 
+    {        
+    }    
     
     /**
      * Method testGetHealth
@@ -40,6 +47,16 @@ public class PotionTest {
      */
     @Test
 	public void testGetHealth() {
-		assertEquals(15,this.potion.getHealth());
+		assertEquals(15,myPotion.getHealth());
 	}
+    
+    /**
+     * Method testGetNegativeHealth
+     * Tests if when a negative point health has been added, the health points equal to 0
+     */
+    @Test
+    public void testGetNegativeHealth()
+    {
+    	assertEquals(0,myNegativePotion.getHealth());
+    }
 }
