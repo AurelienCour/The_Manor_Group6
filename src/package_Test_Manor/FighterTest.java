@@ -8,9 +8,7 @@ package package_Test_Manor;
 
 import static org.junit.Assert.*;
 
-import the_Manor.Character;
 import the_Manor.Enemy;
-import the_Manor.Fighter;
 import the_Manor.Player;
 
 import org.junit.*;
