@@ -17,8 +17,12 @@ private int weaponAttack;
 	 * @param pointAttack The attack of the weapon
 	 */
 	public Weapon (String itemName, int pointAttack) {
-		super(itemName);		
-		weaponAttack = pointAttack;
+		super(itemName);
+		if (pointAttack < 0) {
+			this.weaponAttack = 0;
+		} else 
+			{this.weaponAttack = pointAttack;}
+		
 	}
 	
 	/**

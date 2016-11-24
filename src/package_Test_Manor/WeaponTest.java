@@ -16,6 +16,7 @@ import org.junit.*;
 public class WeaponTest {
 	
 	private Weapon weapon;
+	private Weapon wrongWeapon;
 	/**
 	 * Constructor for test class WeaponTest 
 	 */
@@ -31,6 +32,7 @@ public class WeaponTest {
     public void setUp()
     {
     	weapon = new Weapon ("Gun", 5) ;
+    	wrongWeapon = new Weapon ("Flower", -5) ;
     }
 
     @After
@@ -38,11 +40,21 @@ public class WeaponTest {
     }
     /**
      * Method testGetAttack
-     * <p>This method allows to know if the defense of the weapon have the good attack point</p>
+     * <p>This method allows to know if the attack of the weapon have the good attack point</p>
      */
     @Test
      public void testGetAttack()
      {
     	assertEquals(5, weapon.getAttack());			
+     }
+    
+    /**
+     * Method testGetWrongAttack
+     * <p>This method allows to put the value 0 if the attack is negative.</p>
+     */
+    @Test
+     public void testGetWrongAttack()
+     {
+    	assertEquals(-5, wrongWeapon.getAttack());			
      }
 }

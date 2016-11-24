@@ -48,6 +48,11 @@ public class ShieldTest {
     	assertEquals(15, shield.getDefense());			
     }
     
+    /**
+     * Method testGetWrongDefense
+     * <p>This method allows to put the value 0 if the defense is negative.</p>
+     */
+    
     @Test
     public void testGetWrongDefense()
     {
