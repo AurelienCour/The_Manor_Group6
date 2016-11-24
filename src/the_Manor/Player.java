@@ -26,6 +26,8 @@ public class Player extends Fighter{
 	 */
 	public Player(String newName, String description, Room initialRoom) {
 		super(newName,description);
+		this.health = 100;
+		this.stamina = 100;
 		this.attack = 10;
 		this.defense = 10;
 		this.currentRoom = initialRoom;
@@ -86,9 +88,11 @@ public class Player extends Fighter{
 	/**
 	 * <p>This method allows to heal the player by eating food</p>
 	 * <p>If the life points added go over the maximum, health will be limited by the max value</p>
-	 * @param potion The potion to use for heal the player
+	 * @param potion The potion to use for healing the player
 	 */
 	public void heal(Potion potion){
+		
+		
 		
 	}
 	

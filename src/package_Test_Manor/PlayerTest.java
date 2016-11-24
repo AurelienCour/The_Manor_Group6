@@ -3,11 +3,14 @@ package package_Test_Manor;
 import static org.junit.Assert.*;
 
 import the_Manor.Player;
+import the_Manor.Potion;
 import the_Manor.Room;
 import the_Manor.Shield;
 import the_Manor.Weapon;
 import the_Manor.Ally;
 import the_Manor.Enemy;
+import the_Manor.Item;
+
 
 import org.junit.*;
 /**
@@ -74,7 +77,10 @@ public class PlayerTest {
 	 */
 	public void testPlayerHeal() {
 		// Tests by adding positive values using the item
-		assertEquals(22, p.getHealth());
+		Potion Redbull;
+		Redbull = new Potion("Redbull", 2);
+		p.heal(Redbull);
+		assertEquals(102, p.getHealth());
 	}
 	
 	
@@ -87,9 +93,9 @@ public class PlayerTest {
 	 */
 	public void testPlayerSetHealh() {
 		// Test by adding positive values. If equals to 12, works
-		assertEquals(12, p.getHealth());
+		assertEquals(102, p.getHealth());
 		// Test for negative values. If different, method doesn't work correctly
-		assertEquals(12, p.getHealth());
+		assertEquals(102, p.getHealth());
 	}
 	
 	@Test
@@ -120,6 +126,22 @@ public class PlayerTest {
 	public void testPlayerTalkToAlly() {
 		//TODO
 		;
+	}
+	
+	@Test
+	/**
+	 * Method testPlayerPickUp
+	 * <p>This test allows to verify if the item was picked up<p>
+	 */
+	public void testPlayerPickUp() {
+		Weapon sword, knife;
+		sword = new Weapon("Sword", 10);
+		p.pickUp(sword);
+		assertEquals(1, p.numberOfItem()); // 
+		// Now verify if the second item of the same class replaes the first
+		knife = new Weapon("Knife", 4);
+		p.pickUp(knife);
+		assertEquals(1, p.numberOfItem()); // 
 	}
 	
 	
