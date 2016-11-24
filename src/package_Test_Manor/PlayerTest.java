@@ -58,7 +58,7 @@ public class PlayerTest {
 	 * Methods testPlayerSameRoomAlly
 	 * <p>This test allows to see that the player and the ally are in the same room as the ally</p>
 	 */
-	public void testPlayerSameRoomAlly() {
+	public void testPlayerSameRoomEnemy() {
 		//Ally a;
 		Room TestRoom;
 		TestRoom = new Room("TestRoom");
