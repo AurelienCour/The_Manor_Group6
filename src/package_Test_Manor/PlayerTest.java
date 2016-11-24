@@ -60,12 +60,12 @@ public class PlayerTest {
 	 */
 	public void testPlayerSameRoomAlly() {
 		//Ally a;
-		Room Room2, TestRoom;
+		Room TestRoom;
 		TestRoom = new Room("TestRoom");
 		Enemy enemy = new Enemy("John", "description");
 		TestRoom.addCharacter(enemy);
-		Room2 = p.getCurrentRoom();
-		assertEquals(TestRoom, Room2);
+		p.setCurrentRoom(TestRoom);
+		assertEquals(TestRoom, p.getCurrentRoom());
 	}
 	
 	
