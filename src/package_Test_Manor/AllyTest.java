@@ -19,7 +19,7 @@ import org.junit.Test;
 public class AllyTest {
 
 	private Ally myAlly;
-	private Item potion;
+	private Potion potion;
 	
 	/**
 	 * Default constructor for test class AllyTest
@@ -59,7 +59,7 @@ public class AllyTest {
 	 */
 	@Test
 	public void testAddItem(){
-		Item potion2 = new Potion("potion",15);
+		Potion potion2 = new Potion("potion",15);
 		Ally myAlly2 = new Ally("test", "test", null);
 		assertEquals(null, myAlly2.getItem());
 		myAlly2.addItem(potion2);
@@ -73,7 +73,7 @@ public class AllyTest {
 	 */
 	@Test
 	public void testAddItemWithItem(){
-		Item potion2 = new Potion("potion",15);
+		Potion potion2 = new Potion("potion",15);
 		Ally myAlly2 = new Ally("test", "test", potion);
 		assertEquals(potion, myAlly2.getItem());
 		myAlly.addItem(potion2);

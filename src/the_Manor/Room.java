@@ -41,7 +41,7 @@ public class Room {
 	 * <p>The direction will correspond to a key of our hashMap </p>
 	 * <p>If a direction is incorrect, no door will be created. </p>
 	 * <p>If a door already exits for the same direction, an error message appears and the door will not be added. </p>
-	 * <p>If the Room object is unvalid, no door will be created.</p>
+	 * <p>If the Room object is invalid, no door will be created.</p>
 	 * 
 	 * @param direction The direction for the door (East,West,South,North)
 	 * @param lock A boolean to know if the door is locked or not
