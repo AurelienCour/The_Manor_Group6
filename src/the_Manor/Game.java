@@ -7,7 +7,7 @@ public class Game {
 	 * The constructor of the class Game	 
 	 */	
 	public Game() {
-		
+		System.out.println("téàèâäst".toUpperCase());
 	}
 	
 	/**

@@ -31,9 +31,9 @@ public class Room {
 			this.roomName = "Salle";
 		else
 			this.roomName = roomName;
-		this.exitPossible = new HashMap();
-		this.characterInRoom = new ArrayList();
-		this.objectInRoom = new ArrayList();		
+		this.exitPossible = new HashMap<String, Door>();
+		this.characterInRoom = new ArrayList<Character>();
+		this.objectInRoom = new ArrayList<Item>();		
 	}
 	
 	/**
