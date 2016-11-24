@@ -24,12 +24,12 @@ public class KeyTest {
 	 */
     @Before
     public void setUp() {
-        this.key = new Key("clef");        
+        this.key = new Key("key");        
     }
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
+        
     }
 
 }

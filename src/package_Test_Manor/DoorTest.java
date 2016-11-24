@@ -38,7 +38,7 @@ public class DoorTest {
     
     /**
      * Methods testInstance
-     * Allows to knows if the instanciation works
+     * Allows to knows if the instantiation works
      */
     @Test
     public void testInstance(){
@@ -48,7 +48,7 @@ public class DoorTest {
     
     /**
      * Methods testDefaultInstance
-     * Allows to knows if the default instanciation works
+     * Allows to knows if the default instantiation works
      */
     @Test
     public void testDefaultInstance(){

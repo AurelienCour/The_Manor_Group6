@@ -29,12 +29,11 @@ public class EnigmaticDoorTest {
     public void setUp() {
     	nextRoom = new Room("Kitchen");
     	previousRoom = new Room("Bedroom");
-        door = new EnigmaticDoor("Qui est le chef du groupe 5 ?","Aurelien",nextRoom,previousRoom);     
+        door = new EnigmaticDoor("Who is the leader of the group 6 ?","aurelien",nextRoom,previousRoom);     
     }
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
     }
     
     /**
@@ -43,8 +42,8 @@ public class EnigmaticDoorTest {
      */
     @Test
     public void testInstance(){
-    	assertEquals("Qui est le chef du groupe 5 ?",this.door.getEnigma());
-    	assertEquals("Aurelien".toUpperCase(),this.door.getResponse());
+    	assertEquals("Who is the leader of the group 6 ?",this.door.getEnigma());
+    	assertEquals("aurelien".toUpperCase(),this.door.getResponse());
     }
     
     /**
@@ -67,7 +66,7 @@ public class EnigmaticDoorTest {
      */
     @Test
     public void testResolveEnigma(){
-    	this.door.solveEnigma("Aurelien");
+    	this.door.solveEnigma("aurelien");
     	assertEquals(false,this.door.isLocked());
     }
     

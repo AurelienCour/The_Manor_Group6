@@ -1,8 +1,8 @@
 package the_Manor;
 /**
- * <p> This class represent all character who are allies for the main character.</p>
+ * <p> This class represents all characters who are allies for the main character.</p>
  * <p> An ally is only in one room.
- * <p> So only one ally per room.
+ * <p> So there is only one ally per room.
  * <p> An ally can give an object to the player.</p>
  * 
  * @author Willy Dieuaide
@@ -10,7 +10,7 @@ package the_Manor;
  */
 public class Ally extends Character{
 	
-	private Item itemGiveByAlly;
+	private Item itemGivenByAlly;
 	
 	/**
 	 * This is the Ally constructor
@@ -22,40 +22,39 @@ public class Ally extends Character{
 		super(newName,description);
 		if(item == null)
 			System.out.println("L'allié "+this.name+" ne possèdera pas d'item par defaut");
-		this.itemGiveByAlly = item;
+		this.itemGivenByAlly = item;
 	}
 	
 	/**
-	 * This methods allow to know the item give by the ally
+	 * This method allows to know the item given by the ally
 	 * @return The item held by the ally
 	 */
 	public Item getItem(){
-		return this.itemGiveByAlly;
+		return this.itemGivenByAlly;
 	}
 	
 	/**
 	 * Allows to add an item to an ally
-	 * If an ally who possess an object, you do not add an another object
-	 * Otherwide the object is added
+	 * If an ally already possesses an item, an another item cannot be added
 	 * @param item The item to give to the ally
 	 */
 	public void addItem(Item item){
 		if(getItem() == null)
-			this.itemGiveByAlly = item;
+			this.itemGivenByAlly = item;
 		else
-			System.out.println("L'alliée possède déja un item");
+			System.out.println("L'allié possède déja un item");
 	}
 	
 	/**
-	 * This method allows for the ally to give an item to the player
+	 * This method allows the ally to give an item to the player
 	 * @param player The player to give the item
 	 */
 	public void giveItem(Player player){
 		if(getItem() != null){
-			player.pickUp(this.itemGiveByAlly);
-			this.itemGiveByAlly = null;
+			player.pickUp(this.itemGivenByAlly);
+			this.itemGivenByAlly = null;
 		}
 		else
-			System.out.println("L'alliée ne possède pas d'item");
+			System.out.println("L'allié ne possède pas d'item");
 	}
 }

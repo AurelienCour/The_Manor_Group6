@@ -43,7 +43,7 @@ public class LockedDoorTest {
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
+        // Code executed after every test
     }
 
     /**
@@ -53,7 +53,7 @@ public class LockedDoorTest {
     @Test
     public void testUnlock(){
     	Player player = new Player("Paul", null, nextRoom);
-    	Key key = new Key("clef");
+    	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
     	assertEquals(false,this.door.isLocked());
@@ -77,7 +77,7 @@ public class LockedDoorTest {
     @Test
     public void testLock(){
     	Player player = new Player("Paul", null, nextRoom);
-    	Key key = new Key("clef");
+    	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
     	assertEquals(false,this.door.isLocked());
@@ -92,7 +92,7 @@ public class LockedDoorTest {
     @Test
     public void testGoNextRoomIfUnlock(){
     	Player player = new Player("Paul", null, nextRoom);
-    	Key key = new Key("clef");
+    	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
     	assertEquals(nextRoom,this.door.goNextRoom());

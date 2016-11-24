@@ -10,25 +10,30 @@ package the_Manor;
 
 public class Potion extends Item{
 	
-private int healthGain; //Quantity of health that the object will give to the player
+	//Quantity of health that the item will give to the player
+	private int healthGain; 
 	
 	/**
-	* *Constructor of the Potion class
+	* Constructor of the Potion class
 	* @param newItem : the Name of the Item
 	* @param pointHealth : the quantity of health that an item give to the player.
 	*/
 	public Potion (String newItem, int pointHealth)
 	{
 		super(newItem);
-		pointHealth = healthGain;
+		if (pointHealth < 0) { 
+			this.healthGain = 0;
+		} else {
+			this.healthGain = pointHealth;
+		}
 	}
 	
 	/**
-	*This method allows to return the quantity of health than an object will add to the player's life.
+	* This method allows to return the quantity of health than an object will add to the player's life.
 	* @return healthGain 
-	**/	
-public int getHealth()
+	*/	
+	public int getHealth()
 	{
-		return healthGain; 
+		return this.healthGain; 
 	}
 }

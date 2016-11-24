@@ -27,7 +27,7 @@ public class LockedDoor extends Door{
 	 */
 	public void lock(){
 		if(isLocked())
-			System.out.println("The door is already locked");
+			System.out.println("The door is already locked!");
 		else
 			this.locked = true;
 	}
@@ -40,7 +40,7 @@ public class LockedDoor extends Door{
 		if(player.haveKey())
 			this.locked = false;
 		else
-			System.out.println("You need a key to unlock the door");
+			System.out.println("You need a key to unlock the door!");
 	}
 	
 	/**

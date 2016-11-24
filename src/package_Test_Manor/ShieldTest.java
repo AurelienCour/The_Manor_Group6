@@ -35,7 +35,6 @@ public class ShieldTest {
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
     }
     /**
      * Method testGetDefense
