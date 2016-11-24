@@ -78,7 +78,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterNameEnemyDefault
-     * <p>Cheks the default name for an enemy</p>
+     * <p>Checks the default name for an enemy</p>
      */
 	@Test
 	public void testCharacterNameEnemyDefault() {
@@ -90,7 +90,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterNamePlayerDefault
-     * <p>Cheks the default name for a player</p>
+     * <p>Checks the default name for a player</p>
      */
 	@Test
 	public void testCharacterNamePlayerDefault() {
