@@ -53,20 +53,6 @@ public class PlayerTest {
 		assertEquals(100, p.getHealth());
 	}
 
-	@Test
-	/**
-	 * Methods testPlayerSameRoomAlly
-	 * <p>This test allows to see that the player and the ally are in the same room as the ally</p>
-	 */
-	public void testPlayerSameRoomEnemy() {
-		//Ally a;
-		Room TestRoom;
-		TestRoom = new Room("TestRoom");
-		Enemy enemy = new Enemy("John", "description");
-		TestRoom.addCharacter(enemy);
-		p.setCurrentRoom(TestRoom);
-		assertEquals(TestRoom, p.getCurrentRoom());
-	}
 	
 	
 	@Test
