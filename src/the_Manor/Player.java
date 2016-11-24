@@ -77,10 +77,14 @@ public class Player extends Fighter{
 		}
 		else
 			inventory.add(item);
-		if(item instanceof Weapon)
-			this.addAttack(((Weapon) item).getAttack());
-		else if(item instanceof Shield)
-			this.addDefense(((Shield) item).getDefense());
+		if(item instanceof Weapon){
+			this.setAttack(10);
+			this.modifyAttack(((Weapon) item).getAttack());
+		}
+		else if(item instanceof Shield){
+			this.setDefense(10);
+			this.modifyDefense(((Shield) item).getDefense());
+		}
 	}
 	
 	/**
@@ -102,26 +106,14 @@ public class Player extends Fighter{
 	 * @param potion The potion to use for healing the player
 	 */
 	public void heal(Potion potion){
-		
-		
-		
+		if (this.haveItem(potion)) {
+			this.addHealth(potion.getHealth());
+			if (this.getHealth()>100){
+				this.setHealth(100);
+			};
+		}
 	}
 	
-	/**
-	 * <p>This methods changes the attack value of the fighter</p>
-	 * <p>It uses the weapon's attack power to augment the player's attack power</p>
-	 */
-	public void setAttack(){
-		//TODO 
-	}
-	
-	/**
-	 * <p>This methods changes the defense value of the fighter</p>
-	 * <p>It uses the shield's defense power to augment the shield's defense power</p>
-	 */
-	public void setDefense(){
-		
-	}
 	
 	/**
 	 * <p>This method allows to talk to an NPC</p>

@@ -47,10 +47,10 @@ public class PlayerTest {
 	@Test
 	/**
 	 * Methods testPlayerLife
-	 * <p>This test allows to see if the beginning life points are really 10</p>
+	 * <p>This test allows to see if the beginning life points are really 100</p>
 	 */
 	public void testPlayerLife() {
-		assertEquals(10, p.getHealth());
+		assertEquals(100, p.getHealth());
 	}
 
 	@Test
@@ -78,9 +78,15 @@ public class PlayerTest {
 	public void testPlayerHeal() {
 		// Tests by adding positive values using the item
 		Potion Redbull;
-		Redbull = new Potion("Redbull", 2);
+		Redbull = new Potion("Redbull", 5);
+		p.setHealth(80);
+		p.pickUp(Redbull);
 		p.heal(Redbull);
-		assertEquals(102, p.getHealth());
+		assertEquals(85, p.getHealth());
+		// test for when the health goes over the max
+		p.setHealth(100);
+		p.heal(Redbull);
+		assertEquals(100, p.getHealth());
 	}
 	
 	
@@ -91,10 +97,12 @@ public class PlayerTest {
 	 * <p>This test allows to see if the SetHealth works.</p>
 	 * <p>Normally can't set negative values.</p>
 	 */
-	public void testPlayerSetHealh() {
+	public void testPlayerSetHealth() {
 		// Test by adding positive values. If equals to 12, works
+		p.setHealth(102);
 		assertEquals(102, p.getHealth());
 		// Test for negative values. If different, method doesn't work correctly
+		p.setHealth(-100);
 		assertEquals(102, p.getHealth());
 	}
 	
@@ -103,9 +111,16 @@ public class PlayerTest {
 	 * Method testPlayerSetAttack
 	 * <p>This test allows to verify the attack modification<p>
 	 */
-	public void testPlayerSetAttack() {
+	public void testPlayerPickUpWeapon() {
 		// Normally the attack is 10 by default
+		Weapon sword, spoon;
+		sword = new Weapon("Sword", 10);
+		p.pickUp(sword);
 		assertEquals(20, p.getAttack());
+		// pickup a bad weapon, with negative points
+		spoon = new Weapon("Spoon", -5);
+		p.pickUp(spoon);
+		assertEquals(10, p.getAttack());	
 	}
 	
 	@Test
@@ -113,8 +128,11 @@ public class PlayerTest {
 	 * Method testPlayerSetDefense
 	 * <p>This test allows to verify the attack modification<p>
 	 */
-	public void testPlayerSetDefense() {
+	public void testPlayerPickUpShield() {
 		// Normally the defense is 10 by default
+		Shield pot;
+		pot = new Shield("Pot", 10);
+		p.pickUp(pot);
 		assertEquals(20, p.getDefense());
 	}
 	
