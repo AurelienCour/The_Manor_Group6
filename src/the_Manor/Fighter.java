@@ -141,4 +141,12 @@ protected int defense; // the Fighter's Defense
 	public void removeDefense(int nbToRemove){
 		this.defense -= nbToRemove;
 	}
+	
+	/**
+	 * Allow to set the health points of the player
+	 */
+	public void setHealth(int healthPoints)
+	{
+		this.health = healthPoints;
+	}
 }
