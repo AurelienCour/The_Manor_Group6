@@ -61,11 +61,26 @@ public class Player extends Fighter{
 	/**
 	 * <p>This method allows to pick up an item in the room</p>
 	 * <p>It adds the item once to the inventory</p>
-	 * <p>It can't add the same item (ID) two times to the inventory</p>
+	 * <p>It can't add the same item (ID) two times to the inventory. It will be replaced.</p>
 	 * @param item The item to give to the player
 	 */
 	public void pickUp(Item item){
-		inventory.add(item);
+		int i =0;
+		boolean ajout = false;
+		for(Item it: inventory){
+			if(it instanceof item.getClass()){
+				inventory.remove(i);
+				inventory.add(item);
+				ajout = true;
+			}
+			i++;
+		}
+		if(!ajout)
+			inventory.add(item);
+		if(item instanceof Weapon)
+			this.addAttack(((Weapon) item).getAttack());
+		else if(item instanceof Shield)
+			this.addDefense(((Shield) item).getDefense());
 	}
 	
 	/**

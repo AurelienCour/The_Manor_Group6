@@ -21,7 +21,7 @@ public class Ally extends Character{
 	public Ally(String newName,String description,Item item) {
 		super(newName,description);
 		if(item == null)
-			System.out.println("L'alliÃ© "+this.name+" ne possÃ¨dera pas d'item par defaut");
+			System.out.println("L'allié "+this.name+" ne possèdera pas d'item par defaut");
 		this.itemGivenByAlly = item;
 	}
 	
@@ -42,7 +42,7 @@ public class Ally extends Character{
 		if(getItem() == null)
 			this.itemGivenByAlly = item;
 		else
-			System.out.println("L'alliÃ©e possÃ¨de dÃ©ja un item");
+			System.out.println("L'allié possède déja un item");
 	}
 	
 	/**
@@ -55,6 +55,6 @@ public class Ally extends Character{
 			this.itemGivenByAlly = null;
 		}
 		else
-			System.out.println("L'alliÃ©e ne possÃ¨de pas d'item");
+			System.out.println("L'allié ne possède pas d'item");
 	}
 }
