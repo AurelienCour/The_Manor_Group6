@@ -16,8 +16,8 @@ package the_Manor;
  * <li> Die if his health goes bellow 0 </li>
  * <li> Can no longer attack if his stamina reaches 0</li>
  * </ul>
- * @author astem
- * @version 22/11/2016
+ * @author Willy Dieuaide
+ * @version 24/11/2016
  */
 public abstract class Fighter extends Character{
 
