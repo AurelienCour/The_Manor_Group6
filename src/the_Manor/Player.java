@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public class Player extends Fighter{
 	
-	private String newName;
-	private int attack, defense;
 	private ArrayList<Item>	inventory; // this is the item list of the player
 	private Room currentRoom;
 	
