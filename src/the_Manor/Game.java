@@ -1,5 +1,7 @@
 package the_Manor;
 
+import package_Display.Window;
+
 public class Game {
 	
 	
@@ -7,7 +9,7 @@ public class Game {
 	 * The constructor of the class Game	 
 	 */	
 	public Game() {
-		System.out.println("téàèâäst".toUpperCase());
+		Window w = new Window();
 	}
 	
 	/**

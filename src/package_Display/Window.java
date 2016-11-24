@@ -90,9 +90,4 @@ public class Window extends JFrame{
 //        myFrame.pack();
 //        myFrame.setVisible(true);
 	}
-	
-	public static void main (String args[]){
-		Window w = new Window();
-	}
-
 }
