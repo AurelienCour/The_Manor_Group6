@@ -136,10 +136,10 @@ protected int defense; // the Fighter's Defense
 	 */
 	public void modifyDefense(int nbToAdd){
 		if (nbToAdd > 0) {
-			this.attack += nbToAdd;
+			this.defense += nbToAdd;
 		} 
 		else {
-			this.attack -= nbToAdd;
+			this.defense -= nbToAdd;
 		}
 	}
 	
