@@ -113,7 +113,12 @@ protected int defense; // the Fighter's Defense
 	 * @param nbToAdd The number to add to the attack of the fighter
 	 */
 	public void addAttack(int nbToAdd){
-		this.attack = this.attack + (nbToAdd);
+		if (nbToAdd > 0) {
+			this.attack += nbToAdd;
+		} 
+		else {
+			this.attack -= nbToAdd;
+		}
 	}
 	
 	/**
