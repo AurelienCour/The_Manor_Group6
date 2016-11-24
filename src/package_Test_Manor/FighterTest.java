@@ -132,9 +132,9 @@ public class FighterTest {
      */
 	@Test
 	public void testAddAttackPlayer() {
-		myPlayer.modifyAttack(5);
 		//Assuming the default value is 15, adding more than 5 points results is 20, not superior value
-		assertEquals(10, myPlayer.getAttack());
+		this.myPlayer.modifyAttack(5);
+		assertEquals(15, myPlayer.getAttack());
 	}
 	
 	/**
