@@ -17,6 +17,7 @@ import org.junit.*;
 public class ShieldTest {
 	
 	private Shield shield;
+	private Shield wrongShield;
 	/**
 	 * Constructor for test class ShieldTest 
 	 */
@@ -30,7 +31,8 @@ public class ShieldTest {
 	 */
     @Before
     public void setUp() {
-    	shield = new Shield ("Shield", 15) ;        
+    	shield = new Shield ("Shield", 15) ;  
+    	wrongShield = new Shield ("Paper", -15);
     }
 
     @After
@@ -44,5 +46,11 @@ public class ShieldTest {
     public void testGetDefense()
     {
     	assertEquals(15, shield.getDefense());			
+    }
+    
+    @Test
+    public void testGetWrongDefense()
+    {
+    	assertEquals(0, wrongShield.getDefense());			
     }
 }

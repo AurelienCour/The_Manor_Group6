@@ -16,7 +16,9 @@ public class Shield extends Item{
 	 */
 	public Shield(String itemName, int pointDefense) {
 		super(itemName);
-		defenseShield = pointDefense;
+		if (pointDefense < 0){
+		this.defenseShield = 0;}
+		else {this.defenseShield = pointDefense;}
 	}
 
 	/**
