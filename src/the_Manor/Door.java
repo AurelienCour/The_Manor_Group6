@@ -22,7 +22,7 @@ public class Door
 	 */
 	public Door(Room nextRoom, Room previousRoom){
 		if(previousRoom == null)
-			System.out.println("Error");
+			System.out.println("Erreur");
 		else
 			this.previousRoom = previousRoom;
 		if(nextRoom == null)
