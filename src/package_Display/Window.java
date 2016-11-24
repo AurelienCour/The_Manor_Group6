@@ -7,7 +7,7 @@ public class Window extends JFrame{
 	public Window(){
 		this.setTitle("The_Manor");
 		this.setLayout(new BorderLayout());
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel objectAndGame = new JPanel();
 		objectAndGame.setLayout(new BorderLayout());
 		JPanel playerObject = new JPanel();
@@ -17,6 +17,10 @@ public class Window extends JFrame{
 		JLabel iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		JLabel iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		JLabel iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		iconeEpee.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		iconeBouclier.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		iconePotion.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		iconeClef.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		playerObject.setBackground(Color.black);
 		playerObject.add(iconeEpee);
 		playerObject.add(iconeBouclier);
@@ -41,7 +45,11 @@ public class Window extends JFrame{
 		control.add(new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
 		
 		JLabel charac = new JLabel("LES CHARACTERISTIQUES");
-		charac.setPreferredSize(new Dimension(50, 50));
+		charac.setPreferredSize(new Dimension(400, 60));
+		charac.setForeground(Color.WHITE);
+		charac.setHorizontalAlignment(JLabel.CENTER);
+		characAndControl.setBackground(Color.black);
+		characAndControl.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		characAndControl.add(charac);
 		characAndControl.add(control);
 		this.add(objectAndGame,BorderLayout.CENTER);
