@@ -67,17 +67,17 @@ public class Player extends Fighter{
 	 * @param item The item to give to the player
 	 */
 	public void pickUp(Item item){
-		int i =0;
-		boolean ajout = false;
-		for(Item it: inventory){
-			if(it.getClass().equals(item.getClass())){
-				inventory.remove(i);
-				inventory.add(item);
-				ajout = true;
+		if(haveItem(item)){
+			int i =0;
+			for(Item it: inventory){
+				if(it.getClass().equals(item.getClass())){
+					inventory.remove(i);
+					inventory.add(item);
+				}
+				i++;
 			}
-			i++;
 		}
-		if(!ajout)
+		else
 			inventory.add(item);
 		if(item instanceof Weapon)
 			this.addAttack(((Weapon) item).getAttack());
