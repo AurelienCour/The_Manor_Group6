@@ -10,19 +10,23 @@ public class Window extends JFrame{
 		
 		JPanel playerObject = new JPanel();
 		playerObject.setLayout(new GridLayout(4,1));
-		JLabel iconeEpee = new JLabel(new ImageIcon("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Image\\Icone_Epee.png"));
-		JLabel iconeBouclier = new JLabel(new ImageIcon("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Image\\Icone_Bouclier.png"));
-		JLabel iconePotion = new JLabel(new ImageIcon("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Image\\Icone_Potion.png"));
-		JLabel iconeClef = new JLabel(new ImageIcon("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Image\\Icone_Clef.png"));
+		JLabel iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		JLabel iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		JLabel iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		JLabel iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		playerObject.setBackground(Color.black);
 		playerObject.add(iconeEpee);
 		playerObject.add(iconeBouclier);
 		playerObject.add(iconePotion);
 		playerObject.add(iconeClef);
 		
-		JPanel windowGame = new JPanel("Notre jeux");
+		JLabel windowGame = new JLabel("MON JEUX");
+		windowGame.setHorizontalAlignment(JLabel.CENTER);
+		
 		this.add(playerObject,BorderLayout.WEST);
-		this.pack();
+		this.add(windowGame,BorderLayout.CENTER);
+		this.setSize(700, 500);
+		this.setResizable(false);
 		this.setVisible(true);
 //		// Ma fenetre
 //        JFrame myFrame = new JFrame("Calculator");
