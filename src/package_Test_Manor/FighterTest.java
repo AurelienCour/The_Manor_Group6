@@ -17,8 +17,8 @@ import org.junit.*;
 
 /**
  * The test class FighterTest
- * @author Willy
- *
+ * @author Willy Dieuaide
+ * @version 24/11/2016
  */
 public class FighterTest {
 	
