@@ -17,10 +17,6 @@ public class Window extends JFrame{
 		JLabel iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		JLabel iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		JLabel iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
-		iconeEpee.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-		iconeBouclier.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-		iconePotion.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-		iconeClef.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		playerObject.setBackground(Color.black);
 		playerObject.add(iconeEpee);
 		playerObject.add(iconeBouclier);
@@ -38,14 +34,21 @@ public class Window extends JFrame{
 		
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
-		controlHorizontal.add(new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
-		controlHorizontal.add(new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_bas.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
-		control.add(new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
+		JButton controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+		JButton controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_bas.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+		JButton controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
+		JButton controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+		controlHaut.setBackground(Color.BLACK);
+		controlBas.setBackground(Color.BLACK);
+		controlGauche.setBackground(Color.BLACK);
+		controlDroit.setBackground(Color.BLACK);
+		controlHorizontal.add(controlHaut);
+		controlHorizontal.add(controlBas);
+		control.add(controlGauche);
 		control.add(controlHorizontal);
-		control.add(new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
-		
+		control.add(controlDroit);
 		JLabel charac = new JLabel("LES CHARACTERISTIQUES");
-		charac.setPreferredSize(new Dimension(400, 60));
+		charac.setPreferredSize(new Dimension(500, 60));
 		charac.setForeground(Color.WHITE);
 		charac.setHorizontalAlignment(JLabel.CENTER);
 		characAndControl.setBackground(Color.black);
@@ -54,7 +57,7 @@ public class Window extends JFrame{
 		characAndControl.add(control);
 		this.add(objectAndGame,BorderLayout.CENTER);
 		this.add(characAndControl,BorderLayout.SOUTH);
-		this.setSize(700, 650);
+		this.setSize(750, 650);
 		this.setResizable(false);
 		this.setVisible(true);
 	}
