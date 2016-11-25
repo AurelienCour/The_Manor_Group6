@@ -16,6 +16,8 @@ public class Window extends JFrame{
 	private JLabel windowGame;
 	private JLabel lifePoint;
 	private JLabel staminaPoint;
+	private JLabel attackPoint;
+	private JLabel defensePoint;
 	
 	
 	public Window(){
@@ -80,7 +82,7 @@ public class Window extends JFrame{
 		
 		
 		JPanel charac = new JPanel();
-		charac.setLayout(new BorderLayout(30,30));
+		charac.setLayout(new BorderLayout(20,20));
 		charac.setBackground(Color.black);
 		charac.setPreferredSize(new Dimension(500, 60));
 		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Loupe.png").getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
@@ -109,16 +111,27 @@ public class Window extends JFrame{
 		JPanel durability = new JPanel();
 		durability.setLayout(new GridLayout(2,1));
 		durability.setBackground(Color.BLACK);
-		lifePoint = new JLabel("PV");
+		lifePoint = new JLabel("PV   100 / 100");
 		lifePoint.setForeground(Color.RED);
-		lifePoint.setBackground(Color.BLACK);
 		
-		staminaPoint = new JLabel("STAMINA");
+		staminaPoint = new JLabel("STAMINA   100 / 100");
 		staminaPoint.setForeground(Color.GREEN);
-		staminaPoint.setBackground(Color.GREEN);
+		
+		JPanel characteristics = new JPanel();
+		characteristics.setLayout(new GridLayout(2,1));
+		characteristics.setBackground(Color.BLACK);
+		attackPoint = new JLabel("ATTACK   5          ");
+		attackPoint.setForeground(Color.BLUE);
+		defensePoint = new JLabel("DEFENSE   6          ");
+		defensePoint.setForeground(Color.BLUE);
+		
+		characteristics.add(attackPoint);
+		characteristics.add(defensePoint);
+		
 		durability.add(lifePoint);
 		durability.add(staminaPoint);
-		charac.add(durability);
+		charac.add(durability,BorderLayout.CENTER);
+		charac.add(characteristics,BorderLayout.EAST);
 		
 		
 		characAndControl.setBackground(Color.black);
