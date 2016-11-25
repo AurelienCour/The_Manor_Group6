@@ -173,6 +173,7 @@ protected int defense; // the Fighter's Defense
 	/**
 	 * Allow to set the health points of the player
 	 * @param healthPoints The number of health points to set
+	 * already tested
 	 */
 	public void setHealth(int healthPoints)
 	{
