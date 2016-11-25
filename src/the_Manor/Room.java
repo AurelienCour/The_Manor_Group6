@@ -18,6 +18,7 @@ public class Room {
 	private String roomName;
 	private ArrayList<Character> characterInRoom;
 	private ArrayList<Item> objectInRoom;	
+	private String background;
 	
 	/**
 	 * <p>The constructor of the class Room.</p>
@@ -26,14 +27,19 @@ public class Room {
 	 * 
 	 * @param roomName The name of the Room
 	 */
-	public Room (String roomName){
+	public Room (String roomName,String background){
 		if (roomName.isEmpty())
 			this.roomName = "Salle";
 		else
 			this.roomName = roomName;
 		this.exitPossible = new HashMap<String, Door>();
 		this.characterInRoom = new ArrayList<Character>();
-		this.objectInRoom = new ArrayList<Item>();		
+		this.objectInRoom = new ArrayList<Item>();	
+		this.background = background;
+	}
+	
+	public String getBackground(){
+		return this.background;
 	}
 	
 	/**

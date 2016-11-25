@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class Player extends Fighter{
 	
+	final int nbMaxPv = 100;
+	final int nbMaxStamina = 100;
+	final int defautAttack = 10;
+	final int defautDefense = 10;
 	private ArrayList<Item>	inventory; // this is the item list of the player
 	private Room currentRoom;
 	
@@ -24,12 +28,20 @@ public class Player extends Fighter{
 	 */
 	public Player(String newName, String description, Room initialRoom) {
 		super(newName,description);
-		this.health = 100;
-		this.stamina = 100;
-		this.attack = 10;
-		this.defense = 10;
+		this.health = nbMaxPv;
+		this.stamina = nbMaxStamina;
+		this.attack = defautAttack;
+		this.defense = defautDefense;
 		this.currentRoom = initialRoom;
 		inventory = new ArrayList<Item>();
+	}
+	
+	public int getNbMaxHealth(){
+		return this.nbMaxPv;
+	}
+	
+	public int getNbMaxStamina(){
+		return this.nbMaxStamina;
 	}
 	
 	/**
