@@ -73,7 +73,7 @@ public class Window extends JFrame{
 		charac.setLayout(new BorderLayout(30,30));
 		charac.setBackground(Color.black);
 		charac.setPreferredSize(new Dimension(500, 60));
-		JButton search = new JButton(new ImageIcon(new ImageIcon("C:\\Users\\Aurelien\\Pictures\\Image_Manor\\Icone_Loupe.png").getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
+		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Loupe.png").getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
 		search.setBackground(Color.BLACK);
 		search.setPreferredSize(new Dimension(99, 95));
 		search.setBorder(null);
