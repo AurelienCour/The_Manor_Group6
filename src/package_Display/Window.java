@@ -59,7 +59,7 @@ public class Window extends JFrame{
 		
 		
 		// Notre image "THE MANOR"
-		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/fond.png").getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
 		
 		
 		
@@ -80,7 +80,7 @@ public class Window extends JFrame{
 		controlHaut.setBackground(Color.BLACK);
 		controlHaut.addActionListener(new ActionListener (){
             public void actionPerformed (ActionEvent e){
-            	String nameRoom = Window.this.newGame.goNord();
+            	Window.this.newGame.move("NORD");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
             }	
@@ -88,7 +88,7 @@ public class Window extends JFrame{
 		controlBas.setBackground(Color.BLACK);
 		controlBas.addActionListener(new ActionListener (){
             public void actionPerformed (ActionEvent e){
-            	Window.this.newGame.goSud();
+            	Window.this.newGame.move("SUD");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
             }	
@@ -96,7 +96,7 @@ public class Window extends JFrame{
 		controlGauche.setBackground(Color.BLACK);
 		controlGauche.addActionListener(new ActionListener (){
             public void actionPerformed (ActionEvent e){
-            	Window.this.newGame.goOuest();
+            	Window.this.newGame.move("OUEST");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
             }	
@@ -104,7 +104,7 @@ public class Window extends JFrame{
 		controlDroit.setBackground(Color.BLACK);
 		controlDroit.addActionListener(new ActionListener (){
             public void actionPerformed (ActionEvent e){
-            	Window.this.newGame.goEst();
+            	Window.this.newGame.move("EST");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
             }	
