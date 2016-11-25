@@ -4,6 +4,15 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Window extends JFrame{
+	
+	private JLabel iconeEpee;
+	private JLabel iconeBouclier;
+	private JLabel iconePotion;
+	private JLabel iconeClef;
+	private JLabel windowGame;
+	private JLabel lifePoint;
+	private JLabel staminaPoint;
+	
 	public Window(){
 		this.setTitle("The_Manor");
 		this.setLayout(new BorderLayout());
@@ -13,16 +22,28 @@ public class Window extends JFrame{
 		JPanel playerObject = new JPanel();
 		playerObject.setLayout(new GridLayout(4,1));
 		playerObject.setPreferredSize(new Dimension(100, 50));
-		JLabel iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
-		JLabel iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
-		JLabel iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
-		JLabel iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		
+		
+		// Les différents icones d'objet
+		iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		
+		
+		
 		playerObject.setBackground(Color.black);
 		playerObject.add(iconeEpee);
 		playerObject.add(iconeBouclier);
 		playerObject.add(iconePotion);
 		playerObject.add(iconeClef);
-		JLabel windowGame = new JLabel(new ImageIcon("src/package_Display/Image/fond.png"));
+		
+		
+		// Notre image "THE MANOR"
+		windowGame = new JLabel(new ImageIcon("src/package_Display/Image/fond.png"));
+		
+		
+		
 		objectAndGame.add(playerObject,BorderLayout.WEST);
 		objectAndGame.add(windowGame,BorderLayout.CENTER);
 		
@@ -31,7 +52,6 @@ public class Window extends JFrame{
 		
 		JPanel control = new JPanel();
 		control.setLayout(new GridLayout(1,3));
-		
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
 		JButton controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
@@ -47,10 +67,34 @@ public class Window extends JFrame{
 		control.add(controlGauche);
 		control.add(controlHorizontal);
 		control.add(controlDroit);
-		JLabel charac = new JLabel("LES CHARACTERISTIQUES");
+		
+		
+		JPanel charac = new JPanel();
+		charac.setLayout(new BorderLayout(30,30));
+		charac.setBackground(Color.black);
 		charac.setPreferredSize(new Dimension(500, 60));
-		charac.setForeground(Color.WHITE);
-		charac.setHorizontalAlignment(JLabel.CENTER);
+		JButton search = new JButton(new ImageIcon(new ImageIcon("C:\\Users\\Aurelien\\Pictures\\Image_Manor\\Icone_Loupe.png").getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT)));
+		search.setBackground(Color.BLACK);
+		search.setPreferredSize(new Dimension(99, 95));
+		search.setBorder(null);
+		charac.add(search,BorderLayout.WEST);
+		charac.add(Box.createGlue());
+		
+		JPanel durability = new JPanel();
+		durability.setLayout(new GridLayout(2,1));
+		durability.setBackground(Color.BLACK);
+		lifePoint = new JLabel("PV");
+		lifePoint.setForeground(Color.RED);
+		lifePoint.setBackground(Color.BLACK);
+		
+		staminaPoint = new JLabel("STAMINA");
+		staminaPoint.setForeground(Color.GREEN);
+		staminaPoint.setBackground(Color.GREEN);
+		durability.add(lifePoint);
+		durability.add(staminaPoint);
+		charac.add(durability);
+		
+		
 		characAndControl.setBackground(Color.black);
 		characAndControl.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		characAndControl.add(charac);
