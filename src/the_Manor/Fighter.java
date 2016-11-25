@@ -100,7 +100,7 @@ private Player player;
 	 * If the subtraction exceeds the minimum, put the stamina to the minimum
 	 * @param nbToRemove The number to remove to the stamina of the fighter
 	 */
-	public void removeStamina (int nbToRemove){
+	public void removeStamina (int nbToRemove, Fighter actor){
 		this.stamina -= nbToRemove;
 	}
 	
@@ -109,10 +109,18 @@ private Player player;
 	 * If the addition exceeds the maximum, put the health to the maximum
 	 * @param nbToAdd The number to add to the health of the fighter
 	 */
-	public void addHealth(int nbToAdd){		
-		this.health += nbToAdd;
-		if (this.health > 100)
-			this.health = 100;
+	public void addHealth(int nbToAdd, Fighter actor){		
+		actor.health += nbToAdd;
+		if (actor instanceof Player){
+			if (actor.health > 100){
+				actor.health = 100;
+			}
+		}
+		else if (actor instanceof Enemy){
+			if (actor.health > 60){
+				actor.health = 60;
+			}
+		}
 	}
 	
 	/**
@@ -120,7 +128,7 @@ private Player player;
 	 * If the player's health goes under 0, the value is put to 0 and the player has to die.
 	 * @param nbToRemove The number to remove to the health of the fighter
 	 */
-	public void removeHealth(int nbToRemove){		
+	public void removeHealth(int nbToRemove, Fighter actor){		
 		this.health -= nbToRemove;
 		if (this.health <= 0)
 			this.health = 0;
@@ -131,7 +139,7 @@ private Player player;
 	 * Allows to increment the attack for the fighter
 	 * @param nbToAdd The number to add to the attack of the fighter
 	 */
-	public void addAttack(int nbToAdd)
+	public void addAttack(int nbToAdd, Fighter actor)
 	{
 		this.attack += nbToAdd; 
 	}
@@ -140,7 +148,7 @@ private Player player;
 	 * Allows to set the attack points of the fighter
 	 * @param attackPoints The new value of the attack for the fighter
 	 */
-	public void setAttack(int attackPoints)
+	public void setAttack(int attackPoints, Fighter actor)
 	{
 		this.attack = attackPoints;
 	}
@@ -149,7 +157,7 @@ private Player player;
 	 * Allows to increment the defense for the fighter
 	 * @param nbToAdd The number to add to the defense of the fighter
 	 */
-	public void modifyDefense(int nbToAdd)
+	public void modifyDefense(int nbToAdd, Fighter actor)
 	{
 		this.defense += nbToAdd;
 	}
@@ -158,7 +166,7 @@ private Player player;
 	 * Allows to set the defense points of the fighter
 	 * @param attackPoints The new value of the defense for the fighter
 	 */
-	public void setDefense(int defensePoints)
+	public void setDefense(int defensePoints, Fighter actor)
 	{
 		this.defense = defensePoints;
 	}	
@@ -168,7 +176,7 @@ private Player player;
 	 * If the subtraction exceeds the minimum, put the attack to 0
 	 * @param nbToRemove The number to remove to the attack of the fighter
 	 */
-	public void removeAttack(int nbToRemove){
+	public void removeAttack(int nbToRemove, Fighter actor){
 		this.attack -= nbToRemove;
 		if (this.attack <= 0)
 			this.attack = 0;
@@ -178,7 +186,7 @@ private Player player;
 	 * Allows to add defense for the fighter
 	 * @param nbToAdd The number to add to the defense of the fighter
 	 */
-	public void addDefense(int nbToAdd){
+	public void addDefense(int nbToAdd, Fighter actor){
 		this.defense += nbToAdd;
 	}
 	
@@ -187,7 +195,7 @@ private Player player;
 	 * If the subtraction exceeds 0, put the defense to 0
 	 * @param nbToRemove The number to remove to the defense of the fighter
 	 */
-	public void removeDefense(int nbToRemove){
+	public void removeDefense(int nbToRemove, Fighter actor){
 		this.defense -= nbToRemove;
 		if (this.defense <= 0)
 			this.defense = 0;
@@ -198,7 +206,7 @@ private Player player;
 	 * @param healthPoints The number of health points to set
 	 * already tested
 	 */
-	public void setHealth(int healthPoints)
+	public void setHealth(int healthPoints, Fighter actor)
 	{
 		if (healthPoints > 0) {
 			this.health = healthPoints;
@@ -209,11 +217,9 @@ private Player player;
 	 * Allow to set player's stamina value.
 	 * @param staminaPoints The number of stamina points to set	 
 	 */
-	public void setStamina(int staminaPoints)
+	public void setStamina(int staminaPoints, Fighter actor)
 	{
 		this.stamina = staminaPoints;
-		if (this.stamina > 100)
-			this.stamina = 100;
 	}	
 	
 }

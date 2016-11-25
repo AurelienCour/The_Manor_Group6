@@ -78,12 +78,12 @@ public class Player extends Fighter{
 		else
 			inventory.add(item);
 		if(item instanceof Weapon){
-			this.setAttack(10);
-			this.addAttack(((Weapon) item).getAttack());
+			this.setAttack(10,this);
+			this.addAttack(((Weapon) item).getAttack(),this);
 		}
 		else if(item instanceof Shield){
-			this.setDefense(10);
-			this.modifyDefense(((Shield) item).getDefense());
+			this.setDefense(10,this);
+			this.modifyDefense(((Shield) item).getDefense(),this);
 		}
 	}
 	
@@ -107,9 +107,9 @@ public class Player extends Fighter{
 	 */
 	public void heal(Potion potion){
 		if (this.haveItem(potion)) {
-			this.addHealth(potion.getHealth());
+			this.addHealth(potion.getHealth(),this);
 			if (this.getHealth()>100){
-				this.setHealth(100);
+				this.setHealth(100,this);
 			};
 		}
 	}
