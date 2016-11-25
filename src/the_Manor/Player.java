@@ -79,7 +79,7 @@ public class Player extends Fighter{
 			inventory.add(item);
 		if(item instanceof Weapon){
 			this.setAttack(10);
-			this.modifyAttack(((Weapon) item).getAttack());
+			this.addAttack(((Weapon) item).getAttack());
 		}
 		else if(item instanceof Shield){
 			this.setDefense(10);

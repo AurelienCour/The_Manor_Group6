@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 import the_Manor.Enemy;
 import the_Manor.Player;
+import the_Manor.Room;
 
 import org.junit.*;
 
@@ -70,7 +71,7 @@ public class FighterTest {
      */
 	@Test
 	public void testGetStaminaPlayer() {
-		assertEquals(10, myPlayer.getStamina());
+		assertEquals(100, myPlayer.getStamina());
 	}
 	
 	/**
@@ -84,13 +85,17 @@ public class FighterTest {
 	
 	/**
      * Method testAddStaminaPlayer
-     * <p>Check that the stamina can be incremented.</p>
+     * <p>Check that the player's stamina can be incremented.</p>
+     * <p>Assuming that the player's stamina maximal value is 100, when it goes upper, the value is put to 100.</p>     
      */
 	@Test
 	public void testAddStaminaPlayer() {
-		myPlayer.addStamina(5);
-		//Assuming the default value is 5, adding more than 5 points results is 10
-		assertEquals(10, myPlayer.getStamina());
+		myPlayer.setStamina(30);
+		myPlayer.addStamina(5);	
+		assertEquals(35, myPlayer.getStamina());
+		myPlayer.addStamina(75);
+		// The player's stamina value is now upper than 100, so the value is put to 100.
+		assertEquals(100, myPlayer.getStamina());
 	}
 	
 	/**
@@ -106,46 +111,59 @@ public class FighterTest {
 	
 	/**
      * Method testAddHealthPlayer
-     * <p>Check that the health can be incremented.</p>
+     * <p>Check that the player's health value can be incremented.</p>
+     * <p>The player's default health value is assumed to be 100.</p>
+     * <p>If the players health value goes upper than 100, it is put to 100.</p>
      */
 	@Test
 	public void testAddHealthPlayer() {
 		myPlayer.addHealth(5);
-		//Assuming the default value is 15, adding more than 5 points results is 20, not superior value
-		assertEquals(10, myPlayer.getHealth());
+		// The player's health value equals to 105, so it is put to 100.
+		assertEquals(100, myPlayer.getHealth());
+		myPlayer.setHealth(80);
+		myPlayer.addHealth(5);
+		assertEquals(85, myPlayer.getHealth());
 	}
 	
 	/**
      * Method testRemHealthPlayer
-     * <p>Check that the health can be decremented.</p>
+     * <p>Check that the player's health can be decremented.</p>
+     * <p>Assuming that the player's health default value equals to 100. </p>
+     * <p>If the player's health goes under 0, the value is put to 0. </p> 
      */
 	@Test
 	public void testRemHealthPlayer() {
-		myPlayer.removeHealth(5);
-		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
-		assertEquals(10, myPlayer.getHealth());
+		myPlayer.removeHealth(10);
+		assertEquals(90, myPlayer.getHealth());
+		// The player's health value equals to -10, so it is put to 0.
+		myPlayer.removeHealth(100);
+		assertEquals(0, myPlayer.getHealth());
 	}
     
 	/**
      * Method testAddAttackPlayer
-     * <p>Check that the attack can be incremented.</p>
+     * <p>Check that player's attack value can be incremented.</p>
+     * <p>The player's default attack value is assumed to be 10.</p>
      */
 	@Test
-	public void testAddAttackPlayer() {
-		//Assuming the default value is 15, adding more than 5 points results is 20, not superior value
-		this.myPlayer.modifyAttack(5);
+	public void testAddAttackPlayer() {		
+		this.myPlayer.addAttack(5);
 		assertEquals(15, myPlayer.getAttack());
 	}
 	
 	/**
      * Method testRemHealthPlayer
-     * <p>Check that the health can be decremented.</p>
+     * <p>Check that the attack of the player can be decremented.</p>
+     * <p>Assuming that the default value of the player's attack equals to 10</p>
+     * <p>If the value of the player's attack goes under 0, the value is put to 0</p>
      */
 	@Test
 	public void testRemAttackPlayer() {
 		myPlayer.removeAttack(5);
-		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
-		assertEquals(10, myPlayer.getAttack());
+		assertEquals(5, myPlayer.getAttack());
+		myPlayer.removeAttack(6);
+		// The player's attack value equals to -1, so it is set to 0
+		assertEquals(0, myPlayer.getAttack());
 	}
     
 	/**
@@ -161,13 +179,15 @@ public class FighterTest {
 	
 	/**
      * Method testRemDefensePlayer
-     * <p>Check that the defense is initialized to 10.</p>
+     * <p>Check that the defense of the player can be decremented.</p>
+     * <p>Assuming that the default value of the player's defense equals to 10 </p>
      */
 	@Test
 	public void testRemDefensePlayer() {
-		myPlayer.removeDefense(5);
-		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
-		assertEquals(10, myPlayer.getDefense());
+		myPlayer.removeDefense(5);		
+		assertEquals(5, myPlayer.getDefense());
+		myPlayer.removeDefense(6);
+		assertEquals(0, myPlayer.getDefense());
 	}
 	
     
@@ -185,20 +205,22 @@ public class FighterTest {
 	
 	/**
      * Method testGetDefenseEnemy
-     * <p>Check that the defense is initialized to 10.</p>
+     * <p>Check that the right enemy's defense value is returned.</p>
+     * <p>The enemy's default defense value is assumed to be 3.</p>
      */
 	@Test
 	public void testGetDefenseEnemy() {
-		assertEquals(10, myEnemy.getDefense());
+		assertEquals(3, myEnemy.getDefense());
 	}
 	
 	/**
      * Method testGetStaminaEnemy
-     * <p>Check that the stamina is initialized to 10.</p>
+     * <p>Check the right enemy's stamina value is returned.</p>
+     * <p>The default enemy's stamina value is assumed to be 60.<p>
      */
 	@Test
 	public void testGetStaminaEnemy() {
-		assertEquals(10, myEnemy.getStamina());
+		assertEquals(60, myEnemy.getStamina());
 	}
 	
 	/**
@@ -212,7 +234,8 @@ public class FighterTest {
 	
 	/**
      * Method testAddStaminaEnemy
-     * <p>Check that the stamina can be incremented.</p>
+     * <p>Check that the enemy's stamina value can be incremented.</p>
+     * <p>Assuming that the enemy's stamina maximal value is 100, when it goes upper, the value is put to 100.</p>
      */
 	@Test
 	public void testAddStaminaEnemy() {
@@ -234,12 +257,25 @@ public class FighterTest {
 	
 	/**
      * Method testRemHealthEnemy
-     * <p>Check that the defense can be decremented.</p>
+     * <p>Check that the health of the enemy can be decremented.</p>
+     * <p>The enemy's default health value is assumed to be 100.</p>
+     * <p>If the health goes under 0, the enemy dies and should be removed of the room.</p>
      */
 	@Test
 	public void testRemHealthEnemy() {
+		myEnemy.setHealth(100);
 		myEnemy.removeHealth(5);
-		//Assuming the default value is 15, losing more than 15 points results is 0, not negative value
-		assertEquals(10, myEnemy.getHealth());
+		assertEquals(95, myEnemy.getHealth());
+		//Testing when the health of an enemy equals to 0 : the enemy is dead
+		Room myRoom = new Room("Cave");
+		myRoom.addCharacter(myEnemy);
+		// There is 1 character in the room
+		assertEquals(1, myRoom.numberOfChararacterInRoom());
+		myEnemy.setHealth(20);
+		myEnemy.removeHealth(30);
+		// The player's health value equals to -10, so it is put to 0 and the enemy has to die.		
+		if (myEnemy.getHealth() <= 0)
+			myRoom.deleteEnemy(myEnemy);
+			assertEquals(0, myRoom.numberOfChararacterInRoom());		
 	}
 }

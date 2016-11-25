@@ -25,6 +25,9 @@ protected int health; // the Fighter's Health
 protected int stamina; // the Fighter's Stamina 
 protected int attack; // the Fighter's Attack
 protected int defense; // the Fighter's Defense
+private Room myRoom;
+private Enemy theEnemy;
+
 	
 
 	/**
@@ -79,6 +82,8 @@ protected int defense; // the Fighter's Defense
 	 */
 	public void addStamina(int nbToAdd){
 		this.stamina += nbToAdd;
+		if (this.stamina > 100)
+			this.stamina = 100;
 	}
 	
 	/**
@@ -95,24 +100,29 @@ protected int defense; // the Fighter's Defense
 	 * If the addition exceeds the maximum, put the health to the maximum
 	 * @param nbToAdd The number to add to the health of the fighter
 	 */
-	public void addHealth(int nbToAdd){
+	public void addHealth(int nbToAdd){		
 		this.health += nbToAdd;
+		if (this.health > 100)
+			this.health = 100;
 	}
 	
 	/**
-	 * Allows to remove health for the fighter
-	 * If the subtraction exceeds the minimum, put the health to the minimum
+	 * Allows to decrement the player's health.
+	 * If the player's health goes under 0, the value is put to 0 and the player has to die.
 	 * @param nbToRemove The number to remove to the health of the fighter
 	 */
-	public void removeHealth(int nbToRemove){
+	public void removeHealth(int nbToRemove){		
 		this.health -= nbToRemove;
+		if (this.health <= 0)
+			this.health = 0;
+			System.out.println("The fighter is dead");
 	}
 	
 	/**
 	 * Allows to increment the attack for the fighter
 	 * @param nbToAdd The number to add to the attack of the fighter
 	 */
-	public void modifyAttack(int nbToAdd)
+	public void addAttack(int nbToAdd)
 	{
 		this.attack += nbToAdd; 
 	}
@@ -151,6 +161,8 @@ protected int defense; // the Fighter's Defense
 	 */
 	public void removeAttack(int nbToRemove){
 		this.attack -= nbToRemove;
+		if (this.attack <= 0)
+			this.attack = 0;
 	}
 	
 	/**
@@ -168,6 +180,8 @@ protected int defense; // the Fighter's Defense
 	 */
 	public void removeDefense(int nbToRemove){
 		this.defense -= nbToRemove;
+		if (this.defense <= 0)
+			this.defense = 0;
 	}
 	
 	/**
@@ -181,4 +195,16 @@ protected int defense; // the Fighter's Defense
 			this.health = healthPoints;
 		}
 	}
+	
+	/**
+	 * Allow to set player's stamina value.
+	 * @param staminaPoints The number of stamina points to set	 
+	 */
+	public void setStamina(int staminaPoints)
+	{
+		this.stamina = staminaPoints;
+		if (this.stamina > 100)
+			this.stamina = 100;
+	}	
+	
 }
