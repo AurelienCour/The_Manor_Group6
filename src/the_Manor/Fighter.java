@@ -27,6 +27,7 @@ protected int attack; // the Fighter's Attack
 protected int defense; // the Fighter's Defense
 private Room myRoom;
 private Enemy theEnemy;
+private Player player;
 
 	
 
@@ -80,10 +81,18 @@ private Enemy theEnemy;
 	 * If the addition exceeds the maximum, put the stamina to the maximum
 	 * @param nbToAdd The number to add to the stamina of the fighter
 	 */
-	public void addStamina(int nbToAdd){
-		this.stamina += nbToAdd;
-		if (this.stamina > 100)
-			this.stamina = 100;
+	public void addStamina(int nbToAdd, Fighter actor){
+		actor.stamina += nbToAdd;
+		if (actor instanceof Player){
+			if (actor.stamina > 100){
+				actor.stamina = 100;
+			}
+		}
+		else if (actor instanceof Enemy){
+			if (actor.stamina > 60){
+				actor.stamina = 60;
+			}
+		}
 	}
 	
 	/**
