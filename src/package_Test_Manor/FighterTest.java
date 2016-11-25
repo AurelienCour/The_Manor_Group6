@@ -58,7 +58,8 @@ public class FighterTest {
 	
 	/**
      * Method testGetDefensePlayer
-     * <p>Check that the defense is initialized to 10.</p>
+     * <p>Check that the right player's defense value is returned.</p>
+     * <p>The player's default defense value is assumed to be 10.</p>
      */
 	@Test
 	public void testGetDefensePlayer() {
@@ -67,7 +68,8 @@ public class FighterTest {
 	
 	/**
      * Method testGetStaminaPlayer
-     * <p>Check that the stamina is initialized to 10.</p>
+     * <p>Check that the player's stamina right value is returned.</p>
+     * <p>The player's default stamina value is assumed to be 100.</p> 
      */
 	@Test
 	public void testGetStaminaPlayer() {
@@ -76,17 +78,19 @@ public class FighterTest {
 	
 	/**
      * Method testGetHealthPlayer
-     * <p>Check that the health is initialized to 10.</p>
+     * <p>Check that the right player's health value is returned.</p>
+     * <p>The player's default health value is assumed to be 100.</p>
      */
 	@Test
 	public void testGetHealthPlayer() {
-		assertEquals(10, myPlayer.getHealth());
+		assertEquals(100, myPlayer.getHealth());
 	}
 	
 	/**
      * Method testAddStaminaPlayer
      * <p>Check that the player's stamina can be incremented.</p>
-     * <p>Assuming that the player's stamina maximal value is 100, when it goes upper, the value is put to 100.</p>     
+     * <p>The player's default stamina value is assumed to be 100.</p>
+     * <p>If the players stamina value goes upper than 100, it is put to 100.</p>     
      */
 	@Test
 	public void testAddStaminaPlayer() {
@@ -128,8 +132,8 @@ public class FighterTest {
 	/**
      * Method testRemHealthPlayer
      * <p>Check that the player's health can be decremented.</p>
-     * <p>Assuming that the player's health default value equals to 100. </p>
-     * <p>If the player's health goes under 0, the value is put to 0. </p> 
+     * <p>The player's default health value is assumed to be 100.</p>
+     * <p>If the player's health value goes under 0, the value is put to 0.</p> 
      */
 	@Test
 	public void testRemHealthPlayer() {
@@ -152,17 +156,17 @@ public class FighterTest {
 	}
 	
 	/**
-     * Method testRemHealthPlayer
-     * <p>Check that the attack of the player can be decremented.</p>
-     * <p>Assuming that the default value of the player's attack equals to 10</p>
-     * <p>If the value of the player's attack goes under 0, the value is put to 0</p>
+     * Method testRemAttackPlayer
+     * <p>Check that player's attack value can be decremented.</p>
+     * <p>The player's default attack value is assumed to be 10.</p>
+     * <p>If player's attack value goes under 0, the value is put to 0.</p>
      */
 	@Test
 	public void testRemAttackPlayer() {
 		myPlayer.removeAttack(5);
 		assertEquals(5, myPlayer.getAttack());
 		myPlayer.removeAttack(6);
-		// The player's attack value equals to -1, so it is set to 0
+		// The player's attack value equals to -1, so it is set to 0.
 		assertEquals(0, myPlayer.getAttack());
 	}
     
@@ -180,13 +184,15 @@ public class FighterTest {
 	/**
      * Method testRemDefensePlayer
      * <p>Check that the defense of the player can be decremented.</p>
-     * <p>Assuming that the default value of the player's defense equals to 10 </p>
+     * <p>The player's default defense value is assumed to be 10.</p>
+     * <p>If the player's defense value goes under 0, it is put to 0.</p>
      */
 	@Test
 	public void testRemDefensePlayer() {
 		myPlayer.removeDefense(5);		
 		assertEquals(5, myPlayer.getDefense());
 		myPlayer.removeDefense(6);
+		// The player's defense value is now lower than 0, so it is put to 0.
 		assertEquals(0, myPlayer.getDefense());
 	}
 	
@@ -196,11 +202,12 @@ public class FighterTest {
     
     /**
      * Method testGetAttackEnemy
-     * <p>Check that the attack is initialized to 10.</p>
+     * <p>Check that the right enemy's attack value is returned.</p>
+     * <p>The enemy's default attack value is assumed to be 5.</p>
      */
 	@Test
 	public void testGetAttackEnemy() {
-		assertEquals(10, myEnemy.getAttack());
+		assertEquals(5, myEnemy.getAttack());
 	}
 	
 	/**
@@ -225,11 +232,12 @@ public class FighterTest {
 	
 	/**
      * Method testGetHealthEnemy
-     * <p>Check that the health is initialized to 10.</p>
+     * <p>Check that the right enemy's health value is returned.</p>
+     * <p>The enemy's default health value is assumed to be 100.</p>
      */
 	@Test
 	public void testGetHealthEnemy() {
-		assertEquals(10, myEnemy.getHealth());
+		assertEquals(100, myEnemy.getHealth());
 	}
 	
 	/**
