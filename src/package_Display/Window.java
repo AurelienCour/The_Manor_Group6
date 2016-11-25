@@ -1,6 +1,10 @@
 package package_Display;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
 import javax.swing.*;
 
 public class Window extends JFrame{
@@ -12,6 +16,7 @@ public class Window extends JFrame{
 	private JLabel windowGame;
 	private JLabel lifePoint;
 	private JLabel staminaPoint;
+	
 	
 	public Window(){
 		this.setTitle("The_Manor");
@@ -37,6 +42,10 @@ public class Window extends JFrame{
 		playerObject.add(iconeBouclier);
 		playerObject.add(iconePotion);
 		playerObject.add(iconeClef);
+		iconeEpee.setVisible(false);
+		iconeBouclier.setVisible(false);
+		iconePotion.setVisible(false);
+		iconeClef.setVisible(false);
 		
 		
 		// Notre image "THE MANOR"
@@ -59,6 +68,7 @@ public class Window extends JFrame{
 		JButton controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
 		JButton controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
 		controlHaut.setBackground(Color.BLACK);
+		
 		controlBas.setBackground(Color.BLACK);
 		controlGauche.setBackground(Color.BLACK);
 		controlDroit.setBackground(Color.BLACK);
@@ -77,6 +87,22 @@ public class Window extends JFrame{
 		search.setBackground(Color.BLACK);
 		search.setPreferredSize(new Dimension(99, 95));
 		search.setBorder(null);
+		search.addActionListener(new ActionListener (){
+            public void actionPerformed (ActionEvent e){
+            	if(Window.this.iconeEpee.isVisible()){
+            		Window.this.iconeEpee.setVisible(false);
+	            	Window.this.iconeBouclier.setVisible(false);
+	            	Window.this.iconePotion.setVisible(false);
+	            	Window.this.iconeClef.setVisible(false);
+            	}
+            	else{
+            		Window.this.iconeEpee.setVisible(true);
+	            	Window.this.iconeBouclier.setVisible(true);
+	            	Window.this.iconePotion.setVisible(true);
+	            	Window.this.iconeClef.setVisible(true);
+            	}
+            }	
+        });
 		charac.add(search,BorderLayout.WEST);
 		charac.add(Box.createGlue());
 		
