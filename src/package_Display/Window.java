@@ -72,6 +72,7 @@ public class Window extends JFrame{
 		
 		JPanel control = new JPanel();
 		control.setLayout(new GridLayout(1,3));
+		control.setPreferredSize(new Dimension((WIDTH_WINDOW*22)/100, (LENGTH_WINDOW*16)/100));
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
 		this.controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
@@ -122,9 +123,8 @@ public class Window extends JFrame{
 		
 		
 		JPanel charac = new JPanel();
-		charac.setLayout(new BorderLayout(20,20));
+		charac.setLayout(new BorderLayout(5,5));//20,20
 		charac.setBackground(Color.black);
-		charac.setPreferredSize(new Dimension((WIDTH_WINDOW*80)/100, 60));
 		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Loupe.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
 		search.setBackground(Color.BLACK);
 		search.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100, 0));
@@ -146,24 +146,25 @@ public class Window extends JFrame{
             }	
         });
 		charac.add(search,BorderLayout.WEST);
-		charac.add(Box.createGlue());
 		
 		JPanel durability = new JPanel();
 		durability.setLayout(new GridLayout(2,1));
 		durability.setBackground(Color.BLACK);
 		this.lifePoint = new JLabel("PV   "+Integer.toString(this.newGame.getPlayer().getHealth())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxHealth()));
 		this.lifePoint.setForeground(Color.RED);
-		
+		this.lifePoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
 		this.staminaPoint = new JLabel("STAMINA   "+Integer.toString(this.newGame.getPlayer().getStamina())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxStamina()));
 		this.staminaPoint.setForeground(Color.GREEN);
-		
+		this.staminaPoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
 		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
 		this.attackPoint.setForeground(Color.BLUE);
+		this.attackPoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
 		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
 		this.defensePoint.setForeground(Color.BLUE);
+		this.defensePoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
 		
 		characteristics.add(this.attackPoint);
 		characteristics.add(this.defensePoint);

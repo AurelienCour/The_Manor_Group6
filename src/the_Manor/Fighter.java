@@ -136,23 +136,6 @@ public abstract class Fighter extends Character{
 		this.setAttack(this.getAttack()+nbToAdd);
 	}
 	
-	/**
-	 * Allows to set the attack points of the fighter
-	 * @param attackPoints The new value of the attack for the fighter
-	 */
-	private void setAttack(int attackPoints)
-	{
-		this.attack = attackPoints;
-	}
-
-	/**
-	 * Allows to set the defense points of the fighter
-	 * @param attackPoints The new value of the defense for the fighter
-	 */
-	private void setDefense(int defensePoints)
-	{
-		this.defense = defensePoints;
-	}	
 	
 	/**
 	 * Allows to remove attack for the fighter
@@ -203,6 +186,24 @@ public abstract class Fighter extends Character{
 	private void setStamina(int staminaPoints)
 	{
 		this.stamina = staminaPoints;
+	}	
+	
+	/**
+	 * Allows to set the attack points of the fighter
+	 * @param attackPoints The new value of the attack for the fighter
+	 */
+	private void setAttack(int attackPoints)
+	{
+		this.attack = attackPoints;
+	}
+
+	/**
+	 * Allows to set the defense points of the fighter
+	 * @param attackPoints The new value of the defense for the fighter
+	 */
+	private void setDefense(int defensePoints)
+	{
+		this.defense = defensePoints;
 	}	
 	
 }
