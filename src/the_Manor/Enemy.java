@@ -13,8 +13,22 @@ public class Enemy extends Fighter{
 	 * @param newName The name of the enemy
 	 * @param description The description of the enemy
 	 */
-	public Enemy(String newName, String description) {
+	public Enemy(String newName, String description, int nbMaxPV, int nbMaxStamina, int attack, int defense) {
 		super(newName, description);
+		this.NBMAXPV = nbMaxPV;
+		this.NBMAXSTAMINA = nbMaxStamina;
+		this.attack = attack;
+		this.defense = defense;
+		this.health = this.NBMAXPV;
+		this.stamina = this.NBMAXSTAMINA;
+	}
+	
+	public int getNbMaxHealth(){
+		return this.NBMAXPV;
+	}
+	
+	public int getNbMaxStamina(){
+		return this.NBMAXSTAMINA;
 	}
 
 }

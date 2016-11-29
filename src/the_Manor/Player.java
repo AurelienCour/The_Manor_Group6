@@ -13,10 +13,6 @@ import java.util.ArrayList;
  */
 public class Player extends Fighter{
 	
-	final int nbMaxPv = 100;
-	final int nbMaxStamina = 100;
-	final int defautAttack = 10;
-	final int defautDefense = 10;
 	private ArrayList<Item>	inventory; // this is the item list of the player
 	private Room currentRoom;
 	
@@ -26,23 +22,18 @@ public class Player extends Fighter{
 	 * @param description The description of the player
 	 * @param initialRoom The initial room of the player
 	 */
-	public Player(String newName, String description, Room initialRoom) {
+	public Player(String newName, String description) {
 		super(newName,description);
-		this.health = nbMaxPv;
-		this.stamina = nbMaxStamina;
-		this.attack = defautAttack;
-		this.defense = defautDefense;
-		this.currentRoom = initialRoom;
+		this.NBMAXPV = 100;
+		this.NBMAXSTAMINA = 100;
+		this.attack = 10;
+		this.defense = 10;
+		this.health = this.NBMAXPV;
+		this.stamina = this.NBMAXSTAMINA;
 		inventory = new ArrayList<Item>();
 	}
 	
-	public int getNbMaxHealth(){
-		return this.nbMaxPv;
-	}
 	
-	public int getNbMaxStamina(){
-		return this.nbMaxStamina;
-	}
 	
 	/**
 	 * Allows to know the number of item possesses by the player
@@ -77,25 +68,33 @@ public class Player extends Fighter{
 	 * @param item The item to give to the player
 	 */
 	public void pickUp(Item item){
-		if(haveItem(item)){
-			int i =0;
-			for(Item it: inventory){
-				if(it.getClass().equals(item.getClass())){
-					inventory.remove(i);
-					inventory.add(item);
-				}
-				i++;
-			}
-		}
-		else
+		if(item instanceof Key){
 			inventory.add(item);
+		}
+		else{
+			if(haveItem(item)){
+				int i =0;
+				for(Item it: inventory){
+					if(it.getClass().equals(item.getClass())){
+						if(item instanceof Weapon)
+							this.removeAttack(((Weapon) item).getAttack());
+						else if(item instanceof Shield)
+							this.removeDefense(((Shield) item).getDefense());
+						inventory.remove(i);
+						inventory.add(item);
+						break;
+					}
+					i++;
+				}
+			}
+			else
+				inventory.add(item);
+		}
 		if(item instanceof Weapon){
-			this.setAttack(10,this);
-			this.addAttack(((Weapon) item).getAttack(),this);
+			this.addAttack(((Weapon) item).getAttack());
 		}
 		else if(item instanceof Shield){
-			this.setDefense(10,this);
-			this.modifyDefense(((Shield) item).getDefense(),this);
+			this.addDefense(((Shield) item).getDefense());
 		}
 	}
 	
@@ -119,10 +118,7 @@ public class Player extends Fighter{
 	 */
 	public void heal(Potion potion){
 		if (this.haveItem(potion)) {
-			this.addHealth(potion.getHealth(),this);
-			if (this.getHealth()>100){
-				this.setHealth(100,this);
-			};
+			this.addHealth(potion.getHealth());
 		}
 	}
 	

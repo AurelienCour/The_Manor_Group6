@@ -41,7 +41,7 @@ public class RoomTest
 	@Before
 	public void setUp()
 	{
-		myRoom = new Room("Cuisine");
+		myRoom = new Room("Cuisine",null);
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class RoomTest
 	@Test
 	public void testSalleDefaultName()
 	{
-		Room badRoom = new Room("");
+		Room badRoom = new Room("",null);
 		// Assuming that an empty name results in giving "Salle" as a default name for a player
 		assertEquals("Salle", badRoom.getName());
 	}

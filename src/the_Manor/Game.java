@@ -10,7 +10,7 @@ public class Game {
 	 * The constructor of the class Game	 
 	 */	
 	public Game() {
-		this.notreJoueur = new Player("Test", "Notre Joueur", null);
+		this.notreJoueur = new Player("Test", "Notre Joueur");
 		createRooms();
 		
 	}

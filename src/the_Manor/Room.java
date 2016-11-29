@@ -32,10 +32,13 @@ public class Room {
 			this.roomName = "Salle";
 		else
 			this.roomName = roomName;
+		if(background.isEmpty())
+			this.background="fond.png";
+		else
+			this.background = background;
 		this.exitPossible = new HashMap<String, Door>();
 		this.characterInRoom = new ArrayList<Character>();
 		this.objectInRoom = new ArrayList<Item>();	
-		this.background = background;
 	}
 	
 	public String getBackground(){

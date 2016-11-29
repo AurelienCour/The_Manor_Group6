@@ -12,7 +12,7 @@ import the_Manor.Game;
 
 public class Window extends JFrame{
 	
-	final int WIDTH_WINDOW = 850;
+	final int WIDTH_WINDOW =800;
 	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel iconeEpee;
 	private JLabel iconeBouclier;
@@ -23,6 +23,7 @@ public class Window extends JFrame{
 	private JLabel staminaPoint;
 	private JLabel attackPoint;
 	private JLabel defensePoint;
+	private JButton controlHaut,controlBas,controlGauche,controlDroit;
 	
 	private Game newGame;
 	
@@ -40,31 +41,31 @@ public class Window extends JFrame{
 		
 		
 		// Les différents icones d'objet
-		iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		this.iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		this.iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		this.iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		this.iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		
 		
 		
 		playerObject.setBackground(Color.black);
-		playerObject.add(iconeEpee);
-		playerObject.add(iconeBouclier);
-		playerObject.add(iconePotion);
-		playerObject.add(iconeClef);
-		iconeEpee.setVisible(false);
-		iconeBouclier.setVisible(false);
-		iconePotion.setVisible(false);
-		iconeClef.setVisible(false);
+		playerObject.add(this.iconeEpee);
+		playerObject.add(this.iconeBouclier);
+		playerObject.add(this.iconePotion);
+		playerObject.add(this.iconeClef);
+		this.iconeEpee.setVisible(false);
+		this.iconeBouclier.setVisible(false);
+		this.iconePotion.setVisible(false);
+		this.iconeClef.setVisible(false);
 		
 		
 		// Notre image "THE MANOR"
-		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		this.windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
 		
 		
 		
 		objectAndGame.add(playerObject,BorderLayout.WEST);
-		objectAndGame.add(windowGame,BorderLayout.CENTER);
+		objectAndGame.add(this.windowGame,BorderLayout.CENTER);
 		
 		JPanel characAndControl = new JPanel();
 		characAndControl.setLayout(new BoxLayout(characAndControl, BoxLayout.X_AXIS));
@@ -73,16 +74,17 @@ public class Window extends JFrame{
 		control.setLayout(new GridLayout(1,3));
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
-		JButton controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		JButton controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_bas.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		JButton controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT))));
-		JButton controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		this.controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		this.controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_bas.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		this.controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT))));
+		this.controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
 		controlHaut.setBackground(Color.BLACK);
 		controlHaut.addActionListener(new ActionListener (){
             public void actionPerformed (ActionEvent e){
             	Window.this.newGame.move("NORD");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
+            	Window.this.checkDirection();
             }	
         });
 		controlBas.setBackground(Color.BLACK);
@@ -91,6 +93,7 @@ public class Window extends JFrame{
             	Window.this.newGame.move("SUD");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
+            	Window.this.checkDirection();
             }	
         });
 		controlGauche.setBackground(Color.BLACK);
@@ -99,6 +102,7 @@ public class Window extends JFrame{
             	Window.this.newGame.move("OUEST");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
+            	Window.this.checkDirection();
             }	
         });
 		controlDroit.setBackground(Color.BLACK);
@@ -107,13 +111,14 @@ public class Window extends JFrame{
             	Window.this.newGame.move("EST");
             	Window.this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
             	Window.this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
+            	Window.this.checkDirection();
             }	
         });
-		controlHorizontal.add(controlHaut);
-		controlHorizontal.add(controlBas);
-		control.add(controlGauche);
+		controlHorizontal.add(this.controlHaut);
+		controlHorizontal.add(this.controlBas);
+		control.add(this.controlGauche);
 		control.add(controlHorizontal);
-		control.add(controlDroit);
+		control.add(this.controlDroit);
 		
 		
 		JPanel charac = new JPanel();
@@ -146,25 +151,25 @@ public class Window extends JFrame{
 		JPanel durability = new JPanel();
 		durability.setLayout(new GridLayout(2,1));
 		durability.setBackground(Color.BLACK);
-		lifePoint = new JLabel("PV   "+Integer.toString(this.newGame.getPlayer().getHealth())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxHealth()));
-		lifePoint.setForeground(Color.RED);
+		this.lifePoint = new JLabel("PV   "+Integer.toString(this.newGame.getPlayer().getHealth())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxHealth()));
+		this.lifePoint.setForeground(Color.RED);
 		
-		staminaPoint = new JLabel("STAMINA   "+Integer.toString(this.newGame.getPlayer().getStamina())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxStamina()));
-		staminaPoint.setForeground(Color.GREEN);
+		this.staminaPoint = new JLabel("STAMINA   "+Integer.toString(this.newGame.getPlayer().getStamina())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxStamina()));
+		this.staminaPoint.setForeground(Color.GREEN);
 		
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
-		attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
-		attackPoint.setForeground(Color.BLUE);
-		defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
-		defensePoint.setForeground(Color.BLUE);
+		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
+		this.attackPoint.setForeground(Color.BLUE);
+		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
+		this.defensePoint.setForeground(Color.BLUE);
 		
-		characteristics.add(attackPoint);
-		characteristics.add(defensePoint);
+		characteristics.add(this.attackPoint);
+		characteristics.add(this.defensePoint);
 		
-		durability.add(lifePoint);
-		durability.add(staminaPoint);
+		durability.add(this.lifePoint);
+		durability.add(this.staminaPoint);
 		charac.add(durability,BorderLayout.CENTER);
 		charac.add(characteristics,BorderLayout.EAST);
 		
@@ -178,9 +183,27 @@ public class Window extends JFrame{
 		this.setSize(WIDTH_WINDOW, LENGTH_WINDOW);
 		this.setResizable(false);
 		this.setVisible(true);
-		
-		
-		
+
+		this.checkDirection();
+	}
+	
+	private void checkDirection(){
+		if(this.newGame.getPlayer().getCurrentRoom().getDoor("OUEST") == null)
+			this.controlGauche.setEnabled(false);
+		else
+			this.controlGauche.setEnabled(true);
+		if(this.newGame.getPlayer().getCurrentRoom().getDoor("EST") == null)
+			this.controlDroit.setEnabled(false);
+		else
+			this.controlDroit.setEnabled(true);
+		if(this.newGame.getPlayer().getCurrentRoom().getDoor("NORD") == null)
+			this.controlHaut.setEnabled(false);
+		else
+			this.controlHaut.setEnabled(true);
+		if(this.newGame.getPlayer().getCurrentRoom().getDoor("SUD") == null)
+			this.controlBas.setEnabled(false);
+		else
+			this.controlBas.setEnabled(true);
 	}
 	
 	public static void main(String[] args) {
