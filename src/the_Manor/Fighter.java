@@ -24,8 +24,8 @@ public abstract class Fighter extends Character{
 
 	protected int health; // the Fighter's Health
 	protected int stamina; // the Fighter's Stamina 
-	protected int NBMAXSTAMINA;
-	protected int NBMAXPV;
+	protected int NBMAXSTAMINA; // the stamina Fighter's max value 
+	protected int NBMAXPV; // the life points Fighter's max value 
 	protected int attack; // the Fighter's Attack
 	protected int defense; // the Fighter's Defense
 	

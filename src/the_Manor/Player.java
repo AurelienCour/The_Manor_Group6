@@ -3,33 +3,32 @@ package the_Manor;
 import java.util.ArrayList;
 /**
  * <p>This class represent the Player. </p>
- * <p>In addition to the possibilities inherited from the Fighter class, the player can: </p>
+ * <p>In addition to the possibilities inherited from the Fighter class, the player has extra functionalities: </p>
  * <ul>
- * <li> At the start of the game, a name is inputed. If no name, a default name "John" is used for the name</li>
- * <li> Use items from the inventory</li>
- * <li> Talk with Allies</li>
+ * <li>At the start of the game, a name is inputed. If there is no name, the default name "John" is used.</li>
+ * <li>Use items from the inventory</li>
+ * <li>Talk with Allies</li>
  * </ul>
  * @author astem
  */
 public class Player extends Fighter{
 	
 	private ArrayList<Item>	inventory; // this is the item list of the player
-	private Room currentRoom;
+	private Room currentRoom; // current room of the player
 	
 	/**
 	 * The constructor for the player
 	 * @param newName The name of the player
-	 * @param description The description of the player
-	 * @param initialRoom The initial room of the player
+	 * @param description The description of the player	 
 	 */
 	public Player(String newName, String description) {
 		super(newName,description);
-		this.NBMAXPV = 100;
-		this.NBMAXSTAMINA = 100;
-		this.attack = 10;
-		this.defense = 10;
-		this.health = this.NBMAXPV;
-		this.stamina = this.NBMAXSTAMINA;
+		this.NBMAXPV = 100; 
+		this.NBMAXSTAMINA = 100; 
+		this.attack = 10; 
+		this.defense = 10; 
+		this.health = this.NBMAXPV; 
+		this.stamina = this.NBMAXSTAMINA; 
 		inventory = new ArrayList<Item>();
 	}
 	
