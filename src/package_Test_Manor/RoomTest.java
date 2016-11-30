@@ -73,7 +73,7 @@ public class RoomTest
 	{
 		Room badRoom = new Room("",null);
 		// Assuming that an empty name results in giving "Salle" as a default name for a player
-		assertEquals("Salle", badRoom.getName());
+		assertEquals("Room", badRoom.getName());
 	}
 	
 	/**
