@@ -10,7 +10,7 @@ import org.junit.Test;
 /**
  * The test class EnigmaticDoor
  * Unit tests of the EnigmaticDoor
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class EnigmaticDoorTest {
@@ -27,8 +27,8 @@ public class EnigmaticDoorTest {
 	 */
     @Before
     public void setUp() {
-    	nextRoom = new Room("Kitchen");
-    	previousRoom = new Room("Bedroom");
+    	nextRoom = new Room("Kitchen","Kitchen");
+    	previousRoom = new Room("Bedroom","Bedroom");
         door = new EnigmaticDoor("Who is the leader of the group 6 ?","aurelien",nextRoom,previousRoom);     
     }
 
