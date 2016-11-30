@@ -33,7 +33,7 @@ public class AllyTest {
      */
     @Before
     public void setUp() {
-    	potion = new Potion("Potion de vie", 40);
+    	potion = new Potion("Life potion", 40);
     	myAlly = new Ally("myAlly", "An ally", potion);
     }
 
@@ -59,7 +59,7 @@ public class AllyTest {
 	@Test
 	public void testAddItem(){
 		Potion potion2 = new Potion("potion",15);
-		Ally myAlly2 = new Ally("test", "test", null);
+		Ally myAlly2 = new Ally("try", "try", null);
 		assertEquals(null, myAlly2.getItem());
 		myAlly2.addItem(potion2);
 		assertEquals(potion2, myAlly2.getItem());
@@ -73,9 +73,9 @@ public class AllyTest {
 	@Test
 	public void testAddItemWithItem(){
 		Potion potion2 = new Potion("potion",15);
-		Ally myAlly2 = new Ally("test", "test", potion);
+		Ally myAlly2 = new Ally("try", "try", potion);
 		assertEquals(potion, myAlly2.getItem());
-		myAlly.addItem(potion2);
+		this.myAlly.addItem(potion2);
 		assertEquals(potion, myAlly2.getItem());
 	}
 	
@@ -86,7 +86,7 @@ public class AllyTest {
 	 */
 	@Test
 	public void testGiveItem(){
-		Player player = new Player("test", "test");
+		Player player = new Player("try", "try");
 		assertEquals(0, player.numberOfItem());
 		assertEquals(potion, myAlly.getItem());
 		this.myAlly.giveItem(player);
@@ -100,8 +100,8 @@ public class AllyTest {
 	 */
 	@Test
 	public void testGiveItemWithoutItem(){
-		Player player = new Player("test", "test");
-		Ally myAlly2 = new Ally("test", "test", null);
+		Player player = new Player("try", "try");
+		Ally myAlly2 = new Ally("try", "try", null);
 		assertEquals(0, player.numberOfItem());
 		assertEquals(null, myAlly2.getItem());
 		myAlly2.giveItem(player);
