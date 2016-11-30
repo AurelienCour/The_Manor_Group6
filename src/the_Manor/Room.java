@@ -10,7 +10,7 @@ import java.util.*;
  * <li> Allows to add and delete character to a room. </li>
  * <li> Allows to add and delete items in a room. </li>
  * </ul>
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class Room {
