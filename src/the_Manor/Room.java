@@ -30,7 +30,7 @@ public class Room {
 	 */
 	public Room (String roomName,String background){
 		if (roomName.isEmpty())
-			this.roomName = "Salle";
+			this.roomName = "Room";
 		else
 			this.roomName = roomName;
 		if(background == null || background.isEmpty())
@@ -65,7 +65,7 @@ public class Room {
 				this.exitPossible.put(direction, new Door(nextRoom,this));
 		}
 		else
-			System.out.println("Erreur");
+			System.out.println("Error");
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class Room {
 		if(!this.exitPossible.containsKey(direction))
 			this.exitPossible.put(direction, new EnigmaticDoor(enigma,response,nextRoom,this));
 		else
-			System.out.println("Erreur");
+			System.out.println("Error");
 	}
 	
 	/**
