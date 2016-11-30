@@ -5,7 +5,7 @@ package the_Manor;
  * <p> So there is only one ally per room.
  * <p> An ally can give an object to the player.</p>
  * 
- * @author Willy Dieuaide
+ * @author Group 6
  * @version 2016-23-11
  */
 public class Ally extends Character{
