@@ -18,7 +18,7 @@ import org.junit.Test;
 /**
  * The test class LockedDoorTest
  * Unit tests of the Player class
- * @author Aurelien
+ * @author Group 6
  * @version 23/11/2016
  */
 public class LockedDoorTest {
