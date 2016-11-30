@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import the_Manor.Ally;
-import the_Manor.Item;
 import the_Manor.Player;
 import the_Manor.Potion;
 
@@ -13,7 +12,7 @@ import org.junit.Test;
 /**
  * The test class AllyTest
  * Unit tests of the Ally class
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class AllyTest {
