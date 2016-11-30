@@ -19,10 +19,22 @@ public class Enemy extends Fighter{
 	 */
 	public Enemy(String newName, String description, int nbMaxPV, int nbMaxStamina, int attack, int defense) {
 		super(newName, description);
-		this.NBMAXPV = nbMaxPV;
-		this.NBMAXSTAMINA = nbMaxStamina;
-		this.attack = attack;
-		this.defense = defense;
+		if (nbMaxPV < 0)
+			this.NBMAXPV = 0;
+		else
+			this.NBMAXPV = nbMaxPV;
+		if (nbMaxStamina < 0)
+			this.NBMAXSTAMINA = 0;
+		else
+			this.NBMAXSTAMINA = nbMaxStamina;
+		if (attack < 0)
+			this.attack = 0;
+		else
+			this.attack = attack;
+		if (defense < 0)
+			this.defense = 0;
+		else
+			this.defense = defense;
 		this.health = this.NBMAXPV;
 		this.stamina = this.NBMAXSTAMINA;
 	}
