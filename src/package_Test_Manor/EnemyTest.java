@@ -7,7 +7,7 @@ import org.junit.*;
 /**
  * The test class EnemyTest.
  * Unit tests of the Enemy class
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class EnemyTest {
