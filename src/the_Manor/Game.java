@@ -2,6 +2,14 @@ package the_Manor;
 
 import package_Display.Window;
 
+/**
+ * <p>The Game class is a superclass interacting with all other classes.
+ * It is called within the windows class for graphic interactions</p>
+ * 
+ * @author Group 6
+ * @version 30/11/2016
+ */
+
 public class Game {
 	
 	private Player notreJoueur;
