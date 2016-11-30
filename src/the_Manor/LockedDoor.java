@@ -3,7 +3,7 @@ package the_Manor;
 /**
  * <p>This LockedDoor class stands for a door locked thanks to a key. </p>
  * <p>The player will be able to unlock this door if he has the right key.</p>
- * @author Simon Hay
+ * @author Group 6
  * @version 23/11/2016
  */
 
