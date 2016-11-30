@@ -2,7 +2,7 @@ package the_Manor;
 	/**
 	 * <p> A shield can be found by a player in a room or given by an ally.</p>
 	 * <p> A shield allows to add some defense points to the player.</p>
-	 * @author alexia
+	 * @author Group 6
 	 * @version 22/11/2016
 	 */
 public class Shield extends Item{
