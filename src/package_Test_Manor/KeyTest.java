@@ -8,7 +8,7 @@ import org.junit.*;
 
 /**
  * The test class KeyTest
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class KeyTest {
