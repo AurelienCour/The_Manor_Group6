@@ -32,7 +32,7 @@ public class Room {
 			this.roomName = "Salle";
 		else
 			this.roomName = roomName;
-		if(background.isEmpty())
+		if(background == null || background.isEmpty())
 			this.background="fond.png";
 		else
 			this.background = background;
