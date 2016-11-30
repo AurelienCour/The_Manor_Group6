@@ -162,17 +162,4 @@ public class RoomTest
 		myRoom.addExit(direction, true, myRoom);
 		assertEquals(1, myRoom.numberOfExit());
 	}
-
-	/**
-	 * Method testGetDoor
-	 * Test if the method returns the right door
-	 */
-	@Test
-	public void testGetDoor()
-	{
-		Door myDoor = new Door(null, myRoom);
-		String direction = "direction1";
-		myRoom.addExit(direction, false, myRoom);				
-		assertEquals(myDoor, myRoom.getDoor("direction1"));
-	}
 }
