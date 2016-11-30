@@ -3,7 +3,7 @@ package the_Manor;
 /**
  * <p>This EnigmaticDoor class stands for a door that is locked by an enigma. </p>
  * <p>This enigma can be solved if the player propose the right solution.</p>
- * @author Simon Hay
+ * @author Group 6
  * @version 23/11/2016
  */
 
