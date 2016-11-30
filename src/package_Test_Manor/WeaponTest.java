@@ -16,7 +16,7 @@ import org.junit.*;
 public class WeaponTest {
 	
 	private Weapon weapon;
-	private Weapon wrongWeapon;
+	
 	/**
 	 * Constructor for test class WeaponTest 
 	 */
@@ -32,7 +32,7 @@ public class WeaponTest {
     public void setUp()
     {
     	weapon = new Weapon ("Gun", 5) ;
-    	wrongWeapon = new Weapon ("Flower", -5) ;
+    	
     }
 
     @After
@@ -55,6 +55,7 @@ public class WeaponTest {
     @Test
      public void testGetWrongAttack()
      {
-    	assertEquals(-5, wrongWeapon.getAttack());			
+    	Weapon wrongWeapon = new Weapon ("Flower", -5) ;
+    	assertEquals(0, wrongWeapon.getAttack());			
      }
 }
