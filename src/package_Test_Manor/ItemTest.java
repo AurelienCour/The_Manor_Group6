@@ -1,6 +1,5 @@
 package package_Test_Manor;
 import junit.framework.TestCase;
-import the_Manor.Item;
 import the_Manor.Key;
 import the_Manor.Potion;
 import the_Manor.Shield;
@@ -13,7 +12,7 @@ import org.junit.*;
 /**
  * The test class ItemTest
  * Unit tests of the Item class
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class ItemTest {
