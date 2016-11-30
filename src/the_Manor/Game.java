@@ -28,107 +28,107 @@ public class Game {
      */
     private void createRooms()
     {
-    	Room hall,salon,cuisine,bureau,cave,sortie,outside;
-    	Room etage1,chambreParent1,salleDeBain1,dressingParent1,pieceCollection1;
-        Room etage2,chambreAmi2,couloir2_1,salleDeBain2,salleJeux2,couloir2_2,couloir2_3,chambreSoeur2,dressingSoeur2;
-        Room grenier3;
+    	Room hall,living,kitchen,office,cave,sortie,outside;
+    	Room floor1,parentRoom2,bathroom1,dressingParent1,tropheRoom1;
+        Room floor2,friendRoom2,corridor2_1,bathroom2,salleJeux2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
+        Room attic;
         
         outside = new Room("Victory","fond.png");
         
         hall = new Room("Hall","hall.jpg");
-        salon = new Room("Living room","salon.jpg");
-        cuisine = new Room("The kitchen","cuisine.jpg");
+        living = new Room("Living room","salon.jpg");
+        kitchen = new Room("The kitchen","cuisine.jpg");
         cave = new Room("The cellar","cave.jpg");
-        bureau = new Room("Father office","bureau.jpg");
+        office = new Room("Father office","bureau.jpg");
         
-        etage1 = new Room("First floor","escalier1.png");
-        chambreParent1 = new Room("Parents bedroom","chambreParent.jpg");
-        salleDeBain1 = new Room("Bathroom, premier etage","salleDeBain.jpg");
+        floor1 = new Room("First floor","escalier1.png");
+        parentRoom2 = new Room("Parents bedroom","chambreParent.jpg");
+        bathroom1 = new Room("Bathroom, first floor","salleDeBain.jpg");
         dressingParent1 = new Room("Parents dressing room","dressing.jpg");
-        pieceCollection1 = new Room("Trophee room","armurerie.jpg");
+        tropheRoom1 = new Room("Trophee room","armurerie.jpg");
         
-        etage2 = new Room("Second floor","escalier2.JPG");
-        chambreAmi2 = new Room("Friend bedroom","chambre_ami.jpg");
-        couloir2_1 = new Room("Corridor one, second floor","couloir_1.jpg");
-        salleDeBain2 = new Room("Bathroom, second floor","salleDeBain2.jpg");
+        floor2 = new Room("Second floor","escalier2.JPG");
+        friendRoom2 = new Room("Friend bedroom","chambre_ami.jpg");
+        corridor2_1 = new Room("Corridor one, second floor","couloir_1.jpg");
+        bathroom2 = new Room("Bathroom, second floor","salleDeBain2.jpg");
         salleJeux2 = new Room("Playroom","salleDeJeux.jpg");
-        couloir2_2 = new Room("Corridor two, second floor","couloir_2.jpg");
-        couloir2_3 = new Room("Corridor three, second floor","couloir_3.jpg");
-        chambreSoeur2 = new Room("Sister bedroom","chambre_soeur.jpg");
-        dressingSoeur2 = new Room("Sister dressing room","dressingSoeur.jpg");
+        corridor2_2 = new Room("Corridor two, second floor","couloir_2.jpg");
+        corridor2_3 = new Room("Corridor three, second floor","couloir_3.jpg");
+        sisterRoom2 = new Room("Sister bedroom","chambre_soeur.jpg");
+        dressingSister2 = new Room("Sister dressing room","dressingSoeur.jpg");
         
-        grenier3 = new Room("The attic","grenier.jpg");
+        attic = new Room("The attic","grenier.jpg");
         
         //Rez-de-chaussez
         outside.addExit("NORD", false, hall);
         
-        hall.addExit("OUEST", false, cuisine);
-        hall.addExit("EST", false, salon);
-        hall.addExit("NORD", false, etage1);
+        hall.addExit("OUEST", false, kitchen);
+        hall.addExit("EST", false, living);
+        hall.addExit("NORD", false, floor1);
         hall.addExit("SUD", false, outside);
         
         
-        cuisine.addExit("EST", false, salon);
-        cuisine.addExit("OUEST", false, cave);
-        cuisine.addExit("SUD", false, hall);
+        kitchen.addExit("EST", false, living);
+        kitchen.addExit("OUEST", false, cave);
+        kitchen.addExit("SUD", false, hall);
         
-        cave.addExit("EST", false, cuisine);
+        cave.addExit("EST", false, kitchen);
         
-        salon.addExit("NORD", false, cuisine);
-        salon.addExit("OUEST", false, hall);
-        salon.addExit("SUD", false, bureau);
+        living.addExit("NORD", false, kitchen);
+        living.addExit("OUEST", false, hall);
+        living.addExit("SUD", false, office);
         
-        bureau.addExit("NORD", false, salon);
+        office.addExit("NORD", false, living);
         
         //Premier etage
-        etage1.addExit("SUD", false, hall);
-        etage1.addExit("NORD", false, etage2);
-        etage1.addExit("EST", false, dressingParent1);
-        etage1.addExit("OUEST", false, chambreParent1);
+        floor1.addExit("SUD", false, hall);
+        floor1.addExit("NORD", false, floor2);
+        floor1.addExit("EST", false, dressingParent1);
+        floor1.addExit("OUEST", false, parentRoom2);
         
-        chambreParent1.addExit("EST", false, etage1);
-        chambreParent1.addExit("SUD", false, salleDeBain1);
+        parentRoom2.addExit("EST", false, floor1);
+        parentRoom2.addExit("SUD", false, bathroom1);
         
-        salleDeBain1.addExit("NORD", false, chambreParent1);
+        bathroom1.addExit("NORD", false, parentRoom2);
         
-        dressingParent1.addExit("OUEST", false, etage1);
-        dressingParent1.addExit("SUD", false, pieceCollection1);
+        dressingParent1.addExit("OUEST", false, floor1);
+        dressingParent1.addExit("SUD", false, tropheRoom1);
         
-        pieceCollection1.addExit("NORD", false, dressingParent1);
+        tropheRoom1.addExit("NORD", false, dressingParent1);
         
         //Deuxieme etage
-        etage2.addExit("SUD", false, etage1);
-        etage2.addExit("NORD", false, couloir2_2);
+        floor2.addExit("SUD", false, floor1);
+        floor2.addExit("NORD", false, corridor2_2);
         
-        couloir2_2.addExit("NORD", false, salleJeux2);
-        couloir2_2.addExit("SUD", false, etage2);
-        couloir2_2.addExit("EST", false, couloir2_1);
-        couloir2_2.addExit("OUEST", false, couloir2_3);
+        corridor2_2.addExit("NORD", false, salleJeux2);
+        corridor2_2.addExit("SUD", false, floor2);
+        corridor2_2.addExit("EST", false, corridor2_1);
+        corridor2_2.addExit("OUEST", false, corridor2_3);
         
-        salleJeux2.addExit("SUD", false, couloir2_2);
+        salleJeux2.addExit("SUD", false, corridor2_2);
         
-        couloir2_3.addExit("NORD", false, chambreSoeur2);
-        couloir2_3.addExit("SUD", false, dressingSoeur2);
-        couloir2_3.addExit("EST", false, couloir2_2);
-        couloir2_3.addExit("OUEST", false, grenier3);
+        corridor2_3.addExit("NORD", false, sisterRoom2);
+        corridor2_3.addExit("SUD", false, dressingSister2);
+        corridor2_3.addExit("EST", false, corridor2_2);
+        corridor2_3.addExit("OUEST", false, attic);
         
-        dressingSoeur2.addExit("NORD", false, couloir2_3);
+        dressingSister2.addExit("NORD", false, corridor2_3);
         
-        chambreSoeur2.addExit("SUD", false, couloir2_3);
+        sisterRoom2.addExit("SUD", false, corridor2_3);
         
-        couloir2_1.addExit("NORD", false, chambreAmi2);
-        couloir2_1.addExit("SUD", false, salleDeBain2);
-        couloir2_1.addExit("EST", false, couloir2_1);
-        couloir2_1.addExit("OUEST", false, couloir2_2);
+        corridor2_1.addExit("NORD", false, friendRoom2);
+        corridor2_1.addExit("SUD", false, bathroom2);
+        corridor2_1.addExit("EST", false, corridor2_1);
+        corridor2_1.addExit("OUEST", false, corridor2_2);
         
-        salleDeBain2.addExit("NORD", false, couloir2_1);
+        bathroom2.addExit("NORD", false, corridor2_1);
         
-        chambreAmi2.addExit("SUD", false, couloir2_1);
+        friendRoom2.addExit("SUD", false, corridor2_1);
         
         //Dernier etage
-        grenier3.addExit("EST", false, couloir2_3);
+        attic.addExit("EST", false, corridor2_3);
         
-        this.notreJoueur.setCurrentRoom(chambreAmi2);
+        this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
     public void move(String direction){
