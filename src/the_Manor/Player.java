@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * <li>Use items from the inventory</li>
  * <li>Talk with Allies</li>
  * </ul>
- * @author astem
+ * @author Group 6
  */
 public class Player extends Fighter{
 	
