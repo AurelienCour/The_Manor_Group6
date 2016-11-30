@@ -8,7 +8,7 @@ package the_Manor;
  * <li>A description : a small description of the character (string)</li>
  * </ul>
  * 
- * @author Astemir Bekanov 
+ * @author Group 6 
  * @version 23/11/2016
  */
 
