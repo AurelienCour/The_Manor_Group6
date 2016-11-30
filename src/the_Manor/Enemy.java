@@ -22,13 +22,5 @@ public class Enemy extends Fighter{
 		this.health = this.NBMAXPV;
 		this.stamina = this.NBMAXSTAMINA;
 	}
-	
-	public int getNbMaxHealth(){
-		return this.NBMAXPV;
-	}
-	
-	public int getNbMaxStamina(){
-		return this.NBMAXSTAMINA;
-	}
 
 }
