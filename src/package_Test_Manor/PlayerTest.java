@@ -36,7 +36,7 @@ public class PlayerTest {
     @Before
     public void setUp() {
         // Code execute avant chaque test   
-    	p = new Player("John", "Description", null);
+    	p = new Player("John", "Description");
     }
 
     @After
@@ -63,14 +63,14 @@ public class PlayerTest {
 	 */
 	public void testPlayerHeal() {
 		// Tests by adding positive values using the item
+		p.removeHealth(20);
 		Potion Redbull;
 		Redbull = new Potion("Redbull", 5);
-		p.setHealth(80);
 		p.pickUp(Redbull);
 		p.heal(Redbull);
 		assertEquals(85, p.getHealth());
 		// test for when the health goes over the max
-		p.setHealth(100);
+		p.addHealth(100);
 		p.heal(Redbull);
 		assertEquals(100, p.getHealth());
 	}
@@ -85,11 +85,11 @@ public class PlayerTest {
 	 */
 	public void testPlayerSetHealth() {
 		// Test by adding positive values. If equals to 12, works
-		p.setHealth(102);
-		assertEquals(102, p.getHealth());
+		p.addHealth(102);
+		assertEquals(100, p.getHealth());
 		// Test for negative values. If different, method doesn't work correctly
-		p.setHealth(-100);
-		assertEquals(102, p.getHealth());
+		p.addHealth(-100);
+		assertEquals(0, p.getHealth());
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ public class PlayerTest {
 		// pickup a bad weapon, with negative points
 		spoon = new Weapon("Spoon", -5);
 		p.pickUp(spoon);
-		assertEquals(10, p.getAttack());	
+		assertEquals(20, p.getAttack());	
 	}
 	
 	@Test
