@@ -225,7 +225,7 @@ public class FighterTest {
 	/**
      * Method testGetStaminaEnemy
      * <p>Check the right enemy's stamina value is returned.</p>
-     * <p>The default enemy's stamina value is assumed to be 60.<p>
+     * <p>The default enemy's stamina value is assumed to be 60.</p>
      */
 	@Test
 	public void testGetStaminaEnemy() {

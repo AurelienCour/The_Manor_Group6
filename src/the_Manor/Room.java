@@ -26,6 +26,7 @@ public class Room {
 	 * <p>it also creates our object "exitPossible" and our character presents in the room. </p>
 	 * 
 	 * @param roomName The name of the Room
+	 * @param background The picture of the background of the room
 	 */
 	public Room (String roomName,String background){
 		if (roomName.isEmpty())

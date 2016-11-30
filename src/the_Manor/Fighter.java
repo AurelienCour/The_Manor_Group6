@@ -39,10 +39,18 @@ public abstract class Fighter extends Character{
 		super(newName, description);
 	}
 	
+	/**
+	 * 
+	 * @return the max number of the health
+	 */
 	public int getNbMaxHealth(){
 		return this.NBMAXPV;
 	}
 	
+	/**
+	 * 
+	 * @return the max number of the stamina
+	 */
 	public int getNbMaxStamina(){
 		return this.NBMAXSTAMINA;
 	}
