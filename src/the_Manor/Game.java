@@ -18,7 +18,7 @@ public class Game {
 	 * The constructor of the class Game	 
 	 */	
 	public Game() {
-		this.notreJoueur = new Player("Test", "Notre Joueur");
+		this.notreJoueur = new Player("Try", "Our player");
 		createRooms();
 		
 	}
@@ -33,31 +33,31 @@ public class Game {
         Room etage2,chambreAmi2,couloir2_1,salleDeBain2,salleJeux2,couloir2_2,couloir2_3,chambreSoeur2,dressingSoeur2;
         Room grenier3;
         
-        outside = new Room("Victoire","fond.png");
+        outside = new Room("Victory","fond.png");
         
-        hall = new Room("Le hall","hall.jpg");
-        salon = new Room("Le salon","salon.jpg");
-        cuisine = new Room("La cuisine","cuisine.jpg");
-        cave = new Room("La cave","cave.jpg");
-        bureau = new Room("Le bureau","bureau.jpg");
+        hall = new Room("Hall","hall.jpg");
+        salon = new Room("Living room","salon.jpg");
+        cuisine = new Room("The kitchen","cuisine.jpg");
+        cave = new Room("The cellar","cave.jpg");
+        bureau = new Room("Father office","bureau.jpg");
         
-        etage1 = new Room("Premier etage","escalier1.png");
-        chambreParent1 = new Room("Chambre des parents","chambreParent.jpg");
-        salleDeBain1 = new Room("Salle de bain, premier etage","salleDeBain.jpg");
-        dressingParent1 = new Room("Dressing des parents","dressing.jpg");
-        pieceCollection1 = new Room("Collection des parents","armurerie.jpg");
+        etage1 = new Room("First floor","escalier1.png");
+        chambreParent1 = new Room("Parents bedroom","chambreParent.jpg");
+        salleDeBain1 = new Room("Bathroom, premier etage","salleDeBain.jpg");
+        dressingParent1 = new Room("Parents dressing room","dressing.jpg");
+        pieceCollection1 = new Room("Trophee room","armurerie.jpg");
         
-        etage2 = new Room("Deuxieme etage","escalier2.JPG");
-        chambreAmi2 = new Room("Chambre d'ami","chambre_ami.jpg");
-        couloir2_1 = new Room("Couloir, deuxieme etage","couloir_1.jpg");
-        salleDeBain2 = new Room("Salle de bain, deuxieme etage","salleDeBain2.jpg");
-        salleJeux2 = new Room("Salle de jeux","salleDeJeux.jpg");
-        couloir2_2 = new Room("Couloir, deuxieme etage","couloir_2.jpg");
-        couloir2_3 = new Room("Couloir, deuxieme etage","couloir_3.jpg");
-        chambreSoeur2 = new Room("Chambre de la soeur","chambre_soeur.jpg");
-        dressingSoeur2 = new Room("Dressing de la soeur","dressingSoeur.jpg");
+        etage2 = new Room("Second floor","escalier2.JPG");
+        chambreAmi2 = new Room("Friend bedroom","chambre_ami.jpg");
+        couloir2_1 = new Room("Corridor one, second floor","couloir_1.jpg");
+        salleDeBain2 = new Room("Bathroom, second floor","salleDeBain2.jpg");
+        salleJeux2 = new Room("Playroom","salleDeJeux.jpg");
+        couloir2_2 = new Room("Corridor two, second floor","couloir_2.jpg");
+        couloir2_3 = new Room("Corridor three, second floor","couloir_3.jpg");
+        chambreSoeur2 = new Room("Sister bedroom","chambre_soeur.jpg");
+        dressingSoeur2 = new Room("Sister dressing room","dressingSoeur.jpg");
         
-        grenier3 = new Room("Le grenier","grenier.jpg");
+        grenier3 = new Room("The attic","grenier.jpg");
         
         //Rez-de-chaussez
         outside.addExit("NORD", false, hall);
