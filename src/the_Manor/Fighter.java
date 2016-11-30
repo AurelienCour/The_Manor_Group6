@@ -174,8 +174,8 @@ public abstract class Fighter extends Character{
 	 * @param healthPoints The number of health points to set
 	 * already tested
 	 */
-	private void setHealth(int healthPoints)
-	{
+	private void setHealth(int healthPoints){
+	
 		this.health = healthPoints;
 	}
 	

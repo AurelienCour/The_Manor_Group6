@@ -34,8 +34,8 @@ public class FighterTest {
 	
     @Before
     public void setUp() {
-    	myPlayer = new Player("John","description",null);
-    	myEnemy = new Enemy("Zombie", "description");
+    	myPlayer = new Player("John","description");
+    	myEnemy = new Enemy("Zombie", "description",100,60,10,10);
     }
 
     @After
@@ -94,10 +94,9 @@ public class FighterTest {
      */
 	@Test
 	public void testAddStaminaPlayer() {
-		myPlayer.setStamina(30,myPlayer);
-		myPlayer.addStamina(5, myPlayer);	
+		myPlayer.addStamina(5);	
 		assertEquals(35, myPlayer.getStamina());
-		myPlayer.addStamina(75, myPlayer);
+		myPlayer.addStamina(75);
 		// The player's stamina value is now upper than 100, so the value is put to 100.
 		assertEquals(100, myPlayer.getStamina());
 	}
@@ -108,7 +107,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemStaminaPlayer() {
-		myPlayer.removeStamina(5,myPlayer);
+		myPlayer.removeStamina(5);
 		//Assuming the default value is 100, losing more than 5 points results is 0, not negative value
 		assertEquals(95, myPlayer.getStamina());
 	}
@@ -121,11 +120,11 @@ public class FighterTest {
      */
 	@Test
 	public void testAddHealthPlayer() {
-		myPlayer.addHealth(5,myPlayer);
+		myPlayer.addHealth(5);
 		// The player's health value equals to 105, so it is put to 100.
 		assertEquals(100, myPlayer.getHealth());
-		myPlayer.setHealth(80,myPlayer);
-		myPlayer.addHealth(5,myPlayer);
+		myPlayer.removeHealth(20);
+		myPlayer.addHealth(5);
 		assertEquals(85, myPlayer.getHealth());
 	}
 	
@@ -137,10 +136,10 @@ public class FighterTest {
      */
 	@Test
 	public void testRemHealthPlayer() {
-		myPlayer.removeHealth(10,myPlayer);
+		myPlayer.removeHealth(10);
 		assertEquals(90, myPlayer.getHealth());
 		// The player's health value equals to -10, so it is put to 0.
-		myPlayer.removeHealth(100,myPlayer);
+		myPlayer.removeHealth(100);
 		assertEquals(0, myPlayer.getHealth());
 	}
     
@@ -151,7 +150,7 @@ public class FighterTest {
      */
 	@Test
 	public void testAddAttackPlayer() {		
-		this.myPlayer.addAttack(5,myPlayer);
+		this.myPlayer.addAttack(5);
 		assertEquals(15, myPlayer.getAttack());
 	}
 	
@@ -163,9 +162,9 @@ public class FighterTest {
      */
 	@Test
 	public void testRemAttackPlayer() {
-		myPlayer.removeAttack(5,myPlayer);
+		myPlayer.removeAttack(5);
 		assertEquals(5, myPlayer.getAttack());
-		myPlayer.removeAttack(6,myPlayer);
+		myPlayer.removeAttack(6);
 		// The player's attack value equals to -1, so it is set to 0.
 		assertEquals(0, myPlayer.getAttack());
 	}
@@ -176,7 +175,7 @@ public class FighterTest {
      */
 	@Test
 	public void testAddDefensePlayer() {
-		myPlayer.addDefense(5,myPlayer);
+		myPlayer.addDefense(5);
 		//Assuming the default value is 15, adding more than 5 points results is 20, not superior value
 		assertEquals(15, myPlayer.getDefense());
 	}
@@ -189,9 +188,9 @@ public class FighterTest {
      */
 	@Test
 	public void testRemDefensePlayer() {
-		myPlayer.removeDefense(5,myPlayer);		
+		myPlayer.removeDefense(5);		
 		assertEquals(5, myPlayer.getDefense());
-		myPlayer.removeDefense(6,myPlayer);
+		myPlayer.removeDefense(6);
 		// The player's defense value is now lower than 0, so it is put to 0.
 		assertEquals(0, myPlayer.getDefense());
 	}
@@ -250,20 +249,16 @@ public class FighterTest {
 		//Assuming the default value for the fighter is 60, adding more than 5 points results is 65
 		//The default value for the Player is 100
 		// Enemy normal test
-		myEnemy.setStamina(40,myEnemy);
-		myEnemy.addStamina(10,myEnemy);
-		assertEquals(50, myEnemy.getStamina());
+		myEnemy.addStamina(10);
+		assertEquals(60, myEnemy.getStamina());
 		// Enemy over max value test
-		myEnemy.setStamina(60,myEnemy);
-		myEnemy.addStamina(10,myEnemy);
+		myEnemy.addStamina(10);
 		assertEquals(60, myEnemy.getStamina());
 		// Player normal test
-		myPlayer.setStamina(70,myPlayer);
-		myPlayer.addStamina(10,myPlayer);
+		myPlayer.addStamina(10);
 		assertEquals(80, myPlayer.getStamina());
 		// Player over max value test
-		myPlayer.setStamina(100,myPlayer);
-		myPlayer.addStamina(20,myPlayer);
+		myPlayer.addStamina(20);
 		assertEquals(100, myPlayer.getStamina());
 	}
 	
@@ -273,7 +268,7 @@ public class FighterTest {
      */
 	@Test
 	public void testRemStaminaEnemy() {
-		myEnemy.removeStamina(5,myPlayer);
+		myEnemy.removeStamina(5);
 		//Assuming the default value is 60, losing more than 5 points results is 0, not negative value
 		assertEquals(55, myEnemy.getStamina());
 	}
@@ -286,16 +281,14 @@ public class FighterTest {
      */
 	@Test
 	public void testRemHealthEnemy() {
-		myEnemy.setHealth(100,myEnemy);
-		myEnemy.removeHealth(5,myEnemy);
+		myEnemy.removeHealth(5);
 		assertEquals(95, myEnemy.getHealth());
 		//Testing when the health of an enemy equals to 0 : the enemy is dead
-		Room myRoom = new Room("Cave");
+		Room myRoom = new Room("Cave","image");
 		myRoom.addCharacter(myEnemy);
-		// There is 1 character in the room
+		// There is 1 character in the room with 95 life points
 		assertEquals(1, myRoom.numberOfChararacterInRoom());
-		myEnemy.setHealth(20,myEnemy);
-		myEnemy.removeHealth(30,myEnemy);
+		myEnemy.removeHealth(105);
 		// The player's health value equals to -10, so it is put to 0 and the enemy has to die.		
 		if (myEnemy.getHealth() <= 0)
 			myRoom.deleteEnemy(myEnemy);
