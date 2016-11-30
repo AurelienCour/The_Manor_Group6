@@ -3,7 +3,7 @@ package the_Manor;
 /**
  * <p>This class represents a key opening a door.</p>  
  * 
- * @author Siham
+ * @author Group 6
  * @version 22/11/2016
  */
 
