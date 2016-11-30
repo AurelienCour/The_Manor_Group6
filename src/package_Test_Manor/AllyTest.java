@@ -87,7 +87,7 @@ public class AllyTest {
 	 */
 	@Test
 	public void testGiveItem(){
-		Player player = new Player("test", "test", null);
+		Player player = new Player("test", "test");
 		assertEquals(0, player.numberOfItem());
 		assertEquals(potion, myAlly.getItem());
 		this.myAlly.giveItem(player);
@@ -101,7 +101,7 @@ public class AllyTest {
 	 */
 	@Test
 	public void testGiveItemWithoutItem(){
-		Player player = new Player("test", "test", null);
+		Player player = new Player("test", "test");
 		Ally myAlly2 = new Ally("test", "test", null);
 		assertEquals(0, player.numberOfItem());
 		assertEquals(null, myAlly2.getItem());

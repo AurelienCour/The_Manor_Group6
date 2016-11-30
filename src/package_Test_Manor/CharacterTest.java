@@ -29,8 +29,8 @@ public class CharacterTest {
     @Before
     public void setUp(){
     	ally = new Ally("MyAlly","Description Ally",null);
-    	enemy = new Enemy("MyEnemy","Description Enemy");
-    	player = new Player("MyPlayer","Description Player",null);
+    	enemy = new Enemy("MyEnemy","Description Enemy",0,0,0,0);
+    	player = new Player("MyPlayer","Description Player");
     }
 
     @After
@@ -82,9 +82,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterNameEnemyDefault() {
-		Character enemyTest = new Enemy("", "");
+		Character enemyTest = new Enemy("", "",0,0,0,0);
 		assertEquals("Enemy",enemyTest.getName());
-		Character enemyTest2 = new Enemy(null, "");
+		Character enemyTest2 = new Enemy(null, "",0,0,0,0);
 		assertEquals("Enemy",enemyTest2.getName());
 	}
 	
@@ -94,9 +94,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterNamePlayerDefault() {
-		Character playerTest = new Player("", "",null);
+		Character playerTest = new Player("", "");
 		assertEquals("Player",playerTest.getName());
-		Character playerTest2 = new Player(null, "",null);
+		Character playerTest2 = new Player(null, "");
 		assertEquals("Player",playerTest2.getName());
 	}
 	
@@ -145,9 +145,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterDescriptionEnemyDefault() {
-		Character enemyTest = new Enemy("MyEnemy", "");
+		Character enemyTest = new Enemy("MyEnemy", "",0,0,0,0);
 		assertEquals("No description",enemyTest.getDescription());
-		Character enemyTest2 = new Enemy("MyEnemy", null);
+		Character enemyTest2 = new Enemy("MyEnemy", null,0,0,0,0);
 		assertEquals("No description",enemyTest2.getDescription());
 	}
 	
@@ -157,9 +157,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterDescriptionPlayerDefault() {
-		Character playerTest = new Player("MyPlayer", "", null);
+		Character playerTest = new Player("MyPlayer", "");
 		assertEquals("No description",playerTest.getDescription());
-		Character playerTest2 = new Player("MyPlayer", null, null);
+		Character playerTest2 = new Player("MyPlayer", null);
 		assertEquals("No description",playerTest2.getDescription());
 	}
 }

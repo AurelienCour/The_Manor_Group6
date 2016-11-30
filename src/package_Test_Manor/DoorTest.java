@@ -27,8 +27,8 @@ public class DoorTest {
 	 */
     @Before
     public void setUp() {
-    	nextRoom = new Room("Kitchen");
-    	previousRoom = new Room("Bedroom");
+    	nextRoom = new Room("Kitchen", "");
+    	previousRoom = new Room("Bedroom", "");
     	door = new Door(nextRoom,previousRoom);        
     }
     
