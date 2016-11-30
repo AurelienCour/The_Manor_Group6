@@ -4,7 +4,7 @@ package the_Manor;
  * <p>This class represents the food available in the game.</p>  
  * <p>An object can give to a player more health.</p>
  * 
- * @author Siham
+ * @author Group 6
  * @version 22/11/2016
  */
 
