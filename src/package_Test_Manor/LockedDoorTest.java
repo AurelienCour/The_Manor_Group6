@@ -36,8 +36,8 @@ public class LockedDoorTest {
 	 */
     @Before
     public void setUp() {
-    	nextRoom = new Room("Kitchen");
-    	previousRoom = new Room("Bedroom");
+    	nextRoom = new Room("Kitchen",null);
+    	previousRoom = new Room("Bedroom", null);
         door = new LockedDoor(nextRoom,previousRoom);      
     }
 
@@ -52,7 +52,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testUnlock(){
-    	Player player = new Player("Paul", null, nextRoom);
+    	Player player = new Player("Paul", "Description");
     	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
@@ -65,7 +65,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testBadUnlock(){
-    	Player player = new Player("Paul", null, nextRoom);
+    	Player player = new Player("Paul", "Description");
     	this.door.unlock(player);
     	assertEquals(true,this.door.isLocked());
     }
@@ -76,7 +76,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testLock(){
-    	Player player = new Player("Paul", null, nextRoom);
+    	Player player = new Player("Paul", "Description");
     	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
@@ -91,7 +91,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testGoNextRoomIfUnlock(){
-    	Player player = new Player("Paul", null, nextRoom);
+    	Player player = new Player("Paul", "Description");
     	Key key = new Key("key");
     	player.pickUp(key);
     	this.door.unlock(player);
@@ -104,7 +104,7 @@ public class LockedDoorTest {
      */
     @Test
     public void testGoNextRoomIfLock(){
-    	Player player = new Player("Paul", null, nextRoom);
+    	Player player = new Player("Paul", "Description");
     	this.door.unlock(player);
     	assertEquals(null,this.door.goNextRoom());
     }
