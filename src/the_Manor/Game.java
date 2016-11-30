@@ -128,9 +128,15 @@ public class Game {
         //Dernier etage
         grenier3.addExit("EST", false, couloir2_3);
         
+        chambreAmi2.addItem(new Weapon("Epee", 15));
+        
         this.notreJoueur.setCurrentRoom(chambreAmi2);
     }
     
+    /**
+     * Allows to move in a specific direction
+     * @param direction
+     */
     public void move(String direction){
     	switch (direction) {
 		case "SUD":
@@ -151,6 +157,19 @@ public class Game {
 			break;
 		default:
 			break;
+		}
+    }
+    
+    /**
+     * Allow to search in a room
+     */
+    public void search(){
+    	if(this.notreJoueur.getCurrentRoom().numberOfItemInRoom() == 0)
+			System.out.println("Pas d'objet dans la pièce");
+		else{
+			System.out.println("Vous avez trouvé : "+this.notreJoueur.getCurrentRoom().getItem().getName());
+			this.notreJoueur.pickUp(this.notreJoueur.getCurrentRoom().getItem());
+			this.notreJoueur.getCurrentRoom().removeItem(this.notreJoueur.getCurrentRoom().getItem());
 		}
     }
     

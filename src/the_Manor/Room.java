@@ -184,6 +184,14 @@ public class Room {
 		return this.objectInRoom.size();
 	}
 	
+	public Item getItem(){
+		if(numberOfItemInRoom() != 0){
+			Item temp = this.objectInRoom.get(0);
+			return temp;
+		}else
+			return null;
+	}
+	
 	/**
 	 * Allows to know the number of added exit.
 	 * @return The number of exit in the room

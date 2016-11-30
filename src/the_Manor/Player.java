@@ -143,4 +143,28 @@ public class Player extends Fighter{
 		}
 		return false;
 	}
+	
+	public boolean haveWeapon(){
+		for (Item item : inventory) {
+			if(item instanceof Weapon)
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean haveShield(){
+		for (Item item : inventory) {
+			if(item instanceof Shield)
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean havePotion(){
+		for (Item item : inventory) {
+			if(item instanceof Potion)
+				return true;
+		}
+		return false;
+	}
 }
