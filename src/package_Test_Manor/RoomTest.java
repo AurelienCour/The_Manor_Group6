@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * The test class RoomTest
  * Unit test of the Room class
- * @author Simon
+ * @author Group 6
  *
  */
 public class RoomTest 
@@ -41,7 +41,7 @@ public class RoomTest
 	@Before
 	public void setUp()
 	{
-		myRoom = new Room("Cuisine",null);
+		myRoom = new Room("Kitchen",null);
 	}
 	
 	/**
@@ -60,8 +60,8 @@ public class RoomTest
 	@Test
 	public void testNameCuisine()
 	{
-		// The parameter "Cuisine" (see setUp) must be set as the name attribute
-		assertEquals("Cuisine", myRoom.getName());
+		// The parameter "Kitchen" (see setUp) must be set as the name attribute
+		assertEquals("Kitchen", myRoom.getName());
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public class RoomTest
 	@Test
 	public void testAddItem()
 	{
-		Weapon myItem = new Weapon("Epee", 2);
+		Weapon myItem = new Weapon("Sword", 2);
 		myRoom.addItem(myItem);
 		assertEquals(1, myRoom.numberOfItemInRoom());
 	}
@@ -120,7 +120,7 @@ public class RoomTest
 	@Test
 	public void testRemoveItem()
 	{
-		Weapon myItem = new Weapon("Epee", 2);
+		Weapon myItem = new Weapon("Sword", 2);
 		myRoom.addItem(myItem);
 		myRoom.removeItem(myItem);
 		assertEquals(0, myRoom.numberOfItemInRoom());

@@ -9,7 +9,7 @@ import org.junit.*;
 /**
  * The test class PotionTest
  * Unit tests of the Potion class
- * @author Aurelien
+ * @author Group 6
  */
 public class PotionTest {
 
@@ -28,8 +28,8 @@ public class PotionTest {
 	 */
 	@Before
     public void setUp() {
-        myPotion = new Potion("Jus de fruit",15);
-        myNegativePotion = new Potion("Vin",-15);        
+        myPotion = new Potion("Fruit juice",15);
+        myNegativePotion = new Potion("Wine",-15);        
     }
 
 	/**

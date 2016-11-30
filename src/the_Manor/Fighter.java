@@ -16,7 +16,7 @@ package the_Manor;
  * <li> Die if his health goes bellow 0 </li>
  * <li> Can no longer attack if his stamina reaches 0</li>
  * </ul>
- * @author Willy Dieuaide
+ * @author Group 6
  * @version 24/11/2016
  */
 public abstract class Fighter extends Character{
@@ -93,10 +93,11 @@ public abstract class Fighter extends Character{
 	 * @param nbToAdd The number to add to the stamina of the fighter
 	 */
 	public void addStamina(int nbToAdd){
-		if(this.getNbMaxStamina() < (this.getStamina()+nbToAdd))
-			this.setStamina(this.getNbMaxStamina());
-		else 
-			this.setStamina(this.getStamina()+nbToAdd);
+		if (nbToAdd > 0)
+			if(this.getNbMaxStamina() < (this.getStamina()+nbToAdd))
+				this.setStamina(this.getNbMaxStamina());		
+			else
+				this.setStamina(this.getStamina()+nbToAdd);
 	}
 	
 	/**
@@ -105,10 +106,11 @@ public abstract class Fighter extends Character{
 	 * @param nbToRemove The number to remove to the stamina of the fighter
 	 */
 	public void removeStamina (int nbToRemove){
-		if((this.getStamina()-nbToRemove) < 0)
-			this.setStamina(0);
-		else
-			this.setStamina(this.getStamina()-nbToRemove);
+		if (nbToRemove > 0)
+			if((this.getStamina()-nbToRemove) < 0)
+				this.setStamina(0);
+			else
+				this.setStamina(this.getStamina()-nbToRemove);
 	}
 	
 	/**
@@ -116,11 +118,12 @@ public abstract class Fighter extends Character{
 	 * If the addition exceeds the maximum, put the health to the maximum
 	 * @param nbToAdd The number to add to the health of the fighter
 	 */
-	public void addHealth(int nbToAdd){	
-		if(this.getNbMaxHealth() < (this.getHealth()+nbToAdd))
-			this.setHealth(this.getNbMaxHealth());
-		else 
-			this.setHealth(this.getHealth()+nbToAdd);
+	public void addHealth(int nbToAdd){
+		if (nbToAdd > 0)
+			if(this.getNbMaxHealth() < (this.getHealth()+nbToAdd))
+				this.setHealth(this.getNbMaxHealth());
+			else 
+				this.setHealth(this.getHealth()+nbToAdd);
 	}
 	
 	/**
@@ -128,11 +131,12 @@ public abstract class Fighter extends Character{
 	 * If the player's health goes under 0, the value is put to 0 and the player has to die.
 	 * @param nbToRemove The number to remove to the health of the fighter
 	 */
-	public void removeHealth(int nbToRemove){		
-		if((this.getHealth()-nbToRemove) < 0)
-			this.setHealth(0);
-		else
-			this.setHealth(this.getHealth()-nbToRemove);
+	public void removeHealth(int nbToRemove){
+		if (nbToRemove > 0)
+			if((this.getHealth()-nbToRemove) < 0)
+				this.setHealth(0);
+			else
+				this.setHealth(this.getHealth()-nbToRemove);
 	}
 	
 	/**
@@ -141,7 +145,8 @@ public abstract class Fighter extends Character{
 	 */
 	public void addAttack(int nbToAdd)
 	{
-		this.setAttack(this.getAttack()+nbToAdd);
+		if (nbToAdd > 0)
+			this.setAttack(this.getAttack()+nbToAdd);		
 	}
 	
 	
@@ -151,10 +156,11 @@ public abstract class Fighter extends Character{
 	 * @param nbToRemove The number to remove to the attack of the fighter
 	 */
 	public void removeAttack(int nbToRemove){
-		if(this.getAttack()-nbToRemove < 0)
-			this.setAttack(0);
-		else
-			this.setAttack(this.getAttack()-nbToRemove);
+		if (nbToRemove > 0)
+			if(this.getAttack()-nbToRemove < 0)
+				this.setAttack(0);
+			else
+				this.setAttack(this.getAttack()-nbToRemove);
 	}
 	
 	/**
@@ -162,7 +168,8 @@ public abstract class Fighter extends Character{
 	 * @param nbToAdd The number to add to the defense of the fighter
 	 */
 	public void addDefense(int nbToAdd){
-		this.setDefense(this.getDefense()+nbToAdd);
+		if (nbToAdd > 0)
+			this.setDefense(this.getDefense()+nbToAdd);
 	}
 	
 	/**
@@ -171,10 +178,11 @@ public abstract class Fighter extends Character{
 	 * @param nbToRemove The number to remove to the defense of the fighter
 	 */
 	public void removeDefense(int nbToRemove){
-		if(this.getDefense()-nbToRemove < 0)
-			this.setDefense(0);
-		else
-			this.setDefense(this.getDefense()-nbToRemove);
+		if (nbToRemove > 0)
+			if(this.getDefense()-nbToRemove < 0)
+				this.setDefense(0);
+			else
+				this.setDefense(this.getDefense()-nbToRemove);
 	}
 	
 	/**
@@ -183,8 +191,8 @@ public abstract class Fighter extends Character{
 	 * already tested
 	 */
 	private void setHealth(int healthPoints){
-	
-		this.health = healthPoints;
+		if (healthPoints > 0)
+			this.health = healthPoints;
 	}
 	
 	/**
@@ -193,7 +201,8 @@ public abstract class Fighter extends Character{
 	 */
 	private void setStamina(int staminaPoints)
 	{
-		this.stamina = staminaPoints;
+		if (staminaPoints > 0)
+			this.stamina = staminaPoints;
 	}	
 	
 	/**
@@ -202,7 +211,8 @@ public abstract class Fighter extends Character{
 	 */
 	private void setAttack(int attackPoints)
 	{
-		this.attack = attackPoints;
+		if (attackPoints > 0)
+			this.attack = attackPoints;
 	}
 
 	/**
@@ -211,7 +221,8 @@ public abstract class Fighter extends Character{
 	 */
 	private void setDefense(int defensePoints)
 	{
-		this.defense = defensePoints;
+		if (defensePoints > 0)
+			this.defense = defensePoints;
 	}	
 	
 }

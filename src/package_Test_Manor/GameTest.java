@@ -5,7 +5,7 @@ import org.junit.*;
 
 /**
  * The test class GameTest
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class GameTest extends TestCase

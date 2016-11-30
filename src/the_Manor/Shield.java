@@ -10,7 +10,7 @@ public class Shield extends Item{
 	private int defenseShield; 
 	
 	/**
-	 * This method allows to create a weapon name and initialise its defense points.
+	 * This method allows to create a weapon name and initialize its defense points.
 	 * @param itemName The name of the shield
 	 * @param pointDefense The defense of the shield
 	 */

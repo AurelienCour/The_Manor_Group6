@@ -60,7 +60,7 @@ public class EnigmaticDoor extends Door{
 		if(this.locked)
 			return null;
 		else{
-			System.out.println("The door is closed, you need a key");
+			System.out.println("The door is closed, you need a key.");
 			return this.nextRoom;
 		}
 	}

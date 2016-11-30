@@ -34,10 +34,10 @@ public class ItemTest {
 	 */
     @Before
     public void setUp() {
-        this.shield = new Shield("bouclier",15);
-        this.weapon = new Weapon("epee",10);
+        this.shield = new Shield("shield",15);
+        this.weapon = new Weapon("sword",10);
         this.potion = new Potion("potion",40);
-        this.key = new Key("clef");
+        this.key = new Key("key");
     }
 
     @After
@@ -50,7 +50,7 @@ public class ItemTest {
      */
     @Test
     public void testGetNameShield(){
-    	assertEquals("bouclier",this.shield.getName());
+    	assertEquals("shield",this.shield.getName());
     }
     
     /**
@@ -59,7 +59,7 @@ public class ItemTest {
      */
     @Test
     public void testGetNameWeapon(){
-    	assertEquals("epee",this.weapon.getName());
+    	assertEquals("sword",this.weapon.getName());
     }
     
     /**
@@ -77,6 +77,6 @@ public class ItemTest {
      */
     @Test
     public void testGetNameKey(){
-    	assertEquals("clef",this.key.getName());
+    	assertEquals("key",this.key.getName());
     }
 }

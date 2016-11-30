@@ -16,7 +16,7 @@ import org.junit.*;
 /**
  * The test class PlayerTest
  * Unit tests of the Player class
- * @author Astemir 
+ * @author Group 6 
  *
  */
 public class PlayerTest {
@@ -35,13 +35,13 @@ public class PlayerTest {
 	 */
     @Before
     public void setUp() {
-        // Code execute avant chaque test   
+           
     	p = new Player("John", "Description");
     }
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
+     
     }
     
 	@Test
@@ -128,7 +128,7 @@ public class PlayerTest {
 	 * <p>This test allows to verify if talking works<p>
 	 */
 	public void testPlayerTalkToAlly() {
-		//TODO
+
 		;
 	}
 	
