@@ -3,7 +3,7 @@ package the_Manor;
 /**
  * <p>A weapon can be found by a player in a room or given by an ally.</p>
  * <p>A weapon allows to add some attack points to the player.</p>
- * @author alexia
+ * @author Group 6
  * @version 22/11/2016
  */
 
