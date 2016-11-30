@@ -10,7 +10,7 @@ import org.junit.*;
 /**
  * The test class CharacterTest
  * Unit tests of the Character class
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class CharacterTest {
