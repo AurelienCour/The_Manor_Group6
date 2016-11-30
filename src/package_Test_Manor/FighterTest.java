@@ -94,9 +94,10 @@ public class FighterTest {
      */
 	@Test
 	public void testAddStaminaPlayer() {
+		myPlayer.removeStamina(50);
 		myPlayer.addStamina(5);	
-		assertEquals(35, myPlayer.getStamina());
-		myPlayer.addStamina(75);
+		assertEquals(55, myPlayer.getStamina());
+		myPlayer.addStamina(80);
 		// The player's stamina value is now upper than 100, so the value is put to 100.
 		assertEquals(100, myPlayer.getStamina());
 	}
@@ -206,7 +207,8 @@ public class FighterTest {
      */
 	@Test
 	public void testGetAttackEnemy() {
-		assertEquals(5, myEnemy.getAttack());
+		// The default value is 10
+		assertEquals(10, myEnemy.getAttack());
 	}
 	
 	/**
@@ -216,7 +218,8 @@ public class FighterTest {
      */
 	@Test
 	public void testGetDefenseEnemy() {
-		assertEquals(3, myEnemy.getDefense());
+		// the default value is 10
+		assertEquals(10, myEnemy.getDefense());
 	}
 	
 	/**
@@ -248,17 +251,19 @@ public class FighterTest {
 	public void testAddStamina() {
 		//Assuming the default value for the fighter is 60, adding more than 5 points results is 65
 		//The default value for the Player is 100
-		// Enemy normal test
+		// Enemy normal test 60 points
+		myEnemy.removeStamina(20);
+		myEnemy.addStamina(10);
+		assertEquals(50, myEnemy.getStamina());
+		// Enemy over max value test : 60
 		myEnemy.addStamina(10);
 		assertEquals(60, myEnemy.getStamina());
-		// Enemy over max value test
-		myEnemy.addStamina(10);
-		assertEquals(60, myEnemy.getStamina());
-		// Player normal test
+		// Player normal test with 100 points
+		myPlayer.removeStamina(30);
 		myPlayer.addStamina(10);
 		assertEquals(80, myPlayer.getStamina());
 		// Player over max value test
-		myPlayer.addStamina(20);
+		myPlayer.addStamina(40);
 		assertEquals(100, myPlayer.getStamina());
 	}
 	
