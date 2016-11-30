@@ -7,7 +7,7 @@ package the_Manor;
  * <ul>
  * <li> a name : a string that will be defined.</li>
  * </ul>
- * @author alexia
+ * @author Group 6
  * @version 22/11/2016
  */
 
