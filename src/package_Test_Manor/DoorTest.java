@@ -8,7 +8,7 @@ import the_Manor.Room;
 /**
  * The test class DoorTest
  * Unit tests of the Door class
- * @author Aurelien
+ * @author Group 6
  *
  */
 public class DoorTest {
