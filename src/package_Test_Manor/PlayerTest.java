@@ -89,7 +89,7 @@ public class PlayerTest {
 		assertEquals(100, p.getHealth());
 		// Test for negative values. If different, method doesn't work correctly
 		p.addHealth(-100);
-		assertEquals(0, p.getHealth());
+		assertEquals(100, p.getHealth());
 	}
 	
 	@Test

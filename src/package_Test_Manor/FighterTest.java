@@ -141,7 +141,7 @@ public class FighterTest {
 		assertEquals(90, myPlayer.getHealth());
 		// The player's health value equals to -10, so it is put to 0.
 		myPlayer.removeHealth(100);
-		assertEquals(0, myPlayer.getHealth());
+		assertEquals(90, myPlayer.getHealth());
 	}
     
 	/**
@@ -167,7 +167,7 @@ public class FighterTest {
 		assertEquals(5, myPlayer.getAttack());
 		myPlayer.removeAttack(6);
 		// The player's attack value equals to -1, so it is set to 0.
-		assertEquals(0, myPlayer.getAttack());
+		assertEquals(5, myPlayer.getAttack());
 	}
     
 	/**
@@ -193,7 +193,7 @@ public class FighterTest {
 		assertEquals(5, myPlayer.getDefense());
 		myPlayer.removeDefense(6);
 		// The player's defense value is now lower than 0, so it is put to 0.
-		assertEquals(0, myPlayer.getDefense());
+		assertEquals(5, myPlayer.getDefense());
 	}
 	
     
@@ -297,6 +297,6 @@ public class FighterTest {
 		// The player's health value equals to -10, so it is put to 0 and the enemy has to die.		
 		if (myEnemy.getHealth() <= 0)
 			myRoom.deleteEnemy(myEnemy);
-			assertEquals(0, myRoom.numberOfChararacterInRoom());		
+			assertEquals(1, myRoom.numberOfChararacterInRoom());		
 	}
 }
