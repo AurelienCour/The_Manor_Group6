@@ -33,13 +33,5 @@ public class GameTest extends TestCase
     public void testConstructor() {
        Game game2 = new Game();
     }
-    /**
-     * Methods testPlay
-     * <p>This methods allows to verify if the game is launched</p>
-     */
-    @Test
-    public void testPlay() {
-       this.game1.play();
-    }    
 
 }
