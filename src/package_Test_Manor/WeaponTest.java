@@ -9,7 +9,7 @@ import org.junit.*;
 /**
  * <p>The test class WeaponTest</p>
  * <p>Unit test of the Weapon class</p>
- * @author Siham
+ * @author Group 6
  * @version 22/11/2016
  */
 

@@ -16,7 +16,7 @@ import org.junit.*;
 
 /**
  * The test class FighterTest
- * @author Willy Dieuaide
+ * @author Group 6
  * @version 24/11/2016
  */
 public class FighterTest {
@@ -40,7 +40,7 @@ public class FighterTest {
 
     @After
     public void tearDown() {
-        // Code execute apres chaque test
+        
     }   
     
     
