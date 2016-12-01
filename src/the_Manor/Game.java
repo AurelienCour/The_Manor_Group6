@@ -29,7 +29,7 @@ public class Game {
      */
     private void createRooms()
     {
-    	Room hall,living,kitchen,office,cave,outside;
+    	Room hall,living,kitchen,office,cellar,outside;
     	Room floor1,parentRoom2,bathroom1,dressingParent1,tropheRoom1;
         Room floor2,friendRoom2,corridor2_1,bathroom2,salleJeux2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
         Room attic;
@@ -39,7 +39,7 @@ public class Game {
         hall = new Room("Hall","hall.jpg");
         living = new Room("Living room","salon.jpg");
         kitchen = new Room("The kitchen","cuisine.jpg");
-        cave = new Room("The cellar","cave.jpg");
+        cellar = new Room("The cellar","cave.jpg");
         office = new Room("Father office","bureau.jpg");
         
         floor1 = new Room("First floor","escalier1.png");
@@ -70,10 +70,10 @@ public class Game {
         
         
         kitchen.addExit("EST", false, living);
-        kitchen.addExit("OUEST", false, cave);
+        kitchen.addExit("OUEST", false, cellar);
         kitchen.addExit("SUD", false, hall);
         
-        cave.addExit("EST", false, kitchen);
+        cellar.addExit("EST", false, kitchen);
         
         living.addExit("NORD", false, kitchen);
         living.addExit("OUEST", false, hall);
@@ -130,8 +130,23 @@ public class Game {
         //Dernier etage
         attic.addExit("EST", false, corridor2_3);
         
-        friendRoom2.addItem(new Weapon("Epee", 15));
-        
+        //friendRoom2.addItem(new Weapon("Epee", 15));
+        living.addItem(new Weapon ("extinguisher",5));
+		kitchen.addItem(new Shield ("plateau",15));
+		cellar.addItem(new Key("attic"));
+		office.addItem(new Key ("chestKey"));// clé dans le coffre
+				
+		bathroom1.addItem(new Potion ("kit",50));
+		tropheRoom1.addItem(new Weapon ("katana",30));
+			   
+
+		friendRoom2.addItem(new Shield ("chair",2));
+		bathroom2.addItem(new Potion ("alcool",10));
+		salleJeux2.addItem(new Weapon ("bat",10));
+		sisterRoom2.addItem(new Shield ("shield",15));
+		attic.addItem(new Key ("hallKey"));// disponible quand le boss est mort
+		
+		
         this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
