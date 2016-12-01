@@ -49,10 +49,10 @@ public class WindowCreatePlayer extends JFrame {
 	}
 	
 	public void recupInfo(){
+		this.dispose();
 		ArrayList<String> infoPlayer = new ArrayList<String>();
 		infoPlayer.add(nomPlayer.getText());
 		infoPlayer.add(descriptionPlayer.getText());
 		this.windowOrigin.recupInfo(infoPlayer);
-		this.dispose();
 	}
 }
