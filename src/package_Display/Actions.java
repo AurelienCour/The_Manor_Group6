@@ -14,6 +14,7 @@ public class Actions implements ActionListener
     private Window windowGame;
     private WindowEnigma windowEnigma;
     private StartingWindow startingWindow;
+    private WindowCreatePlayer infoPlayer;
 
      /**
       * Constructor for objects of class Actions
@@ -37,6 +38,12 @@ public class Actions implements ActionListener
    {
        this.idAction = idAct;
        this.startingWindow = startingWindow;
+   }
+   
+   public Actions(WindowCreatePlayer infoWindow, String idAct)
+   {
+       this.idAction = idAct;
+       this.infoPlayer = infoWindow;
    }
     
     
@@ -66,6 +73,9 @@ public class Actions implements ActionListener
         }
         else if(idAction.equals("createPlayer")){
         	this.startingWindow.createPlayer(idAction, idAction);
+        }
+        else if(idAction.equals("infoPlayer")){
+        	this.infoPlayer.recupInfo();
         }
         // Si fentetre createPlayer
         // Appel fonction Récuperation des JTextField
