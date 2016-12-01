@@ -189,6 +189,8 @@ public class Window extends JFrame{
 			this.iconeEpee.setVisible(true);
 		else
 			this.iconeEpee.setVisible(false);
+		this.attackPoint.setText("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
+		this.defensePoint.setText("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
 	}
 	
 	/**
