@@ -1,6 +1,8 @@
 package package_Display;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import the_Manor.Game;
 
@@ -45,18 +47,28 @@ public class StartingWindow extends JFrame{
 	 * @param description
 	 */
 	public void createPlayer (String name, String description){
-		if(name == null || name.isEmpty()){
-			System.out.println("Default name");
-			this.name = "John";
-		}
-		else
-			this.name = name;
-		if(name == null || name.isEmpty()){
-			System.out.println("Default response");
-			this.name = "NO ENIGMA";
-		}
-		else
-			this.name = name.toUpperCase();	
+		new windowCreatePlayer(); // récupère les deux JTextField
+		// Dans classe windowCreatePlayer fonction qui récupère les deux JText et qui enregistre dans un ArrayList<String>
+		// Id 0 : Nom / Id : 1 : Description
+//		if(name == null || name.isEmpty()){
+//			System.out.println("Default name");
+//			this.name = "John";
+//		}
+//		
+//		else
+//			this.name = name;
+//		if(name == null || name.isEmpty()){
+//			System.out.println("Default response");
+//			this.name = "NO ENIGMA";
+//		}
+//		else
+//			this.name = name.toUpperCase();	
+	}
+	
+	public void recupInfo (ArrayList<String> nosInfos){
+		/**
+		 * new window(nosInfos.get(0),nosInfos.get(1));
+		 */
 	}
 	
 	

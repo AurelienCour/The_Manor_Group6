@@ -66,8 +66,10 @@ public class Actions implements ActionListener
         }
         else if(idAction.equals("createPlayer")){
         	this.startingWindow.createPlayer(idAction, idAction);
-        
         }
+        // Si fentetre createPlayer
+        // Appel fonction Récuperation des JTextField
+        //
     }
 
     
