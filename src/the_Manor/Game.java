@@ -31,7 +31,7 @@ public class Game {
     {
     	Room hall,living,kitchen,office,cellar,outside;
     	Room floor1,parentRoom2,bathroom1,dressingParent1,tropheRoom1;
-        Room floor2,friendRoom2,corridor2_1,bathroom2,salleJeux2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
+        Room floor2,friendRoom2,corridor2_1,bathroom2,gameRoom2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
         Room attic;
         
         outside = new Room("Victory","fond.png");
@@ -52,7 +52,7 @@ public class Game {
         friendRoom2 = new Room("Friend bedroom","chambre_ami.jpg");
         corridor2_1 = new Room("Corridor one, second floor","couloir_1.jpg");
         bathroom2 = new Room("Bathroom, second floor","salleDeBain2.jpg");
-        salleJeux2 = new Room("Playroom","salleDeJeux.jpg");
+        gameRoom2 = new Room("Playroom","salleDeJeux.jpg");
         corridor2_2 = new Room("Corridor two, second floor","couloir_2.jpg");
         corridor2_3 = new Room("Corridor three, second floor","couloir_3.jpg");
         sisterRoom2 = new Room("Sister bedroom","chambre_soeur.jpg");
@@ -60,32 +60,32 @@ public class Game {
         
         attic = new Room("The attic","grenier.jpg");
         
-        //Rez-de-chaussez
+        //Ground floor
         outside.addExit("NORD", false, hall);
         
         hall.addExit("OUEST", false, kitchen);
         hall.addExit("EST", false, living);
         hall.addExit("NORD", false, floor1);
-        hall.addExit("SUD", false, outside);
+        hall.addExit("SUD", true, outside);
         
         
         kitchen.addExit("EST", false, living);
-        kitchen.addExit("OUEST", false, cellar);
+        //kitchen.addExit("OUEST", false, cellar);
         kitchen.addExit("SUD", false, hall);
         
         cellar.addExit("EST", false, kitchen);
         
         living.addExit("NORD", false, kitchen);
         living.addExit("OUEST", false, hall);
-        living.addExit("SUD", false, office);
+        //living.addExit("SUD", false, office);
         
         office.addExit("NORD", false, living);
         
-        //Premier etage
+        //Floor 1
         floor1.addExit("SUD", false, hall);
         floor1.addExit("NORD", false, floor2);
-        floor1.addExit("EST", false, dressingParent1);
-        floor1.addExit("OUEST", false, parentRoom2);
+        //floor1.addExit("EST", false, dressingParent1);
+        //floor1.addExit("OUEST", false, parentRoom2);
         
         parentRoom2.addExit("EST", false, floor1);
         parentRoom2.addExit("SUD", false, bathroom1);
@@ -95,20 +95,20 @@ public class Game {
         dressingParent1.addExit("OUEST", false, floor1);
         dressingParent1.addExit("SUD", false, tropheRoom1);
         
-        tropheRoom1.addExit("NORD", false, dressingParent1);
+        tropheRoom1.addExit("NORD", true, dressingParent1);
         
-        //Deuxieme etage
+        //Floor 2
         floor2.addExit("SUD", false, floor1);
         floor2.addExit("NORD", false, corridor2_2);
         
-        corridor2_2.addExit("NORD", false, salleJeux2);
+        //corridor2_2.addExit("NORD", false, gameRoom2);
         corridor2_2.addExit("SUD", false, floor2);
         corridor2_2.addExit("EST", false, corridor2_1);
         corridor2_2.addExit("OUEST", false, corridor2_3);
         
-        salleJeux2.addExit("SUD", false, corridor2_2);
+        gameRoom2.addExit("SUD", false, corridor2_2);
         
-        corridor2_3.addExit("NORD", false, sisterRoom2);
+        //corridor2_3.addExit("NORD", false, sisterRoom2);
         corridor2_3.addExit("SUD", false, dressingSister2);
         corridor2_3.addExit("EST", false, corridor2_2);
         corridor2_3.addExit("OUEST", false, attic);
@@ -118,32 +118,44 @@ public class Game {
         sisterRoom2.addExit("SUD", false, corridor2_3);
         
         corridor2_1.addExit("NORD", false, friendRoom2);
-        corridor2_1.addExit("SUD", false, bathroom2);
+        //corridor2_1.addExit("SUD", false, bathroom2);
         corridor2_1.addExit("EST", false, corridor2_1);
         corridor2_1.addExit("OUEST", false, corridor2_2);
         
         bathroom2.addExit("NORD", false, corridor2_1);
-        
+		
+        //Last floor
+        attic.addExit("EST", true, corridor2_3);
+		
         //friendRoom2.addExit("SUD", false, corridor2_1);
         friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
-        
-        //Dernier etage
-        attic.addExit("EST", false, corridor2_3);
+		
+		//floor
+		living.addEnigmaticExit("SUD","I am powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
+		kitchen.addEnigmaticExit("OUEST","I grow up when I am fed, I die when I am given water. Who am I?","fire",cellar);
+		//floor 1
+		floor1.addEnigmaticExit("EST","Like a fruit I have a core, but you can't eat me. Like a women I have a lot of coats but I am not Human. Who am I?","Earth",dressingParent1);
+		floor1.addEnigmaticExit("OUEST","I have a mouse for a year. Knowing that a mouse can have 18 mice every month from 2 months, how many mice will I have after 10 months?","One",parentRoom2);
+		//floor 2
+		corridor2_1.addEnigmaticExit("SUD","I have something in my pocket, but my pocket is empty. What is it?","hole",bathroom2);
+		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
+        corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
+		
         
         //friendRoom2.addItem(new Weapon("Epee", 15));
         living.addItem(new Weapon ("extinguisher",5));
 		kitchen.addItem(new Shield ("plateau",15));
 		cellar.addItem(new Key("attic"));
-		office.addItem(new Key ("chestKey"));// clé dans le coffre
+		office.addItem(new Key ("chestKey"));// Need to find the secret code
 				
 		bathroom1.addItem(new Potion ("kit",50));
 		tropheRoom1.addItem(new Weapon ("katana",30));
 			   
 
 		friendRoom2.addItem(new Shield ("chair",2));
-		bathroom2.addItem(new Potion ("alcool",10));
-		salleJeux2.addItem(new Weapon ("bat",10));
-		sisterRoom2.addItem(new Shield ("shield",15));
+		bathroom2.addItem(new Potion ("alcohol",10));
+		gameRoom2.addItem(new Weapon ("bat",10));
+		sisterRoom2.addItem(new Shield ("Wooden shield",15));
 		attic.addItem(new Key ("hallKey"));// disponible quand le boss est mort
 		
 		
@@ -210,11 +222,5 @@ public class Game {
     public Player getPlayer(){
     	return this.notreJoueur;
     }
-    
-    
-
-	
-	
-	
-	
+    	
 }
