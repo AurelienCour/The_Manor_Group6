@@ -29,7 +29,7 @@ public class StartingWindow extends JFrame{
 		//True Lies.ttf
 		// Buttons 
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		Font font = Font.createFont(Font.TRUETYPE_FONT,new File("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\feast_of_flesh_bb\\FEASFBI_.TTF"));
+		Font font = Font.createFont(Font.TRUETYPE_FONT,new File("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Font\\feast_of_flesh_bb\\FEASFBI_.TTF"));
 		ge.registerFont(font);
 		font = font.deriveFont(Font.TRUETYPE_FONT,25);
 		JButton start = new JButton("Start");
