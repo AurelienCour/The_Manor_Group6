@@ -93,9 +93,9 @@ public class Game {
         bathroom1.addExit("NORD", false, parentRoom2);
         
         dressingParent1.addExit("OUEST", false, floor1);
-        dressingParent1.addExit("SUD", false, tropheRoom1);
+        dressingParent1.addExit("SUD", true, tropheRoom1);
         
-        tropheRoom1.addExit("NORD", true, dressingParent1);
+        tropheRoom1.addExit("NORD", false, dressingParent1);
         
         //Floor 2
         floor2.addExit("SUD", false, floor1);
@@ -111,7 +111,7 @@ public class Game {
         //corridor2_3.addExit("NORD", false, sisterRoom2);
         corridor2_3.addExit("SUD", false, dressingSister2);
         corridor2_3.addExit("EST", false, corridor2_2);
-        corridor2_3.addExit("OUEST", false, attic);
+        corridor2_3.addExit("OUEST", true, attic);
         
         dressingSister2.addExit("NORD", false, corridor2_3);
         
@@ -125,7 +125,7 @@ public class Game {
         bathroom2.addExit("NORD", false, corridor2_1);
 		
         //Last floor
-        attic.addExit("EST", true, corridor2_3);
+        attic.addExit("EST", false, corridor2_3);
 		
         //friendRoom2.addExit("SUD", false, corridor2_1);
         friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
@@ -155,10 +155,20 @@ public class Game {
 		friendRoom2.addItem(new Key ("Key"));
 		bathroom2.addItem(new Potion ("alcohol",10));
 		gameRoom2.addItem(new Weapon ("bat",10));
-		sisterRoom2.addItem(new Shield ("Wooden shield",15));
+		//sisterRoom2.addItem(new Shield ("Wooden shield",15));
 		attic.addItem(new Key ("hallKey"));// disponible quand le boss est mort
 		
-		
+		// creation ally 
+		sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Wooden shield",15)));
+
+		kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("bandage",10)));
+		// creation enemy
+		corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 10, 60, 5, 3));
+		dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 15, 60, 5, 3));
+		floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 25, 60, 10, 3));
+		cellar.addCharacter(new Enemy("Slade","Friend's oncle", 40, 60, 10, 3));
+		office.addCharacter(new Enemy("Robert","Friend's father", 40, 60, 10, 3));
+		attic.addCharacter(new Enemy("Tommy","Friend", 100, 60, 20, 3));
         this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
