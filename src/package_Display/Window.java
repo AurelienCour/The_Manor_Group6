@@ -23,7 +23,7 @@ public class Window extends JFrame{
 	
 	
 	public Window(){
-		this.newGame = new Game(this);
+		//this.newGame = new Game(this);
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

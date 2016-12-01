@@ -212,5 +212,6 @@ public class Game {
     
     public Player getPlayer(){
     	return this.notreJoueur;
-    }	
+    }
+    	
 }
