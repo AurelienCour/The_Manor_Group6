@@ -36,29 +36,29 @@ public class Game {
         
         outside = new Room("Victory","fond.png");
         
-        hall = new Room("Hall","hall.jpg");
+        hall = new Room("Hall","Hall.png");
         living = new Room("Living room","salon.jpg");
-        kitchen = new Room("The kitchen","cuisine.jpg");
-        cellar = new Room("The cellar","cave.jpg");
+        kitchen = new Room("The kitchen","Cuisine.png");
+        cellar = new Room("The cellar","Cellar.png");
         office = new Room("Father office","bureau.jpg");
         
-        floor1 = new Room("First floor","escalier1.png");
+        floor1 = new Room("First floor","etage_1.png");
         parentRoom2 = new Room("Parents bedroom","chambreParent.jpg");
-        bathroom1 = new Room("Bathroom, first floor","salleDeBain.jpg");
-        dressingParent1 = new Room("Parents dressing room","dressing.jpg");
-        tropheRoom1 = new Room("Trophee room","armurerie.jpg");
+        bathroom1 = new Room("Bathroom, first floor","bathroom.png");
+        dressingParent1 = new Room("Parents dressing room","Dressing_parent.png");
+        tropheRoom1 = new Room("Trophee room","armurerie.png");
         
         floor2 = new Room("Second floor","escalier2.JPG");
-        friendRoom2 = new Room("Friend bedroom","chambre_ami.jpg");
-        corridor2_1 = new Room("Corridor one, second floor","couloir_1.jpg");
-        bathroom2 = new Room("Bathroom, second floor","salleDeBain2.jpg");
-        gameRoom2 = new Room("Playroom","salleDeJeux.jpg");
-        corridor2_2 = new Room("Corridor two, second floor","couloir_2.jpg");
-        corridor2_3 = new Room("Corridor three, second floor","couloir_3.jpg");
+        friendRoom2 = new Room("Friend bedroom","friendRoom.png");
+        corridor2_1 = new Room("Corridor one, second floor","Hallway1.png");
+        bathroom2 = new Room("Bathroom, second floor","Bathroom2.png");
+        gameRoom2 = new Room("Playroom","Game_room.png");
+        corridor2_2 = new Room("Corridor two, second floor","Hallway2.png");
+        corridor2_3 = new Room("Corridor three, second floor","Hallway3.png");
         sisterRoom2 = new Room("Sister bedroom","chambre_soeur.jpg");
-        dressingSister2 = new Room("Sister dressing room","dressingSoeur.jpg");
+        dressingSister2 = new Room("Sister dressing room","Dressing_sister.png");
         
-        attic = new Room("The attic","grenier.jpg");
+        attic = new Room("The attic","attic.png");
         
         //Ground floor
         outside.addExit("NORD", false, hall);
