@@ -18,7 +18,7 @@ public class StartingWindow extends JFrame{
 	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel theManorBackground;
 	
-	public StartingWindow() throws FontFormatException, IOException{
+	public StartingWindow(){
 		this.setLayout(new BorderLayout());
 		this.setTitle(" The  Manor ");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,37 +28,47 @@ public class StartingWindow extends JFrame{
 		this.theManorBackground.setLayout(new BorderLayout());
 		//True Lies.ttf
 		// Buttons 
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		Font font = Font.createFont(Font.TRUETYPE_FONT,new File("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\Font\\feast_of_flesh_bb\\FEASFBI_.TTF"));
-		ge.registerFont(font);
-		font = font.deriveFont(Font.TRUETYPE_FONT,25);
+		
 		JButton start = new JButton("Start");
 		start.addActionListener(new Actions(this,"createPlayer"));
 		start.setForeground(Color.WHITE);
 		start.setBackground(Color.BLACK);
 		start.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		start.setPreferredSize(new Dimension(90,40));
-		start.setFont(font);
+		
 		start.setFocusPainted(false);
 		JButton tutorial = new JButton("Tutorial");
 		tutorial.setForeground(Color.WHITE);
 		tutorial.setBackground(Color.BLACK);
 		tutorial.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		tutorial.setPreferredSize(new Dimension(90,40));
-		tutorial.setFont(font);
+		
 		tutorial.setFocusPainted(false);
 		JButton quit = new JButton("Quit");
 		quit.setForeground(Color.WHITE);
 		quit.setBackground(Color.BLACK);
 		quit.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		quit.setPreferredSize(new Dimension(90,40));
-		quit.setFont(font);
+		
 		quit.setFocusPainted(false);
 		quit.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				System.exit(0);
             }
 		});
+		try{
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			ge.registerFont(font);
+			font = font.deriveFont(Font.TRUETYPE_FONT,25);
+			start.setFont(font);
+			tutorial.setFont(font);
+			quit.setFont(font);
+		}
+		catch(IOException e){
+		}catch(FontFormatException e){          
+		}catch(IllegalArgumentException e){
+		}
 		JPanel boutons = new JPanel();
 		boutons.setLayout(new FlowLayout(FlowLayout.CENTER,50,50));
 		boutons.setOpaque(false);

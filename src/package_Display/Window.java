@@ -263,7 +263,7 @@ public class Window extends JFrame{
 			this.controlBas.setEnabled(true);
 	}
 	
-	public static void main(String[] args) throws FontFormatException, IOException {
+	public static void main(String[] args){
 		new StartingWindow();
 	}
 }
