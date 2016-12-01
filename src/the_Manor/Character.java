@@ -54,4 +54,20 @@ public abstract class Character {
 	public String getDescription(){
 		return this.description;
 	}
+	
+	/**
+	 * To set the name of the player
+	 * @param newName The name of the player
+	 */
+	public void setName(String newName){
+		this.name = newName;
+	}
+	
+	/**
+	 * To set the description of the player
+	 * @param newDescription The description of the player
+	 */
+	public void setDescription(String newDescription){
+		this.description = newDescription;
+	}
 }
