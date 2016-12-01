@@ -1,6 +1,8 @@
 package package_Display;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -13,8 +15,6 @@ public class StartingWindow extends JFrame{
 	final int WIDTH_WINDOW = 800;
 	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel theManorBackground;
-	private JButton start, tutorial, quit;
-	private Game newGame;
 	
 	public StartingWindow(){
 		this.setLayout(new BorderLayout());
@@ -26,10 +26,15 @@ public class StartingWindow extends JFrame{
 		this.theManorBackground.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
 		// Buttons 
-		this.start = new JButton("Start");
-		this.start.addActionListener(new Actions(this,"createPlayer"));
-		this.tutorial = new JButton("Tutorial");
-		this.quit = new JButton("Quit");
+		JButton start = new JButton("Start");
+		start.addActionListener(new Actions(this,"createPlayer"));
+		JButton tutorial = new JButton("Tutorial");
+		JButton quit = new JButton("Quit");
+		quit.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				System.exit(0);
+            }
+		});
 		
 		//Adding the buttons to the label 
 		theManorBackground.add(start);
@@ -49,14 +54,13 @@ public class StartingWindow extends JFrame{
 	 * @param name
 	 * @param description
 	 */
-	public void createPlayer (String name, String description){
+	public void createPlayer (){
 		new WindowCreatePlayer(this); // récupère les deux JTextField
 	}
 	
 	public void recupInfo (ArrayList<String> nosInfos){
 		new Window(nosInfos.get(0),nosInfos.get(1));
 		this.dispose();
-		
 	}
 	
 	

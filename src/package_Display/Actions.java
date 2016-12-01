@@ -72,7 +72,7 @@ public class Actions implements ActionListener
         	this.windowEnigma.recupResponse();
         }
         else if(idAction.equals("createPlayer")){
-        	this.startingWindow.createPlayer(idAction, idAction);
+        	this.startingWindow.createPlayer();
         }
         else if(idAction.equals("infoPlayer")){
         	this.infoPlayer.recupInfo();

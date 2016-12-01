@@ -18,12 +18,11 @@ public class Window extends JFrame{
 	private JLabel attackPoint;
 	private JLabel defensePoint;
 	private JButton controlHaut,controlBas,controlGauche,controlDroit;
-	
 	private Game newGame;
 	
 	
-	public Window(String name, String description){ // Reçoit les deux strings
-		this.newGame = new Game(this,name,description); // Ajout de deux paramètre String correspondant aux infos joueurs
+	public Window(String name, String description){
+		this.newGame = new Game(this,name,description);
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -105,21 +104,27 @@ public class Window extends JFrame{
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
-		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
+		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"  ");
 		this.attackPoint.setForeground(Color.BLUE);
 		this.attackPoint.setFont(police);
-		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
+		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"  ");
 		this.defensePoint.setForeground(Color.BLUE);
 		this.defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
 		characteristics.add(this.defensePoint);
 		durability.add(this.lifePoint);
 		durability.add(this.staminaPoint);
+		JButton inventory = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_inventaire.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
+		inventory.setBackground(Color.BLACK);
+		
+		inventory.setBorder(null);
+		
 		charac.add(durability,BorderLayout.CENTER);
 		charac.add(characteristics,BorderLayout.EAST);
 		characAndControl.setBackground(Color.black);
 		characAndControl.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		characAndControl.add(charac);
+		characAndControl.add(inventory);
 		characAndControl.add(control);
 		this.add(objectAndGame,BorderLayout.CENTER);
 		this.add(characAndControl,BorderLayout.SOUTH);
@@ -189,8 +194,8 @@ public class Window extends JFrame{
 			this.iconeEpee.setVisible(true);
 		else
 			this.iconeEpee.setVisible(false);
-		this.attackPoint.setText("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
-		this.defensePoint.setText("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
+		this.attackPoint.setText("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"  ");
+		this.defensePoint.setText("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"  ");
 	}
 	
 	/**
