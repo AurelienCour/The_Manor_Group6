@@ -13,6 +13,7 @@ public class Actions implements ActionListener
     private String idAction; // To know the button
     private Window windowGame;
     private WindowEnigma windowEnigma;
+    private StartingWindow startingWindow;
 
      /**
       * Constructor for objects of class Actions
@@ -30,6 +31,15 @@ public class Actions implements ActionListener
         this.idAction = idAct;
         this.windowEnigma = window;
     }
+    
+    
+   public Actions(StartingWindow startingWindow, String idAct)
+   {
+       this.idAction = idAct;
+       this.startingWindow = startingWindow;
+   }
+    
+    
     
     /**
      * The methods to manage the different action
@@ -54,6 +64,12 @@ public class Actions implements ActionListener
         else if(idAction.equals("enigma")){
         	this.windowEnigma.recupResponse();
         }
+        else if(idAction.equals("createPlayer")){
+        	this.startingWindow.createPlayer(idAction, idAction);
+        
+        }
     }
+
+    
 
 }
