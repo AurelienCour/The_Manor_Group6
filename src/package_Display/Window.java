@@ -3,6 +3,7 @@ package package_Display;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 import the_Manor.Game;
@@ -29,7 +30,6 @@ public class Window extends JFrame{
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		JPanel objectAndGame = new JPanel();
 		objectAndGame.setLayout(new BorderLayout());
 		JPanel playerObject = new JPanel();
@@ -263,7 +263,7 @@ public class Window extends JFrame{
 			this.controlBas.setEnabled(true);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FontFormatException, IOException {
 		new StartingWindow();
 	}
 }

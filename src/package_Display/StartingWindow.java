@@ -3,6 +3,8 @@ package package_Display;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -16,34 +18,59 @@ public class StartingWindow extends JFrame{
 	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel theManorBackground;
 	
-	public StartingWindow(){
+	public StartingWindow() throws FontFormatException, IOException{
 		this.setLayout(new BorderLayout());
 		this.setTitle(" The  Manor ");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		this.setUndecorated(true);
 		// The label with the background 
 		this.theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/fond.png").getImage().getScaledInstance(this.WIDTH_WINDOW, this.LENGTH_WINDOW, Image.SCALE_DEFAULT)));
-		this.theManorBackground.setLayout(new FlowLayout(FlowLayout.CENTER));
-		
+		this.theManorBackground.setLayout(new BorderLayout());
+		//True Lies.ttf
 		// Buttons 
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		Font font = Font.createFont(Font.TRUETYPE_FONT,new File("C:\\Users\\Aurelien\\git\\The_Manor_Group6\\src\\package_Display\\feast_of_flesh_bb\\FEASFBI_.TTF"));
+		ge.registerFont(font);
+		font = font.deriveFont(Font.TRUETYPE_FONT,25);
 		JButton start = new JButton("Start");
 		start.addActionListener(new Actions(this,"createPlayer"));
+		start.setForeground(Color.WHITE);
+		start.setBackground(Color.BLACK);
+		start.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		start.setPreferredSize(new Dimension(90,40));
+		start.setFont(font);
+		start.setFocusPainted(false);
 		JButton tutorial = new JButton("Tutorial");
+		tutorial.setForeground(Color.WHITE);
+		tutorial.setBackground(Color.BLACK);
+		tutorial.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		tutorial.setPreferredSize(new Dimension(90,40));
+		tutorial.setFont(font);
+		tutorial.setFocusPainted(false);
 		JButton quit = new JButton("Quit");
+		quit.setForeground(Color.WHITE);
+		quit.setBackground(Color.BLACK);
+		quit.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		quit.setPreferredSize(new Dimension(90,40));
+		quit.setFont(font);
+		quit.setFocusPainted(false);
 		quit.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				System.exit(0);
             }
 		});
-		
+		JPanel boutons = new JPanel();
+		boutons.setLayout(new FlowLayout(FlowLayout.CENTER,50,50));
+		boutons.setOpaque(false);
+		boutons.add(start);
+		boutons.add(tutorial);
+		boutons.add(quit);
 		//Adding the buttons to the label 
-		theManorBackground.add(start);
-		theManorBackground.add(tutorial);
-		theManorBackground.add(quit);
+		this.theManorBackground.add(boutons, BorderLayout.CENTER);
 		
 		
 		// Window settings
-		this.add(theManorBackground, BorderLayout.CENTER);
+		this.add(theManorBackground);
 		this.setSize(WIDTH_WINDOW, LENGTH_WINDOW);;
 		this.setVisible(true);
 		this.setResizable(false);
@@ -61,11 +88,6 @@ public class StartingWindow extends JFrame{
 	public void recupInfo (ArrayList<String> nosInfos){
 		new Window(nosInfos.get(0),nosInfos.get(1));
 		this.dispose();
-	}
-	
-	
-	public static void main(String[] args) {
-		new StartingWindow();
 	}
 	
 	

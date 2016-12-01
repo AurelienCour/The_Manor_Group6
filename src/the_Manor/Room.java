@@ -158,6 +158,17 @@ public class Room {
 	}
 	
 	/**
+	 * Allows to get the enemy in the room
+	 * @return Null if the room don't have an enemy or the enemy.
+	 */
+	public Enemy getEnemy(){
+		for (Character character : characterInRoom) {
+			if(character instanceof Enemy)
+				return (Enemy) character;
+		}
+		return null;
+	}
+	/**
 	 * Allows to add an item in the room.
 	 *  
 	 * @param item The item to add.
