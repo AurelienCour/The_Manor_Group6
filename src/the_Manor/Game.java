@@ -41,11 +41,11 @@ public class Game {
         living = new Room("Living room","salon.jpg");
         kitchen = new Room("The kitchen","Cuisine.png");
         cellar = new Room("The cellar","Cellar.png");
-        office = new Room("Father office","bureau.jpg");
+        office = new Room("Father office","office.png");
         
         floor1 = new Room("First floor","etage_1.png");
-        parentRoom2 = new Room("Parents bedroom","chambreParent.jpg");
-        bathroom1 = new Room("Bathroom, first floor","bathroom.png");
+        parentRoom2 = new Room("Parents bedroom","ParentRoom.png");
+        bathroom1 = new Room("Bathroom, first floor","Bathroom.png");
         dressingParent1 = new Room("Parents dressing room","Dressing_parent.png");
         tropheRoom1 = new Room("Trophee room","armurerie.png");
         
@@ -56,7 +56,7 @@ public class Game {
         gameRoom2 = new Room("Playroom","Game_room.png");
         corridor2_2 = new Room("Corridor two, second floor","Hallway2.png");
         corridor2_3 = new Room("Corridor three, second floor","Hallway3.png");
-        sisterRoom2 = new Room("Sister bedroom","chambre_soeur.jpg");
+        sisterRoom2 = new Room("Sister bedroom","chambre_soeur.png");
         dressingSister2 = new Room("Sister dressing room","Dressing_sister.png");
         
         attic = new Room("The attic","attic.png");
