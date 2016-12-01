@@ -54,8 +54,8 @@ public class StartingWindow extends JFrame{
 	}
 	
 	public void recupInfo (ArrayList<String> nosInfos){
-		this.dispose();
 		new Window(nosInfos.get(0),nosInfos.get(1));
+		this.dispose();
 		
 	}
 	
