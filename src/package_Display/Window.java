@@ -22,8 +22,8 @@ public class Window extends JFrame{
 	private Game newGame;
 	
 	
-	public Window(){ // Reçoit les deux strings
-		this.newGame = new Game(this); // Ajout de deux paramètre String correspondant aux infos joueurs
+	public Window(String name, String description){ // Reçoit les deux strings
+		this.newGame = new Game(this,name,description); // Ajout de deux paramètre String correspondant aux infos joueurs
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -244,6 +244,6 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		new Window();
+		new StartingWindow();
 	}
 }

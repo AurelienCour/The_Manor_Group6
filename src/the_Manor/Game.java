@@ -18,8 +18,8 @@ public class Game {
 	 * The constructor of the class Game
 	 * @param windowGame The window to display the game	 
 	 */	
-	public Game(Window windowGame) { // Ajout deux paramètre info joueur
-		this.notreJoueur = new Player("Try", "Our player"); // Instancie les paramètre à notre joueur
+	public Game(Window windowGame,String name, String description) { // Ajout deux paramètre info joueur
+		this.notreJoueur = new Player(name, description); // Instancie les paramètre à notre joueur
 		createRooms();
 		this.windowGame = windowGame;
 	}

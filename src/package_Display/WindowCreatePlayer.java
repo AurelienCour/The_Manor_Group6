@@ -8,8 +8,10 @@ import javax.swing.*;
 public class WindowCreatePlayer extends JFrame {
 	private JFormattedTextField nomPlayer;
 	private JFormattedTextField descriptionPlayer;
+	private StartingWindow windowOrigin;
 	
-	public WindowCreatePlayer(){
+	public WindowCreatePlayer(StartingWindow windowOrigin){
+		this.windowOrigin = windowOrigin;
 		this.setTitle("Create a player");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.white);
@@ -50,5 +52,7 @@ public class WindowCreatePlayer extends JFrame {
 		ArrayList<String> infoPlayer = new ArrayList<String>();
 		infoPlayer.add(nomPlayer.getText());
 		infoPlayer.add(descriptionPlayer.getText());
+		this.windowOrigin.recupInfo(infoPlayer);
+		this.dispose();
 	}
 }
