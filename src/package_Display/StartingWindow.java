@@ -58,7 +58,7 @@ public class StartingWindow extends JFrame{
 		});
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/curse_of_the_zombie/Curse of the Zombie.ttf"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,25);
 			start.setFont(font);
