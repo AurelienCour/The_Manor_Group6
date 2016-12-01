@@ -167,32 +167,14 @@ public class Game {
      * @param direction The direction to move
      */
     public void move(String direction){
-    	switch (direction) {
-			case "SUD":
-				if(this.notreJoueur.getCurrentRoom().getDoor("SUD") != null){
-					Room temp = this.notreJoueur.getCurrentRoom().getDoor("SUD").goNextRoom();
-					if(temp != null)
-						this.notreJoueur.setCurrentRoom(temp);
-					else if(this.notreJoueur.getCurrentRoom().getDoor("SUD") instanceof EnigmaticDoor){
-							EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor("SUD");
-							this.windowGame.enigmaticMove(temp2.getEnigma(),"SUD");
-					}
-				}
-				break;
-			case "NORD":
-				if(this.notreJoueur.getCurrentRoom().getDoor("NORD") != null)
-		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("NORD").goNextRoom());
-				break;
-			case "EST":
-				if(this.notreJoueur.getCurrentRoom().getDoor("EST") != null)
-		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("EST").goNextRoom());
-				break;
-			case "OUEST":
-				if(this.notreJoueur.getCurrentRoom().getDoor("OUEST") != null)
-		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("OUEST").goNextRoom());
-				break;
-			default:
-				break;
+		if(this.notreJoueur.getCurrentRoom().getDoor(direction) != null){
+			Room temp = this.notreJoueur.getCurrentRoom().getDoor(direction).goNextRoom();
+			if(temp != null)
+				this.notreJoueur.setCurrentRoom(temp);
+			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){
+					EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
+					this.windowGame.enigmaticMove(temp2.getEnigma(),direction);
+			}
 		}
     }
     
