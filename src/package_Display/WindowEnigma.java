@@ -20,7 +20,7 @@ public class WindowEnigma extends JFrame {
 		JTextArea enigma = new JTextArea("Enigma :\n"+Enigma);
 		enigma.setColumns(30);
 		enigma.setLineWrap(true);
-		enigma.setRows((Enigma.length()/45)+1);
+		enigma.setRows((Enigma.length()/30)+1);
 		enigma.setWrapStyleWord(true);
 		enigma.setLineWrap(true);
 		enigma.setEditable(false);

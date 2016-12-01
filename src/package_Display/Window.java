@@ -213,6 +213,14 @@ public class Window extends JFrame{
 			new WindowDisplayMessage("The door is unlocked", this);	
 	}
 	
+	public void lockDoor (boolean locked){
+		if(locked)
+			new WindowDisplayMessage("The door is locked you need a key", this);	
+		else
+			new WindowDisplayMessage("The door is unlocked", this);
+		checkItem();
+	}
+	
 	/**
 	 * Check if the player can go in a specific direction
 	 */

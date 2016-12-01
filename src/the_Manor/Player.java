@@ -144,6 +144,15 @@ public class Player extends Fighter{
 		return false;
 	}
 	
+	public void removeKey(){
+		for (Item item : inventory) {
+			if(item instanceof Key){
+				inventory.remove(item);
+				break;
+			}
+		}
+	}
+	
 	public boolean haveWeapon(){
 		for (Item item : inventory) {
 			if(item instanceof Weapon)

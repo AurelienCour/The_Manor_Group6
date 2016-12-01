@@ -141,8 +141,7 @@ public class Game {
 		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
-        
-        //friendRoom2.addItem(new Weapon("Epee", 15));
+
         living.addItem(new Weapon ("extinguisher",5));
 		kitchen.addItem(new Shield ("plateau",15));
 		cellar.addItem(new Key("attic"));
@@ -153,6 +152,7 @@ public class Game {
 			   
 
 		friendRoom2.addItem(new Shield ("chair",2));
+		friendRoom2.addItem(new Key ("Key"));
 		bathroom2.addItem(new Potion ("alcohol",10));
 		gameRoom2.addItem(new Weapon ("bat",10));
 		sisterRoom2.addItem(new Shield ("Wooden shield",15));
@@ -174,6 +174,15 @@ public class Game {
 			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){
 					EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
 					this.windowGame.enigmaticMove(temp2.getEnigma(),direction);
+			}
+			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof LockedDoor){
+				LockedDoor temp2 = (LockedDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
+				if(temp2.unlock(this.notreJoueur)){
+					this.notreJoueur.removeKey();
+					this.windowGame.lockDoor(false);
+				}
+				else
+					this.windowGame.lockDoor(true);
 			}
 		}
     }

@@ -36,11 +36,13 @@ public class LockedDoor extends Door{
 	 * Unlocks the door if the player has a key 
 	 * @param player The player with the key
 	 */
-	public void unlock(Player player){
-		if(player.haveKey())
+	public boolean unlock(Player player){
+		if(player.haveKey()){
 			this.locked = false;
+			return true;
+		}
 		else
-			System.out.println("You need a key to unlock the door!");
+			return false;
 	}
 	
 	/**
