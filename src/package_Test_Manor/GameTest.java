@@ -21,6 +21,8 @@ public class GameTest extends TestCase
 	private Window myWindow;
 	private Player myPlayer;
 	private Character myCharacter;
+	private Room friendRoom;
+	private Room corridor;
 	
 	/**
 	 * Sets up the test fixture
@@ -28,7 +30,9 @@ public class GameTest extends TestCase
     @Before
     public void setUp() {     	    	
     	myGame = new Game(null,"The_Manor_Test","It is a great game");
-    	myPlayer = new Player("John", "John is a man");    	
+    	myPlayer = new Player("John", "John is a man");
+    	friendRoom = new Room("FriendRoom", null);
+    	corridor = new Room("Corridor", null);
     }
 
     @After
@@ -46,25 +50,34 @@ public class GameTest extends TestCase
     }
     
     /**
-     * testMove()
+     * testMoveStandardDoor()
      * <p>Checks if the player moved in the right direction when he is crossing a standard door.</p>
      */
     @Test
     public void testMoveStandardDoor() {
-    	// creation of 2 rooms
-    	Room friendRoom2 = new Room("FriendRoom", null);
-    	Room corridor = new Room("Corridor", null);
     	// the player's current room is the friendRoom
-    	myGame.getPlayer().setCurrentRoom(friendRoom2);
+    	myGame.getPlayer().setCurrentRoom(friendRoom);
     	// there is a south exit in this friedRoom
-    	friendRoom2.addExit("SOUTH", false, corridor);
+    	friendRoom.addExit("SOUTH", false, corridor);
     	// the player moves via this exit
     	myGame.move("SOUTH");
     	// the player is in the nextRoom = the corridor
     	assertEquals(corridor, myGame.getPlayer().getCurrentRoom());
-    	
-    	
-    	
     }
-
+    	
+        /**
+         * testMoveEnigmaticDoor()
+         * <p>Checks if the player moved in the right direction when he is crossing an enigmatic door.</p>
+         */
+        @Test
+        public void testMoveEnigmaticDoor() {
+        	// the player's current room is the friendRoom
+        	myGame.getPlayer().setCurrentRoom(friendRoom);
+        	// there is an enigmatic south exit in this friedRoom
+        	friendRoom.addEnigmaticExit("SOUTH", "What is the color of the Henri IV's white horse?", "white", corridor);
+        	// the player moves via this exit
+        	myGame.move("SOUTH");
+        	// the player is in the nextRoom = the corridor
+        	assertEquals(corridor, myGame.getPlayer().getCurrentRoom());
+        }
 }
