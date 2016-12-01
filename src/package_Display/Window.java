@@ -1,6 +1,9 @@
 package package_Display;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import the_Manor.Game;
 
@@ -69,12 +72,16 @@ public class Window extends JFrame{
 		this.controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
 		this.controlHaut.setBackground(Color.BLACK);
 		this.controlHaut.addActionListener(new Actions(this,"controlHaut"));
+		this.controlHaut.setFocusPainted(false);
 		this.controlBas.setBackground(Color.BLACK);
 		this.controlBas.addActionListener(new Actions(this,"controlBas"));
+		this.controlBas.setFocusPainted(false);
 		this.controlGauche.setBackground(Color.BLACK);
 		this.controlGauche.addActionListener(new Actions(this,"controlGauche"));
+		this.controlGauche.setFocusPainted(false);
 		this.controlDroit.setBackground(Color.BLACK);
 		this.controlDroit.addActionListener(new Actions(this,"controlDroit"));
+		this.controlDroit.setFocusPainted(false);
 		controlHorizontal.add(this.controlHaut);
 		controlHorizontal.add(this.controlBas);
 		control.add(this.controlGauche);
@@ -89,6 +96,7 @@ public class Window extends JFrame{
 		search.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100, 0));
 		search.setBorder(null);
 		search.addActionListener(new Actions(this,"search"));
+		search.setFocusPainted(false);
 		
 		charac.add(search,BorderLayout.WEST);
 		JPanel durability = new JPanel();
@@ -116,9 +124,14 @@ public class Window extends JFrame{
 		durability.add(this.staminaPoint);
 		JButton inventory = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_inventaire.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
 		inventory.setBackground(Color.BLACK);
-		
+		inventory.setFocusPainted(false);
 		inventory.setBorder(null);
-		
+		inventory.setFocusPainted(false);
+		inventory.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				new WindowInventory(Window.this.newGame,Window.this);
+            }
+		});
 		charac.add(durability,BorderLayout.CENTER);
 		charac.add(characteristics,BorderLayout.EAST);
 		characAndControl.setBackground(Color.black);

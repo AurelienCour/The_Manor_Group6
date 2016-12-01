@@ -2,6 +2,8 @@ package package_Display;
 
 import java.awt.event.*;
 
+import the_Manor.Item;
+
 /**
  * To manage the action on the buttons
  * 
@@ -15,6 +17,8 @@ public class Actions implements ActionListener
     private WindowEnigma windowEnigma;
     private StartingWindow startingWindow;
     private WindowCreatePlayer infoPlayer;
+    private WindowInventory inventory;
+    private Item itemToEquip;
 
      /**
       * Constructor for objects of class Actions
@@ -46,9 +50,13 @@ public class Actions implements ActionListener
        this.infoPlayer = infoWindow;
    }
     
-    
-    
-    /**
+    public Actions(WindowInventory theInventory, Item item, String idAct) {
+    	this.inventory = theInventory;
+    	this.itemToEquip = item;
+    	this.idAction = idAct;
+    }
+
+	/**
      * The methods to manage the different action
      * @param ae The action event
      */
@@ -77,9 +85,9 @@ public class Actions implements ActionListener
         else if(idAction.equals("infoPlayer")){
         	this.infoPlayer.recupInfo();
         }
-        // Si fentetre createPlayer
-        // Appel fonction Récuperation des JTextField
-        //
+        else if(idAction.equals("equip")){
+        	this.inventory.equipPlayer(itemToEquip);
+        }
     }
 
     

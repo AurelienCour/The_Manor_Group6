@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class Player extends Fighter{
 	
 	private ArrayList<Item>	inventory; // this is the item list of the player
+	private Weapon weaponEquip;
+	private Shield shieldEquip;
 	private Room currentRoom; // current room of the player
 	
 	/**
@@ -32,8 +34,6 @@ public class Player extends Fighter{
 		inventory = new ArrayList<Item>();
 	}
 	
-	
-	
 	/**
 	 * Allows to know the number of item possesses by the player
 	 * @return The number of item possessed by the player
@@ -42,6 +42,23 @@ public class Player extends Fighter{
 		return this.inventory.size();
 	}
 	
+	public ArrayList<Weapon> getWeapon(){
+		ArrayList<Weapon> weap = new ArrayList<Weapon>();
+		for (Item it : inventory) {
+			if(it instanceof Weapon)
+				weap.add((Weapon) it);
+		}
+		return weap;
+	}
+	
+	public ArrayList<Shield> getShield(){
+		ArrayList<Shield> shield = new ArrayList<Shield>();
+		for (Item it : inventory) {
+			if(it instanceof Shield)
+				shield.add((Shield) it);
+		}
+		return shield;
+	}
 
 	/**
 	 * <p>This method allows to set the new room position</p>
@@ -67,34 +84,7 @@ public class Player extends Fighter{
 	 * @param item The item to give to the player
 	 */
 	public void pickUp(Item item){
-		if(item instanceof Key){
-			inventory.add(item);
-		}
-		else{
-			if(haveItem(item)){
-				int i =0;
-				for(Item it: inventory){
-					if(it.getClass().equals(item.getClass())){
-						if(item instanceof Weapon)
-							this.removeAttack(((Weapon) item).getAttack());
-						else if(item instanceof Shield)
-							this.removeDefense(((Shield) item).getDefense());
-						inventory.remove(i);
-						inventory.add(item);
-						break;
-					}
-					i++;
-				}
-			}
-			else
-				inventory.add(item);
-		}
-		if(item instanceof Weapon){
-			this.addAttack(((Weapon) item).getAttack());
-		}
-		else if(item instanceof Shield){
-			this.addDefense(((Shield) item).getDefense());
-		}
+		inventory.add(item);
 	}
 	
 	/**
@@ -154,19 +144,17 @@ public class Player extends Fighter{
 	}
 	
 	public boolean haveWeapon(){
-		for (Item item : inventory) {
-			if(item instanceof Weapon)
-				return true;
-		}
-		return false;
+		if(this.weaponEquip != null)
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean haveShield(){
-		for (Item item : inventory) {
-			if(item instanceof Shield)
-				return true;
-		}
-		return false;
+		if(this.shieldEquip != null)
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean havePotion(){
@@ -175,5 +163,19 @@ public class Player extends Fighter{
 				return true;
 		}
 		return false;
+	}
+	
+	public void equipItem(Item item){
+		if(item instanceof Weapon){
+			if(haveWeapon())
+				this.removeAttack(this.weaponEquip.getAttack());
+			this.weaponEquip = (Weapon) item;
+			this.addAttack(weaponEquip.getAttack());
+		}else if(item instanceof Shield){
+			if(haveShield())
+				this.removeDefense(shieldEquip.getDefense());
+			this.shieldEquip = (Shield) item;
+			this.addDefense(shieldEquip.getDefense());
+		}
 	}
 }
