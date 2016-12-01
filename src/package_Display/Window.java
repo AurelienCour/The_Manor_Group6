@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.*;
+
+import the_Manor.Enemy;
+import the_Manor.Fight;
 import the_Manor.Game;
+import the_Manor.Player;
 
 public class Window extends JFrame{
 	
@@ -264,6 +268,8 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args){
-		new StartingWindow();
+		//new StartingWindow();
+		Fight f = new Fight(new Player("Moi", "rien"), new Enemy("Zombie", "", 20, 20, 5, 2));
+		new WindowFight(f);
 	}
 }
