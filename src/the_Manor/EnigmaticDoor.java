@@ -39,17 +39,22 @@ public class EnigmaticDoor extends Door{
 			this.response = response.toUpperCase();	
 		this.locked = true;
 	}
-	
+
 	/**
 	 * This method allows the player to propose an answer to the enigma that keep the door locked.
 	 * If the response is right, the door is unlocked.
 	 * @param responseOfThePlayer The response the player is proposing
+	 * @return A boolean to know if the response is good or not
 	 */
-	public void solveEnigma(String responseOfThePlayer){
-		if(responseOfThePlayer.toUpperCase().equals(this.response))
+	public boolean solveEnigma(String responseOfThePlayer){
+		if(responseOfThePlayer.toUpperCase().equals(this.response)){
 			this.locked = false;
-		else
+			return true;
+		}
+		else{
 			this.locked = true;
+			return false;
+		}
 	}
 	
 	/**
@@ -57,12 +62,11 @@ public class EnigmaticDoor extends Door{
 	 * @return The next room the player is going to enter. 
 	 */
 	public Room goNextRoom(){
-		if(this.locked)
+		if(this.locked){
 			return null;
-		else{
-			System.out.println("The door is closed, you need a key.");
-			return this.nextRoom;
 		}
+		else
+			return this.nextRoom;
 	}
 	
 	/**

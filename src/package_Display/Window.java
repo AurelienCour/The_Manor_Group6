@@ -1,12 +1,7 @@
 package package_Display;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import javax.swing.*;
-import com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac.IntegrityHmacSHA512;
-import the_Manor.Item;
 import the_Manor.Game;
 
 public class Window extends JFrame{
@@ -28,10 +23,11 @@ public class Window extends JFrame{
 	
 	
 	public Window(){
-		this.newGame = new Game();
+		this.newGame = new Game(this);
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		JPanel objectAndGame = new JPanel();
 		objectAndGame.setLayout(new BorderLayout());
 		JPanel playerObject = new JPanel();
@@ -99,21 +95,22 @@ public class Window extends JFrame{
 		JPanel durability = new JPanel();
 		durability.setLayout(new GridLayout(2,1));
 		durability.setBackground(Color.BLACK);
+		Font police = new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100);
 		this.lifePoint = new JLabel("PV   "+Integer.toString(this.newGame.getPlayer().getHealth())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxHealth()));
 		this.lifePoint.setForeground(Color.RED);
-		this.lifePoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
+		this.lifePoint.setFont(police);
 		this.staminaPoint = new JLabel("STAMINA   "+Integer.toString(this.newGame.getPlayer().getStamina())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxStamina()));
 		this.staminaPoint.setForeground(Color.GREEN);
-		this.staminaPoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
+		this.staminaPoint.setFont(police);
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
 		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"          ");
 		this.attackPoint.setForeground(Color.BLUE);
-		this.attackPoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));
+		this.attackPoint.setFont(police);
 		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"          ");
 		this.defensePoint.setForeground(Color.BLUE);
-		this.defensePoint.setFont(new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100));		
+		this.defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
 		characteristics.add(this.defensePoint);
 		durability.add(this.lifePoint);
@@ -129,7 +126,9 @@ public class Window extends JFrame{
 		this.setSize(WIDTH_WINDOW, LENGTH_WINDOW);
 		this.setResizable(false);
 		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 		this.checkDirection();
+		
 	}
 	
 	/**
@@ -138,20 +137,20 @@ public class Window extends JFrame{
 	 */
 	public void gameMove (String idMove){
 		switch (idMove) {
-		case "controlDroit":
-			this.newGame.move("EST");
-			break;
-		case "controlGauche" :
-			this.newGame.move("OUEST");
-			break;
-		case "controlHaut":
-			this.newGame.move("NORD");
-			break;
-		case "controlBas":
-			this.newGame.move("SUD");
-			break;
-		default:
-			break;
+			case "controlDroit":
+				this.newGame.move("EST");
+				break;
+			case "controlGauche" :
+				this.newGame.move("OUEST");
+				break;
+			case "controlHaut":
+				this.newGame.move("NORD");
+				break;
+			case "controlBas":
+				this.newGame.move("SUD");
+				break;
+			default:
+				break;
 		}
     	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
     	this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
@@ -162,7 +161,11 @@ public class Window extends JFrame{
 	 * Allows to search
 	 */
 	public void gameSearch(){
-		this.newGame.search();
+		String name = this.newGame.search();
+		if(name.isEmpty())
+			new WindowDisplayMessage("There is nothing in the room", this);
+		else
+			new WindowDisplayMessage("You found : "+name, this);
 		checkItem();
 	}
 	
@@ -189,6 +192,28 @@ public class Window extends JFrame{
 	}
 	
 	/**
+	 * Allow to create the window to recup the response of the user
+	 * @param enigma The enigma to open the door
+	 * @param direction The direction of the door in the room
+	 */
+	public void enigmaticMove(String enigma,String direction){
+		new WindowEnigma(this,enigma,direction);
+	}
+	
+	/**
+	 * If the response of the enigma is good display a message
+	 * If the response of the enigma is false display a message
+	 * @param response The response of the users
+	 * @param direction The direction of the door in the room
+	 */
+	public void verifResponse(String response,String direction){
+		if(!this.newGame.verifyResponseForEnigma(response,direction))
+			new WindowDisplayMessage("The response is incorrect", this);
+		else
+			new WindowDisplayMessage("The door is unlocked", this);	
+	}
+	
+	/**
 	 * Check if the player can go in a specific direction
 	 */
 	private void checkDirection(){
@@ -211,6 +236,6 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		Window w = new Window();
+		new Window();
 	}
 }

@@ -120,7 +120,7 @@ public class Room {
 	 * <p>If the direction is incorrect, it will return null. </p>
 	 * 
 	 * @param direction The direction of the door that we want to recover.
-	 * @return the specific direction of a door.
+	 * @return the door of a specific direction.
 	 */
 	public Door getDoor(String direction){
 		if(this.exitPossible.containsKey(direction))

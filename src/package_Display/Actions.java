@@ -11,39 +11,48 @@ import java.awt.event.*;
 public class Actions implements ActionListener
 {
     private String idAction; // To know the button
-    private Window window;
+    private Window windowGame;
+    private WindowEnigma windowEnigma;
 
-    /**
-     * Constructor for objects of class Actions
-     * @param match The match where is the button
-     * @param team The team where is the button
-     * @param idAct The id of the button
-     */
+     /**
+      * Constructor for objects of class Actions
+      * @param window The window where is the button
+      * @param idAct The id of the button
+      */
     public Actions(Window window,String idAct)
     {
         this.idAction = idAct;
-        this.window = window;
+        this.windowGame = window;
+    }
+    
+    public Actions(WindowEnigma window,String idAct)
+    {
+        this.idAction = idAct;
+        this.windowEnigma = window;
     }
     
     /**
      * The methods to manage the different action
-     * @param The action event
+     * @param ae The action event
      */
     public void actionPerformed(ActionEvent ae) {
         if(idAction.equals("controlDroit")){
-            this.window.gameMove("controlDroit");
+            this.windowGame.gameMove("controlDroit");
         }
         else if(idAction.equals("controlGauche")){
-        	this.window.gameMove("controlGauche");
+        	this.windowGame.gameMove("controlGauche");
         }
         else if(idAction.equals("controlHaut")){
-        	this.window.gameMove("controlHaut");
+        	this.windowGame.gameMove("controlHaut");
         }
         else if(idAction.equals("controlBas")){
-        	this.window.gameMove("controlBas");
+        	this.windowGame.gameMove("controlBas");
         }
         else if(idAction.equals("search")){
-        	this.window.gameSearch();
+        	this.windowGame.gameSearch();
+        }
+        else if(idAction.equals("enigma")){
+        	this.windowEnigma.recupResponse();
         }
     }
 

@@ -13,14 +13,15 @@ import package_Display.Window;
 public class Game {
 	
 	private Player notreJoueur;
-	
+	private Window windowGame;
 	/**
-	 * The constructor of the class Game	 
+	 * The constructor of the class Game
+	 * @param windowGame The window to display the game	 
 	 */	
-	public Game() {
+	public Game(Window windowGame) {
 		this.notreJoueur = new Player("Try", "Our player");
 		createRooms();
-		
+		this.windowGame = windowGame;
 	}
 	
 	/**
@@ -28,7 +29,7 @@ public class Game {
      */
     private void createRooms()
     {
-    	Room hall,living,kitchen,office,cave,sortie,outside;
+    	Room hall,living,kitchen,office,cave,outside;
     	Room floor1,parentRoom2,bathroom1,dressingParent1,tropheRoom1;
         Room floor2,friendRoom2,corridor2_1,bathroom2,salleJeux2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
         Room attic;
@@ -123,52 +124,71 @@ public class Game {
         
         bathroom2.addExit("NORD", false, corridor2_1);
         
-        friendRoom2.addExit("SUD", false, corridor2_1);
+        //friendRoom2.addExit("SUD", false, corridor2_1);
+        friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
         
         //Dernier etage
         attic.addExit("EST", false, corridor2_3);
         
         friendRoom2.addItem(new Weapon("Epee", 15));
+        
         this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
     /**
      * Allows to move in a specific direction
-     * @param direction
+     * @param direction The direction to move
      */
     public void move(String direction){
     	switch (direction) {
-		case "SUD":
-			if(this.notreJoueur.getCurrentRoom().getDoor("SUD") != null)
-	    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("SUD").goNextRoom());
-			break;
-		case "NORD":
-			if(this.notreJoueur.getCurrentRoom().getDoor("NORD") != null)
-	    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("NORD").goNextRoom());
-			break;
-		case "EST":
-			if(this.notreJoueur.getCurrentRoom().getDoor("EST") != null)
-	    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("EST").goNextRoom());
-			break;
-		case "OUEST":
-			if(this.notreJoueur.getCurrentRoom().getDoor("OUEST") != null)
-	    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("OUEST").goNextRoom());
-			break;
-		default:
-			break;
+			case "SUD":
+				if(this.notreJoueur.getCurrentRoom().getDoor("SUD") != null){
+					Room temp = this.notreJoueur.getCurrentRoom().getDoor("SUD").goNextRoom();
+					if(temp != null)
+						this.notreJoueur.setCurrentRoom(temp);
+					else if(this.notreJoueur.getCurrentRoom().getDoor("SUD") instanceof EnigmaticDoor){
+							EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor("SUD");
+							this.windowGame.enigmaticMove(temp2.getEnigma(),"SUD");
+					}
+				}
+				break;
+			case "NORD":
+				if(this.notreJoueur.getCurrentRoom().getDoor("NORD") != null)
+		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("NORD").goNextRoom());
+				break;
+			case "EST":
+				if(this.notreJoueur.getCurrentRoom().getDoor("EST") != null)
+		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("EST").goNextRoom());
+				break;
+			case "OUEST":
+				if(this.notreJoueur.getCurrentRoom().getDoor("OUEST") != null)
+		    		this.notreJoueur.setCurrentRoom(this.notreJoueur.getCurrentRoom().getDoor("OUEST").goNextRoom());
+				break;
+			default:
+				break;
 		}
+    }
+    
+    public boolean verifyResponseForEnigma(String response,String direction){
+    	EnigmaticDoor temp =(EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
+    	if(temp.solveEnigma(response))
+    		return true;
+    	else
+    		return false;
     }
     
     /**
      * Allow to search in a room
+     * @return The name of the item
      */
-    public void search(){
+    public String search(){
     	if(this.notreJoueur.getCurrentRoom().numberOfItemInRoom() == 0)
-			System.out.println("Pas d'objet dans la pièce");
+			return "";
 		else{
-			System.out.println("Vous avez trouvé : "+this.notreJoueur.getCurrentRoom().getItem().getName());
+			String name = this.notreJoueur.getCurrentRoom().getItem().getName();
 			this.notreJoueur.pickUp(this.notreJoueur.getCurrentRoom().getItem());
 			this.notreJoueur.getCurrentRoom().removeItem(this.notreJoueur.getCurrentRoom().getItem());
+			return name;
 		}
     }
     

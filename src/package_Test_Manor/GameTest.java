@@ -17,7 +17,7 @@ public class GameTest extends TestCase
 	 */
     @Before
     public void setUp() {
-    	this.game1 = new Game();      
+    	this.game1 = new Game(null);      
     }
 
     @After
@@ -31,7 +31,7 @@ public class GameTest extends TestCase
      */
     @Test
     public void testConstructor() {
-       Game game2 = new Game();
+       Game game2 = new Game(null);
     }
 
 }
