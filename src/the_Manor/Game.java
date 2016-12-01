@@ -66,26 +66,26 @@ public class Game {
         hall.addExit("OUEST", false, kitchen);
         hall.addExit("EST", false, living);
         hall.addExit("NORD", false, floor1);
-        hall.addExit("SUD", false, outside);
+        hall.addExit("SUD", true, outside);
         
         
         kitchen.addExit("EST", false, living);
-        kitchen.addExit("OUEST", false, cellar);
+        //kitchen.addExit("OUEST", false, cellar);
         kitchen.addExit("SUD", false, hall);
         
         cellar.addExit("EST", false, kitchen);
         
         living.addExit("NORD", false, kitchen);
         living.addExit("OUEST", false, hall);
-        living.addExit("SUD", false, office);
+        //living.addExit("SUD", false, office);
         
         office.addExit("NORD", false, living);
         
         //Floor 1
         floor1.addExit("SUD", false, hall);
         floor1.addExit("NORD", false, floor2);
-        floor1.addExit("EST", false, dressingParent1);
-        floor1.addExit("OUEST", false, parentRoom2);
+        //floor1.addExit("EST", false, dressingParent1);
+        //floor1.addExit("OUEST", false, parentRoom2);
         
         parentRoom2.addExit("EST", false, floor1);
         parentRoom2.addExit("SUD", false, bathroom1);
@@ -95,20 +95,20 @@ public class Game {
         dressingParent1.addExit("OUEST", false, floor1);
         dressingParent1.addExit("SUD", false, tropheRoom1);
         
-        tropheRoom1.addExit("NORD", false, dressingParent1);
+        tropheRoom1.addExit("NORD", true, dressingParent1);
         
         //Floor 2
         floor2.addExit("SUD", false, floor1);
         floor2.addExit("NORD", false, corridor2_2);
         
-        corridor2_2.addExit("NORD", false, gameRoom2);
+        //corridor2_2.addExit("NORD", false, gameRoom2);
         corridor2_2.addExit("SUD", false, floor2);
         corridor2_2.addExit("EST", false, corridor2_1);
         corridor2_2.addExit("OUEST", false, corridor2_3);
         
         gameRoom2.addExit("SUD", false, corridor2_2);
         
-        corridor2_3.addExit("NORD", false, sisterRoom2);
+        //corridor2_3.addExit("NORD", false, sisterRoom2);
         corridor2_3.addExit("SUD", false, dressingSister2);
         corridor2_3.addExit("EST", false, corridor2_2);
         corridor2_3.addExit("OUEST", false, attic);
@@ -118,17 +118,29 @@ public class Game {
         sisterRoom2.addExit("SUD", false, corridor2_3);
         
         corridor2_1.addExit("NORD", false, friendRoom2);
-        corridor2_1.addExit("SUD", false, bathroom2);
+        //corridor2_1.addExit("SUD", false, bathroom2);
         corridor2_1.addExit("EST", false, corridor2_1);
         corridor2_1.addExit("OUEST", false, corridor2_2);
         
         bathroom2.addExit("NORD", false, corridor2_1);
-        
+		
+        //Last floor
+        attic.addExit("EST", true, corridor2_3);
+		
         //friendRoom2.addExit("SUD", false, corridor2_1);
         friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
-
-        //Last floor
-        attic.addExit("EST", false, corridor2_3);
+		
+		//floor
+		living.addEnigmaticExit("SUD","I am powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
+		kitchen.addEnigmaticExit("OUEST","I grow up when I am fed, I die when I am given water. Who am I?","fire",cellar);
+		//floor 1
+		floor1.addEnigmaticExit("EST","Like a fruit I have a core, but you can't eat me. Like a women I have a lot of coats but I am not Human. Who am I?","Earth",dressingParent1);
+		floor1.addEnigmaticExit("OUEST","I have a mouse for a year. Knowing that a mouse can have 18 mice every month from 2 months, how many mice will I have after 10 months?","One",parentRoom2);
+		//floor 2
+		corridor2_1.addEnigmaticExit("SUD","I have something in my pocket, but my pocket is empty. What is it?","hole",bathroom2);
+		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
+        corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
+		
         
         //friendRoom2.addItem(new Weapon("Epee", 15));
         living.addItem(new Weapon ("extinguisher",5));
@@ -209,11 +221,5 @@ public class Game {
     
     public Player getPlayer(){
     	return this.notreJoueur;
-    }
-    
-
-	
-	
-	
-	
+    }	
 }
