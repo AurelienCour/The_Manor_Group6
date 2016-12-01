@@ -14,7 +14,7 @@ public class WindowFight extends JFrame{
 		this.combat = combat;
 		this.setTitle("Fight");
 		this.setBackground(Color.BLACK);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(new GridLayout(2,1,4,4));
 		
 		JPanel panelEnemy = new JPanel();
