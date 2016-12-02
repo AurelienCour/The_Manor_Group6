@@ -3,6 +3,7 @@ package package_Display;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
@@ -104,7 +105,7 @@ public class Window extends JFrame{
 		
 		charac.add(search,BorderLayout.WEST);
 		JPanel durability = new JPanel();
-		durability.setLayout(new GridLayout(2,1));
+		durability.setLayout(new GridLayout(2,1,4,4));
 		durability.setBackground(Color.BLACK);
 		Font police = new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100);
 		this.lifePoint = new JLabel("PV   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
@@ -116,10 +117,10 @@ public class Window extends JFrame{
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
-		this.attackPoint = new JLabel("ATTACK   "+this.newGame.getPlayer().getAttack());
+		this.attackPoint = new JLabel("ATTACK   "+this.newGame.getPlayer().getAttack()+"  ");
 		this.attackPoint.setForeground(Color.BLUE);
 		this.attackPoint.setFont(police);
-		this.defensePoint = new JLabel("DEFENSE   "+this.newGame.getPlayer().getDefense());
+		this.defensePoint = new JLabel("DEFENSE   "+this.newGame.getPlayer().getDefense()+"  ");
 		this.defensePoint.setForeground(Color.BLUE);
 		this.defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
@@ -136,6 +137,24 @@ public class Window extends JFrame{
 				new WindowInventory(Window.this.newGame,Window.this);
             }
 		});
+		
+		try{
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			ge.registerFont(font);
+			font = font.deriveFont(Font.TRUETYPE_FONT,20);
+			lifePoint.setFont(font);
+			staminaPoint.setFont(font);
+			attackPoint.setFont(font);
+			defensePoint.setFont(font);
+		}
+		catch(IOException e){
+		}catch(FontFormatException e){          
+		}catch(IllegalArgumentException e){
+		}
+		
+		
+		
 		charac.add(durability,BorderLayout.CENTER);
 		charac.add(characteristics,BorderLayout.EAST);
 		characAndControl.setBackground(Color.black);
@@ -150,7 +169,6 @@ public class Window extends JFrame{
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.checkDirection();
-		
 	}
 	
 	/**
@@ -211,8 +229,8 @@ public class Window extends JFrame{
 			this.iconeEpee.setVisible(true);
 		else
 			this.iconeEpee.setVisible(false);
-		this.attackPoint.setText("ATTACK   "+this.newGame.getPlayer().getAttack());
-		this.defensePoint.setText("DEFENSE   "+this.newGame.getPlayer().getDefense());
+		this.attackPoint.setText("ATTACK   "+this.newGame.getPlayer().getAttack()+"  ");
+		this.defensePoint.setText("DEFENSE   "+this.newGame.getPlayer().getDefense()+"  ");
 	}
 	
 	/**
