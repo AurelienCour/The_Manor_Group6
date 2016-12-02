@@ -26,8 +26,6 @@ public class Fight {
 				this.enemy.removeHealth(this.player.getAttack() - ((this.enemy.getDefense()*this.player.getAttack())/100));
 				this.player.removeStamina(this.player.getAttack());
 			}
-			else
-				new WindowDisplayMessage("You need more stamina");
 		}
 		else if(fight instanceof Enemy){
 			if(this.enemy.getStamina()>0){

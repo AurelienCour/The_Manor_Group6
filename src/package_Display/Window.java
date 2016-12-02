@@ -107,19 +107,19 @@ public class Window extends JFrame{
 		durability.setLayout(new GridLayout(2,1));
 		durability.setBackground(Color.BLACK);
 		Font police = new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100);
-		this.lifePoint = new JLabel("PV   "+Integer.toString(this.newGame.getPlayer().getHealth())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxHealth()));
+		this.lifePoint = new JLabel("PV   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
 		this.lifePoint.setForeground(Color.RED);
 		this.lifePoint.setFont(police);
-		this.staminaPoint = new JLabel("STAMINA   "+Integer.toString(this.newGame.getPlayer().getStamina())+" / "+Integer.toString(this.newGame.getPlayer().getNbMaxStamina()));
+		this.staminaPoint = new JLabel("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
 		this.staminaPoint.setForeground(Color.GREEN);
 		this.staminaPoint.setFont(police);
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
-		this.attackPoint = new JLabel("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"  ");
+		this.attackPoint = new JLabel("ATTACK   "+this.newGame.getPlayer().getAttack());
 		this.attackPoint.setForeground(Color.BLUE);
 		this.attackPoint.setFont(police);
-		this.defensePoint = new JLabel("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"  ");
+		this.defensePoint = new JLabel("DEFENSE   "+this.newGame.getPlayer().getDefense());
 		this.defensePoint.setForeground(Color.BLUE);
 		this.defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
@@ -185,9 +185,9 @@ public class Window extends JFrame{
 	public void gameSearch(){
 		String name = this.newGame.search();
 		if(name.isEmpty())
-			new WindowDisplayMessage("There is nothing in the room");
+			new WindowDisplayMessage("There is nothing in the room",this);
 		else
-			new WindowDisplayMessage("You found : "+name);
+			new WindowDisplayMessage("You found : "+name, this);
 		checkItem();
 	}
 	
@@ -211,8 +211,8 @@ public class Window extends JFrame{
 			this.iconeEpee.setVisible(true);
 		else
 			this.iconeEpee.setVisible(false);
-		this.attackPoint.setText("ATTACK   "+Integer.toString(this.newGame.getPlayer().getAttack())+"  ");
-		this.defensePoint.setText("DEFENSE   "+Integer.toString(this.newGame.getPlayer().getDefense())+"  ");
+		this.attackPoint.setText("ATTACK   "+this.newGame.getPlayer().getAttack());
+		this.defensePoint.setText("DEFENSE   "+this.newGame.getPlayer().getDefense());
 	}
 	
 	/**
@@ -232,17 +232,17 @@ public class Window extends JFrame{
 	 */
 	public void verifResponse(String response,String direction){
 		if(!this.newGame.verifyResponseForEnigma(response,direction))
-			new WindowDisplayMessage("The response is incorrect");
+			new WindowDisplayMessage("The response is incorrect", this);
 		else
-			new WindowDisplayMessage("The door is unlocked");	
+			new WindowDisplayMessage("The door is unlocked", this);	
 	}
 	
 	public void lockDoor (boolean locked){
 		checkItem();
 		if(locked)
-			new WindowDisplayMessage("The door is locked you need a key");	
+			new WindowDisplayMessage("The door is locked you need a key", this);	
 		else
-			new WindowDisplayMessage("The door is unlocked");
+			new WindowDisplayMessage("The door is unlocked", this);
 		
 	}
 	
@@ -266,6 +266,11 @@ public class Window extends JFrame{
 			this.controlBas.setEnabled(false);
 		else
 			this.controlBas.setEnabled(true);
+	}
+	
+	public void setCharac(){
+		this.lifePoint.setText("PV   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
+		this.staminaPoint.setText("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
 	}
 	
 	public static void main(String[] args){

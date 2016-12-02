@@ -11,9 +11,13 @@ public class WindowDisplayMessage extends JFrame {
 	/**
 	 * The constructor of the class WindowDisplayMessage
 	 * @param message The message to display
+	 * @param window 
 	 * @param win The window to center the message
 	 */
-	public WindowDisplayMessage(String message){
+	private Window window;
+	public WindowDisplayMessage(String message, Window window){
+		this.window = window;
+		this.window.setEnabled(false);
 		this.setTitle("Message Box");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.GRAY);
@@ -28,6 +32,7 @@ public class WindowDisplayMessage extends JFrame {
 		validate.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				WindowDisplayMessage.this.dispose();
+				WindowDisplayMessage.this.window.setEnabled(true);
             }
 		});
 		this.add(mess,BorderLayout.CENTER);

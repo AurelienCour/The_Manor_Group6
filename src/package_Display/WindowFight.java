@@ -160,6 +160,7 @@ public class WindowFight extends JFrame{
 	}
 	
 	public void verifCharac(){
+		this.windowGame.setCharac();
 		healthEnemy.setText("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
 		staminaEnemy.setText("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
 		healthPlayer.setText(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
@@ -167,10 +168,13 @@ public class WindowFight extends JFrame{
 	}
 	
 	public void attack(){
-		this.combat.attack(this.combat.getPlayer());
+		if(this.combat.getPlayer().getStamina() == 0)
+			new WindowDisplayMessage("You need more stamina",windowGame);
+		else
+			this.combat.attack(this.combat.getPlayer());
 		this.verifCharac();
 		if(!this.combat.getEnemy().isAlive()){
-			new WindowDisplayMessage("You win the fight !");
+			new WindowDisplayMessage("You win the fight !", windowGame);
 			this.windowGame.setEnabled(true);
 			this.dispose();
 		}
@@ -199,8 +203,10 @@ public class WindowFight extends JFrame{
 		if(this.combat.getPlayer().havePotion()){
 			this.combat.getPlayer().heal(this.combat.getPlayer().getPotion());
 		}
-		else
-			new WindowDisplayMessage("You need food to heal");
+		else{
+			new WindowDisplayMessage("You need food to take care of yourself", windowGame);
+			windowGame.setEnabled(false);
+		}
 		this.combat.attack(this.combat.getEnemy());
 		this.verifCharac();
 		if(!this.combat.getPlayer().isAlive()){
@@ -215,10 +221,12 @@ public class WindowFight extends JFrame{
 		if(nombre==0){
 			this.dispose();
 			this.windowGame.setEnabled(true);
+			new WindowDisplayMessage("You fled.", windowGame);
 			this.combat.getPlayer().setCurrentRoom(previousRoomPlayer);
 			this.windowGame.gameMove("");
 		}
 		else{
+			new WindowDisplayMessage("The escape failed.", windowGame);
 			this.combat.attack(this.combat.getEnemy());
 			this.verifCharac();
 		}
