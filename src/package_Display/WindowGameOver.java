@@ -19,14 +19,11 @@ public class WindowGameOver extends JFrame{
 		JPanel test = new JPanel();
 		test.setBackground(Color.BLACK);
 		test.setLayout(new BorderLayout());
-		JLabel gameOver = new JLabel("Game Over");
+		JLabel gameOver = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/GameOver.png").getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT)));
 		gameOver.setLayout(new FlowLayout());
-		gameOver.setOpaque(false);
-		gameOver.setForeground(Color.RED);
-		gameOver.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton quit = new JButton("Quit");
-		quit.setPreferredSize(new Dimension(100,50));
+		quit.setPreferredSize(new Dimension(90,40));
 		quit.setBackground(Color.BLACK);
 		quit.setForeground(Color.WHITE);
 		quit.setFocusPainted(false);
@@ -39,11 +36,7 @@ public class WindowGameOver extends JFrame{
 		gameOver.add(quit);
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/blood_lust/BloodLust.ttf"));
-			ge.registerFont(font);
-			font = font.deriveFont(Font.TRUETYPE_FONT,150);
-			gameOver.setFont(font);
-			font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,30);
 			quit.setFont(font);

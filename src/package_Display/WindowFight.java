@@ -60,7 +60,7 @@ public class WindowFight extends JFrame{
 		characEnemy.add(armorEnemy);
 		infoEnemy.add(characEnemy);
 		panelEnemy.add(infoEnemy);
-		panelEnemy.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
+		panelEnemy.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Dog.png").getImage().getScaledInstance(250, 140, Image.SCALE_DEFAULT))));
 		
 		
 		
@@ -175,7 +175,6 @@ public class WindowFight extends JFrame{
 		this.verifCharac();
 		if(!this.combat.getEnemy().isAlive()){
 			new WindowDisplayMessage("You win the fight !", windowGame);
-			this.windowGame.setEnabled(true);
 			this.dispose();
 		}
 		else{
