@@ -3,7 +3,11 @@ package package_Display;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -22,9 +26,9 @@ public class WindowDisplayMessage extends JFrame {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.GRAY);
 		this.setUndecorated(true);
-		this.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout(4,4));
 		Font police = new Font("Serif", Font.BOLD, 14);
-		JLabel mess = new JLabel(message);
+		JLabel mess = new JLabel("   "+message+"   ");
 		mess.setHorizontalAlignment(JLabel.CENTER);
 		mess.setFont(police);
 		JButton validate = new JButton("OK");
@@ -35,11 +39,25 @@ public class WindowDisplayMessage extends JFrame {
 				WindowDisplayMessage.this.window.setEnabled(true);
             }
 		});
+		
+		try{
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			ge.registerFont(font);
+			font = font.deriveFont(Font.TRUETYPE_FONT,20);
+			validate.setFont(font);
+			mess.setFont(font);
+			validate.setFont(font);
+		}
+		catch(IOException e){
+		}catch(FontFormatException e){          
+		}catch(IllegalArgumentException e){
+		}
 		this.add(mess,BorderLayout.CENTER);
 		this.add(validate, BorderLayout.SOUTH);
 		this.setVisible(true); 
 		this.setResizable(false);
-		this.setSize(250, 100);
+		this.pack();
 		this.setLocationRelativeTo(null);
 	}
 }
