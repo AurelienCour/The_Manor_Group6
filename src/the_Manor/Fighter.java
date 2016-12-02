@@ -133,7 +133,7 @@ public abstract class Fighter extends Character{
 	 */
 	public void removeHealth(int nbToRemove){
 		if (nbToRemove > 0)
-			if((this.getHealth()-nbToRemove) < 0)
+			if((this.getHealth()-nbToRemove) <= 0)
 				this.setHealth(0);
 			else
 				this.setHealth(this.getHealth()-nbToRemove);
@@ -191,7 +191,7 @@ public abstract class Fighter extends Character{
 	 * already tested
 	 */
 	private void setHealth(int healthPoints){
-		if (healthPoints > 0)
+		if (healthPoints >= 0)
 			this.health = healthPoints;
 	}
 	
@@ -201,7 +201,7 @@ public abstract class Fighter extends Character{
 	 */
 	private void setStamina(int staminaPoints)
 	{
-		if (staminaPoints > 0)
+		if (staminaPoints >= 0)
 			this.stamina = staminaPoints;
 	}	
 	

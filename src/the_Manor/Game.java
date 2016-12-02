@@ -180,14 +180,15 @@ public class Game {
     public void move(String direction){
 		if(this.notreJoueur.getCurrentRoom().getDoor(direction) != null){
 			Room temp = this.notreJoueur.getCurrentRoom().getDoor(direction).goNextRoom();
-			if(temp != null)
+			if(temp != null){
 				this.notreJoueur.setCurrentRoom(temp);
 				if(this.notreJoueur.getCurrentRoom().numberOfChararacterInRoom() != 0){
 					if(this.notreJoueur.getCurrentRoom().getEnemy() != null){
 						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
-						new WindowFight(fight);
+						new WindowFight(fight,this.windowGame);
 					}
 				}
+			}
 			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){
 					EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
 					this.windowGame.enigmaticMove(temp2.getEnigma(),direction);

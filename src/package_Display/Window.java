@@ -238,11 +238,12 @@ public class Window extends JFrame{
 	}
 	
 	public void lockDoor (boolean locked){
+		checkItem();
 		if(locked)
 			new WindowDisplayMessage("The door is locked you need a key", this);	
 		else
 			new WindowDisplayMessage("The door is unlocked", this);
-		checkItem();
+		
 	}
 	
 	/**
@@ -268,6 +269,8 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args){
-		new StartingWindow();
+		//new StartingWindow();
+		Fight f = new Fight(new Player("Paul", ""),new Enemy("Zombie", "", 60, 60, 50, 5));
+		new WindowFight(f,null);
 	}
 }

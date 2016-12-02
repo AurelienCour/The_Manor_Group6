@@ -1,6 +1,8 @@
 package package_Display;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.*;
@@ -9,13 +11,15 @@ import the_Manor.Fight;
 public class WindowFight extends JFrame{
 	
 	private Fight combat;
+	private JLabel healthEnemy,staminaEnemy,healthPlayer,staminaPlayer;
 	
-	public WindowFight (Fight combat){
+	public WindowFight (Fight combat, Window windowGame){
 		this.combat = combat;
 		this.setTitle("Fight");
 		this.setBackground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setLayout(new GridLayout(2,1,4,4));
+		this.setLayout(new GridLayout(2,1));
+		this.setUndecorated(true);
 		
 		JPanel panelEnemy = new JPanel();
 		panelEnemy.setLayout(new GridLayout(1,2));
@@ -33,9 +37,9 @@ public class WindowFight extends JFrame{
 		JPanel characEnemy = new JPanel();
 		characEnemy.setLayout(new GridLayout(2,2));
 		characEnemy.setOpaque(false);
-		JLabel healthEnemy = new JLabel("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
+		healthEnemy = new JLabel("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
 		healthEnemy.setForeground(Color.RED);
-		JLabel staminaEnemy = new JLabel("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
+		staminaEnemy = new JLabel("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
 		staminaEnemy.setForeground(Color.GREEN);
 		JLabel armorEnemy = new JLabel("Armor : "+this.combat.getEnemy().getDefense());
 		JLabel attackEnemy = new JLabel("Attack : "+this.combat.getEnemy().getAttack());
@@ -55,7 +59,7 @@ public class WindowFight extends JFrame{
 		
 		
 		JPanel panelPlayer = new JPanel();
-		panelPlayer.setLayout(new GridLayout(1,2));
+		panelPlayer.setLayout(new GridLayout(1,2,5,5));
 		panelPlayer.setBackground(Color.BLACK);
 		panelPlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		
@@ -71,9 +75,9 @@ public class WindowFight extends JFrame{
 		JPanel characPlayer = new JPanel();
 		characPlayer.setLayout(new GridLayout(2,2));
 		characPlayer.setOpaque(false);
-		JLabel healthPlayer = new JLabel(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
+		healthPlayer = new JLabel(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
 		healthPlayer.setForeground(Color.RED);
-		JLabel staminaPlayer = new JLabel(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
+		staminaPlayer = new JLabel(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
 		staminaPlayer.setForeground(Color.GREEN);
 		JLabel armorPlayer = new JLabel("Armor : "+this.combat.getPlayer().getDefense());
 		JLabel attackPlayer = new JLabel("Attack : "+this.combat.getPlayer().getAttack());
@@ -86,7 +90,49 @@ public class WindowFight extends JFrame{
 		characPlayer.add(armorPlayer);
 		infoPlayer.add(characPlayer);
 		
-		panelPlayer.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT))));
+		JButton attack = new JButton("Attack");
+		attack.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				WindowFight.this.combat.attack(WindowFight.this.combat.getPlayer());
+				WindowFight.this.combat.attack(WindowFight.this.combat.getEnemy());
+				WindowFight.this.verifCharac();
+            }
+		});
+		JButton stay = new JButton("Recup");
+		stay.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				WindowFight.this.combat.recup(WindowFight.this.combat.getPlayer());
+				WindowFight.this.combat.attack(WindowFight.this.combat.getEnemy());
+				WindowFight.this.verifCharac();
+            }
+		});
+		JButton heal = new JButton("Heal");
+		JButton escape = new JButton("Escape");
+		escape.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				System.exit(0);
+            }
+		});
+		JPanel buttons = new JPanel();
+		buttons.setLayout(new GridLayout(2,2));
+		buttons.add(attack);
+		attack.setBackground(Color.BLACK);
+		attack.setForeground(Color.WHITE);
+		attack.setFocusPainted(false);
+		buttons.add(stay);
+		stay.setBackground(Color.BLACK);
+		stay.setForeground(Color.WHITE);
+		stay.setFocusPainted(false);
+		buttons.add(heal);
+		heal.setBackground(Color.BLACK);
+		heal.setForeground(Color.WHITE);
+		heal.setFocusPainted(false);
+		buttons.add(escape);
+		escape.setBackground(Color.BLACK);
+		escape.setForeground(Color.WHITE);
+		escape.setFocusPainted(false);
+		buttons.setOpaque(false);
+		panelPlayer.add(buttons);
 		panelPlayer.add(infoPlayer);
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -104,6 +150,11 @@ public class WindowFight extends JFrame{
 			attackPlayer.setFont(font);
 			armorPlayer.setFont(font);
 			namePlayer.setFont(font);
+			
+			attack.setFont(font);
+			stay.setFont(font);
+			heal.setFont(font);
+			escape.setFont(font);
 		}
 		catch(IOException e){
 		}catch(FontFormatException e){          
@@ -112,6 +163,14 @@ public class WindowFight extends JFrame{
 		this.add(panelEnemy);
 		this.add(panelPlayer);
 		this.setVisible(true);
-		this.pack();
+		this.setLocationRelativeTo(null);
+		this.setSize(600, 300);
+	}
+	
+	public void verifCharac(){
+		healthEnemy.setText("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
+		staminaEnemy.setText("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
+		healthPlayer.setText(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
+		staminaPlayer.setText(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
 	}
 }
