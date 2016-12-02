@@ -169,7 +169,7 @@ public class Game {
 		floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 25, 60, 10, 3));
 		cellar.addCharacter(new Enemy("Slade","Friend's oncle", 40, 60, 10, 3));
 		office.addCharacter(new Enemy("Robert","Friend's father", 40, 60, 10, 3));
-		attic.addCharacter(new Enemy("Tommy","Friend", 100, 60, 20, 3));
+		attic.addCharacter(new Enemy("Tommy","Friend", 100, 60, 150, 3));
         this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     

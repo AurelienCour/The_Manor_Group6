@@ -19,6 +19,7 @@ public class Actions implements ActionListener
     private WindowCreatePlayer infoPlayer;
     private WindowInventory inventory;
     private Item itemToEquip;
+	private WindowFight windowFight;
 
      /**
       * Constructor for objects of class Actions
@@ -55,6 +56,11 @@ public class Actions implements ActionListener
     	this.itemToEquip = item;
     	this.idAction = idAct;
     }
+    
+    public Actions(WindowFight windowFight, String idAct) {
+    	this.windowFight = windowFight;
+    	this.idAction = idAct;
+    }
 
 	/**
      * The methods to manage the different action
@@ -87,6 +93,15 @@ public class Actions implements ActionListener
         }
         else if(idAction.equals("equip")){
         	this.inventory.equipPlayer(itemToEquip);
+        }
+        else if(idAction.equals("attack")){
+        	this.windowFight.attack();
+        }
+        else if(idAction.equals("recup")){
+        	this.windowFight.recup();
+        }
+        else if(idAction.equals("heal")){
+        	this.windowFight.heal();
         }
     }
 

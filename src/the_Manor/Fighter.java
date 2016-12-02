@@ -211,7 +211,7 @@ public abstract class Fighter extends Character{
 	 */
 	private void setAttack(int attackPoints)
 	{
-		if (attackPoints > 0)
+		if (attackPoints >= 0)
 			this.attack = attackPoints;
 	}
 
@@ -221,8 +221,15 @@ public abstract class Fighter extends Character{
 	 */
 	private void setDefense(int defensePoints)
 	{
-		if (defensePoints > 0)
+		if (defensePoints >= 0)
 			this.defense = defensePoints;
 	}	
+	
+	public boolean isAlive(){
+		if(this.getHealth() != 0)
+			return true;
+		else
+			return false;
+	}
 	
 }

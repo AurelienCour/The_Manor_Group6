@@ -12,8 +12,11 @@ public class WindowFight extends JFrame{
 	
 	private Fight combat;
 	private JLabel healthEnemy,staminaEnemy,healthPlayer,staminaPlayer;
+	private Window windowGame;
 	
 	public WindowFight (Fight combat, Window windowGame){
+		this.windowGame = windowGame;
+		this.windowGame.setEnabled(false);
 		this.combat = combat;
 		this.setTitle("Fight");
 		this.setBackground(Color.BLACK);
@@ -91,22 +94,11 @@ public class WindowFight extends JFrame{
 		infoPlayer.add(characPlayer);
 		
 		JButton attack = new JButton("Attack");
-		attack.addActionListener(new ActionListener(){
-			public void actionPerformed (ActionEvent e){
-				WindowFight.this.combat.attack(WindowFight.this.combat.getPlayer());
-				WindowFight.this.combat.attack(WindowFight.this.combat.getEnemy());
-				WindowFight.this.verifCharac();
-            }
-		});
+		attack.addActionListener(new Actions(this,"attack"));
 		JButton stay = new JButton("Recup");
-		stay.addActionListener(new ActionListener(){
-			public void actionPerformed (ActionEvent e){
-				WindowFight.this.combat.recup(WindowFight.this.combat.getPlayer());
-				WindowFight.this.combat.attack(WindowFight.this.combat.getEnemy());
-				WindowFight.this.verifCharac();
-            }
-		});
+		stay.addActionListener(new Actions(this,"recup"));
 		JButton heal = new JButton("Heal");
+		heal.addActionListener(new Actions(this,"heal"));
 		JButton escape = new JButton("Escape");
 		escape.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
@@ -163,7 +155,7 @@ public class WindowFight extends JFrame{
 		this.add(panelEnemy);
 		this.add(panelPlayer);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null);
+		this.setLocationRelativeTo(this.windowGame);
 		this.setSize(600, 300);
 	}
 	
@@ -172,5 +164,38 @@ public class WindowFight extends JFrame{
 		staminaEnemy.setText("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
 		healthPlayer.setText(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
 		staminaPlayer.setText(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
+	}
+	
+	public void attack(){
+		this.combat.attack(this.combat.getPlayer());
+		this.verifCharac();
+		if(!this.combat.getEnemy().isAlive()){
+			new WindowDisplayMessage("You win the fight !");
+			this.windowGame.setEnabled(true);
+			this.dispose();
+		}
+		this.combat.attack(this.combat.getEnemy());
+		this.verifCharac();
+		if(!this.combat.getPlayer().isAlive()){
+			new WindowDisplayMessage("You are dead \n Game Over !");
+			this.dispose();
+			this.windowGame.dispose();
+			new StartingWindow();
+		}
+	}
+	
+	public void recup(){
+		this.combat.recup(this.combat.getPlayer());
+		this.combat.attack(this.combat.getEnemy());
+		this.verifCharac();
+	}
+	
+	public void heal(){
+		if(this.combat.getPlayer().havePotion()){
+			this.combat.getPlayer().heal(this.combat.getPlayer().getPotion());
+		}
+		else
+			new WindowDisplayMessage("You need food to heal");
+		this.combat.attack(this.combat.getEnemy());
 	}
 }

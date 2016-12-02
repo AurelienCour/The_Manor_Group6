@@ -185,9 +185,9 @@ public class Window extends JFrame{
 	public void gameSearch(){
 		String name = this.newGame.search();
 		if(name.isEmpty())
-			new WindowDisplayMessage("There is nothing in the room", this);
+			new WindowDisplayMessage("There is nothing in the room");
 		else
-			new WindowDisplayMessage("You found : "+name, this);
+			new WindowDisplayMessage("You found : "+name);
 		checkItem();
 	}
 	
@@ -232,17 +232,17 @@ public class Window extends JFrame{
 	 */
 	public void verifResponse(String response,String direction){
 		if(!this.newGame.verifyResponseForEnigma(response,direction))
-			new WindowDisplayMessage("The response is incorrect", this);
+			new WindowDisplayMessage("The response is incorrect");
 		else
-			new WindowDisplayMessage("The door is unlocked", this);	
+			new WindowDisplayMessage("The door is unlocked");	
 	}
 	
 	public void lockDoor (boolean locked){
 		checkItem();
 		if(locked)
-			new WindowDisplayMessage("The door is locked you need a key", this);	
+			new WindowDisplayMessage("The door is locked you need a key");	
 		else
-			new WindowDisplayMessage("The door is unlocked", this);
+			new WindowDisplayMessage("The door is unlocked");
 		
 	}
 	
@@ -270,7 +270,8 @@ public class Window extends JFrame{
 	
 	public static void main(String[] args){
 		//new StartingWindow();
-		Fight f = new Fight(new Player("Paul", ""),new Enemy("Zombie", "", 60, 60, 50, 5));
-		new WindowFight(f,null);
+		new WindowGameOver();
+		//Fight f = new Fight(new Player("Paul", ""),new Enemy("Zombie", "", 60, 60, 50, 5));
+		//new WindowFight(f,null);
 	}
 }

@@ -108,6 +108,7 @@ public class Player extends Fighter{
 	public void heal(Potion potion){
 		if (this.haveItem(potion)) {
 			this.addHealth(potion.getHealth());
+			this.inventory.remove(potion);
 		}
 	}
 	
@@ -163,6 +164,14 @@ public class Player extends Fighter{
 				return true;
 		}
 		return false;
+	}
+	
+	public Potion getPotion(){
+		for (Item item : inventory) {
+			if(item instanceof Potion)
+				return (Potion) item;
+		}
+		return null;
 	}
 	
 	public void equipItem(Item item){

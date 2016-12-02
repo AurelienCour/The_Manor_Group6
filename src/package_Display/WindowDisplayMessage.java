@@ -13,7 +13,7 @@ public class WindowDisplayMessage extends JFrame {
 	 * @param message The message to display
 	 * @param win The window to center the message
 	 */
-	public WindowDisplayMessage(String message, Window win){
+	public WindowDisplayMessage(String message){
 		this.setTitle("Message Box");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.GRAY);
@@ -35,6 +35,6 @@ public class WindowDisplayMessage extends JFrame {
 		this.setVisible(true); 
 		this.setResizable(false);
 		this.setSize(250, 100);
-		this.setLocationRelativeTo(win);
+		this.setLocationRelativeTo(null);
 	}
 }
