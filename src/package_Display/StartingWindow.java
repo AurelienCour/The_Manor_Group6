@@ -6,11 +6,9 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.*;
-
 import package_Display.Window;
-import the_Manor.Game;
+
 
 public class StartingWindow extends JFrame{
 	
@@ -42,8 +40,12 @@ public class StartingWindow extends JFrame{
 		tutorial.setBackground(Color.BLACK);
 		tutorial.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		tutorial.setPreferredSize(new Dimension(90,40));
-		
 		tutorial.setFocusPainted(false);
+		tutorial.addActionListener(new ActionListener(){
+			public void actionPerformed (ActionEvent e){
+				new WindowTutorial();
+            }
+		});
 		JButton quit = new JButton("Quit");
 		quit.setForeground(Color.WHITE);
 		quit.setBackground(Color.BLACK);
