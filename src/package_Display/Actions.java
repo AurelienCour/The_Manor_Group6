@@ -103,6 +103,9 @@ public class Actions implements ActionListener
         else if(idAction.equals("heal")){
         	this.windowFight.heal();
         }
+        else if(idAction.equals("escape")){
+        	this.windowFight.escape();
+        }
     }
 
     

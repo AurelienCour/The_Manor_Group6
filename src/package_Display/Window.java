@@ -269,8 +269,7 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args){
-		//new StartingWindow();
-		new WindowGameOver();
+		new StartingWindow();
 		//Fight f = new Fight(new Player("Paul", ""),new Enemy("Zombie", "", 60, 60, 50, 5));
 		//new WindowFight(f,null);
 	}

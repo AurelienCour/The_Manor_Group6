@@ -5,17 +5,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
+
 import javax.swing.*;
 import the_Manor.Fight;
+import the_Manor.Room;
 
 public class WindowFight extends JFrame{
 	
 	private Fight combat;
 	private JLabel healthEnemy,staminaEnemy,healthPlayer,staminaPlayer;
+	private Room previousRoomPlayer;
 	private Window windowGame;
 	
-	public WindowFight (Fight combat, Window windowGame){
+	public WindowFight (Fight combat, Window windowGame, Room previousRoomPlayer){
 		this.windowGame = windowGame;
+		this.previousRoomPlayer = previousRoomPlayer;
 		this.windowGame.setEnabled(false);
 		this.combat = combat;
 		this.setTitle("Fight");
@@ -86,7 +91,6 @@ public class WindowFight extends JFrame{
 		JLabel attackPlayer = new JLabel("Attack : "+this.combat.getPlayer().getAttack());
 		armorPlayer.setForeground(Color.BLUE);
 		attackPlayer.setForeground(Color.BLUE);
-		//new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		characPlayer.add(healthPlayer);
 		characPlayer.add(attackPlayer);
 		characPlayer.add(staminaPlayer);
@@ -100,11 +104,7 @@ public class WindowFight extends JFrame{
 		JButton heal = new JButton("Heal");
 		heal.addActionListener(new Actions(this,"heal"));
 		JButton escape = new JButton("Escape");
-		escape.addActionListener(new ActionListener(){
-			public void actionPerformed (ActionEvent e){
-				System.exit(0);
-            }
-		});
+		escape.addActionListener(new Actions(this,"escape"));
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new GridLayout(2,2));
 		buttons.add(attack);
@@ -154,9 +154,9 @@ public class WindowFight extends JFrame{
 		}
 		this.add(panelEnemy);
 		this.add(panelPlayer);
-		this.setVisible(true);
-		this.setLocationRelativeTo(this.windowGame);
 		this.setSize(600, 300);
+		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 	}
 	
 	public void verifCharac(){
@@ -174,19 +174,24 @@ public class WindowFight extends JFrame{
 			this.windowGame.setEnabled(true);
 			this.dispose();
 		}
-		this.combat.attack(this.combat.getEnemy());
-		this.verifCharac();
-		if(!this.combat.getPlayer().isAlive()){
-			new WindowDisplayMessage("You are dead \n Game Over !");
-			this.dispose();
-			this.windowGame.dispose();
-			new StartingWindow();
+		else{
+			this.combat.attack(this.combat.getEnemy());
+			this.verifCharac();
+			if(!this.combat.getPlayer().isAlive()){
+				new WindowGameOver(this.windowGame);
+				this.dispose();
+			}
 		}
 	}
 	
 	public void recup(){
 		this.combat.recup(this.combat.getPlayer());
 		this.combat.attack(this.combat.getEnemy());
+		this.verifCharac();
+		if(!this.combat.getPlayer().isAlive()){
+			new WindowGameOver(this.windowGame);
+			this.dispose();
+		}
 		this.verifCharac();
 	}
 	
@@ -197,5 +202,29 @@ public class WindowFight extends JFrame{
 		else
 			new WindowDisplayMessage("You need food to heal");
 		this.combat.attack(this.combat.getEnemy());
+		this.verifCharac();
+		if(!this.combat.getPlayer().isAlive()){
+			new WindowGameOver(this.windowGame);
+			this.dispose();	
+		}
+	}
+	
+	public void escape(){
+		Random rand = new Random();
+		int nombre = rand.nextInt(3); //Entre 0 et 3
+		if(nombre==0){
+			this.dispose();
+			this.windowGame.setEnabled(true);
+			this.combat.getPlayer().setCurrentRoom(previousRoomPlayer);
+			this.windowGame.gameMove("");
+		}
+		else{
+			this.combat.attack(this.combat.getEnemy());
+			this.verifCharac();
+		}
+		if(!this.combat.getPlayer().isAlive()){
+			new WindowGameOver(this.windowGame);
+			this.dispose();	
+		}
 	}
 }

@@ -164,12 +164,12 @@ public class Game {
 
 		kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("bandage",10)));
 		// creation enemy
-		corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 10, 60, 5, 3));
-		dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 15, 60, 5, 3));
-		floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 25, 60, 10, 3));
-		cellar.addCharacter(new Enemy("Slade","Friend's oncle", 40, 60, 10, 3));
-		office.addCharacter(new Enemy("Robert","Friend's father", 40, 60, 10, 3));
-		attic.addCharacter(new Enemy("Tommy","Friend", 100, 60, 150, 3));
+		corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
+		dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
+		floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
+		cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
+		office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
+		attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
         this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
@@ -179,13 +179,14 @@ public class Game {
      */
     public void move(String direction){
 		if(this.notreJoueur.getCurrentRoom().getDoor(direction) != null){
+			Room current = this.notreJoueur.getCurrentRoom();
 			Room temp = this.notreJoueur.getCurrentRoom().getDoor(direction).goNextRoom();
 			if(temp != null){
 				this.notreJoueur.setCurrentRoom(temp);
 				if(this.notreJoueur.getCurrentRoom().numberOfChararacterInRoom() != 0){
-					if(this.notreJoueur.getCurrentRoom().getEnemy() != null){
+					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
 						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
-						new WindowFight(fight,this.windowGame);
+						new WindowFight(fight,this.windowGame,current);
 					}
 				}
 			}
