@@ -143,7 +143,7 @@ public class Game {
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
 
-        living.addItem(new Weapon ("extinguisher",5));
+        living.addItem(new Weapon ("poker",5));
 		kitchen.addItem(new Shield ("plateau",15));
 		cellar.addItem(new Key("attic"));
 		office.addItem(new Key ("chestKey"));// Need to find the secret code
