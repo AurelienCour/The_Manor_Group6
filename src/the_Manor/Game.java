@@ -64,7 +64,9 @@ public class Game {
         Key keyHall = new Key("Hall Key");
         Key keyAttic = new Key("Attic Key");
         Key keyTrophe = new Key("Collection Key");
-        //Ground floor
+        Key keyFloor2 = new Key("Floor one Key");
+        Key keyCellar = new Key("Cellar key");
+        //Ground floor	
         outside.addExit("NORD", null, hall);
         
         hall.addExit("OUEST", null, kitchen);
@@ -74,22 +76,20 @@ public class Game {
         
         
         kitchen.addExit("EST", null, living);
-        //kitchen.addExit("OUEST", false, cellar);
         kitchen.addExit("SUD", null, hall);
+        kitchen.addExit("OUEST",keyCellar,cellar);
         
+        //"I grow up when I am fed, I die when I am given water. Who am I?","fire"
         cellar.addExit("EST", null, kitchen);
         
         living.addExit("NORD", null, kitchen);
         living.addExit("OUEST", null, hall);
-        //living.addExit("SUD", false, office);
         
         office.addExit("NORD", null, living);
         
         //Floor 1
         floor1.addExit("SUD", null, hall);
         floor1.addExit("NORD", null, floor2);
-        //floor1.addExit("EST", false, dressingParent1);
-        //floor1.addExit("OUEST", false, parentRoom2);
         
         parentRoom2.addExit("EST", null, floor1);
         parentRoom2.addExit("SUD", null, bathroom1);
@@ -102,17 +102,15 @@ public class Game {
         tropheRoom1.addExit("NORD", null, dressingParent1);
         
         //Floor 2
-        floor2.addExit("SUD", null, floor1);
+        floor2.addExit("SUD", keyFloor2, floor1);
         floor2.addExit("NORD", null, corridor2_2);
-        
-        //corridor2_2.addExit("NORD", false, gameRoom2);
+
         corridor2_2.addExit("SUD", null, floor2);
         corridor2_2.addExit("EST", null, corridor2_1);
         corridor2_2.addExit("OUEST", null, corridor2_3);
         
         gameRoom2.addExit("SUD", null, corridor2_2);
-        
-        //corridor2_3.addExit("NORD", false, sisterRoom2);
+
         corridor2_3.addExit("SUD", null, dressingSister2);
         corridor2_3.addExit("EST", null, corridor2_2);
         corridor2_3.addExit("OUEST", keyAttic, attic);
@@ -122,7 +120,6 @@ public class Game {
         sisterRoom2.addExit("SUD", null, corridor2_3);
         
         corridor2_1.addExit("NORD", null, friendRoom2);
-        //corridor2_1.addExit("SUD", false, bathroom2);
         corridor2_1.addExit("EST", null, corridor2_1);
         corridor2_1.addExit("OUEST", null, corridor2_2);
         
@@ -131,12 +128,11 @@ public class Game {
         //Last floor
         attic.addExit("EST", null, corridor2_3);
 		
-        //friendRoom2.addExit("SUD", false, corridor2_1);
         friendRoom2.addEnigmaticExit("SUD", "I usually have streets without paving stones, cities without building, forests without tree, river without water. What am I ?", "Map", corridor2_1);
 		
 		//floor
 		living.addEnigmaticExit("SUD","I am powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
-		kitchen.addEnigmaticExit("OUEST","I grow up when I am fed, I die when I am given water. Who am I?","fire",cellar);
+		
 		//floor 1
 		floor1.addEnigmaticExit("EST","Like a fruit I have a core, but you can't eat me. Like a women I have a lot of coats but I am not Human. Who am I?","Earth",dressingParent1);
 		floor1.addEnigmaticExit("OUEST","I have a mouse for a year. Knowing that a mouse can have 18 mice every month from 2 months, how many mice will I have after 10 months?","One",parentRoom2);
@@ -148,42 +144,50 @@ public class Game {
 
         // ITEM AND CHARACTER
         friendRoom2.addItem(new Shield ("Chair",2));
-        friendRoom2.addItem(new Shield ("Computer",2));
+        friendRoom2.addItem(new Shield ("Computer",1));
+        corridor2_2.addItem(new Shield ("Paper",0));
+        kitchen.addItem(new Shield ("Plate",25));
+        
         friendRoom2.addItem(new Weapon ("Pen",2));
-        friendRoom2.addItem(new Weapon ("Light",2));
+        friendRoom2.addItem(new Weapon ("Light",1));
+        living.addItem(new Weapon ("Bottle",5));
+        gameRoom2.addItem(new Weapon ("Bat",10));
+		tropheRoom1.addItem(new Weapon ("Katana",30));
+        
+        
 		friendRoom2.addItem(new Potion ("Water",10));
-		friendRoom2.addItem(new Key ("Key test"));
 		friendRoom2.addItem(new Potion ("Water",10));
+		kitchen.addItem(new Potion ("Bred",5));
+		bathroom2.addItem(new Potion ("Alcohol",20));
+		bathroom1.addItem(new Potion ("Medikit",50));
+		
+		dressingSister2.addItem(keyFloor2);
+		office.addItem(keyTrophe);
+		cellar.addItem(keyAttic);
+		attic.addItem(keyHall);
+		tropheRoom1.addItem(keyCellar);
+		
 		
 		
         corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
-        
         dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
-        
         floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
-        
         cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
-        cellar.addItem(keyAttic);
-        
         office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
-        office.addItem(keyTrophe);// Need to find the secret code
-        
-        sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Wooden shield",15)));
-        
-        kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("bandage",10)));
-        kitchen.addItem(new Shield ("Plate",25));
-        
         attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
-        attic.addItem(keyHall);// disponible quand le boss est mort
         
-        living.addItem(new Weapon ("poker",5));
+        
+        sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Board",15)));
+        kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("Milk",25)));
+        
+        
+        
+        
         	
 		
-        gameRoom2.addItem(new Weapon ("bat",10));
-		tropheRoom1.addItem(new Weapon ("katana",30));
+        
 		
-		bathroom2.addItem(new Potion ("Alcohol",20));
-		bathroom1.addItem(new Potion ("kit",50));
+		
 		
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }
