@@ -132,7 +132,7 @@ public class Game {
         attic.addExit("EST", null, corridor2_3);
 		
         //friendRoom2.addExit("SUD", false, corridor2_1);
-        friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
+        friendRoom2.addEnigmaticExit("SUD", "I usually have streets without paving stones, cities without building, forests without tree, river without water. What am I ?", "Map", corridor2_1);
 		
 		//floor
 		living.addEnigmaticExit("SUD","I am powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
