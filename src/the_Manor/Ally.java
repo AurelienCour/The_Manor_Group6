@@ -11,6 +11,7 @@ package the_Manor;
 public class Ally extends Character{
 	
 	private Item itemGivenByAlly;
+	private String message;
 	
 	/**
 	 * This is the Ally constructor
@@ -18,10 +19,14 @@ public class Ally extends Character{
 	 * @param description The description of the ally
 	 * @param item The item held by the ally
 	 */
-	public Ally(String newName,String description,Item item) {
+	public Ally(String newName,String description,String message,Item item) {
 		super(newName,description);
 		if(item == null)
 			System.out.println("The ally"+this.name+" will not possess a default item.");
+		if(message.isEmpty())
+			this.message = "Hello";
+		else
+			this.message = message;
 		this.itemGivenByAlly = item;
 	}
 	
@@ -39,10 +44,8 @@ public class Ally extends Character{
 	 * @param item The item to give to the ally
 	 */
 	public void addItem(Item item){
-		if(getItem() == null)
+		if(!haveItem())
 			this.itemGivenByAlly = item;
-		else
-			System.out.println("The ally already has an item.");
 	}
 	
 	/**
@@ -50,11 +53,26 @@ public class Ally extends Character{
 	 * @param player The player to give the item
 	 */
 	public void giveItem(Player player){
-		if(getItem() != null){
+		if(haveItem()){
 			player.pickUp(this.itemGivenByAlly);
 			this.itemGivenByAlly = null;
 		}
 		else
 			System.out.println("The ally don't have any item.");
+	}
+	
+	public boolean haveItem(){
+		if(getItem() == null)
+			return false;
+		else
+			return true;
+	}
+	
+	public String getMessage(){
+		return this.message;
+	}
+	
+	public void setMessage(String newMessage){
+		this.message = newMessage;
 	}
 }

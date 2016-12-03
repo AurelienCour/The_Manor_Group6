@@ -327,7 +327,7 @@ public class Window extends JFrame{
 	}
 
 	public void ally(Ally ally) {
-		new WindowDisplayMessage(ally.getName(), this);
+		new WindowDisplayAlly(ally, this, this.newGame.getPlayer());
 		
 	}
 }

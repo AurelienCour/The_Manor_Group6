@@ -174,8 +174,23 @@ public class Game {
         cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
         office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
         attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
-        sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Board",15)));
-        kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("Milk",25)));
+        sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",
+        		"<ul>"+
+				"<li><font color=\"red\">"+this.notreJoueur.getName()+" ! You’re alive!</font></li>"+
+				"<li>\"What?!\" you exclaimed with surprise. Something was wrong with that sentence.</li>"+
+				"<li><font color=\"red\">Quick! Close the door!</font></li>"+
+				"<li>You closed the door with a frown.</li>"+
+				"<li><font color=\"red\">You seem to be oblivious of what is going on.</font></li>"+
+				"<li>\"What?\" you asked with a shake of head.</li>"+
+				"<li><font color=\"red\">Everyone is dead. At least that’s what I think. Now they roam the house, groaning and moaning…</font></li>"+
+				"<li>I don’t understand…You whispered. Thea seemed on the verge of crying.</li>"+
+				"<li><font color=\"red\">Zombies all of them. You must flee, "+this.notreJoueur.getName()+".</font></li>"+
+				"<li>What about you? You replied with worry. You couldn’t leave her alone.</li>"+
+				"<li><font color=\"red\">I can’t leave. They’re still my familly. Take this, it will help you. Now go!</font></li>"+
+				"<li>Damn it! You exclaimed before taking what she was offering and leaving.</li>"+
+				"</ul>",new Shield ("Board",15)));
+        kitchen.addCharacter(new Ally("Mer","Maid","Bonjour moi je suis la cuisinière et je te donne"
+        		+" un peu de lait pour que tu récupère des forces",new Potion ("Milk",25)));
 
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }

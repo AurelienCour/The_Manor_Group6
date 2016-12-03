@@ -21,6 +21,7 @@ public class Actions implements ActionListener
     private WindowInventory inventory;
     private Item itemToEquip;
 	private WindowFight windowFight;
+	private WindowDisplayAlly windowDisplayAlly;
 
      /**
       * Constructor for objects of class Actions
@@ -63,6 +64,11 @@ public class Actions implements ActionListener
     }
 
 	
+
+	public Actions(WindowDisplayAlly windowDisplayAlly, String idAct) {
+		this.windowDisplayAlly = windowDisplayAlly;
+		this.idAction = idAct;
+	}
 
 	/**
      * The methods to manage the different action
@@ -110,6 +116,9 @@ public class Actions implements ActionListener
         }
         else if(idAction.equals("healInv")){
         	this.inventory.heal(itemToEquip);
+        }
+        else if(idAction.equals("messageAlly")){
+        	this.windowDisplayAlly.message();
         }
     }
 
