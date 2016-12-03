@@ -38,7 +38,7 @@ public class Game {
         outside = new Room("Victory","fond.png");
         
         hall = new Room("Hall","Hall.png");
-        living = new Room("Living room","salon.jpg");
+        living = new Room("Living room","Living_Room.png");
         kitchen = new Room("The kitchen","Cuisine.png");
         cellar = new Room("The cellar","Cellar.png");
         office = new Room("Father office","office.png");
@@ -49,7 +49,7 @@ public class Game {
         dressingParent1 = new Room("Parents dressing room","Dressing_parent.png");
         tropheRoom1 = new Room("Trophee room","armurerie.png");
         
-        floor2 = new Room("Second floor","escalier2.JPG");
+        floor2 = new Room("Second floor","escalier2.png");
         friendRoom2 = new Room("Friend bedroom","friendRoom.png");
         corridor2_1 = new Room("Corridor one, second floor","Hallway1.png");
         bathroom2 = new Room("Bathroom, second floor","Bathroom2.png");
