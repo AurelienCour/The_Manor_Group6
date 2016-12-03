@@ -169,28 +169,15 @@ public class Game {
 		attic.addItem(keyHall);
 		tropheRoom1.addItem(keyCellar);
 		
-		
-		
         corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
         dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
         floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
         cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
         office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
         attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
-        
-        
         sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Board",15)));
         kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("Milk",25)));
-        
-        
-        
-        
-        	
-		
-        
-		
-		
-		
+
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
