@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class WindowTutorial extends JFrame{
 
-	final int WIDTH_WINDOW =950;
+	final int WIDTH_WINDOW =1000;
 	final int HEIGHT_WINDOW = (WIDTH_WINDOW*75)/100;
 	
 	public WindowTutorial (){
