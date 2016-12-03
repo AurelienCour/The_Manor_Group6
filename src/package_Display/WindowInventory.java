@@ -3,6 +3,8 @@ package package_Display;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -165,6 +167,7 @@ public class WindowInventory extends JFrame{
 				buttonsHeal[i].addActionListener(new Actions(this,potionKey.get(i),"healInv"));
 				buttonsHeal[i].setBackground(Color.BLACK);
 				buttonsHeal[i].setForeground(Color.RED);
+				buttonsHeal[i].setFocusPainted(false);
 				characPotion.setText(potionKey.get(i).getName()+"   Health :"+((Potion) potionKey.get(i)).getHealth());
 				characPotion.setForeground(Color.WHITE);
 				potion.add(characPotion);

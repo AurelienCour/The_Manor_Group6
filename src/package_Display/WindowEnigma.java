@@ -1,6 +1,9 @@
 package package_Display;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class WindowEnigma extends JFrame {
@@ -10,32 +13,39 @@ public class WindowEnigma extends JFrame {
 	
 	public WindowEnigma(Window windowGame,String Enigma, String directionDoor){
 		this.windowGame = windowGame;
+		this.windowGame.setEnabled(false);
 		this.directionDoor = directionDoor;
 		this.setTitle("Enigmatic Door");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.white);
+		this.setUndecorated(true);
 		this.setLayout(new BorderLayout());
 		jTextf = new JFormattedTextField();
-		Font police = new Font("Serif", Font.PLAIN, 14);
-		JTextArea enigma = new JTextArea("Enigma :\n"+Enigma);
-		enigma.setColumns(30);
-		enigma.setLineWrap(true);
-		enigma.setRows((Enigma.length()/30)+1);
-		enigma.setWrapStyleWord(true);
-		enigma.setLineWrap(true);
-		enigma.setEditable(false);
-		enigma.setFont(police);
-		jTextf.setFont(police);
+		JLabel enigma = new JLabel("<html><body align=\"center\"><font color=\"red\">Enigma</font><br/><br/>"+Enigma+"</body>");
 		jTextf.setPreferredSize(new Dimension(150, 30));
 		JPanel responseAndButton = new JPanel();
 		JButton validate = new JButton("Validate");
+		validate.setFocusPainted(false);
+		try{
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			ge.registerFont(font);
+			font = font.deriveFont(Font.TRUETYPE_FONT,20);
+			enigma.setFont(font);
+			validate.setFont(font);
+			jTextf.setFont(font);
+		}
+		catch(IOException e){
+		}catch(FontFormatException e){          
+		}catch(IllegalArgumentException e){
+		}
 		validate.addActionListener(new Actions(this,"enigma"));
 		responseAndButton.setLayout(new BorderLayout());
 		responseAndButton.add(jTextf,BorderLayout.CENTER);
 		responseAndButton.add(validate,BorderLayout.EAST);
 		this.add(enigma,BorderLayout.CENTER);
 		this.add(responseAndButton,BorderLayout.SOUTH);
-		this.pack();
+		this.setSize(new Dimension(300,250));
 		this.setResizable(false);
 		this.setVisible(true); 
 		this.setLocationRelativeTo(this.windowGame);
@@ -46,6 +56,7 @@ public class WindowEnigma extends JFrame {
 	}
 	
 	public void recupResponse(){
+		this.windowGame.setEnabled(true);
 		this.dispose();
 		this.windowGame.verifResponse(this.jTextf.getText(), this.directionDoor);
 	}

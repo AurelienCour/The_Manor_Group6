@@ -172,10 +172,12 @@ public class WindowFight extends JFrame{
 			new WindowDisplayMessage("You need more stamina",this.windowGame);
 		else
 			this.combat.attack(this.combat.getPlayer());
+		this.windowGame.setEnabled(false);
 		this.verifCharac();
 		if(!this.combat.getEnemy().isAlive()){
 			new WindowDisplayMessage("You win the fight !", this.windowGame);
 			this.combat.getPlayer().addStamina(this.combat.getPlayer().getNbMaxStamina());
+			this.combat.getPlayer().getCurrentRoom().deleteEnemy(this.combat.getEnemy());
 			this.verifCharac();
 			this.dispose();
 		}
@@ -189,6 +191,7 @@ public class WindowFight extends JFrame{
 		}
 	}
 	
+	
 	public void recup(){
 		this.combat.recup(this.combat.getPlayer());
 		this.combat.attack(this.combat.getEnemy());
@@ -200,6 +203,7 @@ public class WindowFight extends JFrame{
 		this.verifCharac();
 	}
 	
+	
 	public void heal(){
 		if(this.combat.getPlayer().havePotion()){
 			this.combat.getPlayer().heal(this.combat.getPlayer().getPotion());
@@ -209,6 +213,7 @@ public class WindowFight extends JFrame{
 			new WindowDisplayMessage("You need food to take care of yourself", this.windowGame);
 			this.windowGame.setEnabled(false);
 		}
+		this.windowGame.setEnabled(false);
 		this.combat.attack(this.combat.getEnemy());
 		this.verifCharac();
 		if(!this.combat.getPlayer().isAlive()){
@@ -216,6 +221,7 @@ public class WindowFight extends JFrame{
 			this.dispose();	
 		}
 	}
+	
 	
 	public void escape(){
 		Random rand = new Random();
@@ -228,13 +234,14 @@ public class WindowFight extends JFrame{
 			this.windowGame.gameMove("");
 		}
 		else{
-			new WindowDisplayMessage("The escape failed.", this.windowGame);
 			this.combat.attack(this.combat.getEnemy());
 			this.verifCharac();
-		}
-		if(!this.combat.getPlayer().isAlive()){
-			new WindowGameOver(this.windowGame);
-			this.dispose();	
+			if(!this.combat.getPlayer().isAlive()){
+				new WindowGameOver(this.windowGame);
+				this.dispose();	
+			}
+			else
+				new WindowDisplayMessage("The escape failed.", this.windowGame);
 		}
 	}
 }

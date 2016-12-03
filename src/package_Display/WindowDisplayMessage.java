@@ -32,6 +32,7 @@ public class WindowDisplayMessage extends JFrame {
 		mess.setHorizontalAlignment(JLabel.CENTER);
 		mess.setFont(police);
 		JButton validate = new JButton("OK");
+		validate.setFocusPainted(false);
 		validate.setFont(police);
 		validate.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){

@@ -172,6 +172,14 @@ public class Room {
 		}
 		return null;
 	}
+	
+	public Ally getAlly(){
+		for (Character character : characterInRoom) {
+			if(character instanceof Ally)
+				return (Ally) character;
+		}
+		return null;
+	}
 	/**
 	 * Allows to add an item in the room.
 	 *  

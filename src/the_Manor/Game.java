@@ -152,8 +152,9 @@ public class Game {
         friendRoom2.addItem(new Weapon ("Pen",2));
         friendRoom2.addItem(new Weapon ("Light",2));
 		friendRoom2.addItem(new Potion ("Water",10));
-		friendRoom2.addItem(new Potion ("Water",10));
 		friendRoom2.addItem(new Key ("Key test"));
+		friendRoom2.addItem(new Potion ("Water",10));
+		
 		
         corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
         
@@ -198,6 +199,10 @@ public class Game {
 			if(temp != null){
 				this.notreJoueur.setCurrentRoom(temp);
 				if(this.notreJoueur.getCurrentRoom().numberOfChararacterInRoom() != 0){
+					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
+						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
+						new WindowFight(fight,this.windowGame,current);
+					}
 					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
 						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
 						new WindowFight(fight,this.windowGame,current);
