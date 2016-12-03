@@ -147,11 +147,13 @@ public class Game {
         friendRoom2.addItem(new Shield ("Computer",1));
         corridor2_2.addItem(new Shield ("Paper",0));
         kitchen.addItem(new Shield ("Plate",25));
+        parentRoom2.addItem(new Shield("Tablet",6));
         
         friendRoom2.addItem(new Weapon ("Pen",2));
         friendRoom2.addItem(new Weapon ("Light",1));
         living.addItem(new Weapon ("Bottle",5));
         gameRoom2.addItem(new Weapon ("Bat",10));
+        dressingParent1.addItem(new Weapon ("Hanger",8));
 		tropheRoom1.addItem(new Weapon ("Katana",30));
         
         
