@@ -7,6 +7,7 @@ import the_Manor.LockedDoor;
 //import junit.framework.TestCase;
 import the_Manor.Room;
 import the_Manor.Weapon;
+import the_Manor.Key;
 
 import org.junit.*;
 
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 public class RoomTest 
 {
 	private Room myRoom;
+	private Room myNextRoom;
+	private Key myKey;
 	
 	
 	/**
@@ -42,6 +45,7 @@ public class RoomTest
 	public void setUp()
 	{
 		myRoom = new Room("Kitchen",null);
+		myKey = new Key("The Key");
 	}
 	
 	/**
@@ -147,7 +151,7 @@ public class RoomTest
 	public void testAddExit()
 	{			
 		String direction = "Test";
-		myRoom.addExit(direction, true, myRoom);
+		myRoom.addExit(direction, myKey, myNextRoom);;
 		assertEquals(1, myRoom.numberOfExit());
 	}
 	
@@ -159,7 +163,7 @@ public class RoomTest
 	public void testAddEnigmaticExit()
 	{
 		String direction = "Test";
-		myRoom.addExit(direction, true, myRoom);
+		myRoom.addExit(direction, myKey, myNextRoom);
 		assertEquals(1, myRoom.numberOfExit());
 	}
 }

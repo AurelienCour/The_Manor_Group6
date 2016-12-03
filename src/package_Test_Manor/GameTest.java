@@ -5,6 +5,7 @@ import the_Manor.Game;
 import the_Manor.Player;
 import the_Manor.Room;
 import the_Manor.Character;
+import the_Manor.Key;
 
 import org.junit.*;
 
@@ -23,6 +24,7 @@ public class GameTest extends TestCase
 	private Character myCharacter;
 	private Room friendRoom;
 	private Room corridor;
+	private Key myKey;
 	
 	/**
 	 * Sets up the test fixture
@@ -33,6 +35,7 @@ public class GameTest extends TestCase
     	myPlayer = new Player("John", "John is a man");
     	friendRoom = new Room("FriendRoom", null);
     	corridor = new Room("Corridor", null);
+    	myKey = new Key("The Key");
     }
 
     @After
@@ -58,7 +61,7 @@ public class GameTest extends TestCase
     	// the player's current room is the friendRoom
     	myGame.getPlayer().setCurrentRoom(friendRoom);
     	// there is a south exit in this friedRoom
-    	friendRoom.addExit("SOUTH", false, corridor);
+    	friendRoom.addExit("SOUTH", myKey, corridor);
     	// the player moves via this exit
     	myGame.move("SOUTH");
     	// the player is in the nextRoom = the corridor

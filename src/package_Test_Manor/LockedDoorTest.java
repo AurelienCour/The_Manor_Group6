@@ -73,7 +73,7 @@ public class LockedDoorTest {
     
     /**
      * Methods testLock
-     * Checks if we can lock an open door
+     * Checks if we can lock an opened door
      */
     @Test
     public void testLock(){
