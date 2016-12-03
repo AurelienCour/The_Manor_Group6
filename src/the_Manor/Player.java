@@ -124,10 +124,22 @@ public class Player extends Fighter{
 	}
 	
 	/**
+	 * Return true if the player has a specific key
+	 * @return Return true if the player has a specific key
+	 */
+	public boolean haveKey(Key key){
+		for (Item item : inventory) {
+			if(item.equals(key))
+				return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Return true if the player has a key
 	 * @return Return true if the player has a key
 	 */
-	public boolean haveKey(){
+	public boolean haveAnyKey(){
 		for (Item item : inventory) {
 			if(item instanceof Key)
 				return true;
@@ -135,9 +147,9 @@ public class Player extends Fighter{
 		return false;
 	}
 	
-	public void removeKey(){
+	public void removeKey(Key key){
 		for (Item item : inventory) {
-			if(item instanceof Key){
+			if(item.equals(key)){
 				inventory.remove(item);
 				break;
 			}

@@ -57,10 +57,10 @@ public class Room {
 	 * @param lock A boolean to know if the door is locked or not
 	 * @param nextRoom The room behind the door
 	 */
-	public void addExit(String direction,boolean lock, Room nextRoom){
+	public void addExit(String direction,Key lock, Room nextRoom){
 		if(!this.exitPossible.containsKey(direction)){
-			if(lock)
-				this.exitPossible.put(direction, new LockedDoor(nextRoom,this));
+			if(lock != null)
+				this.exitPossible.put(direction, new LockedDoor(lock,nextRoom,this));
 			else
 				this.exitPossible.put(direction, new Door(nextRoom,this));
 		}

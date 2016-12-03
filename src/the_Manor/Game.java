@@ -61,72 +61,75 @@ public class Game {
         
         attic = new Room("The attic","attic.png");
         
+        Key keyHall = new Key("Hall Key");
+        Key keyAttic = new Key("Attic Key");
+        Key keyTrophe = new Key("Collection Key");
         //Ground floor
-        outside.addExit("NORD", false, hall);
+        outside.addExit("NORD", null, hall);
         
-        hall.addExit("OUEST", false, kitchen);
-        hall.addExit("EST", false, living);
-        hall.addExit("NORD", false, floor1);
-        hall.addExit("SUD", true, outside);
+        hall.addExit("OUEST", null, kitchen);
+        hall.addExit("EST", null, living);
+        hall.addExit("NORD", null, floor1);
+        hall.addExit("SUD", keyHall, outside);
         
         
-        kitchen.addExit("EST", false, living);
+        kitchen.addExit("EST", null, living);
         //kitchen.addExit("OUEST", false, cellar);
-        kitchen.addExit("SUD", false, hall);
+        kitchen.addExit("SUD", null, hall);
         
-        cellar.addExit("EST", false, kitchen);
+        cellar.addExit("EST", null, kitchen);
         
-        living.addExit("NORD", false, kitchen);
-        living.addExit("OUEST", false, hall);
+        living.addExit("NORD", null, kitchen);
+        living.addExit("OUEST", null, hall);
         //living.addExit("SUD", false, office);
         
-        office.addExit("NORD", false, living);
+        office.addExit("NORD", null, living);
         
         //Floor 1
-        floor1.addExit("SUD", false, hall);
-        floor1.addExit("NORD", false, floor2);
+        floor1.addExit("SUD", null, hall);
+        floor1.addExit("NORD", null, floor2);
         //floor1.addExit("EST", false, dressingParent1);
         //floor1.addExit("OUEST", false, parentRoom2);
         
-        parentRoom2.addExit("EST", false, floor1);
-        parentRoom2.addExit("SUD", false, bathroom1);
+        parentRoom2.addExit("EST", null, floor1);
+        parentRoom2.addExit("SUD", null, bathroom1);
         
-        bathroom1.addExit("NORD", false, parentRoom2);
+        bathroom1.addExit("NORD", null, parentRoom2);
         
-        dressingParent1.addExit("OUEST", false, floor1);
-        dressingParent1.addExit("SUD", true, tropheRoom1);
+        dressingParent1.addExit("OUEST", null, floor1);
+        dressingParent1.addExit("SUD", keyTrophe, tropheRoom1);
         
-        tropheRoom1.addExit("NORD", false, dressingParent1);
+        tropheRoom1.addExit("NORD", null, dressingParent1);
         
         //Floor 2
-        floor2.addExit("SUD", false, floor1);
-        floor2.addExit("NORD", false, corridor2_2);
+        floor2.addExit("SUD", null, floor1);
+        floor2.addExit("NORD", null, corridor2_2);
         
         //corridor2_2.addExit("NORD", false, gameRoom2);
-        corridor2_2.addExit("SUD", false, floor2);
-        corridor2_2.addExit("EST", false, corridor2_1);
-        corridor2_2.addExit("OUEST", false, corridor2_3);
+        corridor2_2.addExit("SUD", null, floor2);
+        corridor2_2.addExit("EST", null, corridor2_1);
+        corridor2_2.addExit("OUEST", null, corridor2_3);
         
-        gameRoom2.addExit("SUD", false, corridor2_2);
+        gameRoom2.addExit("SUD", null, corridor2_2);
         
         //corridor2_3.addExit("NORD", false, sisterRoom2);
-        corridor2_3.addExit("SUD", false, dressingSister2);
-        corridor2_3.addExit("EST", false, corridor2_2);
-        corridor2_3.addExit("OUEST", true, attic);
+        corridor2_3.addExit("SUD", null, dressingSister2);
+        corridor2_3.addExit("EST", null, corridor2_2);
+        corridor2_3.addExit("OUEST", keyAttic, attic);
         
-        dressingSister2.addExit("NORD", false, corridor2_3);
+        dressingSister2.addExit("NORD", null, corridor2_3);
         
-        sisterRoom2.addExit("SUD", false, corridor2_3);
+        sisterRoom2.addExit("SUD", null, corridor2_3);
         
-        corridor2_1.addExit("NORD", false, friendRoom2);
+        corridor2_1.addExit("NORD", null, friendRoom2);
         //corridor2_1.addExit("SUD", false, bathroom2);
-        corridor2_1.addExit("EST", false, corridor2_1);
-        corridor2_1.addExit("OUEST", false, corridor2_2);
+        corridor2_1.addExit("EST", null, corridor2_1);
+        corridor2_1.addExit("OUEST", null, corridor2_2);
         
-        bathroom2.addExit("NORD", false, corridor2_1);
+        bathroom2.addExit("NORD", null, corridor2_1);
 		
         //Last floor
-        attic.addExit("EST", false, corridor2_3);
+        attic.addExit("EST", null, corridor2_3);
 		
         //friendRoom2.addExit("SUD", false, corridor2_1);
         friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
@@ -143,34 +146,41 @@ public class Game {
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
 
-        living.addItem(new Weapon ("poker",5));
-		kitchen.addItem(new Shield ("plateau",15));
-		cellar.addItem(new Key("attic"));
-		office.addItem(new Key ("chestKey"));// Need to find the secret code
-				
-		bathroom1.addItem(new Potion ("kit",50));
-		tropheRoom1.addItem(new Weapon ("katana",30));
-			   
-
-		friendRoom2.addItem(new Shield ("chair",2));
-		friendRoom2.addItem(new Key ("Key"));
-		bathroom2.addItem(new Potion ("alcohol",10));
-		gameRoom2.addItem(new Weapon ("bat",10));
-		//sisterRoom2.addItem(new Shield ("Wooden shield",15));
-		attic.addItem(new Key ("hallKey"));// disponible quand le boss est mort
+        // ITEM AND CHARACTER
+        friendRoom2.addItem(new Shield ("chair",2));
+		friendRoom2.addItem(new Potion ("Water",10));
+		friendRoom2.addItem(new Potion ("Water",10));
 		
-		// creation ally 
-		sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Wooden shield",15)));
-
-		kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("bandage",10)));
-		// creation enemy
-		corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
-		dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
-		floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
-		cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
-		office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
-		attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
-        this.notreJoueur.setCurrentRoom(friendRoom2);
+        corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
+        
+        dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
+        
+        floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
+        
+        cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
+        cellar.addItem(keyAttic);
+        
+        office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
+        office.addItem(keyTrophe);// Need to find the secret code
+        
+        sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",new Shield ("Wooden shield",15)));
+        
+        kitchen.addCharacter(new Ally("Mer","Maid",new Potion ("bandage",10)));
+        kitchen.addItem(new Shield ("Plate",25));
+        
+        attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
+        attic.addItem(keyHall);// disponible quand le boss est mort
+        
+        living.addItem(new Weapon ("poker",5));
+        	
+		
+        gameRoom2.addItem(new Weapon ("bat",10));
+		tropheRoom1.addItem(new Weapon ("katana",30));
+		
+		bathroom2.addItem(new Potion ("Alcohol",20));
+		bathroom1.addItem(new Potion ("kit",50));
+		
+		this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     
     /**
@@ -197,11 +207,11 @@ public class Game {
 			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof LockedDoor){
 				LockedDoor temp2 = (LockedDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
 				if(temp2.unlock(this.notreJoueur)){
-					this.notreJoueur.removeKey();
-					this.windowGame.lockDoor(false);
+					this.notreJoueur.removeKey(temp2.getKey());
+					this.windowGame.lockDoor(false,temp2.getKey());
 				}
 				else
-					this.windowGame.lockDoor(true);
+					this.windowGame.lockDoor(true,temp2.getKey());
 			}
 		}
     }

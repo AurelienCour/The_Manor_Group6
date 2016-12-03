@@ -11,6 +11,7 @@ import javax.swing.*;
 import the_Manor.Enemy;
 import the_Manor.Fight;
 import the_Manor.Game;
+import the_Manor.Key;
 import the_Manor.Player;
 
 public class Window extends JFrame{
@@ -213,7 +214,7 @@ public class Window extends JFrame{
 	 * Check if a player have an item
 	 */
 	public void checkItem(){
-		if(this.newGame.getPlayer().haveKey())
+		if(this.newGame.getPlayer().haveAnyKey())
 			this.iconeClef.setVisible(true);
 		else
 			this.iconeClef.setVisible(false);
@@ -255,12 +256,12 @@ public class Window extends JFrame{
 			new WindowDisplayMessage("The door is unlocked", this);	
 	}
 	
-	public void lockDoor (boolean locked){
+	public void lockDoor (boolean lock, Key key){
 		checkItem();
-		if(locked)
-			new WindowDisplayMessage("The door is locked you need a key", this);	
+		if(lock)
+			new WindowDisplayMessage("The door is locked you need the : "+key.getName(), this);	
 		else
-			new WindowDisplayMessage("The door is unlocked", this);
+			new WindowDisplayMessage("The door is unlocked, you used your "+key.getName(), this);
 		
 	}
 	

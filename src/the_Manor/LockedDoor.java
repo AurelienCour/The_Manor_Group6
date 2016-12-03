@@ -10,15 +10,18 @@ package the_Manor;
 public class LockedDoor extends Door{
 	
 	private boolean locked;
+	private Key key;
 
 	/**
 	 * Constructor of the LockedDoor class.
+	 * @param lock 
 	 * @param nextRoom The next room the player is going to enter after having unlocked the door
 	 * @param previousRoom The previous room
 	 */
-	public LockedDoor(Room nextRoom, Room previousRoom) {
+	public LockedDoor(Key lock, Room nextRoom, Room previousRoom) {
 		super(nextRoom,previousRoom);
 		this.locked = true;
+		this.key = lock;
 	}
 	
 	
@@ -37,7 +40,7 @@ public class LockedDoor extends Door{
 	 * @param player The player with the key
 	 */
 	public boolean unlock(Player player){
-		if(player.haveKey()){
+		if(player.haveKey(getKey())){
 			this.locked = false;
 			return true;
 		}
@@ -65,5 +68,9 @@ public class LockedDoor extends Door{
 			return null;
 		else
 			return nextRoom;
+	}
+	
+	public Key getKey(){
+		return this.key;
 	}
 }
