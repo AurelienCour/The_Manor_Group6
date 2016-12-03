@@ -62,10 +62,6 @@ public class WindowFight extends JFrame{
 		panelEnemy.add(infoEnemy);
 		panelEnemy.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/PictureMob/Dog.png").getImage().getScaledInstance(250, 140, Image.SCALE_DEFAULT))));
 		
-		
-		
-		
-		
 		JPanel panelPlayer = new JPanel();
 		panelPlayer.setLayout(new GridLayout(1,2,5,5));
 		panelPlayer.setBackground(Color.BLACK);

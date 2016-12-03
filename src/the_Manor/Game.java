@@ -196,10 +196,6 @@ public class Game {
 						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
 						new WindowFight(fight,this.windowGame,current);
 					}
-					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
-						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
-						new WindowFight(fight,this.windowGame,current);
-					}
 				}
 			}
 			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){
