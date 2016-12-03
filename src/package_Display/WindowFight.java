@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+
 import the_Manor.Fight;
 import the_Manor.Room;
 

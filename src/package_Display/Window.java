@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import the_Manor.Enemy;
 import the_Manor.Fight;
@@ -311,6 +312,16 @@ public class Window extends JFrame{
 	}
 	
 	public static void main(String[] args){
-		new StartingWindow();
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel(new MetalLookAndFeel());
+					new StartingWindow();
+				} catch (UnsupportedLookAndFeelException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		
+		});
 	}
 }
