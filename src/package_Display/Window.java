@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+import the_Manor.Ally;
 import the_Manor.Enemy;
 import the_Manor.Fight;
 import the_Manor.Game;
@@ -323,5 +324,10 @@ public class Window extends JFrame{
 			}
 		
 		});
+	}
+
+	public void ally(Ally ally) {
+		new WindowDisplayMessage(ally.getName(), this);
+		
 	}
 }

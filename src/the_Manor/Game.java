@@ -1,6 +1,7 @@
 package the_Manor;
 
 import package_Display.Window;
+import package_Display.WindowDisplayMessage;
 import package_Display.WindowFight;
 
 /**
@@ -195,6 +196,9 @@ public class Game {
 					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
 						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
 						new WindowFight(fight,this.windowGame,current);
+					}
+					else if(this.notreJoueur.getCurrentRoom().getAlly() != null){
+						this.windowGame.ally(this.notreJoueur.getCurrentRoom().getAlly());
 					}
 				}
 			}
