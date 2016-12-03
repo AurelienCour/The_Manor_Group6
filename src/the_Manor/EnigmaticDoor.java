@@ -13,7 +13,6 @@ public class EnigmaticDoor extends Door{
 	private String enigma;
 	// the answer of the enigma
 	private String response;
-	//
 	private boolean locked;
 
 	/**
