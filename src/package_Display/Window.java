@@ -3,6 +3,9 @@ package package_Display;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -46,6 +49,21 @@ public class Window extends JFrame{
 		iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		iconePotion.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e) {
+				if(Window.this.newGame.getPlayer().havePotion()){
+					if(Window.this.newGame.getPlayer().getHealth() != Window.this.newGame.getPlayer().getNbMaxHealth()){
+						Window.this.newGame.getPlayer().heal(Window.this.newGame.getPlayer().getPotion());
+						Window.this.checkItem();
+						Window.this.setCharac();
+					}
+					else
+						new WindowDisplayMessage("You already have your whole life",Window.this);
+				}
+				else	
+					new WindowDisplayMessage("You need food to take care of yourself",Window.this);
+			}
+		});
 		iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		
 		playerObject.setBackground(Color.black);
@@ -294,8 +312,5 @@ public class Window extends JFrame{
 	
 	public static void main(String[] args){
 		new StartingWindow();
-		//new WindowGameOver(new Window("", ""));
-		//Fight f = new Fight(new Player("Paul", ""),new Enemy("Zombie", "", 60, 60, 50, 5));
-		//new WindowFight(f,new Window("",""), null);
 	}
 }

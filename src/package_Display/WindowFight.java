@@ -201,6 +201,7 @@ public class WindowFight extends JFrame{
 	public void heal(){
 		if(this.combat.getPlayer().havePotion()){
 			this.combat.getPlayer().heal(this.combat.getPlayer().getPotion());
+			this.windowGame.checkItem();
 		}
 		else{
 			new WindowDisplayMessage("You need food to take care of yourself", this.windowGame);
