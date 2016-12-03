@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class WindowTutorial extends JFrame{
 
-	final int WIDTH_WINDOW =800;
-	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100;
+	final int WIDTH_WINDOW =950;
+	final int HEIGHT_WINDOW = (WIDTH_WINDOW*75)/100;
 	
 	public WindowTutorial (){
 		this.setLayout(new BorderLayout());
