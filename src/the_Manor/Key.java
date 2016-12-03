@@ -10,7 +10,7 @@ package the_Manor;
 public class Key extends Item{
 
 	/**
-	* *Constructor of the Key class
+	* Constructor of the Key class
 	* @param newItem : the Name of the Item
 	*/
 	public Key (String newItem)

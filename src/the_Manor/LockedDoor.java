@@ -71,6 +71,10 @@ public class LockedDoor extends Door{
 			return nextRoom;
 	}
 	
+	/**
+	 * To get the key of the locked door
+	 * @return The key
+	 */
 	public Key getKey(){
 		return this.key;
 	}

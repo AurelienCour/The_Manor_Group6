@@ -42,6 +42,11 @@ public class Player extends Fighter{
 		return this.inventory.size();		
 	}
 	
+	
+	/**
+	 * To have all the player's weapon
+	 * @return weap The list of all the player's weapons 
+	 */
 	public ArrayList<Weapon> getWeapon(){
 		ArrayList<Weapon> weap = new ArrayList<Weapon>();
 		for (Item it : inventory) {
@@ -51,6 +56,10 @@ public class Player extends Fighter{
 		return weap;
 	}
 	
+	/**
+	 * To have all the player's shields
+	 * @return shield The list of all the player's shields 
+	 */
 	public ArrayList<Shield> getShield(){
 		ArrayList<Shield> shield = new ArrayList<Shield>();
 		for (Item it : inventory) {
@@ -147,6 +156,10 @@ public class Player extends Fighter{
 		return false;
 	}
 	
+	/**
+	 * To remove a key from the inventory
+	 * @param key The key to be removed
+	 */
 	public void removeKey(Key key){
 		for (Item item : inventory) {
 			if(item.equals(key)){

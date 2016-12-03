@@ -42,6 +42,10 @@ public class Room {
 		this.objectInRoom = new ArrayList<Item>();	
 	}
 	
+	/**
+	 * To get the background of the Room
+	 * @return background The background of the Room
+	 */
 	public String getBackground(){
 		return this.background;
 	}
@@ -195,6 +199,11 @@ public class Room {
 		return this.objectInRoom.size();
 	}
 	
+	
+	/**
+	 * To get an item present in the room
+	 * @return temp An item present in the room
+	 */
 	public Item getItem(){
 		if(numberOfItemInRoom() != 0){
 			Item temp = this.objectInRoom.get(0);

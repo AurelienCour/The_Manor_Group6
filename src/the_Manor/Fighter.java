@@ -40,7 +40,7 @@ public abstract class Fighter extends Character{
 	}
 	
 	/**
-	 * 
+	 * To have the max number of the health value
 	 * @return the max number of the health
 	 */
 	public int getNbMaxHealth(){
@@ -48,7 +48,7 @@ public abstract class Fighter extends Character{
 	}
 	
 	/**
-	 * 
+	 * To have the max number of the stamina value
 	 * @return the max number of the stamina
 	 */
 	public int getNbMaxStamina(){
