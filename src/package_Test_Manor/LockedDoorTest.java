@@ -26,6 +26,7 @@ public class LockedDoorTest {
 	private LockedDoor door;
 	private Room nextRoom;
 	private Room previousRoom;
+	private Key myKey;
 	
 	public LockedDoorTest(){
 		
@@ -38,7 +39,7 @@ public class LockedDoorTest {
     public void setUp() {
     	nextRoom = new Room("Kitchen",null);
     	previousRoom = new Room("Bedroom", null);
-        door = new LockedDoor(nextRoom,previousRoom);      
+        door = new LockedDoor(myKey,nextRoom,previousRoom);      
     }
 
     @After
