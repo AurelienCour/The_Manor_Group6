@@ -168,7 +168,7 @@ public class Game {
 		attic.addItem(keyHall);
 		tropheRoom1.addItem(keyCellar);
 		
-        corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
+		gameRoom2.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
         dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
         floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
         cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
