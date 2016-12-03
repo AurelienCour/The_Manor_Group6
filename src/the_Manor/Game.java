@@ -141,7 +141,7 @@ public class Game {
 		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son. I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
-        corridor2_3.addEnigmaticExit("OUEST","What is the hide code of the Manor ?","6904", attic);
+        corridor2_3.addEnigmaticExit("OUEST","What is the hidden code of the Manor ?","6904", attic);
         // ITEM AND CHARACTER
         friendRoom2.addItem(new Shield ("Chair",2));
         friendRoom2.addItem(new Shield ("Computer",1));
