@@ -125,7 +125,7 @@ public class WindowFight extends JFrame{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
-			font = font.deriveFont(Font.TRUETYPE_FONT,20);
+			font = font.deriveFont(Font.TRUETYPE_FONT,25);
 			healthEnemy.setFont(font);
 			staminaEnemy.setFont(font);
 			attackEnemy.setFont(font);
