@@ -19,7 +19,7 @@ import the_Manor.Player;
 
 public class Window extends JFrame{
 	
-	final int WIDTH_WINDOW =900;
+	final int WIDTH_WINDOW =850;
 	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel iconeEpee;
 	private JLabel iconeBouclier;
