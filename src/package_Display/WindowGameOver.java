@@ -19,7 +19,7 @@ public class WindowGameOver extends JFrame{
 		JPanel test = new JPanel();
 		test.setBackground(Color.BLACK);
 		test.setLayout(new BorderLayout());
-		JLabel gameOver = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/GameOver.png").getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT)));
+		JLabel gameOver = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/GameOver.png").getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT)));
 		gameOver.setLayout(new FlowLayout());
 		
 		JButton quit = new JButton("Quit");

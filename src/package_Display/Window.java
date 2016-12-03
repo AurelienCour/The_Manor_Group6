@@ -31,7 +31,7 @@ public class Window extends JFrame{
 	
 	
 	public Window(String name, String description){
-		this.newGame = new Game(this,name,description);
+		newGame = new Game(this,name,description);
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,23 +42,23 @@ public class Window extends JFrame{
 		playerObject.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100,0));
 		
 		// Les différents icones d'objet
-		this.iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		this.iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		this.iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		this.iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		
 		playerObject.setBackground(Color.black);
 		playerObject.add(this.iconeEpee);
 		playerObject.add(this.iconeBouclier);
 		playerObject.add(this.iconePotion);
 		playerObject.add(this.iconeClef);
-		this.iconeEpee.setVisible(false);
-		this.iconeBouclier.setVisible(false);
-		this.iconePotion.setVisible(false);
-		this.iconeClef.setVisible(false);
+		iconeEpee.setVisible(false);
+		iconeBouclier.setVisible(false);
+		iconePotion.setVisible(false);
+		iconeClef.setVisible(false);
 		
 		// Notre image "THE MANOR"
-		this.windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
 		
 		objectAndGame.add(playerObject,BorderLayout.WEST);
 		objectAndGame.add(this.windowGame,BorderLayout.CENTER);
@@ -71,32 +71,32 @@ public class Window extends JFrame{
 		control.setPreferredSize(new Dimension((WIDTH_WINDOW*22)/100, (LENGTH_WINDOW*16)/100));
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
-		this.controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		this.controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_bas.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		this.controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/direction_gauche.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT))));
-		this.controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		this.controlHaut.setBackground(Color.BLACK);
-		this.controlHaut.addActionListener(new Actions(this,"controlHaut"));
-		this.controlHaut.setFocusPainted(false);
-		this.controlBas.setBackground(Color.BLACK);
-		this.controlBas.addActionListener(new Actions(this,"controlBas"));
-		this.controlBas.setFocusPainted(false);
-		this.controlGauche.setBackground(Color.BLACK);
-		this.controlGauche.addActionListener(new Actions(this,"controlGauche"));
-		this.controlGauche.setFocusPainted(false);
-		this.controlDroit.setBackground(Color.BLACK);
-		this.controlDroit.addActionListener(new Actions(this,"controlDroit"));
-		this.controlDroit.setFocusPainted(false);
-		controlHorizontal.add(this.controlHaut);
-		controlHorizontal.add(this.controlBas);
-		control.add(this.controlGauche);
+		controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_bas.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_gauche.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT))));
+		controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		controlHaut.setBackground(Color.BLACK);
+		controlHaut.addActionListener(new Actions(this,"controlHaut"));
+		controlHaut.setFocusPainted(false);
+		controlBas.setBackground(Color.BLACK);
+		controlBas.addActionListener(new Actions(this,"controlBas"));
+		controlBas.setFocusPainted(false);
+		controlGauche.setBackground(Color.BLACK);
+		controlGauche.addActionListener(new Actions(this,"controlGauche"));
+		controlGauche.setFocusPainted(false);
+		controlDroit.setBackground(Color.BLACK);
+		controlDroit.addActionListener(new Actions(this,"controlDroit"));
+		controlDroit.setFocusPainted(false);
+		controlHorizontal.add(controlHaut);
+		controlHorizontal.add(controlBas);
+		control.add(controlGauche);
 		control.add(controlHorizontal);
-		control.add(this.controlDroit);
+		control.add(controlDroit);
 		JPanel charac = new JPanel();
 		charac.setLayout(new BorderLayout(5,5));//20,20
 		charac.setBackground(Color.black);
 		
-		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_Loupe.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
+		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Loupe.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
 		search.setBackground(Color.BLACK);
 		search.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100, 0));
 		search.setBorder(null);
@@ -108,26 +108,26 @@ public class Window extends JFrame{
 		durability.setLayout(new GridLayout(2,1,4,4));
 		durability.setBackground(Color.BLACK);
 		Font police = new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100);
-		this.lifePoint = new JLabel("PV   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
-		this.lifePoint.setForeground(Color.RED);
-		this.lifePoint.setFont(police);
-		this.staminaPoint = new JLabel("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
-		this.staminaPoint.setForeground(Color.GREEN);
-		this.staminaPoint.setFont(police);
+		lifePoint = new JLabel("PV   "+newGame.getPlayer().getHealth()+" / "+newGame.getPlayer().getNbMaxHealth());
+		lifePoint.setForeground(Color.RED);
+		lifePoint.setFont(police);
+		staminaPoint = new JLabel("STAMINA   "+newGame.getPlayer().getStamina()+" / "+newGame.getPlayer().getNbMaxStamina());
+		staminaPoint.setForeground(Color.GREEN);
+		staminaPoint.setFont(police);
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
-		this.attackPoint = new JLabel("ATTACK   "+this.newGame.getPlayer().getAttack()+"  ");
-		this.attackPoint.setForeground(Color.BLUE);
-		this.attackPoint.setFont(police);
-		this.defensePoint = new JLabel("DEFENSE   "+this.newGame.getPlayer().getDefense()+"  ");
-		this.defensePoint.setForeground(Color.BLUE);
-		this.defensePoint.setFont(police);		
+		attackPoint = new JLabel("ATTACK   "+newGame.getPlayer().getAttack()+"  ");
+		attackPoint.setForeground(Color.BLUE);
+		attackPoint.setFont(police);
+		defensePoint = new JLabel("DEFENSE   "+newGame.getPlayer().getDefense()+"  ");
+		defensePoint.setForeground(Color.BLUE);
+		defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
 		characteristics.add(this.defensePoint);
 		durability.add(this.lifePoint);
 		durability.add(this.staminaPoint);
-		JButton inventory = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icone_inventaire.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
+		JButton inventory = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_inventaire.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
 		inventory.setBackground(Color.BLACK);
 		inventory.setFocusPainted(false);
 		inventory.setBorder(null);
@@ -168,7 +168,7 @@ public class Window extends JFrame{
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
-		this.checkDirection();
+		checkDirection();
 	}
 	
 	/**
@@ -192,8 +192,8 @@ public class Window extends JFrame{
 			default:
 				break;
 		}
-    	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/"+Window.this.newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((Window.this.WIDTH_WINDOW*87)/100, (Window.this.LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
-    	this.setTitle("The_Manor    Player : "+Window.this.newGame.getPlayer().getName()+"    Room : "+Window.this.newGame.getPlayer().getCurrentRoom().getName());
+    	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+    	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
     	checkDirection();
 	}
 	

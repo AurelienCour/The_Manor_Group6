@@ -22,8 +22,8 @@ public class StartingWindow extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
 		// The label with the background 
-		this.theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/fond.png").getImage().getScaledInstance(this.WIDTH_WINDOW, this.LENGTH_WINDOW, Image.SCALE_DEFAULT)));
-		this.theManorBackground.setLayout(new BorderLayout());
+		theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/fond.png").getImage().getScaledInstance(WIDTH_WINDOW, LENGTH_WINDOW, Image.SCALE_DEFAULT)));
+		theManorBackground.setLayout(new BorderLayout());
 		//True Lies.ttf
 		// Buttons 
 		
@@ -78,7 +78,7 @@ public class StartingWindow extends JFrame{
 		boutons.add(tutorial);
 		boutons.add(quit);
 		//Adding the buttons to the label 
-		this.theManorBackground.add(boutons, BorderLayout.CENTER);
+		theManorBackground.add(boutons, BorderLayout.CENTER);
 		
 		
 		// Window settings

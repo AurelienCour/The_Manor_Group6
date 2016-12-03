@@ -60,7 +60,7 @@ public class WindowFight extends JFrame{
 		characEnemy.add(armorEnemy);
 		infoEnemy.add(characEnemy);
 		panelEnemy.add(infoEnemy);
-		panelEnemy.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Dog.png").getImage().getScaledInstance(250, 140, Image.SCALE_DEFAULT))));
+		panelEnemy.add(new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/PictureMob/Dog.png").getImage().getScaledInstance(250, 140, Image.SCALE_DEFAULT))));
 		
 		
 		
@@ -161,20 +161,20 @@ public class WindowFight extends JFrame{
 	
 	public void verifCharac(){
 		this.windowGame.setCharac();
-		healthEnemy.setText("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
-		staminaEnemy.setText("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
-		healthPlayer.setText(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
-		staminaPlayer.setText(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
+		this.healthEnemy.setText("  "+this.combat.getEnemy().getHealth()+" / "+this.combat.getEnemy().getNbMaxHealth());
+		this.staminaEnemy.setText("  "+this.combat.getEnemy().getStamina()+" / "+this.combat.getEnemy().getNbMaxStamina());
+		this.healthPlayer.setText(this.combat.getPlayer().getHealth()+" / "+this.combat.getPlayer().getNbMaxHealth()+"  ");
+		this.staminaPlayer.setText(this.combat.getPlayer().getStamina()+" / "+this.combat.getPlayer().getNbMaxStamina()+"  ");
 	}
 	
 	public void attack(){
 		if(this.combat.getPlayer().getStamina() == 0)
-			new WindowDisplayMessage("You need more stamina",windowGame);
+			new WindowDisplayMessage("You need more stamina",this.windowGame);
 		else
 			this.combat.attack(this.combat.getPlayer());
 		this.verifCharac();
 		if(!this.combat.getEnemy().isAlive()){
-			new WindowDisplayMessage("You win the fight !", windowGame);
+			new WindowDisplayMessage("You win the fight !", this.windowGame);
 			this.dispose();
 		}
 		else{
@@ -203,8 +203,8 @@ public class WindowFight extends JFrame{
 			this.combat.getPlayer().heal(this.combat.getPlayer().getPotion());
 		}
 		else{
-			new WindowDisplayMessage("You need food to take care of yourself", windowGame);
-			windowGame.setEnabled(false);
+			new WindowDisplayMessage("You need food to take care of yourself", this.windowGame);
+			this.windowGame.setEnabled(false);
 		}
 		this.combat.attack(this.combat.getEnemy());
 		this.verifCharac();
@@ -220,12 +220,12 @@ public class WindowFight extends JFrame{
 		if(nombre==0){
 			this.dispose();
 			this.windowGame.setEnabled(true);
-			new WindowDisplayMessage("You fled.", windowGame);
+			new WindowDisplayMessage("You fled.", this.windowGame);
 			this.combat.getPlayer().setCurrentRoom(previousRoomPlayer);
 			this.windowGame.gameMove("");
 		}
 		else{
-			new WindowDisplayMessage("The escape failed.", windowGame);
+			new WindowDisplayMessage("The escape failed.", this.windowGame);
 			this.combat.attack(this.combat.getEnemy());
 			this.verifCharac();
 		}

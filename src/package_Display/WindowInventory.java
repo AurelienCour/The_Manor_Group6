@@ -16,9 +16,9 @@ public class WindowInventory extends JFrame{
 	private Game theGame;
 	private Window windowGame;
 	
-	public WindowInventory (Game game,Window win){
-		this.windowGame = win;
-		this.theGame = game;
+	public WindowInventory (Game theGame,Window windowGame){
+		this.windowGame = windowGame;
+		this.theGame = theGame;
 		this.setTitle("Inventory");
 		this.setBackground(Color.GRAY);
 		this.setLayout(new BorderLayout(20,20));
@@ -68,7 +68,7 @@ public class WindowInventory extends JFrame{
 		this.add(inventory,BorderLayout.CENTER);
 		this.setVisible(true);
 		this.setResizable(false);
-		this.setLocationRelativeTo(windowGame);
+		this.setLocationRelativeTo(this.windowGame);
 		this.pack();
 	}
 

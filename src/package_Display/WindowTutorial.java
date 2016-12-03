@@ -14,7 +14,7 @@ public class WindowTutorial extends JFrame{
 		this.setLayout(new BorderLayout());
 		this.setTitle(" The  tutorial ");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		JLabel tutoriel = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Tutorial.png").getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT)));
+		JLabel tutoriel = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/Tutorial.png").getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT)));
 		this.add(tutoriel);
 		this.setVisible(true);
 		this.setResizable(false);
