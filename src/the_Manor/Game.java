@@ -132,7 +132,7 @@ public class Game {
         attic.addExit("EST", null, corridor2_3);
 		
         //friendRoom2.addExit("SUD", false, corridor2_1);
-        friendRoom2.addEnigmaticExit("SUD", "Qui est le plus beau entre toi et moi ?", "toi", corridor2_1);
+        friendRoom2.addEnigmaticExit("SUD", "I usually have streets without paving stones, cities without building, forests without tree, river without water. What am I ?", "Map", corridor2_1);
 		
 		//floor
 		living.addEnigmaticExit("SUD","I am powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
@@ -143,7 +143,7 @@ public class Game {
 		//floor 2
 		corridor2_1.addEnigmaticExit("SUD","I have something in my pocket, but my pocket is empty. What is it?","hole",bathroom2);
 		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
-        corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son and I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
+        corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son. I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
 
         // ITEM AND CHARACTER
