@@ -2,6 +2,7 @@ package package_Display;
 
 import java.awt.event.*;
 
+import the_Manor.Game;
 import the_Manor.Item;
 
 /**
@@ -36,20 +37,19 @@ public class Actions implements ActionListener
     {
         this.idAction = idAct;
         this.windowEnigma = window;
-    }
+    }  
     
-    
-   public Actions(StartingWindow startingWindow, String idAct)
-   {
+    public Actions(StartingWindow startingWindow, String idAct)
+    {
        this.idAction = idAct;
        this.startingWindow = startingWindow;
-   }
+    }
    
-   public Actions(WindowCreatePlayer infoWindow, String idAct)
-   {
+    public Actions(WindowCreatePlayer infoWindow, String idAct)
+    {
        this.idAction = idAct;
        this.infoPlayer = infoWindow;
-   }
+    }
     
     public Actions(WindowInventory theInventory, Item item, String idAct) {
     	this.inventory = theInventory;
@@ -61,6 +61,8 @@ public class Actions implements ActionListener
     	this.windowFight = windowFight;
     	this.idAction = idAct;
     }
+
+	
 
 	/**
      * The methods to manage the different action
@@ -105,6 +107,9 @@ public class Actions implements ActionListener
         }
         else if(idAction.equals("escape")){
         	this.windowFight.escape();
+        }
+        else if(idAction.equals("healInv")){
+        	this.inventory.heal(itemToEquip);
         }
     }
 

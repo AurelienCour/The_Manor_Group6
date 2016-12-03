@@ -41,7 +41,6 @@ public class LockedDoor extends Door{
 	 */
 	public boolean unlock(Player player){		
 		if(player.haveAnyKey()){
-			System.out.println("Test1");
 			this.locked = false;
 			return true;
 		}

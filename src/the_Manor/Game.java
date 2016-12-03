@@ -147,9 +147,13 @@ public class Game {
 		
 
         // ITEM AND CHARACTER
-        friendRoom2.addItem(new Shield ("chair",2));
+        friendRoom2.addItem(new Shield ("Chair",2));
+        friendRoom2.addItem(new Shield ("Computer",2));
+        friendRoom2.addItem(new Weapon ("Pen",2));
+        friendRoom2.addItem(new Weapon ("Light",2));
 		friendRoom2.addItem(new Potion ("Water",10));
 		friendRoom2.addItem(new Potion ("Water",10));
+		friendRoom2.addItem(new Key ("Key test"));
 		
         corridor2_1.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
         

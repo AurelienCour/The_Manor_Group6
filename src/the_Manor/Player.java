@@ -68,6 +68,15 @@ public class Player extends Fighter{
 		}
 		return shield;
 	}
+	
+	public ArrayList<Item> getPotionKey(){
+		ArrayList<Item> potionKey = new ArrayList<Item>();
+		for (Item it : inventory) {
+			if(it instanceof Potion || it instanceof Key)
+				potionKey.add(it);
+		}
+		return potionKey;
+	}
 
 	/**
 	 * <p>This method allows to set the new room position</p>
@@ -121,17 +130,6 @@ public class Player extends Fighter{
 		}
 	}
 	
-	
-	/**
-	 * <p>This method allows to talk to an NPC</p>
-	 * <p>It allows to initiate a discussion with the Ally</p>
-	 * <p>A player can only talk to one ally at a time</p>
-	 * <p>A player can talk only with an ally in the same room as the player</p>
-	 */
-	public void talk(){
-		// TODO 
-	}
-	
 	/**
 	 * Return true if the player has a specific key
 	 * @return Return true if the player has a specific key
@@ -176,9 +174,33 @@ public class Player extends Fighter{
 			return false;
 	}
 	
+	public boolean haveThisWeapon(Weapon weapon){
+		if(haveWeapon()){
+			if(this.weaponEquip.equals(weapon))
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
 	public boolean haveShield(){
 		if(this.shieldEquip != null)
 			return true;
+		else
+			return false;
+	}
+	
+	
+	
+	public boolean haveThisShield(Shield shield){
+		if(haveShield()){
+			if(this.shieldEquip.equals(shield))
+				return true;
+			else
+				return false;
+		}
 		else
 			return false;
 	}
@@ -215,6 +237,20 @@ public class Player extends Fighter{
 				this.removeDefense(shieldEquip.getDefense());
 			this.shieldEquip = (Shield) item;
 			this.addDefense(shieldEquip.getDefense());
+		}
+	}
+	
+	public void desequipWeapon(){
+		if(haveWeapon()){
+			this.removeAttack(this.weaponEquip.getAttack());
+			this.weaponEquip = null;
+		}
+	}
+	
+	public void desequipShield(){
+		if(haveShield()){
+			this.removeDefense(shieldEquip.getDefense());
+			this.shieldEquip = null;
 		}
 	}
 }

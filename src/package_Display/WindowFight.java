@@ -175,6 +175,8 @@ public class WindowFight extends JFrame{
 		this.verifCharac();
 		if(!this.combat.getEnemy().isAlive()){
 			new WindowDisplayMessage("You win the fight !", this.windowGame);
+			this.combat.getPlayer().addStamina(this.combat.getPlayer().getNbMaxStamina());
+			this.verifCharac();
 			this.dispose();
 		}
 		else{
