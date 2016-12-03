@@ -63,7 +63,6 @@ public class Game {
         attic = new Room("The attic","attic.png");
         
         Key keyHall = new Key("Hall Key");
-        Key keyAttic = new Key("Attic Key");
         Key keyTrophe = new Key("Collection Key");
         Key keyFloor2 = new Key("Floor one Key");
         Key keyCellar = new Key("Cellar key");
@@ -114,7 +113,7 @@ public class Game {
 
         corridor2_3.addExit("SUD", null, dressingSister2);
         corridor2_3.addExit("EST", null, corridor2_2);
-        corridor2_3.addExit("OUEST", keyAttic, attic);
+       
         
         dressingSister2.addExit("NORD", null, corridor2_3);
         
@@ -142,12 +141,12 @@ public class Game {
 		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son. I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
 		
-
+        corridor2_3.addEnigmaticExit("OUEST","What is the hide code of the Manor ?","6904", attic);
         // ITEM AND CHARACTER
         friendRoom2.addItem(new Shield ("Chair",2));
         friendRoom2.addItem(new Shield ("Computer",1));
         corridor2_2.addItem(new Shield ("Paper",0));
-        kitchen.addItem(new Shield ("Plate",25));
+        cellar.addItem(new Shield ("Plate",25));
         parentRoom2.addItem(new Shield("Tablet",6));
         
         friendRoom2.addItem(new Weapon ("Pen",2));
@@ -166,7 +165,6 @@ public class Game {
 		
 		dressingSister2.addItem(keyFloor2);
 		office.addItem(keyTrophe);
-		cellar.addItem(keyAttic);
 		attic.addItem(keyHall);
 		tropheRoom1.addItem(keyCellar);
 		
