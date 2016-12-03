@@ -40,7 +40,7 @@ public class LockedDoor extends Door{
 	 * @param player The player with the key
 	 */
 	public boolean unlock(Player player){		
-		if(player.haveAnyKey()){
+		if(player.haveKey(this.key)){
 			this.locked = false;
 			return true;
 		}
