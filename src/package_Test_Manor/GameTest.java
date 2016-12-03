@@ -42,16 +42,7 @@ public class GameTest extends TestCase
     public void tearDown() {
         // Code execute apres chaque test
     }
-    /**
-     * 
-     * Methods testConstructor
-     * <p>This methods allows to verify if the game is created</p> 
-     */	
-    @Test
-    public void testConstructor() {    	
-    	assertEquals(myPlayer, myGame.getPlayer());
-    }
-    
+
     /**
      * testMoveStandardDoor()
      * <p>Checks if the player moved in the right direction when he is crossing a standard door.</p>

@@ -102,6 +102,7 @@ public class PlayerTest {
 		Weapon sword, spoon;
 		sword = new Weapon("Sword", 10);
 		p.pickUp(sword);
+		p.equipItem(sword);
 		assertEquals(20, p.getAttack());
 		// pickup a bad weapon, with negative points
 		spoon = new Weapon("Spoon", -5);
@@ -119,6 +120,7 @@ public class PlayerTest {
 		Shield pot;
 		pot = new Shield("Pot", 10);
 		p.pickUp(pot);
+		p.equipItem(pot);
 		assertEquals(20, p.getDefense());
 	}
 	
@@ -141,11 +143,11 @@ public class PlayerTest {
 		Weapon sword, knife;
 		sword = new Weapon("Sword", 10);
 		p.pickUp(sword);
-		assertEquals(1, p.numberOfItem()); // 
+		assertEquals(1, p.numberOfItem());
 		// Now verify if the second item of the same class replaes the first
 		knife = new Weapon("Knife", 4);
-		p.pickUp(knife);
-		assertEquals(1, p.numberOfItem()); // 
+		p.pickUp(knife);		
+		assertEquals(2, p.numberOfItem()); 
 	}
 	
 	

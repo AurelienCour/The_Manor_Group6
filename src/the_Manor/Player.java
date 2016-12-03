@@ -38,8 +38,8 @@ public class Player extends Fighter{
 	 * Allows to know the number of item possesses by the player
 	 * @return The number of item possessed by the player
 	 */
-	public int numberOfItem(){
-		return this.inventory.size();
+	public int numberOfItem(){		
+		return this.inventory.size();		
 	}
 	
 	public ArrayList<Weapon> getWeapon(){
@@ -84,7 +84,7 @@ public class Player extends Fighter{
 	 * @param item The item to give to the player
 	 */
 	public void pickUp(Item item){
-		inventory.add(item);
+		inventory.add(item);		
 	}
 	
 	/**
@@ -186,6 +186,11 @@ public class Player extends Fighter{
 		return null;
 	}
 	
+	
+	/**
+	 * Allow to equip an item that is in the inventory
+	 * @param item The item to equip
+	 */
 	public void equipItem(Item item){
 		if(item instanceof Weapon){
 			if(haveWeapon())
