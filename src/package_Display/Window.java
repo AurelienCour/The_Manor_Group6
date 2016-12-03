@@ -16,7 +16,7 @@ import the_Manor.Player;
 public class Window extends JFrame{
 	
 	final int WIDTH_WINDOW =800;
-	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
+	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel iconeEpee;
 	private JLabel iconeBouclier;
 	private JLabel iconePotion;
@@ -58,7 +58,7 @@ public class Window extends JFrame{
 		iconeClef.setVisible(false);
 		
 		// Notre image "THE MANOR"
-		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT)));
 		
 		objectAndGame.add(playerObject,BorderLayout.WEST);
 		objectAndGame.add(this.windowGame,BorderLayout.CENTER);
@@ -68,7 +68,7 @@ public class Window extends JFrame{
 		
 		JPanel control = new JPanel();
 		control.setLayout(new GridLayout(1,3));
-		control.setPreferredSize(new Dimension((WIDTH_WINDOW*22)/100, (LENGTH_WINDOW*16)/100));
+		control.setPreferredSize(new Dimension((WIDTH_WINDOW*22)/100, (HEIGHT_WINDOW*16)/100));
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
 		controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
@@ -164,7 +164,7 @@ public class Window extends JFrame{
 		characAndControl.add(control);
 		this.add(objectAndGame,BorderLayout.CENTER);
 		this.add(characAndControl,BorderLayout.SOUTH);
-		this.setSize(WIDTH_WINDOW, LENGTH_WINDOW);
+		this.setSize(WIDTH_WINDOW, HEIGHT_WINDOW);
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
@@ -192,7 +192,7 @@ public class Window extends JFrame{
 			default:
 				break;
 		}
-    	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (LENGTH_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+    	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT)));
     	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
     	checkDirection();
 	}

@@ -13,7 +13,7 @@ import package_Display.Window;
 public class StartingWindow extends JFrame{
 	
 	final int WIDTH_WINDOW = 800;
-	final int LENGTH_WINDOW = (WIDTH_WINDOW*86)/100;
+	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel theManorBackground;
 	
 	public StartingWindow(){
@@ -22,7 +22,7 @@ public class StartingWindow extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
 		// The label with the background 
-		theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/fond.png").getImage().getScaledInstance(WIDTH_WINDOW, LENGTH_WINDOW, Image.SCALE_DEFAULT)));
+		theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/fond.png").getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT)));
 		theManorBackground.setLayout(new BorderLayout());
 		//True Lies.ttf
 		// Buttons 
@@ -83,7 +83,7 @@ public class StartingWindow extends JFrame{
 		
 		// Window settings
 		this.add(theManorBackground);
-		this.setSize(WIDTH_WINDOW, LENGTH_WINDOW);;
+		this.setSize(WIDTH_WINDOW, HEIGHT_WINDOW);;
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
