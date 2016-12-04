@@ -89,8 +89,9 @@ public class Window extends JFrame{
 		iconePotion.setVisible(false);
 		iconeClef.setVisible(false);
 		
-		// Notre image "THE MANOR"
-		windowGame = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		url = StartingWindow.class.getResource("Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground());
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT));
+		windowGame = new JLabel(icon);
 		
 		objectAndGame.add(playerObject,BorderLayout.WEST);
 		objectAndGame.add(this.windowGame,BorderLayout.CENTER);
