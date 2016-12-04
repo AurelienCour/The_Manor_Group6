@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 import package_Display.Window;
@@ -22,7 +23,9 @@ public class StartingWindow extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
 		// The label with the background 
-		theManorBackground = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/fond.png").getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT)));
+		URL url = StartingWindow.class.getResource("Image/Background/fond.png");
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
+		theManorBackground = new JLabel(icon);
 		theManorBackground.setLayout(new BorderLayout());
 		//True Lies.ttf
 		// Buttons 
@@ -60,7 +63,7 @@ public class StartingWindow extends JFrame{
 		});
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,25);
 			start.setFont(font);

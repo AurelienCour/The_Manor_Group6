@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
@@ -48,9 +49,16 @@ public class Window extends JFrame{
 		playerObject.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100,0));
 		
 		// Les différents icones d'objet
-		iconeEpee = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Epee.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		iconeBouclier = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Bouclier.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
-		iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		URL url = StartingWindow.class.getResource("Image/Icon/Icone_Epee.png");
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));
+		iconeEpee = new JLabel(icon);
+		url = StartingWindow.class.getResource("Image/Icon/Icone_Bouclier.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));
+		iconeBouclier = new JLabel(icon);
+		url = StartingWindow.class.getResource("Image/Icon/Icone_Potion.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));
+		iconePotion = new JLabel(icon);
+		//iconePotion = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Potion.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		iconePotion.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e) {
 				if(Window.this.newGame.getPlayer().havePotion()){
@@ -66,7 +74,10 @@ public class Window extends JFrame{
 					new WindowDisplayMessage("You need food to take care of yourself",Window.this);
 			}
 		});
-		iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
+		url = StartingWindow.class.getResource("Image/Icon/Icone_Clef.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));
+		iconeClef = new JLabel(icon);
+		//iconeClef = new JLabel(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Clef.png").getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT)));
 		
 		playerObject.setBackground(Color.black);
 		playerObject.add(this.iconeEpee);
