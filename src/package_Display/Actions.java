@@ -6,14 +6,15 @@ import the_Manor.Game;
 import the_Manor.Item;
 
 /**
- * To manage the action on the buttons
+ * To manage the action of the buttons
  * 
- * @author Aurelien Courtillat
+ * @author Group6
  * @version 25/10/2016
  */
 public class Actions implements ActionListener
 {
     private String idAction; // To know the button
+    // The different window where the button is
     private Window windowGame;
     private WindowEnigma windowEnigma;
     private StartingWindow startingWindow;
@@ -34,37 +35,66 @@ public class Actions implements ActionListener
         this.windowGame = window;
     }
     
+    /**
+     * Constructor for objects of class Actions
+     * @param window The window where is the button
+     * @param idAct The id of the button
+     */
     public Actions(WindowEnigma window,String idAct)
     {
         this.idAction = idAct;
         this.windowEnigma = window;
     }  
     
+    /**
+     * Constructor for objects of class Actions
+     * @param startingWindow The window where is the button
+     * @param idAct The id of the button
+     */
     public Actions(StartingWindow startingWindow, String idAct)
     {
        this.idAction = idAct;
        this.startingWindow = startingWindow;
     }
    
+    /**
+     * Constructor for objects of class Actions
+     * @param infoWindow The window where is the button
+     * @param idAct The id of the button
+     */
     public Actions(WindowCreatePlayer infoWindow, String idAct)
     {
        this.idAction = idAct;
        this.infoPlayer = infoWindow;
     }
     
+    /**
+     * Constructor for objects of class Actions
+     * @param theInventory The window where is the button
+     * @param Item The item in the inventory
+     * @param idAct The id of the button
+     */
     public Actions(WindowInventory theInventory, Item item, String idAct) {
     	this.inventory = theInventory;
     	this.itemToEquip = item;
     	this.idAction = idAct;
     }
     
+    /**
+     * Constructor for objects of class Actions
+     * @param windowFight The window where is the button
+     * @param idAct The id of the button
+     */
     public Actions(WindowFight windowFight, String idAct) {
     	this.windowFight = windowFight;
     	this.idAction = idAct;
     }
 
-	
-
+    /**
+     * Constructor for objects of class Actions
+     * @param windowDisplayAlly The window where is the button
+     * @param idAct The id of the button
+     */
 	public Actions(WindowDisplayAlly windowDisplayAlly, String idAct) {
 		this.windowDisplayAlly = windowDisplayAlly;
 		this.idAction = idAct;
@@ -121,7 +151,4 @@ public class Actions implements ActionListener
         	this.windowDisplayAlly.message();
         }
     }
-
-    
-
 }

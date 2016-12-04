@@ -160,6 +160,7 @@ public class Game {
 		friendRoom2.addItem(new Potion ("Water",10));
 		friendRoom2.addItem(new Potion ("Water",10));
 		kitchen.addItem(new Potion ("Bred",5));
+		cellar.addItem(new Potion ("Wine",20));
 		bathroom2.addItem(new Potion ("Alcohol",20));
 		bathroom1.addItem(new Potion ("Medikit",50));
 		
@@ -171,7 +172,7 @@ public class Game {
 		gameRoom2.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10,"Laurel.png"));
         dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10,"Moira.png"));
         floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10,"Malcolm.png"));
-        cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10,"Slade.png"));
+        hall.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10,"Slade.png"));
         office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10,"Robert.png"));
         attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20,"Tommy.png"));
         sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",
@@ -205,6 +206,17 @@ public class Game {
 		        "<li>\"Where can I find it?\"</li>"+
 		        "<li><font color=\"red\">\"Maybe in his office?\"</font></li>"+
 		        "</ul>",new Potion ("Milk",25)));
+        cellar.addCharacter(new Ally("John", "The gardener",
+        		"<div align=\"justify\" style=margin:10px;>Oh! Thank goodness you saved me! There are strange creatures that have arrived here."+
+				"One of them attacked me and I entered this manor."+
+				" However, we are blocked here and the key of the hall is in the attic and is kept in good hands... "+
+				"In order to access this room, you need to discover the code that will open the door, this code is hidden in the rooms forming this manor. I have heard of several clues to find them:"+
+				"<ul><li>The first part is in a room filled with clothing or throne an armchair;</li>"+
+				"<li>The second part of the code is in a room adorned with a luminous ball;</li>"+
+				"<li>Near a chimney, you will find the third part;</li>"+
+				"<li>The last part is located in the most entertaining part of the manor.</li>"+
+				"</ul>Good luck! I hope you get us out of this Manor !</div>",
+        		new Shield("Amulet of luck",0)));
 
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }

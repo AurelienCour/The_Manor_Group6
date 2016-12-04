@@ -7,11 +7,21 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+/**
+ * The window to recup the informations about the player (name and description)
+ * @author Group6
+ *
+ */
 public class WindowCreatePlayer extends JFrame {
-	private JFormattedTextField nomPlayer;
-	private JFormattedTextField descriptionPlayer;
-	private StartingWindow windowOrigin;
 	
+	private JFormattedTextField playerName; // The field to recup the name of the player
+	private JFormattedTextField descriptionPlayer; // The field to recup the description of the player
+	private StartingWindow windowOrigin; // The previous window to center the frame
+	
+	/**
+	 * The constructor of the class WindowCreatePlayer
+	 * @param windowOrigin The previous window
+	 */
 	public WindowCreatePlayer(StartingWindow windowOrigin){
 		this.windowOrigin = windowOrigin;
 		this.setTitle("Create a player");
@@ -19,36 +29,37 @@ public class WindowCreatePlayer extends JFrame {
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
 		this.setUndecorated(true);
-		
-		JPanel saisie = new JPanel();
-		saisie.setLayout(new GridLayout(1,2));
-		saisie.setBackground(Color.BLACK);
-		
+		// The Panel to recup the date
+		JPanel seizure = new JPanel();
+		seizure.setLayout(new GridLayout(1,2));
+		seizure.setBackground(Color.BLACK);
+		// The label before the textField
 		JPanel label = new JPanel();
 		label.setLayout(new GridLayout(2,1));
-		JLabel labelNom = new JLabel("Name :");
-		labelNom.setForeground(Color.WHITE);
-		JLabel labelDescription = new JLabel("Description :");
+		JLabel labelName = new JLabel(" Name : ");
+		labelName.setForeground(Color.WHITE);
+		JLabel labelDescription = new JLabel(" Description : ");
 		labelDescription.setForeground(Color.WHITE);
-		label.add(labelNom);
+		label.add(labelName);
 		label.add(labelDescription);
 		label.setOpaque(false);
 		
+		// The text fields
 		JPanel jText = new JPanel();
 		jText.setLayout(new GridLayout(2,1));
-		nomPlayer = new JFormattedTextField();
-		nomPlayer.setBackground(Color.BLACK);
-		nomPlayer.setForeground(Color.WHITE);
+		playerName = new JFormattedTextField();
+		playerName.setBackground(Color.BLACK);
+		playerName.setForeground(Color.WHITE);
 		descriptionPlayer = new JFormattedTextField();
 		descriptionPlayer.setBackground(Color.BLACK);
 		descriptionPlayer.setForeground(Color.WHITE);
-		jText.add(nomPlayer);
+		jText.add(playerName);
 		jText.add(descriptionPlayer);
 		jText.setOpaque(false);
 		
-		saisie.add(label);
-		saisie.add(jText);
-		
+		seizure.add(label);
+		seizure.add(jText);
+		// The button to validate the seizure
 		JButton validate = new JButton("Validate");
 		validate.addActionListener(new Actions(this,"infoPlayer"));
 		validate.setBackground(Color.BLACK);
@@ -60,9 +71,9 @@ public class WindowCreatePlayer extends JFrame {
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,25);
 			validate.setFont(font);
-			nomPlayer.setFont(font);
+			playerName.setFont(font);
 			descriptionPlayer.setFont(font);
-			labelNom.setFont(font);
+			labelName.setFont(font);
 			labelDescription.setFont(font);
 		}
 		catch(IOException e){
@@ -70,7 +81,7 @@ public class WindowCreatePlayer extends JFrame {
 		}catch(IllegalArgumentException e){
 		}
 		
-		this.add(saisie,BorderLayout.CENTER);
+		this.add(seizure,BorderLayout.CENTER);
 		this.add(validate,BorderLayout.SOUTH);
 		this.pack();
 		this.setResizable(false);
@@ -81,7 +92,7 @@ public class WindowCreatePlayer extends JFrame {
 	public void recupInfo(){
 		this.dispose();
 		ArrayList<String> infoPlayer = new ArrayList<String>();
-		infoPlayer.add(nomPlayer.getText());
+		infoPlayer.add(playerName.getText());
 		infoPlayer.add(descriptionPlayer.getText());
 		windowOrigin.recupInfo(infoPlayer);
 	}
