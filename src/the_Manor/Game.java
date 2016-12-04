@@ -42,7 +42,7 @@ public class Game {
         living = new Room("Living room","Living_Room.png");
         kitchen = new Room("The kitchen","Cuisine.png");
         cellar = new Room("The cellar","Cellar.png");
-        office = new Room("Father office","office.png");
+        office = new Room("Father office","Office.png");
         
         floor1 = new Room("First floor","etage_1.png");
         parentRoom2 = new Room("Parents bedroom","ParentRoom.png");
