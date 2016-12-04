@@ -13,7 +13,7 @@ import package_Display.Window;
 
 public class StartingWindow extends JFrame{
 	
-	final int WIDTH_WINDOW = 850;
+	final int WIDTH_WINDOW = 800;
 	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100;
 	private JLabel theManorBackground;
 	

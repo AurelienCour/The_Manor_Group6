@@ -80,8 +80,18 @@ public class WindowInventory extends JFrame{
 		    JPanel weaponInventory = new JPanel();
 		    weaponInventory.setLayout(new GridLayout(1,2));
 		    weaponInventory.setBackground(Color.BLACK);
-		    JLabel characWeapon  = new JLabel(allWeapon.get(i).getName().toUpperCase()+"    Attack :"+allWeapon.get(i).getAttack()+"  ");
-		    characWeapon.setForeground(Color.WHITE);
+		    JLabel nameWeapon = new JLabel("  "+allWeapon.get(i).getName().toUpperCase());
+		    nameWeapon.setHorizontalAlignment(SwingConstants.LEFT);
+		    nameWeapon.setForeground(Color.WHITE);
+			JLabel attckWeapon = new JLabel("Attack : "+allWeapon.get(i).getAttack()+"  ");
+			attckWeapon.setHorizontalAlignment(SwingConstants.RIGHT);
+			attckWeapon.setForeground(Color.WHITE);
+			JPanel characWeapon = new JPanel();
+			characWeapon.setLayout(new GridLayout(1,2));
+			characWeapon.add(nameWeapon);
+			characWeapon.add(attckWeapon);
+			characWeapon.setOpaque(false);
+			characWeapon.setPreferredSize(new Dimension(210,40));
 		    characWeapon.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		    weaponInventory.add(characWeapon);
 		    weaponInventory.add(buttonsWeapon[i]);
@@ -92,7 +102,8 @@ public class WindowInventory extends JFrame{
 				ge.registerFont(font);
 				font = font.deriveFont(Font.TRUETYPE_FONT,20);
 				buttonsWeapon[i].setFont(font);
-				characWeapon.setFont(font);
+				nameWeapon.setFont(font);
+				attckWeapon.setFont(font);
 			}
 			catch(IOException e){
 			}catch(FontFormatException e){          
@@ -122,8 +133,17 @@ public class WindowInventory extends JFrame{
 			JPanel shieldInventory = new JPanel();
 			shieldInventory.setLayout(new GridLayout(1,2));
 			shieldInventory.setBackground(Color.BLACK);
-			JLabel characShield = new JLabel(allShield.get(i).getName().toUpperCase()+"    Defense :"+allShield.get(i).getDefense()+"  ");
-			characShield.setForeground(Color.WHITE);
+			JLabel nameShield = new JLabel("  "+allShield.get(i).getName().toUpperCase());
+			nameShield.setHorizontalAlignment(SwingConstants.LEFT);
+			nameShield.setForeground(Color.WHITE);
+			JLabel defShield = new JLabel("Defense : "+allShield.get(i).getDefense()+"  ");
+			defShield.setHorizontalAlignment(SwingConstants.RIGHT);
+			defShield.setForeground(Color.WHITE);
+			JPanel characShield = new JPanel();
+			characShield.setLayout(new GridLayout(1,2));
+			characShield.add(nameShield);
+			characShield.add(defShield);
+			characShield.setOpaque(false);
 			characShield.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 			shieldInventory.add(characShield);
 			shieldInventory.add(buttonsShield[i]);
@@ -134,7 +154,8 @@ public class WindowInventory extends JFrame{
 				ge.registerFont(font);
 				font = font.deriveFont(Font.TRUETYPE_FONT,20);
 				buttonsShield[i].setFont(font);
-				characShield.setFont(font);
+				nameShield.setFont(font);
+				defShield.setFont(font);
 			}
 			catch(IOException e){
 			}catch(FontFormatException e){          
@@ -157,8 +178,6 @@ public class WindowInventory extends JFrame{
 		buttonsHeal = new JButton[potionKey.size()];
 		for (int i=0; i<potionKey.size(); i++)
 		{
-			JLabel characPotion = new JLabel();
-			characPotion.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 			if(potionKey.get(i) instanceof Potion){
 				JPanel potion = new JPanel();
 				potion.setLayout(new GridLayout(1,2));
@@ -168,30 +187,58 @@ public class WindowInventory extends JFrame{
 				buttonsHeal[i].setBackground(Color.BLACK);
 				buttonsHeal[i].setForeground(Color.RED);
 				buttonsHeal[i].setFocusPainted(false);
-				characPotion.setText(potionKey.get(i).getName()+"   Health :"+((Potion) potionKey.get(i)).getHealth());
-				characPotion.setForeground(Color.WHITE);
+				JLabel namePotion = new JLabel("  "+potionKey.get(i).getName());
+				namePotion.setHorizontalAlignment(SwingConstants.LEFT);
+				namePotion.setForeground(Color.WHITE);
+				JLabel defPotion = new JLabel("Health :"+((Potion) potionKey.get(i)).getHealth()+"  ");
+				defPotion.setHorizontalAlignment(SwingConstants.RIGHT);
+				defPotion.setForeground(Color.WHITE);
+				JPanel characPotion = new JPanel();
+				characPotion.setLayout(new GridLayout(1,2));
+				characPotion.setPreferredSize(new Dimension(210,40));
+				characPotion.add(namePotion);
+				characPotion.add(defPotion);
+				characPotion.setOpaque(false);
+				characPotion.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 				potion.add(characPotion);
 				potion.add(buttonsHeal[i]);
 				listPotionKey.add(potion);
+				try{
+					GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+					Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+					ge.registerFont(font);
+					font = font.deriveFont(Font.TRUETYPE_FONT,20);
+					if(buttonsHeal[i] != null)
+						buttonsHeal[i].setFont(font);
+					namePotion.setFont(font);
+					defPotion.setFont(font);
+				}
+				catch(IOException e){
+				}catch(FontFormatException e){          
+				}catch(IllegalArgumentException e){
+				}
 			}
 			else{
-				characPotion.setText(potionKey.get(i).getName());
+				JLabel characPotion = new JLabel();
+				characPotion.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+				characPotion.setText("  "+potionKey.get(i).getName());
 				characPotion.setForeground(Color.WHITE);
 				listPotionKey.add(characPotion);
+				try{
+					GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+					Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+					ge.registerFont(font);
+					font = font.deriveFont(Font.TRUETYPE_FONT,20);
+					if(buttonsHeal[i] != null)
+						buttonsHeal[i].setFont(font);
+					characPotion.setFont(font);
+				}
+				catch(IOException e){
+				}catch(FontFormatException e){          
+				}catch(IllegalArgumentException e){
+				}
 			}
-			try{
-				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
-				ge.registerFont(font);
-				font = font.deriveFont(Font.TRUETYPE_FONT,20);
-				if(buttonsHeal[i] != null)
-					buttonsHeal[i].setFont(font);
-				characPotion.setFont(font);
-			}
-			catch(IOException e){
-			}catch(FontFormatException e){          
-			}catch(IllegalArgumentException e){
-			}
+			
 		}
 		inventoryPotionKey.add(headerPotionKey,BorderLayout.NORTH);
 		inventoryPotionKey.add(listPotionKey,BorderLayout.CENTER);
