@@ -15,7 +15,7 @@ public class WindowTutorial extends JFrame{
 		this.setLayout(new BorderLayout());
 		this.setTitle(" The  tutorial ");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		URL url = StartingWindow.class.getResource("Image/Background/Tutorial.jpg");
+		URL url = StartingWindow.class.getResource("Image/Background/Tutorial.jpg");//
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
 		JLabel tutoriel = new JLabel(icon);
 		this.add(tutoriel);
