@@ -28,7 +28,7 @@ public class CharacterTest {
 
     @Before
     public void setUp(){
-    	ally = new Ally("MyAlly","Description Ally",null);
+    	ally = new Ally("MyAlly","Description Ally", "try", null);
     	enemy = new Enemy("MyEnemy","Description Enemy",0,0,0,0);
     	player = new Player("MyPlayer","Description Player");
     }
@@ -70,9 +70,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterNameAllyDefault() {
-		Character allyTest = new Ally("", "", null);
+		Character allyTest = new Ally("", "", "", null);
 		assertEquals("Ally",allyTest.getName());
-		Character allyTest2 = new Ally(null, "", null);
+		Character allyTest2 = new Ally(null, "", "try", null);
 		assertEquals("Ally",allyTest2.getName());
 	}
 	
@@ -133,9 +133,9 @@ public class CharacterTest {
      */
 	@Test
 	public void testCharacterDescriptionAllyDefault() {
-		Character allyTest = new Ally("MyAlly", "", null);
+		Character allyTest = new Ally("MyAlly", "", "", null);
 		assertEquals("No description",allyTest.getDescription());
-		Character allyTest2 = new Ally("MyAlly", null, null);
+		Character allyTest2 = new Ally("MyAlly", null, "", null);
 		assertEquals("No description",allyTest2.getDescription());
 	}
 	

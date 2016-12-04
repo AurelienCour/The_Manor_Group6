@@ -34,7 +34,7 @@ public class AllyTest {
     @Before
     public void setUp() {
     	potion = new Potion("Life potion", 40);
-    	myAlly = new Ally("myAlly", "An ally", potion);
+    	myAlly = new Ally("myAlly", "An ally", "try", potion);
     }
 
     @After
@@ -59,7 +59,7 @@ public class AllyTest {
 	@Test
 	public void testAddItem(){
 		Potion potion2 = new Potion("potion",15);
-		Ally myAlly2 = new Ally("try", "try", null);
+		Ally myAlly2 = new Ally("try", "try", "try", null);
 		assertEquals(null, myAlly2.getItem());
 		myAlly2.addItem(potion2);
 		assertEquals(potion2, myAlly2.getItem());
@@ -73,7 +73,7 @@ public class AllyTest {
 	@Test
 	public void testAddItemWithItem(){
 		Potion potion2 = new Potion("potion",15);
-		Ally myAlly2 = new Ally("try", "try", potion);
+		Ally myAlly2 = new Ally("try", "try", "try", potion);
 		assertEquals(potion, myAlly2.getItem());
 		this.myAlly.addItem(potion2);
 		assertEquals(potion, myAlly2.getItem());
@@ -101,7 +101,7 @@ public class AllyTest {
 	@Test
 	public void testGiveItemWithoutItem(){
 		Player player = new Player("try", "try");
-		Ally myAlly2 = new Ally("try", "try", null);
+		Ally myAlly2 = new Ally("try", "try", "try", null);
 		assertEquals(0, player.numberOfItem());
 		assertEquals(null, myAlly2.getItem());
 		myAlly2.giveItem(player);
