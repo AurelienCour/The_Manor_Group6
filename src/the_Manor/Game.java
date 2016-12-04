@@ -189,8 +189,22 @@ public class Game {
 				"<li><font color=\"red\">I can’t leave. They’re still my familly. Take this, it will help you. Now go!</font></li>"+
 				"<li>Damn it! You exclaimed before taking what she was offering and leaving.</li>"+
 				"</ul>",new Shield ("Board",15)));
-        kitchen.addCharacter(new Ally("Mer","Maid","Bonjour moi je suis la cuisinière et je te donne"
-        		+" un peu de lait pour que tu récupère des forces",new Potion ("Milk",25)));
+        kitchen.addCharacter(new Ally("Mer","Maid",
+        		"<ul>"+
+		        "<li><font color=\"red\">\"Oh my god! I’m not alone!\"</font></li>"+
+		        "<li>\"Quiet!\" You whispered. It was the maid. She seemed relieved to see you.</li>"+
+		        "<li><font color=\"red\">\"Sorry. I’m so scared! I’ve been hiding here for hours.\"</font></li>"+
+		        "<li>\"Can you help me?\" You asked, carefully looking around.</li>"+
+		        "<li><font color=\"red\">\"What!? But I can’t fight!\"</font></li>"+
+		        "<li>\"Not that. I need food.\"</li>"+
+		        "<li><font color=\"red\">\"Of course, I can do that.  Do you need anything else?\"</font></li>"+
+		        "<li>\"Yeah, I need a good weapon.\"</li>"+
+		        "<li><font color=\"red\">\"I have only this.\"</font></li>"+
+		        "<li>\"What?\" The maid showed you her silver plate. With a sigh, you took it from her.</li>"+
+		        "<li><font color=\"red\">\"Maybe you should look around? The master has a collection room. But you need the key.\"</font></li>"+
+		        "<li>\"Where can I find it?\"</li>"+
+		        "<li><font color=\"red\">\"Maybe in his office?\"</font></li>"+
+		        "</ul>",new Potion ("Milk",25)));
 
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }
