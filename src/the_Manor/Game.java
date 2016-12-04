@@ -168,12 +168,12 @@ public class Game {
 		attic.addItem(keyHall);
 		tropheRoom1.addItem(keyCellar);
 		
-		gameRoom2.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10));
-        dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10));
-        floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10));
-        cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10));
-        office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10));
-        attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20));
+		gameRoom2.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10,"Laurel.png"));
+        dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10,"Moira.png"));
+        floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10,"Malcolm.png"));
+        cellar.addCharacter(new Enemy("Slade","Friend's oncle", 85, 60, 10, 10,"Slade.png"));
+        office.addCharacter(new Enemy("Robert","Friend's father", 85, 60, 10, 10,"Robert.png"));
+        attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20,"Tommy.png"));
         sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",
         		"<ul>"+
 				"<li><font color=\"red\">"+this.notreJoueur.getName()+" ! You’re alive!</font></li>"+

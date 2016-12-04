@@ -8,6 +8,7 @@ package the_Manor;
  */
 public class Enemy extends Fighter{
 
+	private String image;
 	/**
 	 * The constructor for the Enemy class
 	 * @param newName The name of the enemy
@@ -17,7 +18,7 @@ public class Enemy extends Fighter{
 	 * @param attack the attack of the enemy
 	 * @param defense the defense of the enemy
 	 */
-	public Enemy(String newName, String description, int nbMaxPV, int nbMaxStamina, int attack, int defense) {
+	public Enemy(String newName, String description, int nbMaxPV, int nbMaxStamina, int attack, int defense, String image) {
 		super(newName, description);
 		if (nbMaxPV < 0)
 			this.NBMAXPV = 0;
@@ -35,8 +36,16 @@ public class Enemy extends Fighter{
 			this.defense = 0;
 		else
 			this.defense = defense;
+		if(image.isEmpty())
+			this.image="Robert.png";
+		else
+			this.image=image;
 		this.health = this.NBMAXPV;
 		this.stamina = this.NBMAXSTAMINA;
+	}
+	
+	public String getImage(){
+		return this.image;
 	}
 
 }

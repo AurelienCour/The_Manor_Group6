@@ -103,22 +103,34 @@ public class Window extends JFrame{
 		control.setPreferredSize(new Dimension((WIDTH_WINDOW*22)/100, (HEIGHT_WINDOW*16)/100));
 		JPanel controlHorizontal = new JPanel();
 		controlHorizontal.setLayout(new GridLayout(2,1));
-		controlHaut = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_haut.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		controlBas = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_bas.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
-		controlGauche = new JButton((new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_gauche.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT))));
-		controlDroit = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/direction_droite.png").getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT)));
+		url = StartingWindow.class.getResource("Image/Icon/direction_haut.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT));
+		controlHaut = new JButton(icon);
 		controlHaut.setBackground(Color.BLACK);
 		controlHaut.addActionListener(new Actions(this,"controlHaut"));
 		controlHaut.setFocusPainted(false);
+		
+		url = StartingWindow.class.getResource("Image/Icon/direction_bas.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT));
+		controlBas = new JButton(icon);
 		controlBas.setBackground(Color.BLACK);
 		controlBas.addActionListener(new Actions(this,"controlBas"));
 		controlBas.setFocusPainted(false);
+		
+		url = StartingWindow.class.getResource("Image/Icon/direction_gauche.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT));
+		controlGauche = new JButton(icon);
 		controlGauche.setBackground(Color.BLACK);
 		controlGauche.addActionListener(new Actions(this,"controlGauche"));
 		controlGauche.setFocusPainted(false);
+		
+		url = StartingWindow.class.getResource("Image/Icon/direction_droite.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*5)/100, (WIDTH_WINDOW*5)/100, Image.SCALE_DEFAULT));
+		controlDroit = new JButton(icon);
 		controlDroit.setBackground(Color.BLACK);
 		controlDroit.addActionListener(new Actions(this,"controlDroit"));
 		controlDroit.setFocusPainted(false);
+		
 		controlHorizontal.add(controlHaut);
 		controlHorizontal.add(controlBas);
 		control.add(controlGauche);
@@ -128,7 +140,9 @@ public class Window extends JFrame{
 		charac.setLayout(new BorderLayout(5,5));//20,20
 		charac.setBackground(Color.black);
 		
-		JButton search = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_Loupe.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
+		url = StartingWindow.class.getResource("Image/Icon/Icone_Loupe.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT));
+		JButton search = new JButton(icon);
 		search.setBackground(Color.BLACK);
 		search.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100, 0));
 		search.setBorder(null);
@@ -159,7 +173,10 @@ public class Window extends JFrame{
 		characteristics.add(this.defensePoint);
 		durability.add(this.lifePoint);
 		durability.add(this.staminaPoint);
-		JButton inventory = new JButton(new ImageIcon(new ImageIcon("src/package_Display/Image/Icon/Icone_inventaire.png").getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT)));
+		
+		url = StartingWindow.class.getResource("Image/Icon/Icone_inventaire.png");
+		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT));
+		JButton inventory = new JButton(icon);
 		inventory.setBackground(Color.BLACK);
 		inventory.setFocusPainted(false);
 		inventory.setBorder(null);
@@ -172,7 +189,7 @@ public class Window extends JFrame{
 		
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,20);
 			lifePoint.setFont(font);
@@ -224,7 +241,9 @@ public class Window extends JFrame{
 			default:
 				break;
 		}
-    	this.windowGame.setIcon(new ImageIcon(new ImageIcon("src/package_Display/Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground()).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT)));
+		URL url = StartingWindow.class.getResource("Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground());
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT));
+    	this.windowGame.setIcon(icon);
     	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
     	checkDirection();
 	}
@@ -323,6 +342,11 @@ public class Window extends JFrame{
 		this.staminaPoint.setText("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
 	}
 	
+	public void ally(Ally ally) {
+		new WindowDisplayAlly(ally, this, this.newGame.getPlayer());
+		
+	}
+	
 	public static void main(String[] args){
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -335,10 +359,5 @@ public class Window extends JFrame{
 			}
 		
 		});
-	}
-
-	public void ally(Ally ally) {
-		new WindowDisplayAlly(ally, this, this.newGame.getPlayer());
-		
 	}
 }

@@ -36,7 +36,6 @@ public class WindowCreatePlayer extends JFrame {
 		
 		JPanel jText = new JPanel();
 		jText.setLayout(new GridLayout(2,1));
-		JPanel labelAndJtextName = new JPanel();
 		nomPlayer = new JFormattedTextField();
 		nomPlayer.setBackground(Color.BLACK);
 		nomPlayer.setForeground(Color.WHITE);
@@ -57,7 +56,7 @@ public class WindowCreatePlayer extends JFrame {
 		
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,25);
 			validate.setFont(font);

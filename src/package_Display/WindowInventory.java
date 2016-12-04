@@ -88,7 +88,7 @@ public class WindowInventory extends JFrame{
 		    weapon.add(weaponInventory);
 		    try{
 				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+				Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 				ge.registerFont(font);
 				font = font.deriveFont(Font.TRUETYPE_FONT,20);
 				buttonsWeapon[i].setFont(font);
@@ -130,7 +130,7 @@ public class WindowInventory extends JFrame{
 			shield.add(shieldInventory);
 			try{
 				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+				Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 				ge.registerFont(font);
 				font = font.deriveFont(Font.TRUETYPE_FONT,20);
 				buttonsShield[i].setFont(font);
@@ -181,7 +181,7 @@ public class WindowInventory extends JFrame{
 			}
 			try{
 				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+				Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 				ge.registerFont(font);
 				font = font.deriveFont(Font.TRUETYPE_FONT,20);
 				if(buttonsHeal[i] != null)
@@ -199,7 +199,7 @@ public class WindowInventory extends JFrame{
 		
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,new File("src/package_Display/Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,28);
 			headerWeapon.setFont(font);
