@@ -183,11 +183,11 @@ public class Game {
 				"<li><font color=\"red\">You seem to be oblivious of what is going on.</font></li>"+
 				"<li>\"What?\" you asked with a shake of head.</li>"+
 				"<li><font color=\"red\">Everyone is dead. At least that’s what I think. Now they roam the house, groaning and moaning…</font></li>"+
-				"<li>I don’t understand…You whispered. Thea seemed on the verge of crying.</li>"+
+				"<li>\"I don’t understand…\" You whispered. Thea seemed on the verge of crying.</li>"+
 				"<li><font color=\"red\">Zombies all of them. You must flee, "+this.notreJoueur.getName()+".</font></li>"+
-				"<li>What about you? You replied with worry. You couldn’t leave her alone.</li>"+
+				"<li>\"What about you?\" You replied with worry. You couldn’t leave her alone.</li>"+
 				"<li><font color=\"red\">I can’t leave. They’re still my familly. Take this, it will help you. Now go!</font></li>"+
-				"<li>Damn it! You exclaimed before taking what she was offering and leaving.</li>"+
+				"<li>\"Damn it!\" You exclaimed before taking what she was offering and leaving.</li>"+
 				"</ul>",new Shield ("Board",15)));
         kitchen.addCharacter(new Ally("Mer","Maid",
         		"<ul>"+
