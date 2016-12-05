@@ -74,14 +74,12 @@ public class Game {
         hall.addExit("SUD", keyHall, outside);
         
         
-        kitchen.addExit("EST", null, living);
-        kitchen.addExit("SUD", null, hall);
+       
+        kitchen.addExit("EST", null, hall);
         kitchen.addExit("OUEST",keyCellar,cellar);
-        
-        //"I grow up when I am fed, I die when I am given water. Who am I?","fire"
+
         cellar.addExit("EST", null, kitchen);
         
-        living.addExit("NORD", null, kitchen);
         living.addExit("OUEST", null, hall);
         
         office.addExit("NORD", null, living);
@@ -119,7 +117,6 @@ public class Game {
         sisterRoom2.addExit("SUD", null, corridor2_3);
         
         corridor2_1.addExit("NORD", null, friendRoom2);
-        corridor2_1.addExit("EST", null, corridor2_1);
         corridor2_1.addExit("OUEST", null, corridor2_2);
         
         bathroom2.addExit("NORD", null, corridor2_1);
