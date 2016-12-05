@@ -5,7 +5,7 @@ package the_Manor;
  * <p>An object can give to a player more health.</p>
  * 
  * @author Group 6
- * @version 22/11/2016
+ * @version 05/12/16
  */
 
 public class Potion extends Item{
@@ -15,12 +15,13 @@ public class Potion extends Item{
 	
 	/**
 	* Constructor of the Potion class
+	* The health value can not goes under 0
 	* @param newItem : the Name of the Item
 	* @param pointHealth : the quantity of health that an item give to the player.
 	*/
 	public Potion (String newItem, int pointHealth)
 	{
-		super(newItem);
+		super(newItem); // Uses the Item super-class
 		if (pointHealth < 0) { 
 			this.healthGain = 0;
 		} else {
