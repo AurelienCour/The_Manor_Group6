@@ -2,41 +2,40 @@ package the_Manor;
 
 /**
  * <p>This EnigmaticDoor class stands for a door that is locked by an enigma. </p>
- * <p>This enigma can be solved if the player propose the right solution.</p>
+ * <p>This enigma can be solved if the player proposes the right solution.</p>
+ *
  * @author Group 6
- * @version 23/11/2016
+ * @version 05/12/16
  */
 
-public class EnigmaticDoor extends Door{
+public class EnigmaticDoor extends Door{	
 	
-	// the enigma that has to be solved
-	private String enigma;
-	// the answer of the enigma
-	private String response;
-	private boolean locked;
+	private String enigma; // the enigma that has to be solved	
+	private String response; // the answer of the enigma
+	private boolean locked; // the lock status of the door
 
 	/**
-	 * Constructor of the class EnigmaticDoor. 
-	 * @param enigma The enigma that has to be solved to pass the door
+	 * Constructor of the class EnigmaticDoor. 	 
+	 * @param enigma The enigma that has to be solved to cross the door
 	 * @param response The response of the enigma
 	 * @param nextRoom The next room the player is going to enter after having solved the enigma
 	 * @param previousRoom The previous room
 	 */
 	public EnigmaticDoor(String enigma, String response, Room nextRoom, Room previousRoom) {
-		super(nextRoom,previousRoom);
+		super(nextRoom,previousRoom); // Uses the Door super-class
 		if(enigma == null || enigma.isEmpty()){
-			System.out.println("Default enigma");
-			this.enigma = "No enigma, response : No enigma";
+			System.out.println("Default enigma"); // default value
+			this.enigma = "No enigma, response : No enigma"; // default value
 		}
 		else
 			this.enigma = enigma;
 		if(response == null || response.isEmpty()){
-			System.out.println("Default response");
-			this.response = "NO ENIGMA";
+			System.out.println("Default response"); // default value
+			this.response = "NO ENIGMA"; // default value
 		}
 		else
 			this.response = response.toUpperCase();	
-		this.locked = true;
+		this.locked = true; // The door is locked by the enigma
 	}
 
 	/**
@@ -57,7 +56,7 @@ public class EnigmaticDoor extends Door{
 	}
 	
 	/**
-	 * Function allowing the player to go in another room.
+	 * Function allowing the player to go in another room if the door is unlocked.
 	 * @return The next room the player is going to enter. 
 	 */
 	public Room getNextRoom(){
@@ -69,8 +68,8 @@ public class EnigmaticDoor extends Door{
 	}
 	
 	/**
-	 * Function to know if the door is locked
-	 * @return A boolean to know if the door is locked or not (true if is locked; false if is open)
+	 * Function to know if the door is locked.
+	 * @return A boolean to know if the door is locked or not (true if it is locked ; false if it is open)
 	 */
 	public boolean isLocked(){
 		return this.locked;
@@ -85,8 +84,8 @@ public class EnigmaticDoor extends Door{
 	}
 	
 	/**
-	 * Allows to knows the response of the enigma for the enigmatic door
-	 * @return The response of the enigma
+	 * Allows to knows the answer of the enigma for the enigmatic door.
+	 * @return The response of the enigma.
 	 */
 	public String getResponse(){
 		return this.response;
