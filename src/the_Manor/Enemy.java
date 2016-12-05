@@ -1,27 +1,30 @@
 package the_Manor;
 /**
  * <p>This class represents all the characters who are enemies of the main character.</p>
- * <p>For the moment, this class does not contain methods, it is just representative</p>
  * 
  * @author Group 6
- * @version 2016-22-11
+ * @version 05/12/16
  */
 public class Enemy extends Fighter{
 
-	private String image;
+	private String image; // The image of the enemy
+	
+	
 	/**
 	 * The constructor for the Enemy class
+	 * If the different parameters are null or under zero, a default value is settled.
 	 * @param newName The name of the enemy
 	 * @param description The description of the enemy
-	 * @param nbMaxPV The number max of the health point
-	 * @param nbMaxStamina The number max of the stamina point
-	 * @param attack the attack of the enemy
-	 * @param defense the defense of the enemy
+	 * @param nbMaxPV The enemy's max health points value
+	 * @param nbMaxStamina The enemy's max stamina points value
+	 * @param attack The enemy's max attack value
+	 * @param defense The enemy's max defense value
+	 * @param image The image of the enemy
 	 */
 	public Enemy(String newName, String description, int nbMaxPV, int nbMaxStamina, int attack, int defense, String image) {
-		super(newName, description);
+		super(newName, description); // Uses the Fighter super-class
 		if (nbMaxPV < 0)
-			this.NBMAXPV = 0;
+			this.NBMAXPV = 0; // default value
 		else
 			this.NBMAXPV = nbMaxPV;
 		if (nbMaxStamina < 0)
@@ -37,13 +40,17 @@ public class Enemy extends Fighter{
 		else
 			this.setDefense(defense);
 		if(image == null || image.isEmpty())
-			this.image="Robert.png";
+			this.image="Robert.png"; // default image
 		else
 			this.image=image;
 		this.setHealth(this.NBMAXPV);
 		this.setStamina(this.NBMAXSTAMINA);
 	}
 	
+	/**
+	 * Allows to get the image of the enemy.
+	 * @return The image of the enemy.
+	 */
 	public String getImage(){
 		return this.image;
 	}
