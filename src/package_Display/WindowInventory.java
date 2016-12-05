@@ -13,6 +13,10 @@ import the_Manor.Weapon;
 
 public class WindowInventory extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	private Game theGame;
 	private Window windowGame;
 	private JButton[] buttonsShield,buttonsWeapon,buttonsHeal;

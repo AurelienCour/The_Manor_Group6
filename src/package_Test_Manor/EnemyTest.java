@@ -1,6 +1,5 @@
 package package_Test_Manor;
 
-import static org.junit.Assert.*;
 import the_Manor.Enemy;
 import org.junit.*;
 
@@ -12,8 +11,6 @@ import org.junit.*;
  */
 public class EnemyTest {
 	
-	private Enemy enemy;
-	
 	/**
 	 * Default constructor for test class EnemyTest
 	 */
@@ -23,7 +20,7 @@ public class EnemyTest {
 	
     @Before
     public void setUp() {
-    	this.enemy = new Enemy("Toto", "", 0, 0, 0, 0,"");
+    	new Enemy("Toto", "", 0, 0, 0, 0,"");
     }
 
     @After

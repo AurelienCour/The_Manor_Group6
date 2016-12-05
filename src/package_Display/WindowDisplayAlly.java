@@ -8,6 +8,10 @@ import the_Manor.Player;
 
 public class WindowDisplayAlly extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	private Ally ally;
 	private Window windowGame;
 	private Player player;

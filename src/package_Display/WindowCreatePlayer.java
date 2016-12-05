@@ -13,6 +13,10 @@ import javax.swing.*;
  */
 public class WindowCreatePlayer extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	private JFormattedTextField playerName; // The field to recup the name of the player
 	private JFormattedTextField descriptionPlayer; // The field to recup the description of the player
 	private StartingWindow windowOrigin; // The previous window to center the frame

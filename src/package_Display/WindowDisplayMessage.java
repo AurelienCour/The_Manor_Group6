@@ -6,6 +6,12 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class WindowDisplayMessage extends JFrame {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
+	
 	/**
 	 * The constructor of the class WindowDisplayMessage
 	 * @param message The message to display

@@ -1,9 +1,6 @@
 package package_Test_Manor;
-import junit.framework.TestCase;
+
 import the_Manor.Key;
-
-import static org.junit.Assert.fail;
-
 import org.junit.*;
 
 /**
@@ -13,7 +10,6 @@ import org.junit.*;
  */
 public class KeyTest {
 
-	private Key key;
 	
 	public KeyTest(){
 		
@@ -24,7 +20,7 @@ public class KeyTest {
 	 */
     @Before
     public void setUp() {
-        this.key = new Key("key");        
+        new Key("key");        
     }
 
     @After

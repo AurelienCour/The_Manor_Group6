@@ -4,12 +4,8 @@ import static org.junit.Assert.*;
 
 import the_Manor.Player;
 import the_Manor.Potion;
-import the_Manor.Room;
 import the_Manor.Shield;
 import the_Manor.Weapon;
-import the_Manor.Ally;
-import the_Manor.Enemy;
-import the_Manor.Item;
 
 
 import org.junit.*;

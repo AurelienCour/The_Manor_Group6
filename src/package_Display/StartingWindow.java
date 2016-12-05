@@ -15,6 +15,10 @@ import package_Display.Window;
  */
 public class StartingWindow extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	final int WIDTH_WINDOW = 800; // The width of the window
 	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100; // The height of the window
 	private JLabel theManorBackground; // The label with the background

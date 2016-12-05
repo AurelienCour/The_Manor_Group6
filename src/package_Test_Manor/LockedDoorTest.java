@@ -1,19 +1,12 @@
 package package_Test_Manor;
 
 import static org.junit.Assert.*;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-
-import the_Manor.Door;
-import the_Manor.EnigmaticDoor;
 import the_Manor.Key;
 import the_Manor.LockedDoor;
 import the_Manor.Player;
 import the_Manor.Room;
-
 import org.junit.Test;
 
 /**

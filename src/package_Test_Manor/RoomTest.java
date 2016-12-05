@@ -1,20 +1,12 @@
 package package_Test_Manor;
-import the_Manor.Character;
-import the_Manor.Door;
+
 import the_Manor.Enemy;
-import the_Manor.Item;
-import the_Manor.LockedDoor;
-//import junit.framework.TestCase;
 import the_Manor.Room;
 import the_Manor.Weapon;
 import the_Manor.Key;
-
 import org.junit.*;
-
-
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 
 /**
  * The test class RoomTest

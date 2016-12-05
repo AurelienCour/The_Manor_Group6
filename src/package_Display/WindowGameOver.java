@@ -8,6 +8,11 @@ import javax.swing.*;
 
 public class WindowGameOver extends JFrame{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
+	
 	public WindowGameOver (Window windowGame){
 		windowGame.dispose();
 		this.setTitle("Game Over");

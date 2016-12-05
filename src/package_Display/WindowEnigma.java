@@ -6,6 +6,11 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class WindowEnigma extends JFrame {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	private JFormattedTextField jTextf;
 	private Window windowGame;
 	private String directionDoor;

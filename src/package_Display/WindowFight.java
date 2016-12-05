@@ -10,6 +10,10 @@ import the_Manor.Room;
 
 public class WindowFight extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5122016L;
 	private Fight combat;
 	private JLabel healthEnemy,staminaEnemy,healthPlayer,staminaPlayer;
 	private Room previousRoomPlayer;

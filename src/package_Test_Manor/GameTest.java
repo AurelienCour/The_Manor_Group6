@@ -1,15 +1,9 @@
 package package_Test_Manor;
 import junit.framework.TestCase;
-import the_Manor.Door;
 import the_Manor.Game;
-import the_Manor.Player;
 import the_Manor.Room;
-import the_Manor.Character;
 import the_Manor.Key;
-
 import org.junit.*;
-
-import com.sun.glass.ui.Window;
 
 /**
  * The test class GameTest
@@ -19,9 +13,6 @@ import com.sun.glass.ui.Window;
 public class GameTest extends TestCase
 {
 	private Game myGame;
-	private Window myWindow;
-	private Player myPlayer;
-	private Character myCharacter;
 	private Room friendRoom;
 	private Room corridor;
 	private Key myKey;
@@ -32,7 +23,6 @@ public class GameTest extends TestCase
     @Before
     public void setUp() {     	    	
     	myGame = new Game(null,"The_Manor_Test","It is a great game");
-    	myPlayer = new Player("John", "John is a man");
     	friendRoom = new Room("FriendRoom", null);
     	corridor = new Room("Corridor", null);
     	myKey = new Key("The Key");
