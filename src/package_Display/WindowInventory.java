@@ -149,6 +149,7 @@ public class WindowInventory extends JFrame{
 						WindowInventory.this.theGame.getPlayer().desequipShield();
 						WindowInventory.this.windowGame.checkItem();
 						WindowInventory.this.dispose();
+						WindowInventory.this.windowGame.setEnabled(true);
 		            }
 				});
 			}
