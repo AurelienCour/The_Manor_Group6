@@ -7,18 +7,21 @@ import java.util.*;
  * <p>We can do several things in this class : </p>
  * <ul>
  * <li> Allows to create exits in a room.</li>
- * <li> Allows to add and delete character to a room. </li>
+ * <li> Allows to add and delete a character to a room. </li>
  * <li> Allows to add and delete items in a room. </li>
  * </ul>
+ * 
  * @author Group 6
+ * @version 05/12/16
  *
  */
 public class Room {
-	private HashMap<String,Door> exitPossible;
-	private String roomName;
-	private ArrayList<Character> characterInRoom;
-	private ArrayList<Item> objectInRoom;	
-	private String background;
+	
+	private HashMap<String,Door> exitPossible; // All the exits present in the room
+	private String roomName; // Name of the room
+	private ArrayList<Character> characterInRoom; // Number of character(s) in a room
+	private ArrayList<Item> objectInRoom; // All the objects present in the room
+	private String background; // Background image of the room
 	
 	/**
 	 * <p>The constructor of the class Room.</p>
@@ -30,16 +33,16 @@ public class Room {
 	 */
 	public Room (String roomName,String background){
 		if (roomName.isEmpty())
-			this.roomName = "Room";
+			this.roomName = "Room"; // default name
 		else
 			this.roomName = roomName;
 		if(background == null || background.isEmpty())
-			this.background="fond.png";
+			this.background="fond.png"; // default background
 		else
 			this.background = background;
-		this.exitPossible = new HashMap<String, Door>();
-		this.characterInRoom = new ArrayList<Character>();
-		this.objectInRoom = new ArrayList<Item>();	
+		this.exitPossible = new HashMap<String, Door>(); // instanciation of the HashMap that will contains the exits of the room
+		this.characterInRoom = new ArrayList<Character>(); // instanciation of the ArrayList that will contains the characters of the room
+		this.objectInRoom = new ArrayList<Item>(); // instanciation of the ArrayList that will contains the objects of the room
 	}
 	
 	/**
@@ -61,12 +64,12 @@ public class Room {
 	 * @param lock A boolean to know if the door is locked or not
 	 * @param nextRoom The room behind the door
 	 */
-	public void addExit(String direction,Key lock, Room nextRoom){
-		if(!this.exitPossible.containsKey(direction)){
-			if(lock != null)
-				this.exitPossible.put(direction, new LockedDoor(lock,nextRoom,this));
-			else
-				this.exitPossible.put(direction, new Door(nextRoom,this));
+	public void addExit(String direction, Key lock, Room nextRoom){
+		if(!this.exitPossible.containsKey(direction)){ // The HashMap contains a direction
+			if(lock != null) // There is a key
+				this.exitPossible.put(direction, new LockedDoor(lock,nextRoom,this)); // New exit with a direction and a Door containing the key in parameter, the next room it gives access to and the previous Room
+			else // The door will not have a lock
+				this.exitPossible.put(direction, new Door(nextRoom,this)); // New exit with a direction and a Door containing the next and the previous room
 		}
 		else
 			System.out.println("Error");
@@ -85,8 +88,8 @@ public class Room {
 	 * @param nextRoom The room behind the door
 	 */
 	public void addEnigmaticExit(String direction,String enigma,String response,Room nextRoom){
-		if(!this.exitPossible.containsKey(direction))
-			this.exitPossible.put(direction, new EnigmaticDoor(enigma,response,nextRoom,this));
+		if(!this.exitPossible.containsKey(direction)) // If this exit does not already exist
+			this.exitPossible.put(direction, new EnigmaticDoor(enigma,response,nextRoom,this)); // creation of the new enigmatic exit
 		else
 			System.out.println("Error");
 	}
@@ -148,15 +151,15 @@ public class Room {
 	
 	/**
 	 * <p>Return a character presents in the room by using his name. </p>
-	 * <p>If he does not exist, it returns null. </p>
+	 * <p>If he does not exist, returns null. </p>
 	 *  
 	 * @param name The name of the character that is to be recovered
 	 * @return the character owning the name.
 	 */
 	public Character getCharacter (String name){
-		for (int i = 0; i < characterInRoom.size(); i++) {
-			if(characterInRoom.get(i).getName().equals(name))
-				return characterInRoom.get(i);
+		for (int i = 0; i < characterInRoom.size(); i++) { // the Array containing all the characters in the room is crossed
+			if(characterInRoom.get(i).getName().equals(name)) // if the two names equal each other
+				return characterInRoom.get(i); // return the name
 		}
 		return null;
 	}
@@ -173,6 +176,10 @@ public class Room {
 		return null;
 	}
 	
+	/**
+	 * Allows to have the ally in the room if there is one.
+	 * @return the ally
+	 */
 	public Ally getAlly(){
 		for (Character character : characterInRoom) {
 			if(character instanceof Ally)
@@ -180,6 +187,7 @@ public class Room {
 		}
 		return null;
 	}
+	
 	/**
 	 * Allows to add an item in the room.
 	 *  

@@ -263,12 +263,12 @@ public class Player extends Fighter{
 		if(item instanceof Weapon){ // The item to equip is a weapon
 			if(haveWeapon()) // The player has a weapon in his inventory
 				this.removeAttack(this.weaponEquip.getAttack()); // The attack given by the weapon already equipped is removed
-			this.weaponEquip = (Weapon) item; // Permet d'assigner l'item à l'arme équipé (je suis obligé de transformé item en objet de la classe weapon car weaponEquip est de type Weapon et non Item) le tout à été vérifié avant avec le instanceof
+			this.weaponEquip = (Weapon) item; // The Item type of the item to equip is turned into Weapon type because weaponEquip has this type
 			this.addAttack(weaponEquip.getAttack()); // The value of the equipped weapon is given at the player's attack
 		}else if(item instanceof Shield){ // The item to equip is a shield
 			if(haveShield()) // The player has a shield in his inventory
 				this.removeDefense(shieldEquip.getDefense()); // The defense given by the shield already equipped is removed
-			this.shieldEquip = (Shield) item; // De meme :)
+			this.shieldEquip = (Shield) item; // The Item type of the item to equip is turned into Shield type because shieldEquip has this type
 			this.addDefense(shieldEquip.getDefense()); // The value of the equipped shield is given at the player's defense
 		}
 	}
