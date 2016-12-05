@@ -388,6 +388,7 @@ public class Window extends JFrame{
 	 * @param args The string of the main
 	 */
 	public static void main(String[] args){
+		// To escape the problem with the button on MAC
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {

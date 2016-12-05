@@ -64,7 +64,7 @@ public class EnigmaticDoor extends Door{
 			return null;
 		}
 		else
-			return this.goNextRoom();
+			return this.nextRoom;
 	}
 	
 	/**

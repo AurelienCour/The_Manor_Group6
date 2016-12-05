@@ -11,7 +11,7 @@ package the_Manor;
 public class Door 
 {
 	// next room the player is going to enter
-	private Room nextRoom;
+	protected Room nextRoom;
 	// the previous room of the player
 	private Room previousRoom;
 	
@@ -37,7 +37,7 @@ public class Door
 	 * Function allowing the player to go in another room.
 	 * @return The next room the player is going to enter. 
 	 */
-	public Room goNextRoom(){
+	public Room getNextRoom(){
 		return this.nextRoom;
 	}
 	

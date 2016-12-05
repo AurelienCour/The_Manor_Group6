@@ -67,7 +67,7 @@ public class LockedDoor extends Door{
 		if(isLocked())
 			return null;
 		else
-			return goNextRoom();
+			return this.nextRoom;
 	}
 	
 	/**
