@@ -87,6 +87,7 @@ public class WindowFight extends JFrame{
 		panelEnemy.add(new JLabel(icon));
 		
 		///// PLAYER
+		// All the characteristics about the player
 		healthPlayer = new JLabel(this.fight.getPlayer().getHealth()+" / "+this.fight.getPlayer().getNbMaxHealth()+"  ");
 		healthPlayer.setForeground(Color.RED);
 		staminaPlayer = new JLabel(this.fight.getPlayer().getStamina()+" / "+this.fight.getPlayer().getNbMaxStamina()+"  ");
@@ -96,6 +97,7 @@ public class WindowFight extends JFrame{
 		armorPlayer.setForeground(Color.BLUE);
 		attackPlayer.setForeground(Color.BLUE);
 		
+		// Add the characteristics to a Panel
 		JPanel characPlayer = new JPanel();
 		characPlayer.setLayout(new GridLayout(2,2));
 		characPlayer.setOpaque(false);
@@ -104,16 +106,19 @@ public class WindowFight extends JFrame{
 		characPlayer.add(staminaPlayer);
 		characPlayer.add(armorPlayer);
 		
+		// The label for the name of the player
 		JLabel namePlayer = new JLabel(this.fight.getPlayer().getName());
 		namePlayer.setForeground(Color.WHITE);
 		namePlayer.setHorizontalAlignment(SwingConstants.CENTER);
 		
+		// Add all the informations about the player in a panel
 		JPanel infoPlayer = new JPanel();
 		infoPlayer.setLayout(new GridLayout(2,1));
 		infoPlayer.setOpaque(false);
 		infoPlayer.add(namePlayer);
 		infoPlayer.add(characPlayer);
 		
+		//All the buttons to interact during the fight
 		JButton attack = new JButton("Attack");
 		attack.addActionListener(new Actions(this,"attack"));
 		attack.setBackground(Color.BLACK);
@@ -134,6 +139,8 @@ public class WindowFight extends JFrame{
 		escape.setBackground(Color.BLACK);
 		escape.setForeground(Color.WHITE);
 		escape.setFocusPainted(false);
+		
+		// Add the buttons to a panel
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new GridLayout(2,2));
 		buttons.add(attack);
@@ -141,6 +148,7 @@ public class WindowFight extends JFrame{
 		buttons.add(heal);
 		buttons.add(escape);
 		
+		// Add the buttons and the informations to a panel
 		JPanel panelPlayer = new JPanel();
 		panelPlayer.setLayout(new GridLayout(1,2,5,5));
 		panelPlayer.setBackground(Color.BLACK);
@@ -148,23 +156,25 @@ public class WindowFight extends JFrame{
 		panelPlayer.add(buttons);
 		panelPlayer.add(infoPlayer);
 		
+		// Assign the font to the labels
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,25);
+			// Enemy
 			healthEnemy.setFont(font);
 			staminaEnemy.setFont(font);
 			attackEnemy.setFont(font);
 			armorEnemy.setFont(font);
 			nameEnemy.setFont(font);
-			
+			// Player
 			healthPlayer.setFont(font);
 			staminaPlayer.setFont(font);
 			attackPlayer.setFont(font);
 			armorPlayer.setFont(font);
 			namePlayer.setFont(font);
-			
+			// Buttons
 			attack.setFont(font);
 			stay.setFont(font);
 			heal.setFont(font);
@@ -174,6 +184,7 @@ public class WindowFight extends JFrame{
 		}catch(FontFormatException e){          
 		}catch(IllegalArgumentException e){
 		}
+		
 		this.add(panelEnemy);
 		this.add(panelPlayer);
 		this.setSize(600, 300);
@@ -181,6 +192,9 @@ public class WindowFight extends JFrame{
 		this.setLocationRelativeTo(null);
 	}
 	
+	/**
+	 * Allow to refresh the characteritics in the window and in the window of the game
+	 */
 	public void verifCharac(){
 		this.windowGame.setCharac();
 		this.healthEnemy.setText("  "+this.fight.getEnemy().getHealth()+" / "+this.fight.getEnemy().getNbMaxHealth());
@@ -189,13 +203,18 @@ public class WindowFight extends JFrame{
 		this.staminaPlayer.setText(this.fight.getPlayer().getStamina()+" / "+this.fight.getPlayer().getNbMaxStamina()+"  ");
 	}
 	
+	/**
+	 * When the player click on the button Attack
+	 */
 	public void attack(){
+		// If the player don't have enough stamina
 		if(this.fight.getPlayer().getStamina() == 0)
 			new WindowDisplayMessage("You need more stamina",this.windowGame);
-		else
+		else // The player can attack
 			this.fight.attack(this.fight.getPlayer());
 		this.windowGame.setEnabled(false);
 		this.verifCharac();
+		// If the enemy is dead
 		if(!this.fight.getEnemy().isAlive()){
 			new WindowDisplayMessage("You won the fight !", this.windowGame);
 			this.fight.getPlayer().addStamina(this.fight.getPlayer().getNbMaxStamina());
@@ -206,6 +225,7 @@ public class WindowFight extends JFrame{
 		else{
 			this.fight.attack(this.fight.getEnemy());
 			this.verifCharac();
+			// If the player is dead
 			if(!this.fight.getPlayer().isAlive()){
 				new WindowEnd(this.windowGame,"GameOver.png");
 				this.dispose();
@@ -213,7 +233,9 @@ public class WindowFight extends JFrame{
 		}
 	}
 	
-	
+	/**
+	 * When the player click on the button recup to recup his stamina
+	 */
 	public void recup(){
 		this.fight.recup(this.fight.getPlayer());
 		this.fight.attack(this.fight.getEnemy());
@@ -222,35 +244,36 @@ public class WindowFight extends JFrame{
 			new WindowEnd(this.windowGame,"GameOver.png");
 			this.dispose();
 		}
-		this.verifCharac();
 	}
 	
-	
+	/**
+	 * When the player click on the button heal
+	 */
 	public void heal(){
+		// If the player has a potion
 		if(this.fight.getPlayer().havePotion()){
+			// Heal the player
 			this.fight.getPlayer().heal(this.fight.getPlayer().getPotion());
 			this.windowGame.checkItem();
 		}
-		else{
+		else // If the player don't has a potion
 			new WindowDisplayMessage("You need food to take care of yourself", this.windowGame);
-			this.windowGame.setEnabled(false);
-		}
 		this.windowGame.setEnabled(false);
-		if(!this.fight.getPlayer().isAlive()){
-			new WindowEnd(this.windowGame,"GameOver.png");
-			this.dispose();	
-		}
 		this.verifCharac();
 	}
 	
-	
+	/**
+	 * When the player click on the button escape
+	 * The player has one chance on four to escape
+	 */
 	public void escape(){
 		Random rand = new Random();
-		int nombre = rand.nextInt(3); //Entre 0 et 3
-		if(nombre==0){
+		int nombre = rand.nextInt(3); //Beetween 0 and 3
+		if(nombre==0){ // If the escape works
 			this.dispose();
 			this.windowGame.setEnabled(true);
 			new WindowDisplayMessage("You fled.", this.windowGame);
+			// Change the room of the player with the previous
 			this.fight.getPlayer().setCurrentRoom(previousRoomPlayer);
 			this.windowGame.gameMove("");
 		}
