@@ -7,7 +7,7 @@ package the_Manor;
 	 */
 public class Shield extends Item{
 	
-	private int defenseShield; 
+	private int defenseShield; // The defense value of the shield
 	
 	/**
 	 * This method allows to create a weapon name and initialize its defense points.
@@ -15,7 +15,7 @@ public class Shield extends Item{
 	 * @param pointDefense The defense of the shield
 	 */
 	public Shield(String itemName, int pointDefense) {
-		super(itemName);
+		super(itemName); // Uses the Item super-class
 		if (pointDefense < 0){
 		this.defenseShield = 0;}
 		else {this.defenseShield = pointDefense;}
