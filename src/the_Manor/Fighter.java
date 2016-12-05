@@ -36,7 +36,7 @@ public abstract class Fighter extends Character{
 	 * @param description The description of the fighter
 	 */
 	public Fighter(String newName, String description) {
-		super(newName, description);
+		super(newName, description); // Uses the Character super class.
 	}
 	
 	/**
