@@ -12,6 +12,8 @@ public class WindowEnd extends JFrame{
 	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
+	final int WIDTH_WINDOW = 850; // The width of the window
+	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100; // The height of the window
 	
 	public WindowEnd (Window windowGame, String imageFinish){
 		windowGame.dispose();
@@ -22,7 +24,7 @@ public class WindowEnd extends JFrame{
 		test.setBackground(Color.BLACK);
 		test.setLayout(new BorderLayout());
 		URL url = StartingWindow.class.getResource("Image/Background/"+imageFinish);
-		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
 		JLabel gameOver = new JLabel(icon);
 		gameOver.setLayout(new FlowLayout());
 		
@@ -52,7 +54,7 @@ public class WindowEnd extends JFrame{
 		test.add(gameOver);
 		this.add(test,BorderLayout.CENTER);
 		this.setVisible(true);
-		this.setSize(850, 731);
+		this.setSize(WIDTH_WINDOW, HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
 	}
 }
