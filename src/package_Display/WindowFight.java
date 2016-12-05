@@ -31,6 +31,7 @@ public class WindowFight extends JFrame{
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(new GridLayout(2,1));
 		this.setUndecorated(true);
+		this.requestFocusInWindow();
 		
 		JPanel panelEnemy = new JPanel();
 		panelEnemy.setLayout(new GridLayout(1,2));

@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,11 +26,12 @@ public class WindowInventory extends JFrame{
 	
 	public WindowInventory (Game theGame,Window windowGame){
 		this.windowGame = windowGame;
+		this.windowGame.setEnabled(false);
 		this.theGame = theGame;
 		this.setTitle("Inventory");
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
-		
+		this.requestFocusInWindow();
 		JPanel inventory = new JPanel();
 		inventory.setLayout(new GridLayout(0,2));
 		inventory.setBackground(Color.BLACK);
@@ -271,12 +274,19 @@ public class WindowInventory extends JFrame{
 		this.setResizable(true);
 		this.pack();
 		this.setLocationRelativeTo(this.windowGame);
+		
+		this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                  WindowInventory.this.windowGame.setEnabled(true);
+            }
+		});
 	}
 
 	public void equipPlayer(Item itemToEquip) {
 		this.theGame.getPlayer().equipItem(itemToEquip);
 		this.windowGame.checkItem();
 		this.dispose();
+		this.windowGame.setEnabled(true);
 	}
 
 	public void heal(Item itemToEquip) {
@@ -285,6 +295,7 @@ public class WindowInventory extends JFrame{
 			this.windowGame.checkItem();
 			this.windowGame.setCharac();
 			this.dispose();
+			this.windowGame.setEnabled(true);
 		}
 		else
 			new WindowDisplayMessage("You already have your whole life",this.windowGame);

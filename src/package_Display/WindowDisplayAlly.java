@@ -31,6 +31,7 @@ public class WindowDisplayAlly extends JFrame {
 		this.player = player;
 		this.windowGame = windowGame;
 		this.windowGame.setEnabled(false);
+		this.requestFocusInWindow();
 		this.setBackground(Color.white);
 		this.setUndecorated(true);
 		this.setLayout(new BorderLayout());

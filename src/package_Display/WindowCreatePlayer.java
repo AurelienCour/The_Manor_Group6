@@ -29,6 +29,7 @@ public class WindowCreatePlayer extends JFrame {
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
 		this.setUndecorated(true);
+		this.requestFocusInWindow();
 		// The Panel to recup the date
 		JPanel seizure = new JPanel();
 		seizure.setLayout(new GridLayout(1,2));

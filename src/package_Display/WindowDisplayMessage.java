@@ -26,6 +26,7 @@ public class WindowDisplayMessage extends JFrame {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.GRAY);
 		this.setUndecorated(true);
+		this.requestFocusInWindow();
 		this.setLayout(new BorderLayout(4,4));
 		Font police = new Font("Serif", Font.BOLD, 14);
 		JLabel mess = new JLabel("   "+message+"   ");

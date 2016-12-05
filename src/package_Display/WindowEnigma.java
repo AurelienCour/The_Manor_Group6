@@ -19,6 +19,7 @@ public class WindowEnigma extends JFrame {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setBackground(Color.white);
 		this.setUndecorated(true);
+		this.requestFocusInWindow();
 		this.setLayout(new BorderLayout());
 		jTextf = new JFormattedTextField();
 		JLabel enigma = new JLabel("<html><body align=\"center\"><font color=\"red\">Enigma</font><br/><br/>"+Enigma+"</body>");
