@@ -9,7 +9,7 @@ import package_Display.WindowFight;
  * 
  * @author Group 6
  * @version 30/11/2016
- * all is working
+ * all is working Astem 
  */
 
 public class Game {
