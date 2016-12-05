@@ -75,6 +75,7 @@ public class WindowDisplayAlly extends JFrame {
 		if(this.ally.haveItem()){
 			new WindowDisplayMessage(this.ally.getName()+" give you "+this.ally.getItem().getName(), this.windowGame);
 			this.ally.giveItem(this.player);
+			this.windowGame.checkItem();
 		}
 		else
 			this.windowGame.setEnabled(true);
