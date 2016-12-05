@@ -87,7 +87,7 @@ public class EnigmaticDoorTest {
     @Test
     public void testGoNextRoomIfResolve(){
     	this.door.solveEnigma("Aurelien");
-    	assertEquals(nextRoom,this.door.goNextRoom());
+    	assertEquals(nextRoom,this.door.getNextRoom());
     }
     
     /**
@@ -97,6 +97,6 @@ public class EnigmaticDoorTest {
     @Test
     public void testGoNextRoomIfNotResolve(){
     	this.door.solveEnigma("Not solve");
-    	assertEquals(null,this.door.goNextRoom());
+    	assertEquals(null,this.door.getNextRoom());
     }
 }

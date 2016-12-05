@@ -204,7 +204,7 @@ public class Game {
 		        "<li>\"Where can I find it?\"</li>"+
 		        "<li><font color=\"red\">\"Maybe in his office?\"</font></li>"+
 		        "</ul>",new Potion ("Milk",25)));
-        cellar.addCharacter(new Ally("John", "The gardener",
+        cellar.addCharacter(new Ally("John", "A stranger",
         		"<div align=\"justify\" style=margin:10px;>Oh! Thank goodness you saved me! There are strange creatures that have arrived here."+
 				"One of them attacked me and I entered this manor."+
 				"However, we are blocked here and the key of the hall is in the attic and is kept in good hands... "+
@@ -215,7 +215,7 @@ public class Game {
 				"<li>The last part is located in the most entertaining part of the manor.</li>"+
 				"</ul>Good luck! I hope you get us out of this Manor !</div>",
         		new Shield("Amulet of luck",0)));
-
+        
 		this.notreJoueur.setCurrentRoom(friendRoom2);
     }
     

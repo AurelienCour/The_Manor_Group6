@@ -10,9 +10,9 @@ package the_Manor;
 public class Door 
 {
 	// next room the player is going to enter
-	protected Room nextRoom;
+	private Room nextRoom;
 	// the previous room
-	protected Room previousRoom;
+	private Room previousRoom;
 	/**
 	 * Constructor of the class Door.
 	 * The previousRoom cannot be null.
@@ -46,4 +46,6 @@ public class Door
 	public Room getPreviousRoom(){
 		return this.previousRoom;
 	}
+	
+	
 }

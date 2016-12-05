@@ -14,8 +14,8 @@ package the_Manor;
 
 public abstract class Character {
 
-	protected String name; // the name of the Character
-	protected String description; // a small description of the character
+	private String name; // the name of the Character
+	private String description; // a small description of the character
 	
 	/**
 	 * <p>If the name is empty or null give a default name "Ally" to the character if it is an ally </p>

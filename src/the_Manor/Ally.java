@@ -22,7 +22,7 @@ public class Ally extends Character{
 	public Ally(String newName,String description,String message,Item item) {
 		super(newName,description);
 		if(item == null)
-			System.out.println("The ally"+this.name+" will not possess a default item.");
+			System.out.println("The ally"+this.getName()+" will not possess a default item.");
 		if(message.isEmpty())
 			this.message = "Hello";
 		else

@@ -13,7 +13,7 @@ package the_Manor;
 
 public abstract class Item {
 
-	protected String itemName;//the name of the item
+	private String itemName;//the name of the item
 
 	/**
 	 * This constructor

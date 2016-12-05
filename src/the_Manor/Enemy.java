@@ -29,19 +29,19 @@ public class Enemy extends Fighter{
 		else
 			this.NBMAXSTAMINA = nbMaxStamina;
 		if (attack < 0)
-			this.attack = 0;
+			this.setAttack(0);
 		else
-			this.attack = attack;
+			this.setAttack(attack);
 		if (defense < 0)
-			this.defense = 0;
+			this.setDefense(0);
 		else
-			this.defense = defense;
+			this.setDefense(defense);
 		if(image.isEmpty())
 			this.image="Robert.png";
 		else
 			this.image=image;
-		this.health = this.NBMAXPV;
-		this.stamina = this.NBMAXSTAMINA;
+		this.setHealth(this.NBMAXPV);
+		this.setStamina(this.NBMAXSTAMINA);
 	}
 	
 	public String getImage(){

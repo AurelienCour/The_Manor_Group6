@@ -22,12 +22,12 @@ package the_Manor;
 public abstract class Fighter extends Character{
 
 
-	protected int health; // the Fighter's Health
-	protected int stamina; // the Fighter's Stamina 
+	private int health; // the Fighter's Health
+	private int stamina; // the Fighter's Stamina 
 	protected int NBMAXSTAMINA; // the stamina Fighter's max value 
 	protected int NBMAXPV; // the life points Fighter's max value 
-	protected int attack; // the Fighter's Attack
-	protected int defense; // the Fighter's Defense
+	private int attack; // the Fighter's Attack
+	private int defense; // the Fighter's Defense
 	
 
 	/**
@@ -190,7 +190,7 @@ public abstract class Fighter extends Character{
 	 * @param healthPoints The number of health points to set
 	 * already tested
 	 */
-	private void setHealth(int healthPoints){
+	protected void setHealth(int healthPoints){
 		if (healthPoints >= 0)
 			this.health = healthPoints;
 	}
@@ -199,7 +199,7 @@ public abstract class Fighter extends Character{
 	 * Allow to set player's stamina value.
 	 * @param staminaPoints The number of stamina points to set	 
 	 */
-	private void setStamina(int staminaPoints)
+	protected void setStamina(int staminaPoints)
 	{
 		if (staminaPoints >= 0)
 			this.stamina = staminaPoints;
@@ -209,7 +209,7 @@ public abstract class Fighter extends Character{
 	 * Allows to set the attack points of the fighter
 	 * @param attackPoints The new value of the attack for the fighter
 	 */
-	private void setAttack(int attackPoints)
+	protected void setAttack(int attackPoints)
 	{
 		if (attackPoints >= 0)
 			this.attack = attackPoints;
@@ -219,7 +219,7 @@ public abstract class Fighter extends Character{
 	 * Allows to set the defense points of the fighter
 	 * @param attackPoints The new value of the defense for the fighter
 	 */
-	private void setDefense(int defensePoints)
+	protected void setDefense(int defensePoints)
 	{
 		if (defensePoints >= 0)
 			this.defense = defensePoints;

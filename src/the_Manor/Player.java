@@ -27,10 +27,10 @@ public class Player extends Fighter{
 		super(newName,description);
 		this.NBMAXPV = 100; 
 		this.NBMAXSTAMINA = 100; 
-		this.attack = 10; 
-		this.defense = 10; 
-		this.health = this.NBMAXPV; 
-		this.stamina = this.NBMAXSTAMINA; 
+		this.setAttack(10);
+		this.setDefense(10);
+		this.setHealth(this.NBMAXPV);
+		this.setStamina(this.NBMAXSTAMINA);
 		inventory = new ArrayList<Item>();
 	}
 	

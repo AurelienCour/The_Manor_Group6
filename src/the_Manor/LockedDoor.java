@@ -63,11 +63,11 @@ public class LockedDoor extends Door{
 	 * Function allowing the player to go in another room if the door is open
 	 * @return The next room the player is going to enter. If the door is locked return null
 	 */
-	public Room goNextRoom(){
+	public Room getNextRoom(){
 		if(isLocked())
 			return null;
 		else
-			return nextRoom;
+			return goNextRoom();
 	}
 	
 	/**
