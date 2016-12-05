@@ -7,7 +7,7 @@ import javax.swing.*;
 public class WindowTutorial extends JFrame{
 
 	/**
-	 * 
+	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
 	final int WIDTH_WINDOW =1000;

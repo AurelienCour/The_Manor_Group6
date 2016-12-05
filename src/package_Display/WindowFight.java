@@ -11,7 +11,7 @@ import the_Manor.Room;
 public class WindowFight extends JFrame{
 	
 	/**
-	 * 
+	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
 	private Fight combat;

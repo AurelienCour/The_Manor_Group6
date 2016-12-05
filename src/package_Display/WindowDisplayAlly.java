@@ -9,7 +9,7 @@ import the_Manor.Player;
 public class WindowDisplayAlly extends JFrame {
 	
 	/**
-	 * 
+	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
 	private Ally ally;
