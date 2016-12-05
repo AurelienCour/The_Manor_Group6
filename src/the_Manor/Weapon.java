@@ -9,7 +9,7 @@ package the_Manor;
 
 public class Weapon extends Item {
 	
-	private int weaponAttack; 
+	private int weaponAttack; // The attack value of the weapon.
 
 	/**
 	 * This constructor allows to create a weapon name and initialize its attack points.
