@@ -262,7 +262,7 @@ public class Window extends JFrame{
 				break;
 		}
 		if(newGame.getPlayer().getCurrentRoom().getName().equals("Victory"))
-			new WindowGameOver(this);
+			new WindowEnd(this,"Win.png");
 		else{
 			// Change the background
 			URL url = StartingWindow.class.getResource("Image/Background/"+this.newGame.getPlayer().getCurrentRoom().getBackground());

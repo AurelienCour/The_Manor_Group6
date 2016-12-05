@@ -5,6 +5,11 @@ import java.awt.event.*;
 import java.io.IOException;
 import javax.swing.*;
 
+/**
+ * A window to display a message
+ * @author Group6
+ *
+ */
 public class WindowDisplayMessage extends JFrame {
 	
 	/**
@@ -28,13 +33,14 @@ public class WindowDisplayMessage extends JFrame {
 		this.setUndecorated(true);
 		this.requestFocusInWindow();
 		this.setLayout(new BorderLayout(4,4));
-		Font police = new Font("Serif", Font.BOLD, 14);
+
+		// The label with the message
 		JLabel mess = new JLabel("   "+message+"   ");
 		mess.setHorizontalAlignment(JLabel.CENTER);
-		mess.setFont(police);
+		
+		// The button to close the frame
 		JButton validate = new JButton("OK");
 		validate.setFocusPainted(false);
-		validate.setFont(police);
 		validate.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
 				WindowDisplayMessage.this.dispose();
@@ -42,6 +48,7 @@ public class WindowDisplayMessage extends JFrame {
             }
 		});
 		
+		// Assign the font to the label
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
@@ -49,12 +56,13 @@ public class WindowDisplayMessage extends JFrame {
 			font = font.deriveFont(Font.TRUETYPE_FONT,20);
 			validate.setFont(font);
 			mess.setFont(font);
-			validate.setFont(font);
 		}
 		catch(IOException e){
 		}catch(FontFormatException e){          
 		}catch(IllegalArgumentException e){
 		}
+		
+		
 		this.add(mess,BorderLayout.CENTER);
 		this.add(validate, BorderLayout.SOUTH);
 		this.setVisible(true); 

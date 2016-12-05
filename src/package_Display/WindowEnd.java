@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.net.URL;
 import javax.swing.*;
 
-public class WindowGameOver extends JFrame{
+public class WindowEnd extends JFrame{
 
 	/**
 	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
 	
-	public WindowGameOver (Window windowGame){
+	public WindowEnd (Window windowGame, String imageFinish){
 		windowGame.dispose();
 		this.setTitle("Game Over");
 		this.setLayout(new BorderLayout());
@@ -21,7 +21,7 @@ public class WindowGameOver extends JFrame{
 		JPanel test = new JPanel();
 		test.setBackground(Color.BLACK);
 		test.setLayout(new BorderLayout());
-		URL url = StartingWindow.class.getResource("Image/Background/GameOver.png");
+		URL url = StartingWindow.class.getResource("Image/Background/"+imageFinish);
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(700, 700, Image.SCALE_DEFAULT));
 		JLabel gameOver = new JLabel(icon);
 		gameOver.setLayout(new FlowLayout());
@@ -33,7 +33,7 @@ public class WindowGameOver extends JFrame{
 		quit.setFocusPainted(false);
 		quit.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
-				WindowGameOver.this.dispose();
+				WindowEnd.this.dispose();
 				new StartingWindow();
             }
 		});
@@ -52,7 +52,7 @@ public class WindowGameOver extends JFrame{
 		test.add(gameOver);
 		this.add(test,BorderLayout.CENTER);
 		this.setVisible(true);
-		this.setSize(700, 700);
+		this.setSize(850, 731);
 		this.setLocationRelativeTo(null);
 	}
 }

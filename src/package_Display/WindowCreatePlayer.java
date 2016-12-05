@@ -63,12 +63,14 @@ public class WindowCreatePlayer extends JFrame {
 		
 		seizure.add(label);
 		seizure.add(jText);
+		
 		// The button to validate the seizure
 		JButton validate = new JButton("Validate");
 		validate.addActionListener(new Actions(this,"infoPlayer"));
 		validate.setBackground(Color.BLACK);
 		validate.setForeground(Color.RED);
 		
+		// Assign the font to the label
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
@@ -93,6 +95,9 @@ public class WindowCreatePlayer extends JFrame {
 		this.setLocationRelativeTo(this.windowOrigin);
 	}
 	
+	/**
+	 * Allow to recup the information in the textField
+	 */
 	public void recupInfo(){
 		this.dispose();
 		ArrayList<String> infoPlayer = new ArrayList<String>();

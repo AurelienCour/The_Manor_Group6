@@ -236,7 +236,8 @@ public class Game {
         		new Shield("Amulet of luck",0)));
         
         // The first room of the player.
-		this.ourPlayer.setCurrentRoom(friendRoom2);
+        hall.addItem(keyHall);
+		this.ourPlayer.setCurrentRoom(hall);
     }
     
     /**
