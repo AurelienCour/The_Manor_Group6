@@ -1,14 +1,8 @@
 package package_Display;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
-
 import javax.swing.*;
 
 public class WindowDisplayMessage extends JFrame {

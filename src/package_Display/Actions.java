@@ -1,8 +1,6 @@
 package package_Display;
 
 import java.awt.event.*;
-
-import the_Manor.Game;
 import the_Manor.Item;
 
 /**

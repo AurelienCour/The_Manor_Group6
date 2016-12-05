@@ -1,16 +1,10 @@
 package package_Display;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
-
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-
 import the_Manor.Fight;
 import the_Manor.Room;
 

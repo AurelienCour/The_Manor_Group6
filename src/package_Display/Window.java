@@ -1,12 +1,7 @@
 package package_Display;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.File;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.URL;
 
@@ -14,11 +9,8 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import the_Manor.Ally;
-import the_Manor.Enemy;
-import the_Manor.Fight;
 import the_Manor.Game;
 import the_Manor.Key;
-import the_Manor.Player;
 
 /**
  * The class of the main window of the game

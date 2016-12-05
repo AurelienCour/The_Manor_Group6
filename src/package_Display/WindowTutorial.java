@@ -1,9 +1,7 @@
 package package_Display;
 
-import java.awt.BorderLayout;
-import java.awt.Image;
+import java.awt.*;
 import java.net.URL;
-
 import javax.swing.*;
 
 public class WindowTutorial extends JFrame{

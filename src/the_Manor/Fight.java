@@ -1,7 +1,5 @@
 package the_Manor;
 
-import package_Display.WindowDisplayMessage;
-
 /**
  * <p>This class allow to make a fight happens between the player and an enemy</p>
  * <p>As the player enters in a room, if there is a enemy in this room, the figth is lauched</p>
