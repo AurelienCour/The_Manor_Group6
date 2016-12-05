@@ -57,14 +57,16 @@ public class WindowInventory extends JFrame{
 		for (int i=0; i<allWeapon.size(); i++)
 		{
 			if(this.theGame.getPlayer().haveThisWeapon(allWeapon.get(i))){
-				buttonsWeapon[i] = new JButton("desequip");
+				buttonsWeapon[i] = new JButton("unequip");
 				buttonsWeapon[i].addActionListener(new ActionListener(){
 					public void actionPerformed (ActionEvent e){
 						WindowInventory.this.theGame.getPlayer().desequipWeapon();
 						WindowInventory.this.windowGame.checkItem();
 						WindowInventory.this.dispose();
+						WindowInventory.this.windowGame.setEnabled(true);
 		            }
 				});
+				
 			}
 			else{
 				buttonsWeapon[i] = new JButton("equip");
@@ -110,7 +112,7 @@ public class WindowInventory extends JFrame{
 		for (int i=0; i<allShield.size(); i++)
 		{
 			if(this.theGame.getPlayer().haveThisShield(allShield.get(i))){
-				buttonsShield[i] = new JButton("desequip");
+				buttonsShield[i] = new JButton("unequip");
 				buttonsShield[i].addActionListener(new ActionListener(){
 					public void actionPerformed (ActionEvent e){
 						WindowInventory.this.theGame.getPlayer().desequipShield();

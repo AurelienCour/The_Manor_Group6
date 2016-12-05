@@ -208,12 +208,11 @@ public class WindowFight extends JFrame{
 			this.windowGame.setEnabled(false);
 		}
 		this.windowGame.setEnabled(false);
-		this.combat.attack(this.combat.getEnemy());
-		this.verifCharac();
 		if(!this.combat.getPlayer().isAlive()){
 			new WindowGameOver(this.windowGame);
 			this.dispose();	
 		}
+		this.verifCharac();
 	}
 	
 	

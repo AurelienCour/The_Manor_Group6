@@ -161,7 +161,7 @@ public class Window extends JFrame{
 		durability.setLayout(new GridLayout(2,1,4,4));
 		durability.setBackground(Color.BLACK);
 		Font police = new Font("Serif", Font.PLAIN, (WIDTH_WINDOW*2)/100);
-		lifePoint = new JLabel("PV   "+newGame.getPlayer().getHealth()+" / "+newGame.getPlayer().getNbMaxHealth());
+		lifePoint = new JLabel("LP   "+newGame.getPlayer().getHealth()+" / "+newGame.getPlayer().getNbMaxHealth());
 		lifePoint.setForeground(Color.RED);
 		lifePoint.setFont(police);
 		staminaPoint = new JLabel("STAMINA   "+newGame.getPlayer().getStamina()+" / "+newGame.getPlayer().getNbMaxStamina());
