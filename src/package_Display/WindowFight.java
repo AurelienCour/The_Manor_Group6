@@ -43,6 +43,11 @@ public class WindowFight extends JFrame{
 		this.requestFocusInWindow();
 		
 		////// ENEMY
+		// The label for the name of the enemy
+		JLabel nameEnemy = new JLabel(this.fight.getEnemy().getName());
+		nameEnemy.setForeground(Color.WHITE);
+		nameEnemy.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		// All the characteristics about the enemy
 		healthEnemy = new JLabel("  "+this.fight.getEnemy().getHealth()+" / "+this.fight.getEnemy().getNbMaxHealth());
 		healthEnemy.setForeground(Color.RED);
@@ -61,11 +66,6 @@ public class WindowFight extends JFrame{
 		characEnemy.add(attackEnemy);
 		characEnemy.add(staminaEnemy);
 		characEnemy.add(armorEnemy);
-		
-		// The label for the name of the enemy
-		JLabel nameEnemy = new JLabel(this.fight.getEnemy().getName());
-		nameEnemy.setForeground(Color.WHITE);
-		nameEnemy.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		// Add all the informations about the enemy in a panel
 		JPanel infoEnemy = new JPanel();
@@ -87,6 +87,11 @@ public class WindowFight extends JFrame{
 		panelEnemy.add(new JLabel(icon));
 		
 		///// PLAYER
+		// The label for the name of the player
+		JLabel namePlayer = new JLabel(this.fight.getPlayer().getName());
+		namePlayer.setForeground(Color.WHITE);
+		namePlayer.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		// All the characteristics about the player
 		healthPlayer = new JLabel(this.fight.getPlayer().getHealth()+" / "+this.fight.getPlayer().getNbMaxHealth()+"  ");
 		healthPlayer.setForeground(Color.RED);
@@ -105,11 +110,6 @@ public class WindowFight extends JFrame{
 		characPlayer.add(attackPlayer);
 		characPlayer.add(staminaPlayer);
 		characPlayer.add(armorPlayer);
-		
-		// The label for the name of the player
-		JLabel namePlayer = new JLabel(this.fight.getPlayer().getName());
-		namePlayer.setForeground(Color.WHITE);
-		namePlayer.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		// Add all the informations about the player in a panel
 		JPanel infoPlayer = new JPanel();

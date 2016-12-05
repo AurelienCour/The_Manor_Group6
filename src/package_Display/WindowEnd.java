@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 import javax.swing.*;
 
+/**
+ * The window when the player loose or win the game
+ * @author Aurelien
+ *
+ */
 public class WindowEnd extends JFrame{
 
 	/**
@@ -15,19 +20,18 @@ public class WindowEnd extends JFrame{
 	final int WIDTH_WINDOW = 850; // The width of the window
 	final int HEIGHT_WINDOW = (WIDTH_WINDOW*86)/100; // The height of the window
 	
+	/**
+	 * The constructor of the class WindowEnd
+	 * @param windowGame The window of the game
+	 * @param imageFinish The name of the image to display
+	 */
 	public WindowEnd (Window windowGame, String imageFinish){
 		windowGame.dispose();
-		this.setTitle("Game Over");
+		this.setTitle("END");
 		this.setLayout(new BorderLayout());
 		this.setUndecorated(true);
-		JPanel test = new JPanel();
-		test.setBackground(Color.BLACK);
-		test.setLayout(new BorderLayout());
-		URL url = StartingWindow.class.getResource("Image/Background/"+imageFinish);
-		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
-		JLabel gameOver = new JLabel(icon);
-		gameOver.setLayout(new FlowLayout());
 		
+		// The button to quit the game
 		JButton quit = new JButton("Quit");
 		quit.setPreferredSize(new Dimension(90,40));
 		quit.setBackground(Color.BLACK);
@@ -39,7 +43,17 @@ public class WindowEnd extends JFrame{
 				new StartingWindow();
             }
 		});
-		gameOver.add(quit);
+		
+		// Recup the icon for the background
+		URL url = StartingWindow.class.getResource("Image/Background/"+imageFinish);
+		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
+		
+		// The label for the background and the button
+		JLabel image = new JLabel(icon);
+		image.setLayout(new FlowLayout());
+		image.add(quit);
+		
+		// Assign the font to the button
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
@@ -51,8 +65,8 @@ public class WindowEnd extends JFrame{
 		}catch(FontFormatException e){          
 		}catch(IllegalArgumentException e){
 		}
-		test.add(gameOver);
-		this.add(test,BorderLayout.CENTER);
+		
+		this.add(image);
 		this.setVisible(true);
 		this.setSize(WIDTH_WINDOW, HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);

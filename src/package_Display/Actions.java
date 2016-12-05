@@ -2,6 +2,7 @@ package package_Display;
 
 import java.awt.event.*;
 import the_Manor.Item;
+import the_Manor.Potion;
 
 /**
  * To manage the action of the buttons
@@ -143,7 +144,7 @@ public class Actions implements ActionListener
         	this.windowFight.escape();
         }
         else if(idAction.equals("healInv")){
-        	this.inventory.heal(itemToEquip);
+        	this.inventory.heal((Potion) itemToEquip);
         }
         else if(idAction.equals("messageAlly")){
         	this.windowDisplayAlly.message();
