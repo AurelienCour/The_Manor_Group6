@@ -23,7 +23,7 @@ public class EnemyTest {
 	
     @Before
     public void setUp() {
-    	this.enemy = new Enemy("Toto", "", 0, 0, 0, 0);
+    	this.enemy = new Enemy("Toto", "", 0, 0, 0, 0,"");
     }
 
     @After

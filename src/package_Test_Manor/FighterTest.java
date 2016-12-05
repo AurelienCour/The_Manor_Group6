@@ -35,7 +35,7 @@ public class FighterTest {
     @Before
     public void setUp() {
     	myPlayer = new Player("John","description");
-    	myEnemy = new Enemy("Zombie", "description",100,60,10,10);
+    	myEnemy = new Enemy("Zombie", "description",100,60,10,10,"");
     }
 
     @After

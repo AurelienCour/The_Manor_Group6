@@ -87,7 +87,7 @@ public class RoomTest
 	@Test
 	public void testAddCharacter()
 	{
-		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5);
+		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5,"");
 		myRoom.addCharacter(myCharacter);
 		assertEquals(1, myRoom.numberOfChararacterInRoom());
 	}
@@ -99,7 +99,7 @@ public class RoomTest
 	@Test
 	public void testNameCharacter()
 	{	
-		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5);
+		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5,"");
 		myRoom.addCharacter(myCharacter);
 		assertEquals(myCharacter, myRoom.getCharacter("Test"));
 	}
@@ -137,7 +137,7 @@ public class RoomTest
 	@Test
 	public void testDeleteEnemy()
 	{
-		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5);
+		Enemy myCharacter = new Enemy("Test", "description", 50, 50, 5, 5,"");
 		myRoom.addCharacter(myCharacter);
 		myRoom.deleteEnemy(myCharacter);
 		assertEquals(0, myRoom.numberOfChararacterInRoom());
