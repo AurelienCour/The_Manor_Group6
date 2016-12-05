@@ -36,7 +36,7 @@ public class Enemy extends Fighter{
 			this.setDefense(0);
 		else
 			this.setDefense(defense);
-		if(image.isEmpty())
+		if(image == null || image.isEmpty())
 			this.image="Robert.png";
 		else
 			this.image=image;
