@@ -205,9 +205,9 @@ public class Game {
         cellar.addCharacter(new Ally("John", "The gardener",
         		"<div align=\"justify\" style=margin:10px;>Oh! Thank goodness you saved me! There are strange creatures that have arrived here."+
 				"One of them attacked me and I entered this manor."+
-				" However, we are blocked here and the key of the hall is in the attic and is kept in good hands... "+
-				"In order to access this room, you need to discover the code that will open the door, this code is hidden in the rooms forming this manor. I have heard of several clues to find them:"+
-				"<ul><li>The first part is in a room filled with clothing or throne an armchair;</li>"+
+				"However, we are blocked here and the key of the hall is in the attic and is kept in good hands... "+
+				"In order to access that room, you need to discover the code that will open the door; this code is hidden in the rooms forming this manor. I have heard of several clues to find them:"+
+				"<ul><li>The first part is in a room filled with clothing and a throne armchair;</li>"+
 				"<li>The second part of the code is in a room adorned with a luminous ball;</li>"+
 				"<li>Near a chimney, you will find the third part;</li>"+
 				"<li>The last part is located in the most entertaining part of the manor.</li>"+
