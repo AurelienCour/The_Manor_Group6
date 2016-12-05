@@ -21,7 +21,7 @@ public class WindowDisplayAlly extends JFrame {
 		this.setBackground(Color.white);
 		this.setUndecorated(true);
 		this.setLayout(new BorderLayout());
-		JLabel allyLabel = new JLabel("<html><body><div align=\"center\"><font color=\"red\">"+this.ally.getDescription()+" : "+this.ally.getName()+"</font></div><br/><br/>"+this.ally.getMessage()+"</body>");
+		JLabel allyLabel = new JLabel("<html><body><br/><div align=\"center\"><font color=\"red\">"+this.ally.getDescription()+" : "+this.ally.getName()+"</font></div>"+this.ally.getMessage()+"</body>");
 		JButton validate = new JButton("Validate");
 		validate.setFocusPainted(false);
 		validate.addActionListener(new Actions(this,"messageAlly"));
