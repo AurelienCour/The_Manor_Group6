@@ -2,22 +2,22 @@ package the_Manor;
 
 /**
  * <p>This class defines the Fighter characters.</p>
- * <p>A fighter has : </p>
+ * <p>A fighter has: </p>
  * <ul>
- * <li> health : integer variable defining the lifepoints. 100 by default</li>
- * <li> stamina : integer variable defining the stamina. 60 by default</li>
- * <li> attack : integer variable. 5 by default</li>
- * <li> defense : integer variable. 3 by default</li>
+ * <li> health: integer variable defining the lifepoints, 100 by default</li>
+ * <li> stamina: integer variable defining the stamina, 60 by default</li>
+ * <li> attack: integer variable, 5 by default</li>
+ * <li> defense: integer variable, 3 by default</li>
  * </ul>
- * <p>The fighter can : </p>
+ * <p>The fighter: </p>
  * <ul>
- * <li> Attack with his base attack or with a weapon. Weapon adds attack points </li>
- * <li> Defend with his base attack or with a shield. Shield adds defense points  </li>
- * <li> Die if his health goes bellow 0 </li>
+ * <li> Attacks with his base attack or with a weapon. Weapon add attack points </li>
+ * <li> Defends with his base attack or with a shield. Shield add defense points  </li>
+ * <li> Dies if his health goes bellow 0 </li>
  * <li> Can no longer attack if his stamina reaches 0</li>
  * </ul>
  * @author Group 6
- * @version 24/11/2016
+ * @version 05/12/16
  */
 public abstract class Fighter extends Character{
 
@@ -31,7 +31,7 @@ public abstract class Fighter extends Character{
 	
 
 	/**
-	 * This is the constructor for the Fighter
+	 * Constructor for the Fighter
 	 * @param newName the Name of the Fighter
 	 * @param description The description of the fighter
 	 */
@@ -94,7 +94,7 @@ public abstract class Fighter extends Character{
 	 */
 	public void addStamina(int nbToAdd){
 		if (nbToAdd > 0)
-			if(this.getNbMaxStamina() < (this.getStamina()+nbToAdd))
+			if(this.getNbMaxStamina() < (this.getStamina()+nbToAdd)) // If the stamina value is not upper after having incremented it, the stamina does not change.
 				this.setStamina(this.getNbMaxStamina());		
 			else
 				this.setStamina(this.getStamina()+nbToAdd);
@@ -225,6 +225,10 @@ public abstract class Fighter extends Character{
 			this.defense = defensePoints;
 	}	
 	
+	/**
+	 * Allows to see if the fighter is alive or not.
+	 * @return The boolean value saying if the fighter is alive or not (True: alive, False: dead).
+	 */
 	public boolean isAlive(){
 		if(this.getHealth() != 0)
 			return true;
