@@ -27,7 +27,7 @@ public class WindowDisplayAlly extends JFrame {
 		validate.addActionListener(new Actions(this,"messageAlly"));
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/feast_of_flesh_bb/FEASFBI_.TTF"));
+			Font font = Font.createFont(Font.TRUETYPE_FONT,this.getClass().getResourceAsStream("Font/friday13/Friday13v12.ttf"));
 			ge.registerFont(font);
 			font = font.deriveFont(Font.TRUETYPE_FONT,18);
 			allyLabel.setFont(font);
