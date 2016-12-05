@@ -246,7 +246,7 @@ public class Game {
     public void move(String direction){
 		if(this.ourPlayer.getCurrentRoom().getDoor(direction) != null){
 			Room current = this.ourPlayer.getCurrentRoom(); // A room object is created with the current room of the player.
-			Room temp = this.ourPlayer.getCurrentRoom().getDoor(direction).getNextRoom(); // A room object is created corresponding to the next room the player is going to enter.
+			Room temp = this.ourPlayer.getCurrentRoom().getDoor(direction).goNextRoom(); // A room object is created corresponding to the next room the player is going to enter.
 			if(temp != null){ // The room object representing the next room must not be null, if is null the room is lock
 				this.ourPlayer.setCurrentRoom(temp); // The room object representing the next room of the player becomes the current room of the player: the player changed of room.
 				if(this.ourPlayer.getCurrentRoom().numberOfChararacterInRoom() != 0){ // If there is a character in the new room of the player,

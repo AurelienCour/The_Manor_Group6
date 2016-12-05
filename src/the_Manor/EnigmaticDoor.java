@@ -59,12 +59,12 @@ public class EnigmaticDoor extends Door{
 	 * Function allowing the player to go in another room if the door is unlocked.
 	 * @return The next room the player is going to enter. 
 	 */
-	public Room getNextRoom(){
+	public Room goNextRoom(){
 		if(this.locked){
 			return null;
 		}
 		else
-			return this.nextRoom;
+			return this.getNextRoom();
 	}
 	
 	/**

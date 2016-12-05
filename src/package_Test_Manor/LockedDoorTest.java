@@ -98,7 +98,7 @@ public class LockedDoorTest {
     	player.setCurrentRoom(previousRoom);    	    	
     	player.pickUp(key);
     	this.door.unlock(player);
-    	door.getNextRoom();
+    	door.goNextRoom();
     	assertEquals(nextRoom,player.getCurrentRoom());
     }
     
@@ -110,6 +110,6 @@ public class LockedDoorTest {
     public void testGoNextRoomIfLock(){
     	Player player = new Player("Paul", "Description");
     	this.door.unlock(player);
-    	assertEquals(null,this.door.getNextRoom());
+    	assertEquals(null,this.door.goNextRoom());
     }
 }
