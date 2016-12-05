@@ -8,20 +8,23 @@ import package_Display.WindowFight;
  * It is called within the windows class for graphic interactions</p>
  * 
  * @author Group 6
- * @version 30/11/2016
+ * @version 05/12/16
  */
 
 public class Game {
 	
-	private Player notreJoueur;
-	private Window windowGame;
+	private Player ourPlayer; // The player playing the game
+	private Window windowGame; // The window displaying the game
+	
 	/**
 	 * The constructor of the class Game
-	 * @param windowGame The window to display the game	 
+	 * @param windowGame The window displaying the game	
+	 * @param name The name of the player that will play
+	 * @param description The description of the player that will play
 	 */	
 	public Game(Window windowGame,String name, String description) {
-		this.notreJoueur = new Player(name, description);
-		createRooms();
+		this.ourPlayer = new Player(name, description);
+		createRooms(); // All the rooms of the game are created here.
 		this.windowGame = windowGame;
 	}
 	
@@ -35,7 +38,11 @@ public class Game {
         Room floor2,friendRoom2,corridor2_1,bathroom2,gameRoom2,corridor2_2,corridor2_3,sisterRoom2,dressingSister2;
         Room attic;
         
+        //***DOORS***
+        
+        // Outside
         outside = new Room("Victory","fond.png");
+        
         // Ground floor
         hall = new Room("Hall","Hall.png");
         living = new Room("Living room","Living_Room.png");
@@ -69,9 +76,13 @@ public class Game {
         Key keyFloor2 = new Key("Floor one Key");
         Key keyCellar = new Key("Cellar key");
         
-        //Ground floor	
+        //***EXITS***
+        
+        //Outside
         outside.addExit("NORD", null, hall);
         
+        //Ground floor	
+                
         hall.addExit("OUEST", null, kitchen);
         hall.addExit("EST", null, living);
         hall.addExit("NORD", null, floor1);
@@ -122,12 +133,14 @@ public class Game {
         
         bathroom2.addExit("NORD", null, corridor2_1);
 		
-        //Last floor
+        // Attic
         attic.addExit("EST", null, corridor2_3);
 		
         friendRoom2.addEnigmaticExit("SUD", "I usually have streets without paving stones, cities without building, forests without tree, river without water. What am I ?", "Map", corridor2_1);
 		
-		//floor
+		//***ENIGMATIC EXITS***
+        
+        // Floor 1
 		living.addEnigmaticExit("SUD","I am more powerful than God. I am more wicked than the Devil. The poor have it. The rich lacks it. If you eat me, you will die. Who am I?","Nothing",office);
 		
 		//floor 1
@@ -140,21 +153,25 @@ public class Game {
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son. I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
         corridor2_3.addEnigmaticExit("OUEST","What is the hidden code of the Manor ?","6904", attic);
       
-        // ITEM AND CHARACTER
+        //***ITEMS AND CHARACTERS IN THE ROOMS***
+        
+        
+        // SHIELDS        
         friendRoom2.addItem(new Shield ("Chair",2));
         friendRoom2.addItem(new Shield ("Computer",1));
         corridor2_2.addItem(new Shield ("Paper",0));
         cellar.addItem(new Shield ("Plate",25));
         parentRoom2.addItem(new Shield("Tablet",8));
         
+        // WEAPONS
         friendRoom2.addItem(new Weapon ("Pen",2));
         friendRoom2.addItem(new Weapon ("Light",1));
         living.addItem(new Weapon ("Bottle",5));
         gameRoom2.addItem(new Weapon ("Bat",10));
         dressingParent1.addItem(new Weapon ("Hanger",8));
-		tropheRoom1.addItem(new Weapon ("Sword",30));
+		tropheRoom1.addItem(new Weapon ("Sword",30));        
         
-        
+		// POTIONS	
 		friendRoom2.addItem(new Potion ("Water",10));
 		friendRoom2.addItem(new Potion ("Water",10));
 		kitchen.addItem(new Potion ("Bred",5));
@@ -162,11 +179,13 @@ public class Game {
 		bathroom2.addItem(new Potion ("Alcohol",20));
 		bathroom1.addItem(new Potion ("Medikit",50));
 		
+		// KEYS
 		dressingSister2.addItem(keyFloor2);
 		office.addItem(keyTrophe);
 		attic.addItem(keyHall);
 		tropheRoom1.addItem(keyCellar);
 		
+		// CHARACTERS	
 		gameRoom2.addCharacter(new Enemy("Laurel","Friend's girlfriend", 50, 60, 5, 10,"Laurel.png"));
         dressingSister2.addCharacter(new Enemy("Moira","Friend's mother", 60, 60, 5, 10,"Moira.png"));
         floor1.addCharacter(new Enemy("Malcolm","Mother's lover", 75, 60, 10, 10,"Malcolm.png"));
@@ -175,7 +194,7 @@ public class Game {
         attic.addCharacter(new Enemy("Tommy","Friend", 125, 60, 30, 20,"Tommy.png"));
         sisterRoom2.addCharacter(new Ally("Thea","Friend's sister",
         		"<ul>"+
-				"<li><font color=\"red\">"+this.notreJoueur.getName()+" ! You’re alive!</font></li>"+
+				"<li><font color=\"red\">"+this.ourPlayer.getName()+" ! You’re alive!</font></li>"+
 				"<li>\"What?!\" you exclaimed with surprise. Something was wrong with that sentence.</li>"+
 				"<li><font color=\"red\">Quick! Close the door!</font></li>"+
 				"<li>You closed the door with a frown.</li>"+
@@ -183,7 +202,7 @@ public class Game {
 				"<li>\"What?\" you asked with a shake of head.</li>"+
 				"<li><font color=\"red\">Everyone is dead. At least that’s what I think. Now they roam the house, groaning and moaning…</font></li>"+
 				"<li>\"I don’t understand…\" You whispered. Thea seemed on the verge of crying.</li>"+
-				"<li><font color=\"red\">Zombies all of them. You must flee, "+this.notreJoueur.getName()+".</font></li>"+
+				"<li><font color=\"red\">Zombies all of them. You must flee, "+this.ourPlayer.getName()+".</font></li>"+
 				"<li>\"What about you?\" You replied with worry. You couldn’t leave her alone.</li>"+
 				"<li><font color=\"red\">I can’t leave. They’re still my familly. Take this, it will help you. Now go!</font></li>"+
 				"<li>\"Damn it!\" You exclaimed before taking what she was offering and leaving.</li>"+
@@ -216,7 +235,8 @@ public class Game {
 				"</ul>Good luck! I hope you get us out of this Manor !</div>",
         		new Shield("Amulet of luck",0)));
         
-		this.notreJoueur.setCurrentRoom(friendRoom2);
+        // The first room of the player.
+		this.ourPlayer.setCurrentRoom(friendRoom2);
     }
     
     /**
@@ -224,39 +244,45 @@ public class Game {
      * @param direction The direction to move
      */
     public void move(String direction){
-		if(this.notreJoueur.getCurrentRoom().getDoor(direction) != null){
-			Room current = this.notreJoueur.getCurrentRoom();
-			Room temp = this.notreJoueur.getCurrentRoom().getDoor(direction).goNextRoom();
-			if(temp != null){
-				this.notreJoueur.setCurrentRoom(temp);
-				if(this.notreJoueur.getCurrentRoom().numberOfChararacterInRoom() != 0){
-					if(this.notreJoueur.getCurrentRoom().getEnemy() != null && this.notreJoueur.getCurrentRoom().getEnemy().isAlive()){
-						Fight fight = new Fight(this.notreJoueur,this.notreJoueur.getCurrentRoom().getEnemy());
-						new WindowFight(fight,this.windowGame,current);
+		if(this.ourPlayer.getCurrentRoom().getDoor(direction) != null){
+			Room current = this.ourPlayer.getCurrentRoom(); // A room object is created with the current room of the player.
+			Room temp = this.ourPlayer.getCurrentRoom().getDoor(direction).goNextRoom(); // A room object is created corresponding to the next room the player is going to enter.
+			if(temp != null){ // The room object representing the next room must not be null
+				this.ourPlayer.setCurrentRoom(temp); // The room object representing the next room of the player becomes the current room of the player: the player changed of room.
+				if(this.ourPlayer.getCurrentRoom().numberOfChararacterInRoom() != 0){ // If there is a character in the new room of the player,
+					if(this.ourPlayer.getCurrentRoom().getEnemy() != null && this.ourPlayer.getCurrentRoom().getEnemy().isAlive()){ // If this character is an alive enemy,
+						Fight fight = new Fight(this.ourPlayer,this.ourPlayer.getCurrentRoom().getEnemy()); // A fight object is created representing the fight between the player and the enemy encountered.
+						new WindowFight(fight,this.windowGame,current); // This fight will occur in another window
 					}
-					else if(this.notreJoueur.getCurrentRoom().getAlly() != null){
-						this.windowGame.ally(this.notreJoueur.getCurrentRoom().getAlly());
+					else if(this.ourPlayer.getCurrentRoom().getAlly() != null){ // If the character presents in the room is an ally,
+						this.windowGame.ally(this.ourPlayer.getCurrentRoom().getAlly()); // gets this ally.
 					}
 				}
 			}
-			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){
-					EnigmaticDoor temp2 = (EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
-					this.windowGame.enigmaticMove(temp2.getEnigma(),direction);
+		else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){ // If the door to cross is an enigmatic door,
+				EnigmaticDoor temp2 = (EnigmaticDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); 
+				this.windowGame.enigmaticMove(temp2.getEnigma(),direction);
 			}
-			else if(this.notreJoueur.getCurrentRoom().getDoor(direction) instanceof LockedDoor){
-				LockedDoor temp2 = (LockedDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
-				if(temp2.unlock(this.notreJoueur)){
-					this.notreJoueur.removeKey(temp2.getKey());
-					this.windowGame.lockDoor(false,temp2.getKey());
-				}
-				else
-					this.windowGame.lockDoor(true,temp2.getKey());
+		else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof LockedDoor){
+			LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction);
+			if(temp2.unlock(this.ourPlayer)){
+				this.ourPlayer.removeKey(temp2.getKey());
+				this.windowGame.lockDoor(false,temp2.getKey());
+			}
+			else
+				this.windowGame.lockDoor(true,temp2.getKey());
 			}
 		}
     }
     
+    /**
+     * Allows to checks if the answer to the enigma is true of not.
+     * @param response The response given by the player.
+     * @param direction The direction of the door.
+     * @return A boolean to say if the answer is good (True: good ; False: not good).
+     */
     public boolean verifyResponseForEnigma(String response,String direction){
-    	EnigmaticDoor temp =(EnigmaticDoor) this.notreJoueur.getCurrentRoom().getDoor(direction);
+    	EnigmaticDoor temp =(EnigmaticDoor) this.ourPlayer.getCurrentRoom().getDoor(direction);
     	if(temp.solveEnigma(response))
     		return true;
     	else
@@ -268,18 +294,22 @@ public class Game {
      * @return The name of the item
      */
     public String search(){
-    	if(this.notreJoueur.getCurrentRoom().numberOfItemInRoom() == 0)
-			return "";
+    	if(this.ourPlayer.getCurrentRoom().numberOfItemInRoom() == 0)
+			return ""; // No item presents in the room
 		else{
-			String name = this.notreJoueur.getCurrentRoom().getItem().getName();
-			this.notreJoueur.pickUp(this.notreJoueur.getCurrentRoom().getItem());
-			this.notreJoueur.getCurrentRoom().removeItem(this.notreJoueur.getCurrentRoom().getItem());
+			String name = this.ourPlayer.getCurrentRoom().getItem().getName(); // Recovery of the name of the item
+			this.ourPlayer.pickUp(this.ourPlayer.getCurrentRoom().getItem()); // Addition of this item in the inventory of the player
+			this.ourPlayer.getCurrentRoom().removeItem(this.ourPlayer.getCurrentRoom().getItem()); // ???
 			return name;
 		}
     }
     
+    /**
+     * Allows to have the player of the game.
+     * @return The player of the game.
+     */
     public Player getPlayer(){
-    	return this.notreJoueur;
+    	return this.ourPlayer;
     }
     	
 }
