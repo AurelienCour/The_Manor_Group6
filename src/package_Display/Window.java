@@ -250,13 +250,17 @@ public class Window extends JFrame{
 			default:
 				break;
 		}
+		if(newGame.getPlayer().getCurrentRoom().getName().equals("Victory"))
+			new WindowGameOver(this);
+		else{
 		// Change the background
-		URL url = StartingWindow.class.getResource("Image/Background/"+newGame.getPlayer().getCurrentRoom().getBackground());
+		URL url = StartingWindow.class.getResource("Image/Background/"+this.newGame.getPlayer().getCurrentRoom().getBackground());
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT));
     	this.windowGame.setIcon(icon);
     	// Change the title of the JFrame
     	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
     	checkDirection();
+		}
 	}
 	
 	/**
