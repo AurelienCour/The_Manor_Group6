@@ -16,14 +16,13 @@ public class WindowDisplayMessage extends JFrame {
 	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
+	private Window window;
 	
 	/**
 	 * The constructor of the class WindowDisplayMessage
 	 * @param message The message to display
-	 * @param window 
-	 * @param win The window to center the message
+	 * @param window The window to center the message
 	 */
-	private Window window;
 	public WindowDisplayMessage(String message, Window window){
 		this.window = window;
 		this.window.setEnabled(false);

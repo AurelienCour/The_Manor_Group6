@@ -70,7 +70,7 @@ public class Actions implements ActionListener
     /**
      * Constructor for objects of class Actions
      * @param theInventory The window where is the button
-     * @param Item The item in the inventory
+     * @param item The item in the inventory
      * @param idAct The id of the button
      */
     public Actions(WindowInventory theInventory, Item item, String idAct) {

@@ -16,6 +16,7 @@ public class Ally extends Character{
 	 * Ally constructor
 	 * @param newName The name of the ally
 	 * @param description The description of the ally
+	 * @param message The message say by the ally
 	 * @param item The item held by the ally
 	 */
 	public Ally(String newName,String description,String message,Item item) {

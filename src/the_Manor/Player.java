@@ -139,7 +139,7 @@ public class Player extends Fighter{
 	
 	/**
 	 * Return true if the player has a specific key
-	 * @param The specific key
+	 * @param key The specific key
 	 * @return Return true if the player has a specific key
 	 */
 	public boolean haveKey(Key key){

@@ -380,7 +380,7 @@ public class Window extends JFrame{
 	
 	/**
 	 * If an ally is in the room, display the window for the dialog
-	 * @param ally
+	 * @param ally The ally in the room
 	 */
 	public void ally(Ally ally) {
 		new WindowDisplayAlly(ally, this, this.newGame.getPlayer());
