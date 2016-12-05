@@ -1,22 +1,24 @@
 package the_Manor;
 
 /**
- * <p>This Door class stands for a door that a player can use to navigate between the different rooms. </p>
+ * <p>This Door class stands for a door that a player can use to navigate between two different rooms. </p>
  * <p>The only function of this class for the player is the action of going from a room to another room. </p>
+ * 
  * @author Group 6
- * @version 22/11/2016
+ * @version 05/12/16
  */
 
 public class Door 
 {
 	// next room the player is going to enter
 	private Room nextRoom;
-	// the previous room
+	// the previous room of the player
 	private Room previousRoom;
+	
 	/**
 	 * Constructor of the class Door.
 	 * The previousRoom cannot be null.
-	 * The nextRoom can be null. If the nextRoom is null the door leads to the previous room
+	 * The nextRoom can be null. If the nextRoom is null the door leads to the previous room.
 	 * @param nextRoom The next room
 	 * @param previousRoom The previous room
 	 */
@@ -40,12 +42,11 @@ public class Door
 	}
 	
 	/**
-	 * Function to know the previous room
-	 * @return The previous room 
+	 * Function to know the previous room of the player.
+	 * @return The previous room  of the player.
 	 */
 	public Room getPreviousRoom(){
 		return this.previousRoom;
 	}
-	
-	
+		
 }
