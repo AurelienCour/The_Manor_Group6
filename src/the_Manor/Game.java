@@ -175,8 +175,7 @@ public class Game {
 		friendRoom2.addItem(new Potion ("Water",10));
 		friendRoom2.addItem(new Potion ("Water",10));
 		kitchen.addItem(new Potion ("Bred",5));
-		cellar.addItem(new Potion ("Wine",20));
-		bathroom2.addItem(new Potion ("Alcohol",20));
+		bathroom2.addItem(new Potion ("Alcohol",15));
 		bathroom1.addItem(new Potion ("Medikit",50));
 		
 		// KEYS
@@ -222,7 +221,7 @@ public class Game {
 		        "<li><font color=\"red\">\"Maybe you should look around? The master has a collection room. But you need the key.\"</font></li>"+
 		        "<li>\"Where can I find it?\"</li>"+
 		        "<li><font color=\"red\">\"Maybe in his office?\"</font></li>"+
-		        "</ul>",new Potion ("Milk",25)));
+		        "</ul>",new Potion ("Milk",20)));
         cellar.addCharacter(new Ally("John", "A stranger",
         		"<div align=\"justify\" style=margin:10px;>Oh! Thank goodness you saved me! There are strange creatures that have arrived here."+
 				"One of them attacked me and I entered this manor."+
@@ -266,7 +265,7 @@ public class Game {
 			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof LockedDoor){ // If the door is an instance of a LockedDoor
 				LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
 				if(temp2.unlock(this.ourPlayer)){ // If the player can unlock the door
-					this.ourPlayer.removeKey(temp2.getKey()); // Delete the key after using
+					//this.ourPlayer.removeKey(temp2.getKey()); // Delete the key after using
 					this.windowGame.lockDoor(false,temp2.getKey()); // Unlock the door
 				}
 				else
