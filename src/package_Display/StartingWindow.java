@@ -27,11 +27,13 @@ public class StartingWindow extends JFrame{
 		this.setTitle(" The  Manor ");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
+		
 		// The label with the background 
 		URL url = StartingWindow.class.getResource("Image/Background/fond.png");
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
 		theManorBackground = new JLabel(icon);
 		theManorBackground.setLayout(new BorderLayout());
+		
 		// The button start
 		JButton start = new JButton("Start");
 		start.addActionListener(new Actions(this,"createPlayer"));
@@ -40,6 +42,7 @@ public class StartingWindow extends JFrame{
 		start.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		start.setPreferredSize(new Dimension(90,40));
 		start.setFocusPainted(false);
+		
 		// The button tutorial
 		JButton tutorial = new JButton("Tutorial");
 		tutorial.setForeground(Color.WHITE);
@@ -52,6 +55,7 @@ public class StartingWindow extends JFrame{
 				new WindowTutorial();
             }
 		});
+		
 		// The button Quit
 		JButton quit = new JButton("Quit");
 		quit.setForeground(Color.WHITE);
@@ -64,6 +68,7 @@ public class StartingWindow extends JFrame{
 				System.exit(0);
             }
 		});
+		
 		// Set the font of the label
 		try{
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();

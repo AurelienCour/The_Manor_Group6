@@ -12,7 +12,7 @@ import the_Manor.Item;
 public class Actions implements ActionListener
 {
     private String idAction; // To know the button
-    // The different window where the button is
+    // The different window where the buttons are
     private Window windowGame;
     private WindowEnigma windowEnigma;
     private StartingWindow startingWindow;

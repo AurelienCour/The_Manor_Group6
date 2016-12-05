@@ -43,9 +43,11 @@ public class Window extends JFrame{
 		this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		// Icon of the objects and the background
 		JPanel objectAndGame = new JPanel();
 		objectAndGame.setLayout(new BorderLayout());
+		
 		// All the icons for the objects
 		JPanel playerObject = new JPanel();
 		playerObject.setLayout(new GridLayout(4,1));
@@ -64,6 +66,7 @@ public class Window extends JFrame{
 		url = StartingWindow.class.getResource("Image/Icon/Icone_Potion.png");
 		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));
 		iconPotion = new JLabel(icon);
+		
 		// Allow to heal the player with the icon of the potion if the player has a potion
 		iconPotion.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e) {
@@ -148,6 +151,7 @@ public class Window extends JFrame{
 		charac.setBackground(Color.black);
 		url = StartingWindow.class.getResource("Image/Icon/Icone_Loupe.png");
 		icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*10)/100, (WIDTH_WINDOW*10)/100, Image.SCALE_DEFAULT));
+		
 		// The buttons to search in the room
 		JButton search = new JButton(icon);
 		search.setBackground(Color.BLACK);
@@ -156,6 +160,7 @@ public class Window extends JFrame{
 		search.addActionListener(new Actions(this,"search"));
 		search.setFocusPainted(false);
 		charac.add(search,BorderLayout.WEST);
+		
 		// The characteristics of the player (life and stamina)
 		JPanel durability = new JPanel();
 		durability.setLayout(new GridLayout(2,1,4,4));
@@ -167,6 +172,7 @@ public class Window extends JFrame{
 		staminaPoint = new JLabel("STAMINA   "+newGame.getPlayer().getStamina()+" / "+newGame.getPlayer().getNbMaxStamina());
 		staminaPoint.setForeground(Color.GREEN);
 		staminaPoint.setFont(police);
+		
 		// The other characteristics (attack and defense)
 		JPanel characteristics = new JPanel();
 		characteristics.setLayout(new GridLayout(2,1));
@@ -188,6 +194,7 @@ public class Window extends JFrame{
 		inventory.setFocusPainted(false);
 		inventory.setBorder(null);
 		inventory.setFocusPainted(false);
+		
 		// Open the inventory when the player click on the bag
 		inventory.addActionListener(new ActionListener(){
 			public void actionPerformed (ActionEvent e){
@@ -253,13 +260,13 @@ public class Window extends JFrame{
 		if(newGame.getPlayer().getCurrentRoom().getName().equals("Victory"))
 			new WindowGameOver(this);
 		else{
-		// Change the background
-		URL url = StartingWindow.class.getResource("Image/Background/"+this.newGame.getPlayer().getCurrentRoom().getBackground());
-		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT));
-    	this.windowGame.setIcon(icon);
-    	// Change the title of the JFrame
-    	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
-    	checkDirection();
+			// Change the background
+			URL url = StartingWindow.class.getResource("Image/Background/"+this.newGame.getPlayer().getCurrentRoom().getBackground());
+			ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*87)/100, (HEIGHT_WINDOW*84)/100, Image.SCALE_DEFAULT));
+	    	this.windowGame.setIcon(icon);
+	    	// Change the title of the JFrame
+	    	this.setTitle("The_Manor    Player : "+this.newGame.getPlayer().getName()+"    Room : "+this.newGame.getPlayer().getCurrentRoom().getName());
+	    	checkDirection();
 		}
 	}
 	
@@ -378,7 +385,7 @@ public class Window extends JFrame{
 	
 	/**
 	 * The main methods of the game
-	 * @param args
+	 * @param args The string of the main
 	 */
 	public static void main(String[] args){
 		SwingUtilities.invokeLater(new Runnable() {
