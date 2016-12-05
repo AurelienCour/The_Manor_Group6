@@ -36,19 +36,21 @@ public class Game {
         Room attic;
         
         outside = new Room("Victory","fond.png");
-        
+        // Ground floor
         hall = new Room("Hall","Hall.png");
         living = new Room("Living room","Living_Room.png");
         kitchen = new Room("The kitchen","Cuisine.png");
         cellar = new Room("The cellar","Cellar.png");
         office = new Room("Father office","Office.png");
         
+        // Floor one
         floor1 = new Room("First floor","etage_1.png");
         parentRoom2 = new Room("Parents bedroom","ParentRoom.png");
         bathroom1 = new Room("Bathroom, first floor","Bathroom.png");
         dressingParent1 = new Room("Parents dressing room","Dressing_parent.png");
         tropheRoom1 = new Room("Trophee room","armurerie.png");
         
+        // Floor two
         floor2 = new Room("Second floor","escalier2.png");
         friendRoom2 = new Room("Friend bedroom","friendRoom.png");
         corridor2_1 = new Room("Corridor one, second floor","Hallway1.png");
@@ -59,12 +61,14 @@ public class Game {
         sisterRoom2 = new Room("Sister bedroom","chambre_soeur.png");
         dressingSister2 = new Room("Sister dressing room","Dressing_sister.png");
         
+        // Attic
         attic = new Room("The attic","attic.png");
         
         Key keyHall = new Key("Hall Key");
         Key keyTrophe = new Key("Collection Key");
         Key keyFloor2 = new Key("Floor one Key");
         Key keyCellar = new Key("Cellar key");
+        
         //Ground floor	
         outside.addExit("NORD", null, hall);
         
@@ -72,8 +76,6 @@ public class Game {
         hall.addExit("EST", null, living);
         hall.addExit("NORD", null, floor1);
         hall.addExit("SUD", keyHall, outside);
-        
-        
        
         kitchen.addExit("EST", null, hall);
         kitchen.addExit("OUEST",keyCellar,cellar);
@@ -110,8 +112,7 @@ public class Game {
 
         corridor2_3.addExit("SUD", null, dressingSister2);
         corridor2_3.addExit("EST", null, corridor2_2);
-       
-        
+
         dressingSister2.addExit("NORD", null, corridor2_3);
         
         sisterRoom2.addExit("SUD", null, corridor2_3);
@@ -132,12 +133,13 @@ public class Game {
 		//floor 1
 		floor1.addEnigmaticExit("EST","Like a fruit I have a core, but you can't eat me. Like a women I have a lot of coats but I am not Human. Who am I?","Earth",dressingParent1);
 		floor1.addEnigmaticExit("OUEST","I have a mouse for a year. Knowing that a mouse can have 18 mice every month from 2 months, how many mice will I have after 10 months?","One",parentRoom2);
+		
 		//floor 2
 		corridor2_1.addEnigmaticExit("SUD","I have something in my pocket, but my pocket is empty. What is it?","hole",bathroom2);
 		corridor2_2.addEnigmaticExit("NORD","Who is the supreme commander of The Manor?","Aurelien",gameRoom2);
         corridor2_3.addEnigmaticExit("NORD","I have a father but I am not his son. I have a mother but I am not her son. Who am I?","daughter",sisterRoom2);
-		
         corridor2_3.addEnigmaticExit("OUEST","What is the hidden code of the Manor ?","6904", attic);
+      
         // ITEM AND CHARACTER
         friendRoom2.addItem(new Shield ("Chair",2));
         friendRoom2.addItem(new Shield ("Computer",1));
