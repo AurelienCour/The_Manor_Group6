@@ -2,20 +2,23 @@ package the_Manor;
 
 import java.util.ArrayList;
 /**
- * <p>This class represent the Player. </p>
+ * <p>This class represents the Player. </p>
  * <p>In addition to the possibilities inherited from the Fighter class, the player has extra functionalities: </p>
  * <ul>
  * <li>At the start of the game, a name is inputed. If there is no name, the default name "John" is used.</li>
- * <li>Use items from the inventory</li>
- * <li>Talk with Allies</li>
+ * <li>The player uses items from his inventory</li>
+ * <li>The player talks with allies</li>
  * </ul>
+ * 
  * @author Group 6
+ * @version 05/12/16
+ * 
  */
 public class Player extends Fighter{
 	
 	private ArrayList<Item>	inventory; // this is the item list of the player
-	private Weapon weaponEquip;
-	private Shield shieldEquip;
+	private Weapon weaponEquip; // the weapon to be equipped by the player
+	private Shield shieldEquip; // the shield to be equipped by the player
 	private Room currentRoom; // current room of the player
 	
 	/**
@@ -24,14 +27,14 @@ public class Player extends Fighter{
 	 * @param description The description of the player	 
 	 */
 	public Player(String newName, String description) {
-		super(newName,description);
-		this.NBMAXPV = 100; 
-		this.NBMAXSTAMINA = 100; 
-		this.setAttack(10);
-		this.setDefense(10);
-		this.setHealth(this.NBMAXPV);
-		this.setStamina(this.NBMAXSTAMINA);
-		inventory = new ArrayList<Item>();
+		super(newName,description); // Uses the super-class Fighter
+		this.NBMAXPV = 100; // max value of the player's health points
+		this.NBMAXSTAMINA = 100; // max value of the player's stamina points
+		this.setAttack(10); // player's attack set to 10
+		this.setDefense(10); // player's defense set to 10
+		this.setHealth(this.NBMAXPV); // player's health set to the max value
+		this.setStamina(this.NBMAXSTAMINA); // player's stamina set to the max value
+		inventory = new ArrayList<Item>(); // instanciation of the inventory
 	}
 	
 	/**
@@ -44,7 +47,7 @@ public class Player extends Fighter{
 	
 	
 	/**
-	 * To have all the player's weapon
+	 * To have all the player's weapons
 	 * @return weap The list of all the player's weapons 
 	 */
 	public ArrayList<Weapon> getWeapon(){
@@ -69,6 +72,10 @@ public class Player extends Fighter{
 		return shield;
 	}
 	
+	/**
+	 * To have all the player's potions or key
+	 * @return potionKey The list of all the player's potions or keys
+	 */
 	public ArrayList<Item> getPotionKey(){
 		ArrayList<Item> potionKey = new ArrayList<Item>();
 		for (Item it : inventory) {
@@ -80,7 +87,7 @@ public class Player extends Fighter{
 
 	/**
 	 * <p>This method allows to set the new room position</p>
-	 * <p>It changes the room value. It can never be null.</p>
+	 * <p>It changes the room value. It can not be null.</p>
 	 * @param newRoom The new room of the player
 	 */
 	public void setCurrentRoom(Room newRoom){
@@ -106,7 +113,7 @@ public class Player extends Fighter{
 	}
 	
 	/**
-	 * Allows to know if the player have a specific item
+	 * Allows to know if the player has a specific item
 	 * @param item The item to research
 	 * @return A boolean : true if an item with the same type is present otherwise false
 	 */
@@ -132,6 +139,7 @@ public class Player extends Fighter{
 	
 	/**
 	 * Return true if the player has a specific key
+	 * @param The specific key
 	 * @return Return true if the player has a specific key
 	 */
 	public boolean haveKey(Key key){
@@ -167,6 +175,10 @@ public class Player extends Fighter{
 		}
 	}
 	
+	/**
+	 * To know if the player has a weapon in is inventory
+	 * @return True if he has, false if he has not.
+	 */
 	public boolean haveWeapon(){
 		if(this.weaponEquip != null)
 			return true;
@@ -174,6 +186,11 @@ public class Player extends Fighter{
 			return false;
 	}
 	
+	/**
+	 * To know if the player has a specific weapon.
+	 * @param weapon The researched weapon
+	 * @return True if the player has the researched weapon in his inventory, false if he has not
+	 */
 	public boolean haveThisWeapon(Weapon weapon){
 		if(haveWeapon()){
 			if(this.weaponEquip.equals(weapon))
@@ -185,6 +202,10 @@ public class Player extends Fighter{
 			return false;
 	}
 	
+	/**
+	 * To know if the player has a shield in is inventory
+	 * @return True if he has, false if he has not.
+	 */
 	public boolean haveShield(){
 		if(this.shieldEquip != null)
 			return true;
@@ -193,7 +214,11 @@ public class Player extends Fighter{
 	}
 	
 	
-	
+	/**
+	 * To know if the player has a specific shield.
+	 * @param shield The researched shield.
+	 * @return True if the player has the researched shield in his inventory, false if he has not.
+	 */
 	public boolean haveThisShield(Shield shield){
 		if(haveShield()){
 			if(this.shieldEquip.equals(shield))
@@ -205,6 +230,10 @@ public class Player extends Fighter{
 			return false;
 	}
 	
+	/**
+	 * To know if the player has a potion in is inventory
+	 * @return True if he has, false if he has not.
+	 */
 	public boolean havePotion(){
 		for (Item item : inventory) {
 			if(item instanceof Potion)
@@ -213,6 +242,10 @@ public class Player extends Fighter{
 		return false;
 	}
 	
+	/**
+	 * To get a potion in the inventory of the player
+	 * @return The potion if the player has one, otherwise returns null.
+	 */
 	public Potion getPotion(){
 		for (Item item : inventory) {
 			if(item instanceof Potion)
@@ -227,30 +260,36 @@ public class Player extends Fighter{
 	 * @param item The item to equip
 	 */
 	public void equipItem(Item item){
-		if(item instanceof Weapon){
-			if(haveWeapon())
-				this.removeAttack(this.weaponEquip.getAttack());
-			this.weaponEquip = (Weapon) item;
-			this.addAttack(weaponEquip.getAttack());
-		}else if(item instanceof Shield){
-			if(haveShield())
-				this.removeDefense(shieldEquip.getDefense());
-			this.shieldEquip = (Shield) item;
-			this.addDefense(shieldEquip.getDefense());
+		if(item instanceof Weapon){ // The item to equip is a weapon
+			if(haveWeapon()) // The player has a weapon in his inventory
+				this.removeAttack(this.weaponEquip.getAttack()); // The attack given by the weapon already equipped is removed
+			this.weaponEquip = (Weapon) item; // ??
+			this.addAttack(weaponEquip.getAttack()); // The value of the equipped weapon is given at the player's attack
+		}else if(item instanceof Shield){ // The item to equip is a shield
+			if(haveShield()) // The player has a shield in his inventory
+				this.removeDefense(shieldEquip.getDefense()); // The defense given by the shield already equipped is removed
+			this.shieldEquip = (Shield) item; // ??
+			this.addDefense(shieldEquip.getDefense()); // The value of the equipped shield is given at the player's defense
 		}
 	}
 	
+	/**
+	 * Allows to unequip a weapon from the player
+	 */
 	public void desequipWeapon(){
-		if(haveWeapon()){
-			this.removeAttack(this.weaponEquip.getAttack());
-			this.weaponEquip = null;
+		if(haveWeapon()){ // The player has a weapon
+			this.removeAttack(this.weaponEquip.getAttack()); // The attack given by the weapon to unequipped is removed
+			this.weaponEquip = null; // There is not equipped weapon anymore
 		}
 	}
 	
+	/**
+	 * Allows to unequip a shield from the player
+	 */
 	public void desequipShield(){
-		if(haveShield()){
-			this.removeDefense(shieldEquip.getDefense());
-			this.shieldEquip = null;
+		if(haveShield()){ // The player has a shield
+			this.removeDefense(shieldEquip.getDefense()); // The defense given by the shield to unequipped is removed
+			this.shieldEquip = null; // There is not equipped shield anymore
 		}
 	}
 }
