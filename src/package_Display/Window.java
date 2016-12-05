@@ -363,7 +363,7 @@ public class Window extends JFrame{
 	 * Allows to change the durability of the player with the new value
 	 */
 	public void setCharac(){
-		this.lifePoint.setText("PV   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
+		this.lifePoint.setText("LP   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
 		this.staminaPoint.setText("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
 	}
 	
