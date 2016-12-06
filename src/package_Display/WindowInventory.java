@@ -165,7 +165,7 @@ public class WindowInventory extends JFrame{
 			JLabel nameShield = new JLabel("  "+allShield.get(i).getName().toUpperCase());
 			nameShield.setHorizontalAlignment(SwingConstants.LEFT);
 			nameShield.setForeground(Color.WHITE);
-			//
+			
 			// The label for the defense of each shield
 			JLabel defShield = new JLabel("Defense : "+allShield.get(i).getDefense()+"  ");
 			defShield.setHorizontalAlignment(SwingConstants.RIGHT);
