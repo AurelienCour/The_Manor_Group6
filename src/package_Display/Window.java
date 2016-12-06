@@ -314,28 +314,6 @@ public class Window extends JFrame{
 	}
 	
 	/**
-	 * Allow to create the window to recup the response of the user
-	 * @param enigma The enigma to open the door
-	 * @param direction The direction of the door in the room
-	 */
-	public void enigmaticMove(String enigma,String direction){
-		new WindowEnigma(this,enigma,direction);
-	}
-	
-	/**
-	 * If the response of the enigma is good display a message
-	 * If the response of the enigma is false display an other message
-	 * @param response The response of the users
-	 * @param direction The direction of the door in the room
-	 */
-	public void verifResponse(String response,String direction){
-		if(!this.newGame.verifyResponseForEnigma(response,direction))
-			new WindowDisplayMessage("The response is incorrect", this);
-		else
-			new WindowDisplayMessage("The door is unlocked", this);	
-	}
-	
-	/**
 	 * Chek if the room is locked or not and display a message
 	 * @param lock A boolean to know if the door is locked
 	 * @param key The key to unlock the door

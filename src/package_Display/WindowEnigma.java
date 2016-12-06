@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.swing.*;
 
+import the_Manor.Game;
+
 /**
  * The window to display an enigma with the Jtextfield to get back the response of the player
  * 
@@ -21,6 +23,7 @@ public class WindowEnigma extends JFrame {
 	private JFormattedTextField jTextf; // To get back the response of the player
 	private Window windowGame; // The game window to center the frame
 	private String directionDoor; // The direction of the door
+	private Game game;
 	
 	/**
 	 * The constructor of the class WindowEnigma
@@ -28,7 +31,8 @@ public class WindowEnigma extends JFrame {
 	 * @param Enigma The enigma to display on the window
 	 * @param directionDoor The direction of the door
 	 */
-	public WindowEnigma(Window windowGame,String Enigma, String directionDoor){
+	public WindowEnigma(Game game,Window windowGame,String Enigma, String directionDoor){
+		this.game = game;
 		this.windowGame = windowGame;
 		this.windowGame.setEnabled(false);
 		this.directionDoor = directionDoor;
@@ -82,6 +86,6 @@ public class WindowEnigma extends JFrame {
 	public void recupResponse(){
 		this.windowGame.setEnabled(true);
 		this.dispose();
-		this.windowGame.verifResponse(this.jTextf.getText(), this.directionDoor);
+		this.game.verifyResponseForEnigma(this.jTextf.getText(),this.directionDoor);
 	}
 }

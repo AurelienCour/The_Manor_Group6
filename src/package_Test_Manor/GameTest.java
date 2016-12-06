@@ -23,8 +23,8 @@ public class GameTest extends TestCase
     @Before
     public void setUp() {     	    	
     	myGame = new Game(null,"The_Manor_Test","It is a great game");
-    	friendRoom = new Room("FriendRoom", null);
-    	corridor = new Room("Corridor", null);
+    	friendRoom = new Room("FriendRoom", "");
+    	corridor = new Room("Corridor", "");
     	myKey = new Key("The Key");
     }
 
@@ -42,7 +42,7 @@ public class GameTest extends TestCase
     	// the player's current room is the friendRoom
     	myGame.getPlayer().setCurrentRoom(friendRoom);
     	// there is a south exit in this friedRoom
-    	friendRoom.addExit("SOUTH", myKey, corridor);
+    	friendRoom.addExit("SOUTH", null, corridor);
     	// the player moves via this exit
     	myGame.move("SOUTH");
     	// the player is in the nextRoom = the corridor

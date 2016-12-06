@@ -1,6 +1,8 @@
 package the_Manor;
 
 import package_Display.Window;
+import package_Display.WindowDisplayMessage;
+import package_Display.WindowEnigma;
 import package_Display.WindowFight;
 
 /**
@@ -248,26 +250,14 @@ public class Game {
 			Room temp = this.ourPlayer.getCurrentRoom().getDoor(direction).goNextRoom(); // A room object is created corresponding to the next room the player is going to enter.
 			if(temp != null){ // The room object representing the next room must not be null, if is null the room is lock
 				this.ourPlayer.setCurrentRoom(temp); // The room object representing the next room of the player becomes the current room of the player: the player changed of room.
-				if(this.ourPlayer.getCurrentRoom().numberOfChararacterInRoom() != 0){ // If there is a character in the new room of the player,
-					if(this.ourPlayer.getCurrentRoom().getEnemy() != null && this.ourPlayer.getCurrentRoom().getEnemy().isAlive()){ // If this character is an alive enemy,
-						Fight fight = new Fight(this.ourPlayer,this.ourPlayer.getCurrentRoom().getEnemy()); // A fight object is created representing the fight between the player and the enemy encountered.
-						new WindowFight(fight,this.windowGame,current); // This fight will occur in another window
-					}
-					else if(this.ourPlayer.getCurrentRoom().getAlly() != null){ // If the character presents in the room is an ally,
-						this.windowGame.ally(this.ourPlayer.getCurrentRoom().getAlly()); // gets this ally.
-					}
-				}
+				checkCharacterInRoom(current);
 			}
-			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor){ // If the door is an instance of an EnigmaticDoor
-				EnigmaticDoor temp2 = (EnigmaticDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
-				this.windowGame.enigmaticMove(temp2.getEnigma(),direction); // Call the method enigmaticMove of the class Window to display the window with the response
-			}
+			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor) // If the door is an instance of an EnigmaticDoor
+				enigmaticMove(direction);
 			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof LockedDoor){ // If the door is an instance of a LockedDoor
 				LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
-				if(temp2.unlock(this.ourPlayer)){ // If the player can unlock the door
-					//this.ourPlayer.removeKey(temp2.getKey()); // Delete the key after using
+				if(temp2.unlock(this.ourPlayer)) // If the player can unlock the door
 					this.windowGame.lockDoor(false,temp2.getKey()); // Unlock the door
-				}
 				else
 					this.windowGame.lockDoor(true,temp2.getKey()); // Allow to display the message with the key needed
 			}
@@ -275,17 +265,41 @@ public class Game {
     }
     
     /**
+     * Check if a character is present in the Room
+     * @param previous The previous Room in case of an escape when a fight
+     */
+    public void checkCharacterInRoom(Room previous){
+    	if(this.ourPlayer.getCurrentRoom().numberOfChararacterInRoom() != 0){ // If there is a character in the new room of the player,
+			if(this.ourPlayer.getCurrentRoom().getEnemy() != null && this.ourPlayer.getCurrentRoom().getEnemy().isAlive()){ // If this character is an alive enemy,
+				Fight fight = new Fight(this.ourPlayer,this.ourPlayer.getCurrentRoom().getEnemy()); // A fight object is created representing the fight between the player and the enemy encountered.
+				new WindowFight(fight,this.windowGame,previous); // This fight will occur in another window
+			}
+			else if(this.ourPlayer.getCurrentRoom().getAlly() != null){ // If the character presents in the room is an ally,
+				this.windowGame.ally(this.ourPlayer.getCurrentRoom().getAlly()); // gets this ally.
+			}
+		}
+    }
+    
+    /**
+     * If the door is an enigmatic door
+     * @param direction The direction of the door
+     */
+    private void enigmaticMove(String direction) {
+    	EnigmaticDoor temp2 = (EnigmaticDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
+		new WindowEnigma(this,this.windowGame,temp2.getEnigma(),direction);
+    }
+    
+	/**
      * Allows to checks if the answer to the enigma is true of not.
      * @param response The response given by the player.
      * @param direction The direction of the door.
-     * @return A boolean to say if the answer is good (True: good ; False: not good).
      */
-    public boolean verifyResponseForEnigma(String response,String direction){
+    public void verifyResponseForEnigma(String response,String direction){
     	EnigmaticDoor temp =(EnigmaticDoor) this.ourPlayer.getCurrentRoom().getDoor(direction);
     	if(temp.solveEnigma(response))
-    		return true;
+    		new WindowDisplayMessage("The door is unlocked", this.windowGame);
     	else
-    		return false;
+    		new WindowDisplayMessage("The response is incorrect", this.windowGame);
     }
     
     /**
@@ -303,6 +317,8 @@ public class Game {
 		}
     }
     
+    
+    
     /**
      * Allows to have the player of the game.
      * @return The player of the game.
@@ -310,5 +326,7 @@ public class Game {
     public Player getPlayer(){
     	return this.ourPlayer;
     }
+
+	
     	
 }
