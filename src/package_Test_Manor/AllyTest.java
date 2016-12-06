@@ -13,10 +13,13 @@ import org.junit.Test;
  * The test class AllyTest
  * Unit tests of the Ally class
  * @author Group 6
+ * @version 06/12/16
  *
  */
 public class AllyTest {
 
+	// Different objects used for the tests
+	
 	private Ally myAlly;
 	private Potion potion;
 	
@@ -43,8 +46,7 @@ public class AllyTest {
     
     /** 
      * Method testGetItem
-     * <p>Verify that the object was delete for the ally 
-     * when it was given to a player.</p>
+     * <p>Verifies that the object was deleted from the ally when it was given to a player.</p> 
      */
 	@Test
 	public void testGetItem() {
@@ -53,8 +55,7 @@ public class AllyTest {
 	
 	/**
 	 * Method testAddItem
-	 * <p>Verify that the object given to the ally
-	 * is present</p>
+	 * <p>Verifies that the object given to the ally is present</p>	 
 	 */
 	@Test
 	public void testAddItem(){
@@ -67,8 +68,7 @@ public class AllyTest {
 	
 	/**
 	 * Method testAddItemWithItem
-	 * <p>Verify that the first item given to the ally
-	 * is present after give an other item</p>
+	 * <p>Verifies that the first item given to the ally is present after give an other item</p>
 	 */
 	@Test
 	public void testAddItemWithItem(){
@@ -81,7 +81,7 @@ public class AllyTest {
 	
 	/**
 	 * Method testGiveItem
-	 * <p>Verify that the ally can give an object
+	 * <p>Verifies that the ally can give an object
 	 * and change the value of the object to null</p>
 	 */
 	@Test
@@ -96,7 +96,7 @@ public class AllyTest {
 	
 	/**
 	 * Method testGiveItemWithoutItem
-	 * <p>Verify that the ally can not give an item without an item</p>
+	 * <p>Verifies that the ally can not give an item without an item</p>
 	 */
 	@Test
 	public void testGiveItemWithoutItem(){

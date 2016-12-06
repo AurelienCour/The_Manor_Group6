@@ -44,7 +44,7 @@ public class ShieldTest {
     
     /**
      * Method testGetDefense
-     * <p>This method allows to know if the defense of the shield have the good defense point</p>
+     * <p>This method allows to know if the defense of the shield has the good defense points</p>
      */
     @Test
     public void testGetDefense()

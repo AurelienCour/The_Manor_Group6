@@ -17,6 +17,8 @@ import org.junit.*;
  */
 public class PlayerTest {
 	
+	// Object used for the tests
+	
 	private Player p;
 	
 	/**
@@ -49,8 +51,7 @@ public class PlayerTest {
 		assertEquals(100, p.getHealth());
 	}
 
-	
-	
+		
 	@Test
 	/**
 	 * Method testPlayerHeal
@@ -70,8 +71,7 @@ public class PlayerTest {
 		p.heal(Redbull);
 		assertEquals(100, p.getHealth());
 	}
-	
-	
+		
 	
 	@Test
 	/**
@@ -120,15 +120,6 @@ public class PlayerTest {
 		assertEquals(20, p.getDefense());
 	}
 	
-	@Test
-	/**
-	 * Method testPlayerTalkToAlly
-	 * <p>This test allows to verify if talking works<p>
-	 */
-	public void testPlayerTalkToAlly() {
-
-		;
-	}
 	
 	@Test
 	/**
@@ -140,7 +131,7 @@ public class PlayerTest {
 		sword = new Weapon("Sword", 10);
 		p.pickUp(sword);
 		assertEquals(1, p.numberOfItem());
-		// Now verify if the second item of the same class replaes the first
+		// Now verifies if the second item of the same class replaces the first
 		knife = new Weapon("Knife", 4);
 		p.pickUp(knife);		
 		assertEquals(2, p.numberOfItem()); 

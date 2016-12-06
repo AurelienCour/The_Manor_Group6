@@ -9,11 +9,14 @@ import org.junit.*;
 /**
  * <p>The test class WeaponTest</p>
  * <p>Unit test of the Weapon class</p>
+ * 
  * @author Group 6
  * @version 22/11/2016
  */
 
 public class WeaponTest {
+	
+	// Object used for the tests
 	
 	private Weapon weapon;
 	
@@ -38,6 +41,7 @@ public class WeaponTest {
     @After
     public void tearDown() {
     }
+    
     /**
      * Method testGetAttack
      * <p>This method allows to know if the attack of the weapon have the good attack point</p>

@@ -11,9 +11,11 @@ import org.junit.*;
  * The test class CharacterTest
  * Unit tests of the Character class
  * @author Group 6
- *
+ * @version 06/12/16
  */
 public class CharacterTest {
+	
+	// Different objects used for the tests
 	
 	private Character ally;
 	private Character enemy;
@@ -26,6 +28,9 @@ public class CharacterTest {
 	{
 	}
 
+    /**
+	 * Sets up the test fixture
+	 */
     @Before
     public void setUp(){
     	ally = new Ally("MyAlly","Description Ally", "try", null);
@@ -66,7 +71,7 @@ public class CharacterTest {
 	
 	/**
      * Method testCharacterNameAllyDefault
-     * <p>Cheks the default name for an ally</p>
+     * <p>Checks the default name for an ally</p>
      */
 	@Test
 	public void testCharacterNameAllyDefault() {

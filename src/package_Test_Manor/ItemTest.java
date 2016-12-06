@@ -16,6 +16,8 @@ import org.junit.*;
  */
 public class ItemTest {
 	
+	// Objects used for the tests
+	
 	private Shield shield;
 	private Weapon weapon;
 	private Potion potion;

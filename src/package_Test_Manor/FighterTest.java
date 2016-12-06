@@ -21,6 +21,8 @@ import org.junit.*;
  */
 public class FighterTest {
 	
+	// Different objects used for the tests
+	
 	private Player myPlayer;
 	private Enemy myEnemy;
 	
@@ -31,7 +33,10 @@ public class FighterTest {
 	public FighterTest()
 	{
 	}
-	
+		
+    /**
+	 * Sets up the test fixture
+	 */
     @Before
     public void setUp() {
     	myPlayer = new Player("John","description");

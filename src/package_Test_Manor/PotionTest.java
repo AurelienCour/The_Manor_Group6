@@ -8,8 +8,11 @@ import org.junit.*;
  * The test class PotionTest
  * Unit tests of the Potion class
  * @author Group 6
+ * @version 06/12/16
  */
 public class PotionTest {
+	
+	// Objects used for the tests
 
 	private Potion myPotion;
 	private Potion myNegativePotion;

@@ -11,11 +11,15 @@ import static org.junit.Assert.*;
 /**
  * The test class RoomTest
  * Unit test of the Room class
+ * 
  * @author Group 6
+ * @version 06/12/16
  *
  */
 public class RoomTest 
 {
+	// Objects used for the tests
+	
 	private Room myRoom;
 	private Room myNextRoom;
 	private Key myKey;

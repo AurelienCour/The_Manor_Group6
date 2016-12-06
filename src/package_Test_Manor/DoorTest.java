@@ -8,10 +8,15 @@ import the_Manor.Room;
 /**
  * The test class DoorTest
  * Unit tests of the Door class
+ * 
  * @author Group 6
+ * @version 06/12/16
  *
  */
 public class DoorTest {
+	
+	// Different objects used for the tests
+	
 	private Room nextRoom;
 	private Room previousRoom;
 	private Door door;
