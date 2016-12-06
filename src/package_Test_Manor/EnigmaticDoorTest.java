@@ -11,9 +11,12 @@ import org.junit.Test;
  * The test class EnigmaticDoor
  * Unit tests of the EnigmaticDoor
  * @author Group 6
+ * @version 06/12/15
  *
  */
 public class EnigmaticDoorTest {
+	
+	// Different objects used for the tests
 	
 	private EnigmaticDoor door;
 	private Room nextRoom;
@@ -32,9 +35,6 @@ public class EnigmaticDoorTest {
         door = new EnigmaticDoor("Who is the leader of the group 6 ?","aurelien",nextRoom,previousRoom);     
     }
 
-    @After
-    public void tearDown() {
-    }
     
     /**
      * Method testInstance
@@ -62,7 +62,7 @@ public class EnigmaticDoorTest {
     
     /**
      * Methods testResolveEnigma
-     * Checks if the enigma is solve with the good response
+     * Checks if the enigma is solved with the good response
      */
     @Test
     public void testResolveEnigma(){
@@ -72,11 +72,11 @@ public class EnigmaticDoorTest {
     
     /**
      * Methods testResolveEnigmaBad
-     * Checks if the enigma is solve with the bad response
+     * Checks if the enigma is solved with the bad response
      */
     @Test
     public void testResolveEnigmaBad(){
-    	this.door.solveEnigma("Not solve");
+    	this.door.solveEnigma("Not solved");
     	assertEquals(true,this.door.isLocked());
     }
     
