@@ -50,7 +50,7 @@ public class LockedDoorTest {
     public void testUnlock(){
     	Player player = new Player("", "");
     	player.pickUp(this.myKey);
-    	this.door.unlock(player);
+    	this.door.unlockKey(player);
     	assertEquals(false,this.door.isLocked());
     }
     
@@ -61,7 +61,7 @@ public class LockedDoorTest {
     @Test
     public void testBadUnlock(){
     	Player player = new Player("Paul", "Description");
-    	this.door.unlock(player);
+    	this.door.unlockKey(player);
     	assertEquals(true,this.door.isLocked());
     }
     
@@ -74,7 +74,7 @@ public class LockedDoorTest {
     	Player player = new Player("Paul", "Description");    
     	Key key = new Key("");
     	player.pickUp(key);
-    	this.door.unlock(player);
+    	this.door.unlockKey(player);
     	assertEquals(true,this.door.isLocked());
     }
     
@@ -88,7 +88,7 @@ public class LockedDoorTest {
     	Key key = new Key("key");
     	player.setCurrentRoom(previousRoom);    	    	
     	player.pickUp(key);
-    	this.door.unlock(player);    	
+    	this.door.unlockKey(player);    	
     	this.door.goNextRoom();
     	assertEquals(nextRoom,player.getCurrentRoom());
     }
@@ -100,7 +100,7 @@ public class LockedDoorTest {
     @Test
     public void testGoNextRoomIfLock(){
     	Player player = new Player("Paul", "Description");
-    	this.door.unlock(player);
+    	this.door.unlockKey(player);
     	assertEquals(null,this.door.goNextRoom());
     }
 }

@@ -310,7 +310,7 @@ public class Game {
      */
     private void lockMove(String direction){
 	    LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
-		if(temp2.unlock(this.ourPlayer)) // If the player can unlock the door
+		if(temp2.unlockKey(this.ourPlayer)) // If the player can unlock the door
 			new WindowDisplayMessage("The door is unlocked, you used your "+temp2.getKey().getName(), this.windowGame);	
 		else
 			new WindowDisplayMessage("The door is locked you need the : "+temp2.getKey().getName(), this.windowGame);

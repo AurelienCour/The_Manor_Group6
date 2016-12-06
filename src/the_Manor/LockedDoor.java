@@ -29,7 +29,8 @@ public class LockedDoor extends Door{
 	/**
 	 * Locks the door
 	 */
-	public void lock(){
+	@SuppressWarnings("unused")
+	private void lock(){
 		if(isLocked())
 			System.out.println("The door is already locked!");
 		else
@@ -37,13 +38,23 @@ public class LockedDoor extends Door{
 	}
 	
 	/**
+	 * Unlock the door
+	 */
+	private void unlock(){
+		if(!isLocked())
+			System.out.println("The door is already unlocked!");
+		else
+			this.locked = false;
+	}
+	
+	/**
 	 * Unlocks the door if the player has a key 
 	 * @param player The player that wants to open the door.
 	 * @return A boolean that says if the door is unlocked (True: Unlocked ; False: Still locked).
 	 */
-	public boolean unlock(Player player){		
+	public boolean unlockKey(Player player){		
 		if(player.haveKey(this.key)){
-			this.locked = false; // The player has the key in his inventory.
+			unlock(); // The player has the key in his inventory.
 			return true;
 		}
 		else
@@ -54,7 +65,7 @@ public class LockedDoor extends Door{
 	 * Says if the door is locked or not.
 	 * @return A boolean saying if the door is locked (True: Locked ; False: Unlocked).
 	 */
-	public Boolean isLocked(){
+	private Boolean isLocked(){
 		if (this.locked)
 			return true;
 		else

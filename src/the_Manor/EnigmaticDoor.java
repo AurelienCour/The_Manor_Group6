@@ -46,11 +46,10 @@ public class EnigmaticDoor extends Door{
 	 */
 	public boolean solveEnigma(String responseOfThePlayer){
 		if(responseOfThePlayer.toUpperCase().equals(this.response)){
-			this.locked = false;
+			unLocked();
 			return true;
 		}
 		else{
-			this.locked = true;
 			return false;
 		}
 	}
@@ -60,11 +59,26 @@ public class EnigmaticDoor extends Door{
 	 * @return The next room the player is going to enter. 
 	 */
 	public Room goNextRoom(){
-		if(this.locked){
+		if(isLocked()){
 			return null;
 		}
 		else
 			return this.getNextRoom();
+	}
+	
+	/**
+	 * Allow to unlock the door
+	 */
+	private void unLocked(){
+		this.locked = false;
+	}
+	
+	/**
+	 * Allow to lock the door
+	 */
+	@SuppressWarnings("unused")
+	private void lock(){
+		this.locked = true;
 	}
 	
 	/**

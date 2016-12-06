@@ -33,6 +33,10 @@ public class Door
 			this.nextRoom = nextRoom;
 	}
 	
+	/**
+	 * Allow to get the NextRoom behind the Door
+	 * @return the nextRoom behind the Door
+	 */
 	public Room getNextRoom(){
 		return this.nextRoom;
 	}
