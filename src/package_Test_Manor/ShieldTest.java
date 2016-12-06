@@ -10,18 +10,21 @@ import org.junit.*;
 /**
  * <p>The test class ShieldTest</p>
  * <p>Unit test of the Shield class</p>
+ * 
  * @author Group 6
  * @version 22/11/2016
  */
 
 public class ShieldTest {
 	
+	// Different objects used for the tests
+	
 	private Shield shield;
 	private Shield wrongShield;
+	
 	/**
 	 * Constructor for test class ShieldTest 
-	 */
-    
+	 */    
 	public ShieldTest()
 	{		
 	}
@@ -38,6 +41,7 @@ public class ShieldTest {
     @After
     public void tearDown() {
     }
+    
     /**
      * Method testGetDefense
      * <p>This method allows to know if the defense of the shield have the good defense point</p>

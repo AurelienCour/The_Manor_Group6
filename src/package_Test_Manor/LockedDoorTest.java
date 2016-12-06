@@ -37,6 +37,10 @@ public class LockedDoorTest {
     	previousRoom = new Room("Bedroom", null);
         door = new LockedDoor(myKey,nextRoom,previousRoom);        
     }
+    
+    @After
+    public void tearDown() {
+    }
 
     /**
      * Methods testUnlock
