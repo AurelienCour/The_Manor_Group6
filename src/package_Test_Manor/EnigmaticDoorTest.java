@@ -35,6 +35,9 @@ public class EnigmaticDoorTest {
         door = new EnigmaticDoor("Who is the leader of the group 6 ?","aurelien",nextRoom,previousRoom);     
     }
 
+    @After
+    public void tearDown() {
+    }
     
     /**
      * Method testInstance
