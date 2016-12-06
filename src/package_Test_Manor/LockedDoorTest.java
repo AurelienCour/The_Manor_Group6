@@ -17,13 +17,14 @@ import org.junit.Test;
  */
 public class LockedDoorTest {
 	
+	// Different objects used for the tests
+	
 	private LockedDoor door;
 	private Room nextRoom;
 	private Room previousRoom;
 	private Key myKey;
 	
 	public LockedDoorTest(){
-		
 	}
 	
 	/**
@@ -37,11 +38,6 @@ public class LockedDoorTest {
         door = new LockedDoor(myKey,nextRoom,previousRoom);        
     }
 
-    @After
-    public void tearDown() {
-        // Code executed after every test
-    }
-
     /**
      * Methods testUnlock
      * Checks if the player has a key and unlock the door
@@ -49,8 +45,6 @@ public class LockedDoorTest {
     @Test
     public void testUnlock(){
     	Player player = new Player("", "");
-    	//Key key = new Key("key"); Mauvaise clef pour la porte
-    	// player.pickUp(key);
     	player.pickUp(this.myKey);
     	this.door.unlock(player);
     	assertEquals(false,this.door.isLocked());
@@ -58,7 +52,7 @@ public class LockedDoorTest {
     
     /**
      * Methods testBadUnlock
-     * Checks if the player don't has a key
+     * Checks if the player does not have a key
      */
     @Test
     public void testBadUnlock(){
@@ -76,11 +70,8 @@ public class LockedDoorTest {
     	Player player = new Player("Paul", "Description");    
     	Key key = new Key("");
     	player.pickUp(key);
-    	//assertEquals(myKey, this.door.getKey());    	
     	this.door.unlock(player);
     	assertEquals(true,this.door.isLocked());
-    	//this.door.lock();
-    	//assertEquals(true,this.door.isLocked());
     }
     
     /**
@@ -93,8 +84,8 @@ public class LockedDoorTest {
     	Key key = new Key("key");
     	player.setCurrentRoom(previousRoom);    	    	
     	player.pickUp(key);
-    	this.door.unlock(player);
-    	door.goNextRoom();
+    	this.door.unlock(player);    	
+    	this.door.goNextRoom();
     	assertEquals(nextRoom,player.getCurrentRoom());
     }
     
