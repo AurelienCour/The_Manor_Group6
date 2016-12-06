@@ -84,13 +84,10 @@ public class LockedDoorTest {
      */
     @Test
     public void testGoNextRoomIfUnlock(){
-    	Player player = new Player("Paul", "Description");
-    	Key key = new Key("key");
-    	player.setCurrentRoom(previousRoom);    	    	
-    	player.pickUp(key);
+    	Player player = new Player("Paul", "Description");   	    	
+    	player.pickUp(myKey);
     	this.door.unlockKey(player);    	
-    	this.door.goNextRoom();
-    	assertEquals(nextRoom,player.getCurrentRoom());
+    	assertEquals(nextRoom,this.door.goNextRoom());
     }
     
     /**

@@ -65,7 +65,7 @@ public class LockedDoor extends Door{
 	 * Says if the door is locked or not.
 	 * @return A boolean saying if the door is locked (True: Locked ; False: Unlocked).
 	 */
-	private Boolean isLocked(){
+	public Boolean isLocked(){
 		if (this.locked)
 			return true;
 		else

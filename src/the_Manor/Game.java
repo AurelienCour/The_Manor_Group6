@@ -271,7 +271,7 @@ public class Game {
      * Check if a character is present in the Room
      * @param previous The previous Room in case of an escape when a fight
      */
-    public void checkCharacterInRoom(Room previous){
+    private void checkCharacterInRoom(Room previous){
     	if(this.ourPlayer.getCurrentRoom().numberOfChararacterInRoom() != 0){ // If there is a character in the new room of the player,
 			if(this.ourPlayer.getCurrentRoom().getEnemy() != null && this.ourPlayer.getCurrentRoom().getEnemy().isAlive()){ // If this character is an alive enemy,
 				Fight fight = new Fight(this.ourPlayer,this.ourPlayer.getCurrentRoom().getEnemy()); // A fight object is created representing the fight between the player and the enemy encountered.
@@ -308,7 +308,7 @@ public class Game {
      * If the door is a locked door
      * @param direction The direction of the door
      */
-    private void lockMove(String direction){
+    public void lockMove(String direction){
 	    LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
 		if(temp2.unlockKey(this.ourPlayer)) // If the player can unlock the door
 			new WindowDisplayMessage("The door is unlocked, you used your "+temp2.getKey().getName(), this.windowGame);	
@@ -318,6 +318,7 @@ public class Game {
     
     /**
      * Allow to search in a room
+     * If an item was in the room, delete the item in the room and add the item in the inventory of the player
      * @return The name of the item
      */
     public String search(){
