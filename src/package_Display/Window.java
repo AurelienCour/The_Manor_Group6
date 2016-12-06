@@ -318,14 +318,14 @@ public class Window extends JFrame{
 	 * @param lock A boolean to know if the door is locked
 	 * @param key The key to unlock the door
 	 */
-	public void lockDoor (boolean lock, Key key){
+	/*public void lockDoor (boolean lock, Key key){
 		checkItem();
 		if(lock)
 			new WindowDisplayMessage("The door is locked you need the : "+key.getName(), this);	
 		else
 			new WindowDisplayMessage("The door is unlocked, you used your "+key.getName(), this);
 		
-	}
+	}*/
 	
 	/**
 	 * Check if the player can go in a specific direction

@@ -255,11 +255,7 @@ public class Game {
 			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof EnigmaticDoor) // If the door is an instance of an EnigmaticDoor
 				enigmaticMove(direction);
 			else if(this.ourPlayer.getCurrentRoom().getDoor(direction) instanceof LockedDoor){ // If the door is an instance of a LockedDoor
-				LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
-				if(temp2.unlock(this.ourPlayer)) // If the player can unlock the door
-					this.windowGame.lockDoor(false,temp2.getKey()); // Unlock the door
-				else
-					this.windowGame.lockDoor(true,temp2.getKey()); // Allow to display the message with the key needed
+				lockMove(direction);
 			}
 		}	
     }
@@ -303,6 +299,18 @@ public class Game {
     }
     
     /**
+     * If the door is a locked door
+     * @param direction The direction of the door
+     */
+    private void lockMove(String direction){
+	    LockedDoor temp2 = (LockedDoor) this.ourPlayer.getCurrentRoom().getDoor(direction); // Register the door in a variable
+		if(temp2.unlock(this.ourPlayer)) // If the player can unlock the door
+			new WindowDisplayMessage("The door is unlocked, you used your "+temp2.getKey().getName(), this.windowGame);	
+		else
+			new WindowDisplayMessage("The door is locked you need the : "+temp2.getKey().getName(), this.windowGame);
+    }
+    
+    /**
      * Allow to search in a room
      * @return The name of the item
      */
@@ -317,16 +325,11 @@ public class Game {
 		}
     }
     
-    
-    
     /**
      * Allows to have the player of the game.
      * @return The player of the game.
      */
     public Player getPlayer(){
     	return this.ourPlayer;
-    }
-
-	
-    	
+    }  	
 }
