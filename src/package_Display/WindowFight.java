@@ -10,7 +10,9 @@ import the_Manor.Room;
 
 /**
  * The window to manage a fight
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class WindowFight extends JFrame{
@@ -74,7 +76,7 @@ public class WindowFight extends JFrame{
 		infoEnemy.add(nameEnemy);
 		infoEnemy.add(characEnemy);
 		
-		// Recup the icon for the enemy
+		// Gets back the icon for the enemy
 		URL url = StartingWindow.class.getResource("Image/PictureMob/"+this.fight.getEnemy().getImage());
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(250, 140, Image.SCALE_DEFAULT));
 		
@@ -111,7 +113,7 @@ public class WindowFight extends JFrame{
 		characPlayer.add(staminaPlayer);
 		characPlayer.add(armorPlayer);
 		
-		// Add all the informations about the player in a panel
+		// Add all the information about the player in a panel
 		JPanel infoPlayer = new JPanel();
 		infoPlayer.setLayout(new GridLayout(2,1));
 		infoPlayer.setOpaque(false);
@@ -148,7 +150,7 @@ public class WindowFight extends JFrame{
 		buttons.add(heal);
 		buttons.add(escape);
 		
-		// Add the buttons and the informations to a panel
+		// Add the buttons and the information to a panel
 		JPanel panelPlayer = new JPanel();
 		panelPlayer.setLayout(new GridLayout(1,2,5,5));
 		panelPlayer.setBackground(Color.BLACK);
@@ -193,7 +195,7 @@ public class WindowFight extends JFrame{
 	}
 	
 	/**
-	 * Allow to refresh the characteritics in the window and in the window of the game
+	 * Allow to refresh the characteristics in the window and in the window of the game
 	 */
 	public void verifCharac(){
 		this.windowGame.setCharac();
@@ -204,10 +206,10 @@ public class WindowFight extends JFrame{
 	}
 	
 	/**
-	 * When the player click on the button Attack
+	 * When the player clicks on the button Attack
 	 */
 	public void attack(){
-		// If the player don't have enough stamina
+		// If the player does not have enough stamina
 		if(this.fight.getPlayer().getStamina() == 0)
 			new WindowDisplayMessage("You need more stamina",this.windowGame);
 		else // The player can attack
@@ -234,7 +236,7 @@ public class WindowFight extends JFrame{
 	}
 	
 	/**
-	 * When the player click on the button recup to recup his stamina
+	 * When the player clicks on the button "recup" to get back his stamina
 	 */
 	public void recup(){
 		this.fight.recup(this.fight.getPlayer());
@@ -247,7 +249,7 @@ public class WindowFight extends JFrame{
 	}
 	
 	/**
-	 * When the player click on the button heal
+	 * When the player clicks on the button heal
 	 */
 	public void heal(){
 		// If the player has a potion
@@ -256,7 +258,7 @@ public class WindowFight extends JFrame{
 			this.fight.getPlayer().heal(this.fight.getPlayer().getPotion());
 			this.windowGame.checkItem();
 		}
-		else // If the player don't has a potion
+		else // If the player does not have a potion
 			new WindowDisplayMessage("You need food to take care of yourself", this.windowGame);
 		this.windowGame.setEnabled(false);
 		this.verifCharac();
@@ -268,7 +270,7 @@ public class WindowFight extends JFrame{
 	 */
 	public void escape(){
 		Random rand = new Random();
-		int nombre = rand.nextInt(3); //Beetween 0 and 3
+		int nombre = rand.nextInt(3); //Between 0 and 3
 		if(nombre==0){ // If the escape works
 			this.dispose();
 			this.windowGame.setEnabled(true);

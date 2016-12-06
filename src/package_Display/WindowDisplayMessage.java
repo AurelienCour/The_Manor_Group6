@@ -7,7 +7,9 @@ import javax.swing.*;
 
 /**
  * A window to display a message
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class WindowDisplayMessage extends JFrame {

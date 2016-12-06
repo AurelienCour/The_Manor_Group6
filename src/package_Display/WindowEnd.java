@@ -8,8 +8,9 @@ import javax.swing.*;
 
 /**
  * The window when the player loose or win the game
- * @author Aurelien
- *
+ * 
+ * @author Group 6
+ * @version 06/12/16
  */
 public class WindowEnd extends JFrame{
 
@@ -44,7 +45,7 @@ public class WindowEnd extends JFrame{
             }
 		});
 		
-		// Recup the icon for the background
+		// Gets back the icon for the background
 		URL url = StartingWindow.class.getResource("Image/Background/"+imageFinish);
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
 		

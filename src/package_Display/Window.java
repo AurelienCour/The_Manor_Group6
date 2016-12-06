@@ -14,7 +14,9 @@ import the_Manor.Key;
 
 /**
  * The class of the main window of the game
+ * 
  * @author Group 6
+ * @version 06/12/16
  *
  */
 public class Window extends JFrame{
@@ -29,11 +31,11 @@ public class Window extends JFrame{
 	private JLabel iconShield; // The icon if the player equips a shield 
 	private JLabel iconPotion; // The icon if the player has a potion
 	private JLabel iconKey; // The icon if the player has a key
-	private JLabel windowGame; // The window where the background is display
-	private JLabel lifePoint; // The label for the life point of the player
-	private JLabel staminaPoint; // The label for the stamina point of the player
-	private JLabel attackPoint; // The label for the attack point of the player
-	private JLabel defensePoint; // The label for the defense point of the player
+	private JLabel windowGame; // The window where the background is displayed
+	private JLabel lifePoint; // The label for the life points of the player
+	private JLabel staminaPoint; // The label for the stamina points of the player
+	private JLabel attackPoint; // The label for the attack points of the player
+	private JLabel defensePoint; // The label for the defense points of the player
 	private JButton controlHaut,controlBas,controlGauche,controlDroit; // All the control buttons
 	private Game newGame; // The game
 	
@@ -57,8 +59,8 @@ public class Window extends JFrame{
 		playerObject.setLayout(new GridLayout(4,1));
 		playerObject.setPreferredSize(new Dimension((WIDTH_WINDOW*14)/100,0));
 		
-		// The different icon
-		// Create the URL to recup the icon
+		// The different icons
+		// Create the URL to get back the icon
 		URL url = StartingWindow.class.getResource("Image/Icon/Icone_Epee.png");
 		// declare the icon
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance((WIDTH_WINDOW*11)/100, (WIDTH_WINDOW*11)/100, Image.SCALE_DEFAULT));

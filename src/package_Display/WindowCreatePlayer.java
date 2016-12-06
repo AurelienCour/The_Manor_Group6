@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 /**
- * The window to recup the informations about the player (name and description)
+ * The window to get back the information about the player (name and description)
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class WindowCreatePlayer extends JFrame {
@@ -17,8 +19,8 @@ public class WindowCreatePlayer extends JFrame {
 	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
-	private JFormattedTextField playerName; // The field to recup the name of the player
-	private JFormattedTextField descriptionPlayer; // The field to recup the description of the player
+	private JFormattedTextField playerName; // The field to get back the name of the player
+	private JFormattedTextField descriptionPlayer; // The field to get back the description of the player
 	private StartingWindow windowOrigin; // The previous window to center the frame
 	
 	/**
@@ -33,7 +35,7 @@ public class WindowCreatePlayer extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setUndecorated(true);
 		this.requestFocusInWindow();
-		// The Panel to recup the date
+		// The Panel to get back the date
 		JPanel seizure = new JPanel();
 		seizure.setLayout(new GridLayout(1,2));
 		seizure.setBackground(Color.BLACK);
@@ -96,7 +98,7 @@ public class WindowCreatePlayer extends JFrame {
 	}
 	
 	/**
-	 * Allow to recup the information in the textField
+	 * Allow to get back the information in the textField
 	 */
 	public void recupInfo(){
 		this.dispose();

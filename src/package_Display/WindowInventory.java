@@ -14,7 +14,9 @@ import the_Manor.Weapon;
 
 /**
  * The window to manage the inventory
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class WindowInventory extends JFrame{
@@ -48,11 +50,11 @@ public class WindowInventory extends JFrame{
 		weapon.setLayout(new GridLayout(0,1));
 		weapon.setBackground(Color.BLACK);
 		
-		// All the weapon who has the player
+		// All the weapons owned by the player
 		ArrayList<Weapon> allWeapon;
 		allWeapon = this.theGame.getPlayer().getWeapon();
 		
-		// All the buttons to manage the weapon
+		// All the buttons to manage the weapons
 		buttonsWeapon = new JButton[allWeapon.size()];
 		for (int i=0; i<allWeapon.size(); i++)
 		{
@@ -133,7 +135,7 @@ public class WindowInventory extends JFrame{
 		shield.setLayout(new GridLayout(0,1));
 		shield.setBackground(Color.BLACK);
 		
-		// All the shield who has the player
+		// All the shield owned by the player
 		ArrayList<Shield> allShield;
 		allShield = this.theGame.getPlayer().getShield();
 		
@@ -357,7 +359,7 @@ public class WindowInventory extends JFrame{
 	}
 
 	/**
-	 * Allows to equip the player when he click on the button Equip
+	 * Allows to equip the player when he clicks on the button Equip
 	 * @param itemToEquip The item to equip
 	 */
 	public void equipPlayer(Item itemToEquip) {
@@ -368,11 +370,11 @@ public class WindowInventory extends JFrame{
 	}
 
 	/**
-	 * Allow to heal the player when he click on the button heal
+	 * Allow to heal the player when he clicks on the button heal
 	 * @param potion The potion to used 
 	 */
 	public void heal(Potion potion) {
-		// If the player has already all these life point
+		// If the player has already all his life points
 		if(this.theGame.getPlayer().getHealth() == this.theGame.getPlayer().getNbMaxHealth())
 			new WindowDisplayMessage("You already have your whole life",this.windowGame);
 		else {

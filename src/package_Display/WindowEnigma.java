@@ -6,8 +6,10 @@ import java.io.IOException;
 import javax.swing.*;
 
 /**
- * The window to display an enigma with the Jtextfield to recup the response of the player
+ * The window to display an enigma with the Jtextfield to get back the response of the player
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class WindowEnigma extends JFrame {
@@ -16,7 +18,7 @@ public class WindowEnigma extends JFrame {
 	 * The serial ID for the version of the 5/12/2016
 	 */
 	private static final long serialVersionUID = 5122016L;
-	private JFormattedTextField jTextf; // To recup the response of the player
+	private JFormattedTextField jTextf; // To get back the response of the player
 	private Window windowGame; // The game window to center the frame
 	private String directionDoor; // The direction of the door
 	
@@ -75,7 +77,7 @@ public class WindowEnigma extends JFrame {
 	}
 	
 	/**
-	 * Allow to recup the response in the JTextField
+	 * Allow to get back the response in the JTextField
 	 */
 	public void recupResponse(){
 		this.windowGame.setEnabled(true);

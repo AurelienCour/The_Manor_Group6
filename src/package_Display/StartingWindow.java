@@ -10,7 +10,9 @@ import package_Display.Window;
 
 /**
  *  The first window when the game is launched
+ * 
  * @author Group6
+ * @version 06/12/16
  *
  */
 public class StartingWindow extends JFrame{
@@ -109,12 +111,12 @@ public class StartingWindow extends JFrame{
 	 * Allows to create the player before starting a new game
 	 */
 	public void createPlayer (){
-		new WindowCreatePlayer(this); // récupère les deux JTextField
+		new WindowCreatePlayer(this); // getting back the 2 JTextField
 	}
 	
 	/**
-	 * Allows to recup the data enter by the player and create the object Window with these data
-	 * @param nosInfos All the data enter by the player
+	 * Allows to get back the data entered by the player and create the object Window with these data
+	 * @param nosInfos All the data entered by the player
 	 */
 	public void recupInfo (ArrayList<String> nosInfos){
 		new Window(nosInfos.get(0),nosInfos.get(1));

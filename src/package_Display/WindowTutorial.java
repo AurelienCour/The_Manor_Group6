@@ -6,8 +6,9 @@ import javax.swing.*;
 
 /**
  * The window with the picture of the tutorial
+ * 
  * @author Group6
- *
+ * @version 06/12/16
  */
 public class WindowTutorial extends JFrame{
 
@@ -26,7 +27,7 @@ public class WindowTutorial extends JFrame{
 		this.setTitle(" The  tutorial ");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		// Recup the icon of the background
+		// Gets back the icon of the background
 		URL url = StartingWindow.class.getResource("Image/Background/Tutorial.png");
 		ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(WIDTH_WINDOW, HEIGHT_WINDOW, Image.SCALE_DEFAULT));
 		

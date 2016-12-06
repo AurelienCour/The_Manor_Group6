@@ -8,7 +8,9 @@ import the_Manor.Player;
 
 /**
  * The window for the dialog with the ally
+ * 
  * @author group6
+ * @version 06/12/16
  *
  */
 public class WindowDisplayAlly extends JFrame {
