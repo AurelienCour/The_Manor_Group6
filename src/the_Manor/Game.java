@@ -1,6 +1,13 @@
 package the_Manor;
 
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+
+import package_Display.StartingWindow;
 import package_Display.Window;
+import package_Display.WindowDisplayAlly;
 import package_Display.WindowDisplayMessage;
 import package_Display.WindowEnigma;
 import package_Display.WindowFight;
@@ -270,9 +277,8 @@ public class Game {
 				Fight fight = new Fight(this.ourPlayer,this.ourPlayer.getCurrentRoom().getEnemy()); // A fight object is created representing the fight between the player and the enemy encountered.
 				new WindowFight(fight,this.windowGame,previous); // This fight will occur in another window
 			}
-			else if(this.ourPlayer.getCurrentRoom().getAlly() != null){ // If the character presents in the room is an ally,
-				this.windowGame.ally(this.ourPlayer.getCurrentRoom().getAlly()); // gets this ally.
-			}
+			else if(this.ourPlayer.getCurrentRoom().getAlly() != null) // If the character presents in the room is an ally,
+				new WindowDisplayAlly(this.ourPlayer.getCurrentRoom().getAlly(), this.windowGame, this.ourPlayer);
 		}
     }
     
@@ -320,7 +326,7 @@ public class Game {
 		else{
 			String name = this.ourPlayer.getCurrentRoom().getItem().getName(); // Recovery of the name of the item
 			this.ourPlayer.pickUp(this.ourPlayer.getCurrentRoom().getItem()); // Addition of this item in the inventory of the player
-			this.ourPlayer.getCurrentRoom().removeItem(this.ourPlayer.getCurrentRoom().getItem()); // ???
+			this.ourPlayer.getCurrentRoom().removeItem(this.ourPlayer.getCurrentRoom().getItem()); // Delete the Item in the Room
 			return name;
 		}
     }
@@ -331,5 +337,25 @@ public class Game {
      */
     public Player getPlayer(){
     	return this.ourPlayer;
-    }  	
+    }
+    
+    
+    /**
+	 * The main methods of the game
+	 * @param args The string of the main
+	 */
+	public static void main(String[] args){
+		// To escape the problem with the button on MAC
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel(new MetalLookAndFeel());
+					new StartingWindow();
+				} catch (UnsupportedLookAndFeelException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		
+		});
+	}
 }

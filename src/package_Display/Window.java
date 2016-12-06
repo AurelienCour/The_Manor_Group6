@@ -4,13 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URL;
-
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-
-import the_Manor.Ally;
 import the_Manor.Game;
-import the_Manor.Key;
 
 /**
  * The class of the main window of the game
@@ -314,20 +309,6 @@ public class Window extends JFrame{
 	}
 	
 	/**
-	 * Chek if the room is locked or not and display a message
-	 * @param lock A boolean to know if the door is locked
-	 * @param key The key to unlock the door
-	 */
-	/*public void lockDoor (boolean lock, Key key){
-		checkItem();
-		if(lock)
-			new WindowDisplayMessage("The door is locked you need the : "+key.getName(), this);	
-		else
-			new WindowDisplayMessage("The door is unlocked, you used your "+key.getName(), this);
-		
-	}*/
-	
-	/**
 	 * Check if the player can go in a specific direction
 	 * to enable the good arrow
 	 */
@@ -356,33 +337,5 @@ public class Window extends JFrame{
 	public void setCharac(){
 		this.lifePoint.setText("LP   "+this.newGame.getPlayer().getHealth()+" / "+this.newGame.getPlayer().getNbMaxHealth());
 		this.staminaPoint.setText("STAMINA   "+this.newGame.getPlayer().getStamina()+" / "+this.newGame.getPlayer().getNbMaxStamina());
-	}
-	
-	/**
-	 * If an ally is in the room, display the window for the dialog
-	 * @param ally The ally in the room
-	 */
-	public void ally(Ally ally) {
-		new WindowDisplayAlly(ally, this, this.newGame.getPlayer());
-		
-	}
-	
-	/**
-	 * The main methods of the game
-	 * @param args The string of the main
-	 */
-	public static void main(String[] args){
-		// To escape the problem with the button on MAC
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UIManager.setLookAndFeel(new MetalLookAndFeel());
-					new StartingWindow();
-				} catch (UnsupportedLookAndFeelException e) {
-					throw new RuntimeException(e);
-				}
-			}
-		
-		});
 	}
 }
