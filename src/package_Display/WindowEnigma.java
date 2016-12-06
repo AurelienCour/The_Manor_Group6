@@ -27,6 +27,7 @@ public class WindowEnigma extends JFrame {
 	
 	/**
 	 * The constructor of the class WindowEnigma
+	 * @param game The current game
 	 * @param windowGame The window of the game
 	 * @param Enigma The enigma to display on the window
 	 * @param directionDoor The direction of the door
