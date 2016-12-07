@@ -1,23 +1,15 @@
 # The_Manor_Group6
 The story :
-The player starts the game in a grand manor inside his friend's room on the 4th floor.
-He doesn’t know what is going on, because he has just woken up from a strange dream.
-One thing is sure, his friend is no longer with him and the Manor is strangely silent, too
-silent…
-His friend’s home becomes quickly a dangerous battleground for survival with
-Zombies running amok.
+During the All Saints holidays, your best friend decided to invite you to spend a few days in his family’s manor in the countryside. You have met his parents and servants who work for them on the estate. One night, you hear your friend wake up and leaves the room. You cannot sleep. It gets colder and colder in the room. Suddenly you hear screams and grunts coming from the corridor and then nothing... The whole manor has become completely silent, strangely silent ... You are starting to freak out but you still decide to leave the room to understand what is going on. At this moment, the adventure of your life begins.
 
-The game has two main objectives:
-
-  - Find his friend inside the manor
-  - Leave the manor alive
+Objectives :
+Your mission, if you choose to accept it (well, actually you have not much choice, otherwise you will DIE), is to find your best friend in the gigantic and terrifying manor. Then, your goal will be to survive by solving all riddles and get out of this manor alive and with all the pieces of your body. To do so, you can find below the map of this oversized manor.
   
 Characters :
 
   - Player
-  - Best Friend
-  - Sister
-  - Zombies (Maid, Mother, Dog, Rats,...)
+  - Allies : Thea, Mer, John
+  - Enemies
   
 Behaviors :
 
@@ -26,8 +18,7 @@ Behaviors :
   - He encounter NPCs (allies, enemies)
   - He can talk with the allies
   - He can fight against the enemies
-  - Attack (Normal, Critical Hit, Failed hit)
-  - Defend
+  - Attack
   - Use an item
   - Flee
   - He can use keys to open locked doors
