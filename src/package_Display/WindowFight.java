@@ -57,8 +57,8 @@ public class WindowFight extends JFrame{
 		staminaEnemy.setForeground(Color.GREEN);
 		JLabel armorEnemy = new JLabel("Armor : "+this.fight.getEnemy().getDefense());
 		JLabel attackEnemy = new JLabel("Attack : "+this.fight.getEnemy().getAttack());
-		armorEnemy.setForeground(Color.BLUE);
-		attackEnemy.setForeground(Color.BLUE);
+		armorEnemy.setForeground(Color.WHITE);
+		attackEnemy.setForeground(Color.WHITE);
 		
 		// Add the characteristics to a Panel
 		JPanel characEnemy = new JPanel();

@@ -167,13 +167,15 @@ public class Game {
         
         // SHIELDS        
         friendRoom2.addItem(new Shield ("Chair",2));
+        friendRoom2.addItem(new Weapon ("Pen",2));
+        friendRoom2.addItem(new Potion ("Water",10));
         friendRoom2.addItem(new Shield ("Computer",1));
         corridor2_2.addItem(new Shield ("Paper",0));
         cellar.addItem(new Shield ("Plate",25));
         parentRoom2.addItem(new Shield("Tablet",8));
         
         // WEAPONS
-        friendRoom2.addItem(new Weapon ("Pen",2));
+
         friendRoom2.addItem(new Weapon ("Light",1));
         living.addItem(new Weapon ("Bottle",5));
         gameRoom2.addItem(new Weapon ("Bat",10));
@@ -181,7 +183,7 @@ public class Game {
 		tropheRoom1.addItem(new Weapon ("Sword",30));        
         
 		// POTIONS	
-		friendRoom2.addItem(new Potion ("Water",10));
+
 		friendRoom2.addItem(new Potion ("Water",10));
 		kitchen.addItem(new Potion ("Bred",5));
 		bathroom2.addItem(new Potion ("Alcohol",15));

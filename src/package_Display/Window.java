@@ -179,10 +179,10 @@ public class Window extends JFrame{
 		characteristics.setLayout(new GridLayout(2,1));
 		characteristics.setBackground(Color.BLACK);
 		attackPoint = new JLabel("ATTACK   "+newGame.getPlayer().getAttack()+"  ");
-		attackPoint.setForeground(Color.BLUE);
+		attackPoint.setForeground(Color.WHITE);
 		attackPoint.setFont(police);
 		defensePoint = new JLabel("DEFENSE   "+newGame.getPlayer().getDefense()+"  ");
-		defensePoint.setForeground(Color.BLUE);
+		defensePoint.setForeground(Color.WHITE);
 		defensePoint.setFont(police);		
 		characteristics.add(this.attackPoint);
 		characteristics.add(this.defensePoint);
